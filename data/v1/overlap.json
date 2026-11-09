@@ -1,0 +1,230 @@
+{
+ "datasets": {
+  "coling:domain_numeric:test": {
+   "size": 89,
+   "task": "filing_qa"
+  },
+  "coling:domain_numeric:validation": {
+   "size": 10,
+   "task": "filing_qa"
+  },
+  "coling:math:test": {
+   "size": 90,
+   "task": "financial_calc"
+  },
+  "coling:math:validation": {
+   "size": 100,
+   "task": "financial_calc"
+  },
+  "coling:tag_query:test": {
+   "size": 90,
+   "task": "concept_tagging"
+  },
+  "coling:tag_query:validation": {
+   "size": 10,
+   "task": "concept_tagging"
+  },
+  "coling:terminology:test": {
+   "size": 391,
+   "task": "terminology"
+  },
+  "coling:terminology:validation": {
+   "size": 54,
+   "task": "terminology"
+  },
+  "financebench:open:test": {
+   "size": 150,
+   "task": "filing_qa"
+  },
+  "fintagging:fincl_subset:test": {
+   "size": 500,
+   "task": "concept_tagging"
+  },
+  "fintagging:finni_subset:test": {
+   "size": 200,
+   "task": "fact_extraction"
+  },
+  "fintagging:train_table:train": {
+   "size": 953,
+   "task": "fact_extraction"
+  },
+  "fintagging:train_text:train": {
+   "size": 1116,
+   "task": "fact_extraction"
+  },
+  "xbrl_agent:financebench:test": {
+   "size": 149,
+   "task": "filing_qa"
+  },
+  "xbrl_agent:formula:test": {
+   "size": 1000,
+   "task": "financial_calc"
+  },
+  "xbrl_agent:terminology:test": {
+   "size": 6499,
+   "task": "terminology"
+  }
+ },
+ "pairs": [
+  {
+   "dataset": "coling:domain_numeric:test",
+   "in_dataset": "financebench:open:test",
+   "overlap": 89,
+   "share": 1.0,
+   "size": 89,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "coling:domain_numeric:test",
+   "in_dataset": "xbrl_agent:financebench:test",
+   "overlap": 89,
+   "share": 1.0,
+   "size": 89,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "coling:domain_numeric:validation",
+   "in_dataset": "financebench:open:test",
+   "overlap": 10,
+   "share": 1.0,
+   "size": 10,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "coling:domain_numeric:validation",
+   "in_dataset": "xbrl_agent:financebench:test",
+   "overlap": 10,
+   "share": 1.0,
+   "size": 10,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "coling:math:test",
+   "in_dataset": "xbrl_agent:formula:test",
+   "overlap": 90,
+   "share": 1.0,
+   "size": 90,
+   "task": "financial_calc"
+  },
+  {
+   "dataset": "coling:math:validation",
+   "in_dataset": "xbrl_agent:formula:test",
+   "overlap": 100,
+   "share": 1.0,
+   "size": 100,
+   "task": "financial_calc"
+  },
+  {
+   "dataset": "coling:terminology:test",
+   "in_dataset": "xbrl_agent:terminology:test",
+   "overlap": 391,
+   "share": 1.0,
+   "size": 391,
+   "task": "terminology"
+  },
+  {
+   "dataset": "coling:terminology:validation",
+   "in_dataset": "xbrl_agent:terminology:test",
+   "overlap": 54,
+   "share": 1.0,
+   "size": 54,
+   "task": "terminology"
+  },
+  {
+   "dataset": "financebench:open:test",
+   "in_dataset": "coling:domain_numeric:test",
+   "overlap": 89,
+   "share": 0.5933,
+   "size": 150,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "financebench:open:test",
+   "in_dataset": "coling:domain_numeric:validation",
+   "overlap": 10,
+   "share": 0.0667,
+   "size": 150,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "financebench:open:test",
+   "in_dataset": "xbrl_agent:financebench:test",
+   "overlap": 149,
+   "share": 0.9933,
+   "size": 150,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "fintagging:finni_subset:test",
+   "in_dataset": "fintagging:train_table:train",
+   "overlap": 1,
+   "share": 0.005,
+   "size": 200,
+   "task": "fact_extraction"
+  },
+  {
+   "dataset": "fintagging:train_table:train",
+   "in_dataset": "fintagging:finni_subset:test",
+   "overlap": 1,
+   "share": 0.001,
+   "size": 953,
+   "task": "fact_extraction"
+  },
+  {
+   "dataset": "xbrl_agent:financebench:test",
+   "in_dataset": "coling:domain_numeric:test",
+   "overlap": 89,
+   "share": 0.5973,
+   "size": 149,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "xbrl_agent:financebench:test",
+   "in_dataset": "coling:domain_numeric:validation",
+   "overlap": 10,
+   "share": 0.0671,
+   "size": 149,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "xbrl_agent:financebench:test",
+   "in_dataset": "financebench:open:test",
+   "overlap": 149,
+   "share": 1.0,
+   "size": 149,
+   "task": "filing_qa"
+  },
+  {
+   "dataset": "xbrl_agent:formula:test",
+   "in_dataset": "coling:math:test",
+   "overlap": 90,
+   "share": 0.09,
+   "size": 1000,
+   "task": "financial_calc"
+  },
+  {
+   "dataset": "xbrl_agent:formula:test",
+   "in_dataset": "coling:math:validation",
+   "overlap": 100,
+   "share": 0.1,
+   "size": 1000,
+   "task": "financial_calc"
+  },
+  {
+   "dataset": "xbrl_agent:terminology:test",
+   "in_dataset": "coling:terminology:test",
+   "overlap": 396,
+   "share": 0.0609,
+   "size": 6499,
+   "task": "terminology"
+  },
+  {
+   "dataset": "xbrl_agent:terminology:test",
+   "in_dataset": "coling:terminology:validation",
+   "overlap": 55,
+   "share": 0.0085,
+   "size": 6499,
+   "task": "terminology"
+  }
+ ]
+}

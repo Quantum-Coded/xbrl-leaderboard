@@ -1,0 +1,47 @@
+{
+ "clusters": 10457,
+ "conflicts": {
+  "concept_tagging:same_input_different_gold": 7,
+  "fact_extraction:same_input_different_gold": 13,
+  "filing_qa:same_input_different_gold": 2,
+  "terminology:same_input_different_gold": 6
+ },
+ "flags": {
+  "concept_tagging:ambiguous": 7,
+  "concept_tagging:filing_in_test": 10,
+  "fact_extraction:source_disagreement": 1,
+  "filing_qa:source_disagreement": 2,
+  "terminology:ambiguous": 6
+ },
+ "items": {
+  "concept_tagging:test": 581,
+  "concept_tagging:validation": 10,
+  "fact_extraction:test": 199,
+  "fact_extraction:train": 2014,
+  "filing_qa:test": 150,
+  "financial_calc:test": 1000,
+  "terminology:test": 6488
+ },
+ "joins": {
+  "exact_text": 944,
+  "same_source_id": 248
+ },
+ "multi_member_clusters": 834,
+ "primary_items": {
+  "concept_tagging:test": 574,
+  "concept_tagging:validation": 10,
+  "fact_extraction:test": 199,
+  "fact_extraction:train": 2014,
+  "filing_qa:test": 150,
+  "financial_calc:test": 1000,
+  "terminology:test": 6482
+ },
+ "records_loaded": 11401,
+ "review_pairs": 6,
+ "review_pending": 6,
+ "rows_skipped": 8,
+ "train_dropped": {
+  "conflicting_gold": 12,
+  "near_duplicate_of_eval_item": 3
+ }
+}

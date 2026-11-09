@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+# raw sources are re-downloaded and hash-checked by `python -I -m fineval.fetch`
+data/raw/*
+!data/raw/MANIFEST.json
+# benchmark files are rebuilt deterministically by `python -I -m fineval.build`
+data/v1/test/
+data/v1/train/
+data/v1/validation/
+data/v1/clusters.jsonl
+# model outputs can be large; scores and tables are committed
+results/generations/
+results/judgements/
+site/node_modules/
+site/dist/
+report/*.aux
+report/*.log
+report/*.out

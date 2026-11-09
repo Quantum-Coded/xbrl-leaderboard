@@ -1,0 +1,260 @@
+{
+ "coling/testing/Task7-XBRL/Task7-XBRL Terminology-testing.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "testing/Task7-XBRL/Task7-XBRL Terminology-testing.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/testing/Task7-XBRL/Task7-XBRL%20Terminology-testing.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "b43aa08f2f836d1420f5941b932e86704ab22afb71992437a1cc0a1f3d9ea59f",
+  "bytes": 94929,
+  "retrieved": "2026-11-09"
+ },
+ "coling/testing/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-testing.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "testing/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-testing.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/testing/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-testing.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "26f22716e3c57e1fe11d9b3075d23149d1a06665796081a2ed47767b64f7c51e",
+  "bytes": 77878,
+  "retrieved": "2026-11-09"
+ },
+ "coling/testing/Task7-XBRL/Task7-XBRL-domain_numberic_query-testing.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "testing/Task7-XBRL/Task7-XBRL-domain_numberic_query-testing.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/testing/Task7-XBRL/Task7-XBRL-domain_numberic_query-testing.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "a5aeded4abdbcc832a5135b2781acc6474cb18beab24ff7f9a742901f8309b1c",
+  "bytes": 221212,
+  "retrieved": "2026-11-09"
+ },
+ "coling/testing/Task7-XBRL/Task7-XBRL-financial_math-testing.tsv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "testing/Task7-XBRL/Task7-XBRL-financial_math-testing.tsv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/testing/Task7-XBRL/Task7-XBRL-financial_math-testing.tsv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "fb0f20b36179699d220d96a09a59de6855e101b5135cd7521fc791e624814ac1",
+  "bytes": 30577,
+  "retrieved": "2026-11-09"
+ },
+ "coling/validation/Task7-XBRL/Task7-XBRL Terminology-validation.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "validation/Task7-XBRL/Task7-XBRL Terminology-validation.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/validation/Task7-XBRL/Task7-XBRL%20Terminology-validation.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "925a3f50decc01bb6ce85c83763b0c95fadbe8e413b14873528199a89878e785",
+  "bytes": 13967,
+  "retrieved": "2026-11-09"
+ },
+ "coling/validation/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-validation.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "validation/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-validation.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/validation/Task7-XBRL/Task7-XBRL-Tag_Query_to_XBRL_Reports-validation.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "59742b5d423c495a594316c933b93b44af9c50403df28d09ca7fc570ac11e657",
+  "bytes": 6869,
+  "retrieved": "2026-11-09"
+ },
+ "coling/validation/Task7-XBRL/Task7-XBRL-domain_numberic_query-validation.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "validation/Task7-XBRL/Task7-XBRL-domain_numberic_query-validation.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/validation/Task7-XBRL/Task7-XBRL-domain_numberic_query-validation.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "1c17650019e5097327c27ad025155438455d9de4bccce2ef1bc27c2200c7bbce",
+  "bytes": 33839,
+  "retrieved": "2026-11-09"
+ },
+ "coling/validation/Task7-XBRL/Task7-XBRL-financial_math-validation.csv": {
+  "source": "coling",
+  "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+  "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+  "path": "validation/Task7-XBRL/Task7-XBRL-financial_math-validation.csv",
+  "url": "https://raw.githubusercontent.com/Open-Finance-Lab/Regulations_Challenge_COLING_2025/01cfe520903ca2977b3af9b7fe9d3a1f16879045/validation/Task7-XBRL/Task7-XBRL-financial_math-validation.csv",
+  "licence": "CDLA-Permissive-2.0",
+  "sha256": "d023e867226ceca5da1dac62d341769f2d7c3a1a3eb5fc1c8aa06c8feeb659f4",
+  "bytes": 17534,
+  "retrieved": "2026-11-09"
+ },
+ "financebench/data/financebench_document_information.jsonl": {
+  "source": "financebench",
+  "repo": "patronus-ai/financebench",
+  "commit": "cc39aeb4afdf33909ee1412188bf89035950c2eb",
+  "path": "data/financebench_document_information.jsonl",
+  "url": "https://raw.githubusercontent.com/patronus-ai/financebench/cc39aeb4afdf33909ee1412188bf89035950c2eb/data/financebench_document_information.jsonl",
+  "licence": "CC-BY-NC-4.0",
+  "sha256": "1c69127783879de8cdadb159d2181f39bc3123b8e0ebf74031c3969d69189575",
+  "bytes": 88781,
+  "retrieved": "2026-11-09"
+ },
+ "financebench/data/financebench_open_source.jsonl": {
+  "source": "financebench",
+  "repo": "patronus-ai/financebench",
+  "commit": "cc39aeb4afdf33909ee1412188bf89035950c2eb",
+  "path": "data/financebench_open_source.jsonl",
+  "url": "https://raw.githubusercontent.com/patronus-ai/financebench/cc39aeb4afdf33909ee1412188bf89035950c2eb/data/financebench_open_source.jsonl",
+  "licence": "CC-BY-NC-4.0",
+  "sha256": "a5a2aa673e573e55675fc3c0f9aa38c1cf59d2abc91edb077534f71f10a71877",
+  "bytes": 929848,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/README.md": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "README.md",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/README.md",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "f5208173d29d3082e4dbd260189c77c7a7c7f720a3c3a44083f924a92a21824f",
+  "bytes": 13901,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/annotation/TrainingSet_Annotation.json": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "annotation/TrainingSet_Annotation.json",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/annotation/TrainingSet_Annotation.json",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "93755dd2112d13104f7c18ac664d47c2769c3a30c0fbe286e5a752723c6ec277",
+  "bytes": 9091474,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/annotation/benchmark_ground_truth_pipeline.json": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "annotation/benchmark_ground_truth_pipeline.json",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/annotation/benchmark_ground_truth_pipeline.json",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "63b1fd8d5f6184dd621fac99e09356ba1b0bcf164bd3f73db16267f10ba79466",
+  "bytes": 19890807,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/retrieval/retrieval.py": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "retrieval/retrieval.py",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/retrieval/retrieval.py",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "ea5d660a065817b7f95f896b428e1099ac8d25ff770c8be98f1566f278bf1a4d",
+  "bytes": 18355,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/subdata/FinCL-eval-subset.csv": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "subdata/FinCL-eval-subset.csv",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/subdata/FinCL-eval-subset.csv",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "2fe78f1e191b412f3945ddfbb337b6b5ed9f963d0eb5de853cfe35d924fb9aaf",
+  "bytes": 2332403,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/subdata/FinNI-eval-subset.csv": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "subdata/FinNI-eval-subset.csv",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/subdata/FinNI-eval-subset.csv",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "46ac9507b25cff2a5e246686c3e0f192743c736b38e3caac563447505e39624b",
+  "bytes": 1286960,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/taxonomy/us-gaap-2024.xsd": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "taxonomy/us-gaap-2024.xsd",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/taxonomy/us-gaap-2024.xsd",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "6a5daf96dc96edf69876ac9a34a3cb076f23eec3e2899e88ae92c1cecae0d70f",
+  "bytes": 4999840,
+  "retrieved": "2026-11-09"
+ },
+ "fintagging/taxonomy/us_gaap_2024_BM25.jsonl": {
+  "source": "fintagging",
+  "repo": "The-FinAI/FinTagging",
+  "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+  "path": "taxonomy/us_gaap_2024_BM25.jsonl",
+  "url": "https://raw.githubusercontent.com/The-FinAI/FinTagging/ff426bc4c914c3cc6d967a696fbc041ed157c459/taxonomy/us_gaap_2024_BM25.jsonl",
+  "licence": "MIT (code), CC-BY-4.0 (data)",
+  "sha256": "56b6b4d99052da81d9420b66faf410be446b7fba4d571f6d753db70de1a2dd17",
+  "bytes": 3129259,
+  "retrieved": "2026-11-09"
+ },
+ "papers/coling_report_2412.11159v2.pdf": {
+  "source": "papers",
+  "url": "https://arxiv.org/pdf/2412.11159v2",
+  "path": "papers/coling_report_2412.11159v2.pdf",
+  "licence": "arXiv (author rights)",
+  "sha256": "b8d16c1e15d7516d70242f178a952e8983be63216f4aaf5fd72a3bc5ee43285c",
+  "bytes": 153995,
+  "retrieved": "2026-11-09"
+ },
+ "papers/financebench_2311.11944v1.pdf": {
+  "source": "papers",
+  "url": "https://arxiv.org/pdf/2311.11944v1",
+  "path": "papers/financebench_2311.11944v1.pdf",
+  "licence": "arXiv (author rights)",
+  "sha256": "17300ab2316144111bcc878f91f9f35606367cae1cec3fca7c56ae9f87067e2f",
+  "bytes": 457088,
+  "retrieved": "2026-11-09"
+ },
+ "papers/fintagging_2505.20650v5.pdf": {
+  "source": "papers",
+  "url": "https://arxiv.org/pdf/2505.20650v5",
+  "path": "papers/fintagging_2505.20650v5.pdf",
+  "licence": "arXiv (author rights)",
+  "sha256": "1925c71b14cce095013ac988638bf1b741829b23f495e936780b1aec79c786d8",
+  "bytes": 2850958,
+  "retrieved": "2026-11-09"
+ },
+ "xbrl_agent/Datasets/XBRL Terminology.xlsx": {
+  "source": "xbrl_agent",
+  "repo": "KirkHan0920/XBRL-Agent",
+  "commit": "eafd6154f055058fcabcebc16868a0f877721def",
+  "path": "Datasets/XBRL Terminology.xlsx",
+  "url": "https://raw.githubusercontent.com/KirkHan0920/XBRL-Agent/eafd6154f055058fcabcebc16868a0f877721def/Datasets/XBRL%20Terminology.xlsx",
+  "licence": "MIT",
+  "sha256": "96cf12a6ace7c61f2e59a06e3cccc886a5b12a4ab0f92572172648eb9d8c43bc",
+  "bytes": 467102,
+  "retrieved": "2026-11-09"
+ },
+ "xbrl_agent/Datasets/financebench.xlsx": {
+  "source": "xbrl_agent",
+  "repo": "KirkHan0920/XBRL-Agent",
+  "commit": "eafd6154f055058fcabcebc16868a0f877721def",
+  "path": "Datasets/financebench.xlsx",
+  "url": "https://raw.githubusercontent.com/KirkHan0920/XBRL-Agent/eafd6154f055058fcabcebc16868a0f877721def/Datasets/financebench.xlsx",
+  "licence": "MIT",
+  "sha256": "ba04bf38fcbe110b9ad8fe4b935b2282066b1d7bee321e1683375013067a3da1",
+  "bytes": 101948,
+  "retrieved": "2026-11-09"
+ },
+ "xbrl_agent/Datasets/formulas_with_explanations_with_questions_with_gt.xlsx": {
+  "source": "xbrl_agent",
+  "repo": "KirkHan0920/XBRL-Agent",
+  "commit": "eafd6154f055058fcabcebc16868a0f877721def",
+  "path": "Datasets/formulas_with_explanations_with_questions_with_gt.xlsx",
+  "url": "https://raw.githubusercontent.com/KirkHan0920/XBRL-Agent/eafd6154f055058fcabcebc16868a0f877721def/Datasets/formulas_with_explanations_with_questions_with_gt.xlsx",
+  "licence": "MIT",
+  "sha256": "6ee7285da5fca2ed627b0c29655934815009ec9db2ebd002c1831790842afc38",
+  "bytes": 73530,
+  "retrieved": "2026-11-09"
+ }
+}

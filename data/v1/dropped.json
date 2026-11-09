@@ -1,0 +1,77 @@
+[
+ {
+  "cluster_id": "c124eedd69efd",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:730"
+ },
+ {
+  "cluster_id": "c5242a2f25373",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:737"
+ },
+ {
+  "cluster_id": "c7f50b2a5f84f",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:917"
+ },
+ {
+  "cluster_id": "ca4ed9040b56b",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:953"
+ },
+ {
+  "cluster_id": "ca7e87be0e414",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:627"
+ },
+ {
+  "cluster_id": "cb491d4ce7c41",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:211"
+ },
+ {
+  "cluster_id": "cb95a42568c39",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_table:train:211"
+ },
+ {
+  "cluster_id": "cbe1360f23719",
+  "reason": "near_duplicate_of_eval_item",
+  "uid": "fintagging:train_table:train:473"
+ },
+ {
+  "cluster_id": "cc3f118fbe4cc",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:736"
+ },
+ {
+  "cluster_id": "ccaee65fb861e",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:850"
+ },
+ {
+  "cluster_id": "ce639c0dbee1f",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:942"
+ },
+ {
+  "cluster_id": "cea32489385fc",
+  "reason": "near_duplicate_of_eval_item",
+  "uid": "fintagging:train_table:train:886"
+ },
+ {
+  "cluster_id": "ceec3fc4a60aa",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:704"
+ },
+ {
+  "cluster_id": "cf4267eb05436",
+  "reason": "conflicting_gold",
+  "uid": "fintagging:train_text:train:638"
+ },
+ {
+  "cluster_id": "cfd5eef7a0301",
+  "reason": "near_duplicate_of_eval_item",
+  "uid": "fintagging:train_table:train:887"
+ }
+]
