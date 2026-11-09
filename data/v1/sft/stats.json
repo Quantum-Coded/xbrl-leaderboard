@@ -1,0 +1,7 @@
+{
+ "train_items": 2014,
+ "finni_examples": 2014,
+ "fincl_examples": 24798,
+ "fincl_dropped_equal_to_test_query": 0,
+ "fincl_entities_without_locatable_context": 363
+}

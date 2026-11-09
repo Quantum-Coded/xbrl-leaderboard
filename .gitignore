@@ -18,3 +18,10 @@ site/dist/
 report/*.aux
 report/*.log
 report/*.out
+.venv-train/
+models/
+report/*.pdf
+report/*.aux
+report/*.log
+data/v1/sft/*.jsonl
+data/cache/

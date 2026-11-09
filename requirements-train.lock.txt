@@ -1,0 +1,2 @@
+peft==0.21.2
+base: system python 3.10 site-packages torch==2.6.0+cu124 transformers==5.18.0 bitsandbytes==0.50.2
