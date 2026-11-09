@@ -1,0 +1,31 @@
+{
+ "concept_tagging": {
+  "title": "XBRL concept tagging",
+  "metric": "Accuracy (exact concept)",
+  "sources": [
+   "FinTagging FinCL subset",
+   "Regulations Challenge tag queries"
+  ]
+ },
+ "fact_extraction": {
+  "title": "Fact extraction",
+  "metric": "Micro F1 over (fact, type) pairs",
+  "sources": [
+   "FinTagging FinNI subset"
+  ]
+ },
+ "financial_calc": {
+  "title": "Financial calculation",
+  "metric": "Accuracy (numeric match)",
+  "sources": [
+   "XBRL-Agent formulas (Regulations Challenge math is a subset)"
+  ]
+ },
+ "filing_qa": {
+  "title": "Filing QA",
+  "metric": "Share judged correct",
+  "sources": [
+   "FinanceBench open sample (XBRL-Agent and Regulations Challenge copies merged)"
+  ]
+ }
+}

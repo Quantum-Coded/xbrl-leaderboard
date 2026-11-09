@@ -89,6 +89,25 @@ def main():
                 "url": url(source, path), "licence": s["licence"], "sha256": digest,
                 "bytes": dest.stat().st_size, "retrieved": dt.date.today().isoformat(),
             }
+    # FinanceBench filings referenced by the open 150 questions (for the filing-retrieval tool)
+    fb = SOURCES["financebench"]
+    qs = (RAW / "financebench" / "data" / "financebench_open_source.jsonl").read_text(encoding="utf-8")
+    for doc in sorted({json.loads(l)["doc_name"] for l in qs.splitlines()}):
+        path = f"pdfs/{doc}.pdf"
+        key = f"financebench/{path}"
+        dest = RAW / key
+        if not dest.exists():
+            print("download", key, flush=True)
+            download(url("financebench", path), dest)
+        digest = sha256(dest)
+        old = manifest.get(key)
+        if old and old["sha256"] != digest:
+            sys.exit(f"{key}: file changed since it was pinned; refusing to overwrite the manifest")
+        manifest[key] = old or {"source": "financebench", "repo": fb["repo"], "commit": fb["commit"], "path": path,
+                                "url": url("financebench", path), "licence": "SEC public filing",
+                                "sha256": digest, "bytes": dest.stat().st_size,
+                                "retrieved": dt.date.today().isoformat()}
+
     for name, u in PAPERS.items():
         key = f"papers/{name}.pdf"
         dest = RAW / key

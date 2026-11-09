@@ -1,0 +1,722 @@
+{
+ "summary": {
+  "clusters": 10457,
+  "conflicts": {
+   "concept_tagging:same_input_different_gold": 7,
+   "fact_extraction:same_input_different_gold": 13,
+   "filing_qa:same_input_different_gold": 2,
+   "terminology:same_input_different_gold": 6
+  },
+  "flags": {
+   "concept_tagging:ambiguous": 7,
+   "concept_tagging:filing_in_test": 10,
+   "fact_extraction:source_disagreement": 1,
+   "filing_qa:source_disagreement": 2,
+   "terminology:ambiguous": 6
+  },
+  "items": {
+   "concept_tagging:test": 581,
+   "concept_tagging:validation": 10,
+   "fact_extraction:test": 199,
+   "fact_extraction:train": 2014,
+   "filing_qa:test": 150,
+   "financial_calc:test": 1000,
+   "terminology:test": 6488
+  },
+  "joins": {
+   "exact_text": 944,
+   "same_source_id": 248
+  },
+  "multi_member_clusters": 834,
+  "primary_items": {
+   "concept_tagging:test": 574,
+   "concept_tagging:validation": 10,
+   "fact_extraction:test": 199,
+   "fact_extraction:train": 2014,
+   "filing_qa:test": 150,
+   "financial_calc:test": 1000,
+   "terminology:test": 6482
+  },
+  "records_loaded": 11401,
+  "review_pairs": 6,
+  "review_pending": 6,
+  "rows_skipped": 8,
+  "train_dropped": {
+   "conflicting_gold": 12,
+   "near_duplicate_of_eval_item": 3
+  }
+ },
+ "overlap": {
+  "datasets": {
+   "coling:domain_numeric:test": {
+    "size": 89,
+    "task": "filing_qa"
+   },
+   "coling:domain_numeric:validation": {
+    "size": 10,
+    "task": "filing_qa"
+   },
+   "coling:math:test": {
+    "size": 90,
+    "task": "financial_calc"
+   },
+   "coling:math:validation": {
+    "size": 100,
+    "task": "financial_calc"
+   },
+   "coling:tag_query:test": {
+    "size": 90,
+    "task": "concept_tagging"
+   },
+   "coling:tag_query:validation": {
+    "size": 10,
+    "task": "concept_tagging"
+   },
+   "coling:terminology:test": {
+    "size": 391,
+    "task": "terminology"
+   },
+   "coling:terminology:validation": {
+    "size": 54,
+    "task": "terminology"
+   },
+   "financebench:open:test": {
+    "size": 150,
+    "task": "filing_qa"
+   },
+   "fintagging:fincl_subset:test": {
+    "size": 500,
+    "task": "concept_tagging"
+   },
+   "fintagging:finni_subset:test": {
+    "size": 200,
+    "task": "fact_extraction"
+   },
+   "fintagging:train_table:train": {
+    "size": 953,
+    "task": "fact_extraction"
+   },
+   "fintagging:train_text:train": {
+    "size": 1116,
+    "task": "fact_extraction"
+   },
+   "xbrl_agent:financebench:test": {
+    "size": 149,
+    "task": "filing_qa"
+   },
+   "xbrl_agent:formula:test": {
+    "size": 1000,
+    "task": "financial_calc"
+   },
+   "xbrl_agent:terminology:test": {
+    "size": 6499,
+    "task": "terminology"
+   }
+  },
+  "pairs": [
+   {
+    "dataset": "coling:domain_numeric:test",
+    "in_dataset": "financebench:open:test",
+    "overlap": 89,
+    "share": 1.0,
+    "size": 89,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "coling:domain_numeric:test",
+    "in_dataset": "xbrl_agent:financebench:test",
+    "overlap": 89,
+    "share": 1.0,
+    "size": 89,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "coling:domain_numeric:validation",
+    "in_dataset": "financebench:open:test",
+    "overlap": 10,
+    "share": 1.0,
+    "size": 10,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "coling:domain_numeric:validation",
+    "in_dataset": "xbrl_agent:financebench:test",
+    "overlap": 10,
+    "share": 1.0,
+    "size": 10,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "coling:math:test",
+    "in_dataset": "xbrl_agent:formula:test",
+    "overlap": 90,
+    "share": 1.0,
+    "size": 90,
+    "task": "financial_calc"
+   },
+   {
+    "dataset": "coling:math:validation",
+    "in_dataset": "xbrl_agent:formula:test",
+    "overlap": 100,
+    "share": 1.0,
+    "size": 100,
+    "task": "financial_calc"
+   },
+   {
+    "dataset": "coling:terminology:test",
+    "in_dataset": "xbrl_agent:terminology:test",
+    "overlap": 391,
+    "share": 1.0,
+    "size": 391,
+    "task": "terminology"
+   },
+   {
+    "dataset": "coling:terminology:validation",
+    "in_dataset": "xbrl_agent:terminology:test",
+    "overlap": 54,
+    "share": 1.0,
+    "size": 54,
+    "task": "terminology"
+   },
+   {
+    "dataset": "financebench:open:test",
+    "in_dataset": "coling:domain_numeric:test",
+    "overlap": 89,
+    "share": 0.5933,
+    "size": 150,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "financebench:open:test",
+    "in_dataset": "coling:domain_numeric:validation",
+    "overlap": 10,
+    "share": 0.0667,
+    "size": 150,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "financebench:open:test",
+    "in_dataset": "xbrl_agent:financebench:test",
+    "overlap": 149,
+    "share": 0.9933,
+    "size": 150,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "fintagging:finni_subset:test",
+    "in_dataset": "fintagging:train_table:train",
+    "overlap": 1,
+    "share": 0.005,
+    "size": 200,
+    "task": "fact_extraction"
+   },
+   {
+    "dataset": "fintagging:train_table:train",
+    "in_dataset": "fintagging:finni_subset:test",
+    "overlap": 1,
+    "share": 0.001,
+    "size": 953,
+    "task": "fact_extraction"
+   },
+   {
+    "dataset": "xbrl_agent:financebench:test",
+    "in_dataset": "coling:domain_numeric:test",
+    "overlap": 89,
+    "share": 0.5973,
+    "size": 149,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "xbrl_agent:financebench:test",
+    "in_dataset": "coling:domain_numeric:validation",
+    "overlap": 10,
+    "share": 0.0671,
+    "size": 149,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "xbrl_agent:financebench:test",
+    "in_dataset": "financebench:open:test",
+    "overlap": 149,
+    "share": 1.0,
+    "size": 149,
+    "task": "filing_qa"
+   },
+   {
+    "dataset": "xbrl_agent:formula:test",
+    "in_dataset": "coling:math:test",
+    "overlap": 90,
+    "share": 0.09,
+    "size": 1000,
+    "task": "financial_calc"
+   },
+   {
+    "dataset": "xbrl_agent:formula:test",
+    "in_dataset": "coling:math:validation",
+    "overlap": 100,
+    "share": 0.1,
+    "size": 1000,
+    "task": "financial_calc"
+   },
+   {
+    "dataset": "xbrl_agent:terminology:test",
+    "in_dataset": "coling:terminology:test",
+    "overlap": 396,
+    "share": 0.0609,
+    "size": 6499,
+    "task": "terminology"
+   },
+   {
+    "dataset": "xbrl_agent:terminology:test",
+    "in_dataset": "coling:terminology:validation",
+    "overlap": 55,
+    "share": 0.0085,
+    "size": 6499,
+    "task": "terminology"
+   }
+  ]
+ },
+ "conflicts": [
+  {
+   "cluster_id": "c019c1d17388b",
+   "golds": {
+    "set:us-gaap:definedbenefitplaninterestcost": [
+     "fintagging:fincl_subset:test:90"
+    ],
+    "set:us-gaap:definedbenefitplanservicecost": [
+     "fintagging:fincl_subset:test:278"
+    ],
+    "set:us-gaap:othercomprehensiveincomelosspensionandotherpostretirementbenefitplansadjustmentbeforetax": [
+     "fintagging:fincl_subset:test:361"
+    ],
+    "set:us-gaap:unrecognizedtaxbenefitsdecreasesresultingfromsettlementswithtaxingauthorities": [
+     "fintagging:fincl_subset:test:61"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:278",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "c124eedd69efd",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:805"
+    ],
+    "set:us-gaap:definedcontributionplancostrecognized|us-gaap:definedcontributionplancostrecognized|us-gaap:definedcontributionplancostrecognized": [
+     "fintagging:train_text:train:730"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:730",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "c28522f0f9c42",
+   "golds": {
+    "set:us-gaap:othercomprehensiveincomelossnetoftax": [
+     "fintagging:fincl_subset:test:260"
+    ],
+    "set:us-gaap:othercomprehensiveincomelossnetoftaxportionattributabletoparent": [
+     "fintagging:fincl_subset:test:324"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:260",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "c2ebe16174e09",
+   "golds": {
+    "txt:no american water works had negative working capital of -1561m in fy 2022": [
+     "financebench:open:test:financebench_id_00070"
+    ],
+    "txt:yes american water works had postivie working capital of 124mn by fy 2022": [
+     "coling:domain_numeric:test:financebench_id_00070",
+     "xbrl_agent:financebench:test:financebench_id_00070"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "financebench:open:test:financebench_id_00070",
+   "task": "filing_qa"
+  },
+  {
+   "cluster_id": "c37a572b51a47",
+   "golds": {
+    "set:us-gaap:cashcashequivalentsrestrictedcashandrestrictedcashequivalentsperiodincreasedecreaseincludingexchangerateeffect": [
+     "fintagging:fincl_subset:test:499"
+    ],
+    "set:us-gaap:othercomprehensiveincomelosspensionandotherpostretirementbenefitplanstax": [
+     "fintagging:fincl_subset:test:346"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:346",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "c4616b2c65851",
+   "golds": {
+    "set:us-gaap:definedbenefitplanaccumulatedothercomprehensiveincomenetgainslossesbeforetax": [
+     "fintagging:fincl_subset:test:21"
+    ],
+    "set:us-gaap:productwarrantyaccrualpayments": [
+     "fintagging:fincl_subset:test:373"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:21",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "c470c3b9c7a20",
+   "golds": {
+    "txt:an element representing one of the possibilities within a domain": [
+     "coling:terminology:test:4",
+     "xbrl_agent:terminology:test:14"
+    ],
+    "txt:an element representing one of the possibilities within a domain these may be used as possible values for explicit taxonomy-defined dimensions or enumerations": [
+     "xbrl_agent:terminology:test:74"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:14",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "c4fa7e60c9566",
+   "golds": {
+    "set:us-gaap:debtsecuritiesavailableforsaleunrealizedlosspositionaccumulatedloss": [
+     "fintagging:fincl_subset:test:296"
+    ],
+    "set:us-gaap:othercomprehensiveincomelossnetoftax": [
+     "fintagging:fincl_subset:test:210"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:210",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "c5242a2f25373",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:810"
+    ],
+    "set:us-gaap:treasurystocksharesacquired|us-gaap:treasurystocksharesacquired|us-gaap:treasurystockvalueacquiredcostmethod": [
+     "fintagging:train_text:train:737"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:737",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "c7f50b2a5f84f",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:979"
+    ],
+    "set:us-gaap:longtermdebtcurrent": [
+     "fintagging:train_text:train:917"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:917",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "c95b528d24a79",
+   "golds": {
+    "txt:a qualifying characteristic that is used to uniquely define a data point for example a fact reporting revenue may be qualified by a geography dimension to indicate the region to which the revenue relates a dimension may be either a taxonomy-defined dimension or a built-in dimension technical term aspect": [
+     "xbrl_agent:terminology:test:70"
+    ],
+    "txt:xbrl technical term for axis": [
+     "coling:terminology:test:2",
+     "xbrl_agent:terminology:test:12"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:12",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "c96fd26fcc669",
+   "golds": {
+    "txt:a fact is an individual piece of information in an xbrl report a fact is represented by reporting a value against a concept e g profit assets and associating it with a number of dimension values e g units entity period other dimensions that together uniquely define a data point": [
+     "xbrl_agent:terminology:test:80"
+    ],
+    "txt:the occurrence in an instance document of a value or other information tagged by a taxonomy element": [
+     "coling:terminology:test:11",
+     "xbrl_agent:terminology:test:21"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:21",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "ca4ed9040b56b",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:974"
+    ],
+    "set:us-gaap:employeeservicesharebasedcompensationnonvestedawardstotalcompensationcostnotyetrecognizedsharebasedawardsotherthanoptions": [
+     "fintagging:train_text:train:953"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:953",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "ca7e87be0e414",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:663"
+    ],
+    "set:us-gaap:commonstocksharesoutstanding|us-gaap:commonstocksharesoutstanding": [
+     "fintagging:train_text:train:627"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:627",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cae28ebbc13b5",
+   "golds": {
+    "set:us-gaap:deferredincometaxexpensebenefit": [
+     "fintagging:fincl_subset:test:449"
+    ],
+    "set:us-gaap:stockredeemedorcalledduringperiodvalue": [
+     "fintagging:fincl_subset:test:432"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:432",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "cb3e1fe974d12",
+   "golds": {
+    "facts:": [
+     "fintagging:finni_subset:test:2893"
+    ],
+    "set:": [
+     "fintagging:train_table:train:472"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:finni_subset:test:2893",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cb491d4ce7c41",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:276"
+    ],
+    "set:us-gaap:employeeservicesharebasedcompensationnonvestedawardstotalcompensationcostnotyetrecognizedstockoptions": [
+     "fintagging:train_text:train:211"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:211",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cb95a42568c39",
+   "golds": {
+    "set:": [
+     "fintagging:train_table:train:232",
+     "fintagging:train_table:train:246"
+    ],
+    "set:us-gaap:stockrepurchaseprogramremainingauthorizedrepurchaseamount1|us-gaap:stockrepurchaseprogramremainingauthorizedrepurchaseamount1": [
+     "fintagging:train_table:train:211"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_table:train:211",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cc3f118fbe4cc",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:779"
+    ],
+    "set:us-gaap:preferredstockdividendratepercentage|us-gaap:preferredstockliquidationpreference": [
+     "fintagging:train_text:train:736"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:736",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "ccaee65fb861e",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:901"
+    ],
+    "set:us-gaap:preferredstocksharesauthorized|us-gaap:preferredstocksharesissued": [
+     "fintagging:train_text:train:850"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:850",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cce252416abbf",
+   "golds": {
+    "txt:a human readable description of a taxonomy component xbrl labels can be defined in multiple languages and can be of multiple types such as a standard label which provides a concise name for the component or a documentation label which provides a more complete definition of the component": [
+     "xbrl_agent:terminology:test:87"
+    ],
+    "txt:human-readable name for an element each element has a standard label that corresponds to the element name and is unique across the taxonomy": [
+     "coling:terminology:test:17",
+     "xbrl_agent:terminology:test:27"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:27",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "cdcd4e9fab1b5",
+   "golds": {
+    "txt:a domain is a set of related values examples of different domains for use on a geography dimension would be countries continents or states in xbrl domains are defined using taxonomy elements that are used to group domain members": [
+     "xbrl_agent:terminology:test:73"
+    ],
+    "txt:an element that represents an entire set of other elements the domain and its members are used to classify facts along the axis of a table for example arkansas is a domain member in the domain states and would be used to classify elements such as revenues and assets in arkansas as distinct from other states when a fact does not have any domain member specified that means it applies to the entire domain": [
+     "coling:terminology:test:3",
+     "xbrl_agent:terminology:test:13"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:13",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "ce0efe3374268",
+   "golds": {
+    "txt:a taxonomy element that provides the meaning for a fact for example profit turnover and assets would be typical concepts approximate technical term concept xbrl v2.1 or primary item xbrl dimensions concept as defined here excludes header and structural element the term line item will sometimes be used to refer to a concept": [
+     "xbrl_agent:terminology:test:63"
+    ],
+    "txt:xbrl technical term for element": [
+     "coling:terminology:validation:8",
+     "xbrl_agent:terminology:test:8"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "xbrl_agent:terminology:test:63",
+   "task": "terminology"
+  },
+  {
+   "cluster_id": "ce639c0dbee1f",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:961"
+    ],
+    "set:us-gaap:revenueremainingperformanceobligation": [
+     "fintagging:train_text:train:942"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:942",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "ce97b81e20a92",
+   "golds": {
+    "set:us-gaap:profitloss": [
+     "fintagging:fincl_subset:test:175"
+    ],
+    "set:us-gaap:taxespayablecurrent": [
+     "fintagging:fincl_subset:test:263"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:fincl_subset:test:175",
+   "task": "concept_tagging"
+  },
+  {
+   "cluster_id": "ceec3fc4a60aa",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:825"
+    ],
+    "set:us-gaap:debtinstrumentcarryingamount|us-gaap:debtinstrumentcarryingamount": [
+     "fintagging:train_text:train:704"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:704",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cf4267eb05436",
+   "golds": {
+    "set:": [
+     "fintagging:train_text:train:656"
+    ],
+    "set:us-gaap:employeeservicesharebasedcompensationnonvestedawardstotalcompensationcostnotyetrecognized": [
+     "fintagging:train_text:train:638"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "fintagging:train_text:train:638",
+   "task": "fact_extraction"
+  },
+  {
+   "cluster_id": "cff584cdfef03",
+   "golds": {
+    "txt:yes cvs health has been involved in multiple ongoing legal battles some notable legal dispute areas for cvs are -1 usual and customary pricing litigation where it s claimed that cvsâ s retail pharmacies overcharged for prescription drugs -2 pbm litigation and investigations where it s claimed that that rebate agreements between the drug manufacturers and pbms caused inflated prices for certain drug products and -3 controlled substances litigation legal matters around opioids for which cvs has agreed to pay up to 4.3 billion to claimants in remediation and 625 million to attorneys and fees": [
+     "financebench:open:test:financebench_id_01107"
+    ],
+    "txt:yes cvs health has been involved in multiple ongoing legal battles some notable legal dispute areas for cvs are -1 usual and customary pricing litigation where it s claimed that cvs鈥檚 retail pharmacies overcharged for prescription drugs -2 pbm litigation and investigations where it s claimed that that rebate agreements between the drug manufacturers and pbms caused inflated prices for certain drug products and -3 controlled substances litigation legal matters around opioids for which cvs has agreed to pay up to 4.3 billion to claimants in remediation and 625 million to attorneys and fees": [
+     "coling:domain_numeric:test:financebench_id_01107",
+     "xbrl_agent:financebench:test:financebench_id_01107"
+    ]
+   },
+   "kind": "same_input_different_gold",
+   "representative": "financebench:open:test:financebench_id_01107",
+   "task": "filing_qa"
+  }
+ ],
+ "sources": [
+  {
+   "key": "xbrl_agent",
+   "title": "XBRL-Agent (Han et al., ICAIF 2024)",
+   "repo": "KirkHan0920/XBRL-Agent",
+   "commit": "eafd6154f055058fcabcebc16868a0f877721def",
+   "licence": "MIT",
+   "files": 3
+  },
+  {
+   "key": "financebench",
+   "title": "FinanceBench (Islam et al., 2023), open-source sample",
+   "repo": "patronus-ai/financebench",
+   "commit": "cc39aeb4afdf33909ee1412188bf89035950c2eb",
+   "licence": "CC-BY-NC-4.0",
+   "files": 86
+  },
+  {
+   "key": "fintagging",
+   "title": "FinTagging (Wang et al., 2025), GitHub release",
+   "repo": "The-FinAI/FinTagging",
+   "commit": "ff426bc4c914c3cc6d967a696fbc041ed157c459",
+   "licence": "MIT (code), CC-BY-4.0 (data)",
+   "files": 8
+  },
+  {
+   "key": "coling",
+   "title": "Regulations Challenge, COLING 2025 (Wang et al., 2025)",
+   "repo": "Open-Finance-Lab/Regulations_Challenge_COLING_2025",
+   "commit": "01cfe520903ca2977b3af9b7fe9d3a1f16879045",
+   "licence": "CDLA-Permissive-2.0",
+   "files": 8
+  }
+ ]
+}
