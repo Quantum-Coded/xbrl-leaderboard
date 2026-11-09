@@ -1,2 +1,3 @@
 peft==0.21.2
 base: system python 3.10 site-packages torch==2.6.0+cu124 transformers==5.18.0 bitsandbytes==0.50.2
+base model: Qwen/Qwen2.5-3B-Instruct @ aa8e72537993ba99e69dfaafa59ed015b17504d1 (safetensors, models/base/Qwen2.5-3B-Instruct)
