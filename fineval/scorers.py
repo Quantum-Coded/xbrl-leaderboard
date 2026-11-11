@@ -76,10 +76,10 @@ def parse_facts(out: str, strict: bool = False) -> list | None:
             return _facts(items)
     if strict:
         return None
-    m = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", t, re.S)
-    for c in ([m.group(1)] if m else []) + re.findall(r"\[\s*(?:\{.*?\}\s*,?\s*)*\]", t, re.S):
+    dec = json.JSONDecoder()
+    for k in [i for i, ch in enumerate(t) if ch == "["][:50]:     # linear scan; no backtracking regex
         try:
-            d = json.loads(c)
+            d, _ = dec.raw_decode(t, k)
         except json.JSONDecodeError:
             continue
         if isinstance(d, list) and all(isinstance(x, dict) and "Fact" in x for x in d):
