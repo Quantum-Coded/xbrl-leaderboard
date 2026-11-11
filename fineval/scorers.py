@@ -51,8 +51,17 @@ def concept_exact(out: str, gold: dict) -> dict:
 
 
 # ------------------------------------------------------------------ FinNI
-def parse_facts(out: str) -> list | None:
-    """List of (fact, type) from a FinNI answer; None when no JSON result can be parsed."""
+def _facts(items) -> list:
+    return [(str(x.get("Fact", "")).strip(), str(x.get("Type", "")).strip()) for x in items if isinstance(x, dict)]
+
+
+def parse_facts(out: str, strict: bool = False) -> list | None:
+    """List of (fact, type) from a FinNI answer; None when no JSON result can be parsed.
+
+    The FinNI instruction asks for {"result": [...]}. A bare JSON list of {"Fact", "Type"} objects is
+    also accepted (same content, missing wrapper); `strict=True` accepts only the requested wrapper,
+    which is reported as the `format_ok` variant.
+    """
     t = out.strip()
     m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", t, re.S)
     cand = [m.group(1)] if m else []
@@ -64,8 +73,17 @@ def parse_facts(out: str) -> list | None:
             continue
         items = d.get("result", d.get("results"))
         if isinstance(items, list):
-            return [(str(x.get("Fact", "")).strip(), str(x.get("Type", "")).strip())
-                    for x in items if isinstance(x, dict)]
+            return _facts(items)
+    if strict:
+        return None
+    m = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", t, re.S)
+    for c in ([m.group(1)] if m else []) + re.findall(r"\[\s*(?:\{.*?\}\s*,?\s*)*\]", t, re.S):
+        try:
+            d = json.loads(c)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(d, list) and all(isinstance(x, dict) and "Fact" in x for x in d):
+            return _facts(d)
     return None
 
 
@@ -92,7 +110,8 @@ def finni_pairs(out: str, gold: dict) -> dict:
     s = _match(pred, goldp, lambda x: x)
     n = _match(pred, goldp, lambda x: (_num_or_text(x[0]), x[1]))
     return {"strict_tp": s[0], "strict_fp": s[1], "strict_fn": s[2],
-            "numeric_tp": n[0], "numeric_fp": n[1], "numeric_fn": n[2], "parsed": float(parsed)}
+            "numeric_tp": n[0], "numeric_fp": n[1], "numeric_fn": n[2], "parsed": float(parsed),
+            "format_ok": float(parse_facts(out, strict=True) is not None)}
 
 
 def prf(tp, fp, fn) -> dict:
@@ -160,5 +179,6 @@ def aggregate(metric: str, rows: list) -> dict:
             tp, fp, fn = (sum(r[f"{v}_{k}"] for r in rows) for k in ("tp", "fp", "fn"))
             agg.update({f"{v}_{k}": x for k, x in prf(tp, fp, fn).items()})
         agg["parsed"] = sum(r["parsed"] for r in rows) / len(rows)
+        agg["format_ok"] = sum(r.get("format_ok", 0) for r in rows) / len(rows)
         return agg
     return {k: sum(r[k] for r in rows) / len(rows) for k in rows[0]}

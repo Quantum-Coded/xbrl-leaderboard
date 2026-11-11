@@ -12,7 +12,7 @@ import requests
 OLLAMA = os.environ.get("OLLAMA_HOST_URL", "http://localhost:11434")
 NUM_GPU = int(os.environ.get("FINEVAL_NUM_GPU", "99"))
 
-MAX_TOKENS = {"concept_tagging": 64, "fact_extraction": 1024, "financial_calc": 384, "filing_qa": 256}
+MAX_TOKENS = {"concept_tagging": 64, "fact_extraction": 1024, "financial_calc": 1024, "filing_qa": 256}
 NUM_CTX = {"concept_tagging": 4096, "fact_extraction": 8192, "financial_calc": 2048, "filing_qa": 4096}
 
 

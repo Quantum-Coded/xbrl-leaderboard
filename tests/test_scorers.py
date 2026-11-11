@@ -90,3 +90,13 @@ def test_bootstrap_and_paired():
 def test_noise_groups():
     g = noise_groups({"a": (0.8, (0.75, 0.85)), "b": (0.78, (0.72, 0.84)), "c": (0.5, (0.45, 0.55))})
     assert g == [["a", "b"], ["c"]]
+
+
+def test_finni_bare_list_is_parsed_but_not_format_ok():
+    out = '```json\n[{"Fact": "531", "Type": "monetaryItemType"}]\n```\nNote: extra prose.'
+    s = finni_pairs(out, {"facts": [{"fact": "531", "type": "monetaryItemType"}]})
+    assert s["parsed"] == 1 and s["format_ok"] == 0 and s["strict_tp"] == 1
+    w = finni_pairs('{"result": [{"Fact": "531", "Type": "monetaryItemType"}]}',
+                    {"facts": [{"fact": "531", "type": "monetaryItemType"}]})
+    assert w["format_ok"] == 1 and w["strict_tp"] == 1
+    assert finni_pairs("[1, 2, 3]", FG)["parsed"] == 0          # a list of numbers is not a FinNI answer
