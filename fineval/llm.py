@@ -1,6 +1,8 @@
 """Model backends with deterministic decoding (ported from regbench).
 
 ollama:<name>   local Ollama server (default; all layers on GPU)
+hf:<dir>[+<adapter dir>]  local transformers model in 4-bit NF4, greedy decoding (training env only;
+                used to compare a base model with its QLoRA adapter under identical decoding)
 mock:<name>     canned answers for tests; never used for reported results
 """
 import json
@@ -21,6 +23,8 @@ def chat(model, user, *, system=None, temperature=0.0, seed=0, max_tokens=512, n
     messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": user}]
     if model.startswith("mock:"):
         return _mock(model, messages)
+    if model.startswith("hf:"):
+        return _hf(model[3:], messages, max_tokens)
     name = model.split(":", 1)[1] if model.startswith("ollama:") else model
     body = {"model": name, "messages": messages, "stream": False,
             "options": {"temperature": temperature, "seed": seed, "num_predict": max_tokens,
@@ -45,8 +49,44 @@ def _mock(model, messages):
     return {"text": text, "prompt_tokens": None, "eval_count": None, "latency_s": 0.0}
 
 
+_HF = {}
+
+
+def _hf(spec, messages, max_tokens):
+    """Greedy decoding with a local safetensors model, optionally with a PEFT adapter."""
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+    if spec not in _HF:
+        base, _, adapter = spec.partition("+")
+        tok = AutoTokenizer.from_pretrained(base)
+        m = AutoModelForCausalLM.from_pretrained(
+            base, use_safetensors=True, trust_remote_code=False, device_map={"": 0},
+            quantization_config=BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
+                                                   bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True))
+        if adapter:
+            from peft import PeftModel
+            m = PeftModel.from_pretrained(m, adapter)
+        _HF.clear()
+        _HF[spec] = (tok, m.eval())
+    tok, m = _HF[spec]
+    ids = tok.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt", return_dict=True).to(0)
+    t0 = time.time()
+    with torch.no_grad():
+        out = m.generate(**ids, max_new_tokens=max_tokens, do_sample=False, pad_token_id=tok.eos_token_id)
+    new = out[0, ids["input_ids"].shape[1]:]
+    return {"text": tok.decode(new, skip_special_tokens=True), "prompt_tokens": int(ids["input_ids"].shape[1]),
+            "eval_count": int(new.shape[0]), "latency_s": round(time.time() - t0, 3)}
+
+
 def model_digest(model) -> str | None:
-    """Ollama's content digest of the model weights, recorded with every run."""
+    """For hf: models, the SHA-256 of the adapter weights (or None for a bare base model)."""
+    if model.startswith("hf:"):
+        import hashlib
+        from pathlib import Path
+        _, _, adapter = model[3:].partition("+")
+        f = Path(adapter) / "adapter_model.safetensors"
+        return hashlib.sha256(f.read_bytes()).hexdigest() if adapter and f.exists() else None
+    # Ollama: the content digest of the model weights, recorded with every run.
     if not model.startswith("ollama:"):
         return None
     name = model.split(":", 1)[1]

@@ -22,6 +22,8 @@ CHARS_PER_TOKEN = 3.0          # conservative estimate; the true count is checke
 
 
 def run_name(model, task, track, seed, n):
+    if model.startswith("hf:"):                     # hf:models/base/X+models/qlora-y -> hf-X+qlora-y
+        model = "hf-" + "+".join(p.rstrip("/").split("/")[-1] for p in model[3:].split("+"))
     safe = model.replace("ollama:", "").replace(":", "-").replace("/", "_")
     return f"{safe}__{task}__{track}__s{seed}" + (f"__n{n}" if n else "")
 
