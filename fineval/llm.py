@@ -79,6 +79,17 @@ def _hf(spec, messages, max_tokens):
             "eval_count": int(new.shape[0]), "latency_s": round(time.time() - t0, 3)}
 
 
+def runtime_version(model) -> str | None:
+    """Inference runtime version recorded with each run (Ollama server, or transformers/peft)."""
+    if model.startswith("ollama:"):
+        return "ollama " + requests.get(f"{OLLAMA}/api/version", timeout=60).json()["version"]
+    if model.startswith("hf:"):
+        import peft
+        import transformers
+        return f"transformers {transformers.__version__}, peft {peft.__version__}"
+    return None
+
+
 def model_digest(model) -> str | None:
     """For hf: models, the SHA-256 of the adapter weights (or None for a bare base model)."""
     if model.startswith("hf:"):

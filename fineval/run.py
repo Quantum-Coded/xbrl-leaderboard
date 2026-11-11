@@ -78,7 +78,7 @@ def main(argv=None):
     meta = GEN / f"{name}.meta.json"
     if not meta.exists():
         meta.write_text(json.dumps({
-            "model": args.model, "model_digest": llm.model_digest(args.model), "task": args.task, "track": args.track,
+            "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
             "seed": args.seed, "n": args.n, "items": [i["uid"] for i in items], "max_tokens": llm.MAX_TOKENS[args.task],
             "num_ctx_default": llm.NUM_CTX[args.task], "ctx_cap": CTX_CAP, "code_commit": git_commit(),
             "started": time.strftime("%Y-%m-%dT%H:%M:%S")}, indent=1), encoding="utf-8")
