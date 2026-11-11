@@ -1,0 +1,162 @@
+{
+ "llama3.1:8b": [
+  {
+   "ctx": 2048,
+   "prompt_tokens": 1460,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1552.9,
+   "gen_tok_s": 35.9,
+   "load_s": 10.25,
+   "vram_mib": 4885,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 4096,
+   "prompt_tokens": 3228,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1661.8,
+   "gen_tok_s": 34.4,
+   "load_s": 12.45,
+   "vram_mib": 5143,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 8192,
+   "prompt_tokens": 6785,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1632.0,
+   "gen_tok_s": 31.6,
+   "load_s": 12.19,
+   "vram_mib": 5659,
+   "gpu_share": 1.0
+  }
+ ],
+ "qwen2.5:7b": [
+  {
+   "ctx": 2048,
+   "prompt_tokens": 1539,
+   "gen_tokens": 128,
+   "prompt_tok_s": 123.2,
+   "gen_tok_s": 37.5,
+   "load_s": 9.2,
+   "vram_mib": 4533,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 4096,
+   "prompt_tokens": 3449,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1852.3,
+   "gen_tok_s": 36.8,
+   "load_s": 11.39,
+   "vram_mib": 4647,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 8192,
+   "prompt_tokens": 7186,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1790.0,
+   "gen_tok_s": 35.0,
+   "load_s": 10.93,
+   "vram_mib": 4875,
+   "gpu_share": 1.0
+  }
+ ],
+ "mistral:7b": [
+  {
+   "ctx": 2048,
+   "prompt_tokens": 1620,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1627.3,
+   "gen_tok_s": 38.6,
+   "load_s": 8.54,
+   "vram_mib": 4579,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 4096,
+   "prompt_tokens": 3674,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1700.3,
+   "gen_tok_s": 36.5,
+   "load_s": 7.61,
+   "vram_mib": 4837,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 8192,
+   "prompt_tokens": 7657,
+   "gen_tokens": 128,
+   "prompt_tok_s": 1622.9,
+   "gen_tok_s": 32.6,
+   "load_s": 9.65,
+   "vram_mib": 5353,
+   "gpu_share": 1.0
+  }
+ ],
+ "qwen2.5:3b": [
+  {
+   "ctx": 2048,
+   "prompt_tokens": 1539,
+   "gen_tokens": 128,
+   "prompt_tok_s": 3131.5,
+   "gen_tok_s": 77.3,
+   "load_s": 6.65,
+   "vram_mib": 2097,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 4096,
+   "prompt_tokens": 3449,
+   "gen_tokens": 128,
+   "prompt_tok_s": 3667.7,
+   "gen_tok_s": 73.6,
+   "load_s": 5.16,
+   "vram_mib": 2171,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 8192,
+   "prompt_tokens": 7186,
+   "gen_tokens": 128,
+   "prompt_tok_s": 3665.0,
+   "gen_tok_s": 68.3,
+   "load_s": 6.39,
+   "vram_mib": 2413,
+   "gpu_share": 1.0
+  }
+ ],
+ "gemma2:9b": [
+  {
+   "ctx": 2048,
+   "prompt_tokens": 1477,
+   "gen_tokens": 128,
+   "prompt_tok_s": 150.4,
+   "gen_tok_s": 18.7,
+   "load_s": 11.12,
+   "vram_mib": 5849,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 4096,
+   "prompt_tokens": 3346,
+   "gen_tokens": 128,
+   "prompt_tok_s": 122.2,
+   "gen_tok_s": 4.1,
+   "load_s": 11.72,
+   "vram_mib": 5849,
+   "gpu_share": 1.0
+  },
+  {
+   "ctx": 8192,
+   "prompt_tokens": 7029,
+   "gen_tokens": 128,
+   "prompt_tok_s": 93.1,
+   "gen_tok_s": 2.1,
+   "load_s": 12.98,
+   "vram_mib": 5869,
+   "gpu_share": 1.0
+  }
+ ]
+}
