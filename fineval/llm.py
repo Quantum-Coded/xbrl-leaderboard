@@ -11,7 +11,7 @@ import time
 
 import requests
 
-OLLAMA = os.environ.get("OLLAMA_HOST_URL", "http://localhost:11434")
+OLLAMA = os.environ.get("OLLAMA_HOST_URL", "http://127.0.0.1:11434"  # not localhost: on Windows it tries IPv6 first (~2 s per request))
 NUM_GPU = int(os.environ.get("FINEVAL_NUM_GPU", "99"))
 
 MAX_TOKENS = {"concept_tagging": 64, "fact_extraction": 1024, "financial_calc": 1024, "filing_qa": 256}
