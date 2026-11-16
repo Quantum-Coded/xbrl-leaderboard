@@ -4,6 +4,12 @@
  "items": 484,
  "runs": [
   {
+   "run": "llama3.1-8b__concept_tagging__closed__s0",
+   "incomplete": true,
+   "generated": 0,
+   "missing": 484
+  },
+  {
    "run": "qwen2.5-3b__concept_tagging__closed__s0",
    "model": "ollama:qwen2.5:3b",
    "model_digest": "357c53fb659c",
@@ -105,9 +111,103 @@
   },
   {
    "run": "qwen2.5-7b__concept_tagging__closed__s0",
-   "incomplete": true,
-   "generated": 0,
-   "missing": 484
+   "model": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "track": "closed",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 7,
+   "accuracy": 1.4,
+   "ci95": [
+    0.4,
+    2.7
+   ],
+   "equals_stored_score_file": true,
+   "reference_run": {
+    "runtime": null,
+    "model_digest": "845dbda0ea48",
+    "same_model_digest": true,
+    "correct": 6,
+    "accuracy": 1.2,
+    "same_prompt": 484,
+    "same_raw_output": 393,
+    "same_parsed_answer": 412,
+    "scored_differently": 1,
+    "this_machine_only_correct": [
+     "fintagging:fincl_subset:test:354"
+    ],
+    "reference_only_correct": []
+   }
+  },
+  {
+   "run": "qwen2.5-7b__concept_tagging__tools__s0",
+   "model": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "track": "tools",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 72,
+   "accuracy": 14.9,
+   "ci95": [
+    11.8,
+    18.2
+   ],
+   "equals_stored_score_file": true,
+   "covered_items": 171,
+   "coverage": 35.3,
+   "selected_covered_items": 72,
+   "selected_if_covered": 42.1,
+   "correct_outside_candidates": 0,
+   "reference_run": {
+    "runtime": "ollama 0.40.15",
+    "model_digest": "845dbda0ea48",
+    "same_model_digest": true,
+    "correct": 75,
+    "accuracy": 15.5,
+    "same_prompt": 484,
+    "same_raw_output": 454,
+    "same_parsed_answer": 455,
+    "scored_differently": 3,
+    "this_machine_only_correct": [],
+    "reference_only_correct": [
+     "fintagging:fincl_subset:test:272",
+     "fintagging:fincl_subset:test:431",
+     "fintagging:fincl_subset:test:485"
+    ]
+   }
+  },
+  {
+   "run": "qwen2.5-7b__concept_tagging__tools_noorac__s0",
+   "model": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "track": "tools_noorac",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 62,
+   "accuracy": 12.8,
+   "ci95": [
+    9.9,
+    15.9
+   ],
+   "equals_stored_score_file": true,
+   "covered_items": 134,
+   "coverage": 27.7,
+   "selected_covered_items": 61,
+   "selected_if_covered": 45.5,
+   "correct_outside_candidates": 1,
+   "reference_run": null
   }
  ],
  "profiles": [
@@ -301,6 +401,70 @@
     },
     "gpu_peak_minus_baseline_mib": null,
     "memory_samples": 3739
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-7b__closed__n100.json",
+   "model": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "86edb81e86898a570c9441412f86c7f4dc0a1309",
+   "started": "2026-11-16T22:32:41",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:7b",
+     "size": 4755397016,
+     "size_vram": 4755397016,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.04,
+    "latency_median_s": 1.5162,
+    "latency_p90_s": 2.3496,
+    "latency_mean_s": 1.6704,
+    "gen_tokens_per_s_median": 18.2,
+    "prompt_tokens_median": 143.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 18
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 4535,
+     "ollama_size_vram_mib": 4535,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 4850
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 4535,
+     "ollama_size_vram_mib": 4535,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 4965
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 713
    }
   }
  ]
