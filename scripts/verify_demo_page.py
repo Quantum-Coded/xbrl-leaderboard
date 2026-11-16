@@ -33,7 +33,7 @@ def main(page_path):
     ok("scored items", str(len(fincl)))
     ok("candidates per item (prompts.TAG_CANDIDATES)", str(prompts.TAG_CANDIDATES))
     runs = {}
-    for m in ("llama3.1-8b", "qwen2.5-7b"):
+    for m in ("llama3.1-8b", "qwen2.5-7b", "qwen2.5-3b"):
         for t in ("closed", "tools"):
             g = {x["uid"]: x for x in jl(ROOT / f"results/generations/{m}__concept_tagging__{t}__s0.jsonl")}
             hits = covered = both = 0
@@ -52,7 +52,29 @@ def main(page_path):
                 ok(f"{m} coverage", f"{100 * covered / len(fincl):.1f}%")
                 ok(f"{m} covered items", str(covered))
                 ok(f"{m} selected-if-covered", f"{100 * both / covered:.1f}%")
-                ok(f"{m} picked when covered", str(int(both)))
+                ok(f"{m} picked when covered", f"{int(both)} of {covered}")
+    # oracle labelling: the `tools` runs filter the search to the item's given type (prompts.py). Check that this
+    # type equals the gold concept's type on every scored item, and that every such row is labelled on the page.
+    ttype = {"us-gaap:" + r["us_gaap_tag"]: r["entity_type"]
+             for r in jl(ROOT / "data/raw/fintagging/taxonomy/us_gaap_2024_BM25.jsonl")}
+    same = sum(all(ttype.get(c) == it["input"]["entity_type"] for c in it["gold"]["concepts"]) for it in fincl)
+    print(f"  given item type == gold concept type on {same} of {len(fincl)} scored items")
+    if same != len(fincl):
+        problems.append(f"oracle claim is false: given type equals gold type on only {same} of {len(fincl)} items")
+    label = "given item type: oracle diagnostic"
+    oracle_rows = sum(1 for (_, t) in runs if t == "tools")
+    if page.count(label) != oracle_rows:
+        problems.append(f"expected '{label}' on {oracle_rows} result rows, found {page.count(label)}")
+    if "Oracle diagnostic:" not in page:
+        problems.append("the note explaining the oracle diagnostic is missing")
+    # no-oracle runs are not on the page yet; fail loudly when they arrive so the page gets updated
+    noorac = sorted((ROOT / "results/generations").glob("*__concept_tagging__tools_noorac__s0.jsonl"))
+    if noorac:
+        problems.append("no-oracle runs exist: add them to build_demo.py TRACKS and to this check")
+    # latency and memory: no profile files are read here, so the page must not show any
+    for word in ("Latency", "Peak memory"):
+        if word in page:
+            problems.append(f"page shows '{word}', but this script checks no latency or memory numbers")
     # published, FinTagging arXiv:2505.20650v5 Table 8 FinCL column: GPT-4o 0.1829, Llama-3.1-8B-Instruct 0.0913
     ok("published GPT-4o", f"{100 * 0.1829:.1f}%")
     ok("published Llama-3.1-8B", f"{100 * 0.0913:.1f}%")
@@ -75,17 +97,23 @@ def main(page_path):
             problems.append(f"MISSING on page: {label} = {val}")
     # every number on the page must be explained by a recomputed value (or a model name / rank / concept name)
     text = re.sub(r"us-gaap:\S+", " ", page)
-    text = re.sub(r"Llama-3\.1-8B|Qwen2\.5-7B|GPT-4o|US-GAAP|XBRL|SEC", " ", text)
+    text = re.sub(r"Llama-3\.1-8B|Qwen2\.5-7B|Qwen2\.5-3B|GPT-4o|US-GAAP|XBRL|SEC", " ", text)
     allowed = set()
     for v in expected.values():
         allowed.update(re.findall(r"\d[\d.,]*\d|\d", v))
-    allowed.update({"1", "3", "4"})  # rank column
+    # rank column: 1 + number of runs with a strictly higher accuracy (ties share a rank)
+    accs = [round(100 * r["hits"] / len(fincl), 1) for r in runs.values()]
+    ranks = sorted(1 + sum(o > a for o in accs) for a in accs)
+    allowed.update(str(r) for r in ranks)
+    rows_on_page = re.findall(r"^(\d+)\t(?:Llama|Qwen)", page, re.M)
+    if sorted(int(r) for r in rows_on_page) != ranks:
+        problems.append(f"rank column {rows_on_page} does not match recomputed ranks {ranks}")
     for n in re.findall(r"\d[\d.,]*\d|\d", text):
         if n not in allowed:
             problems.append(f"UNEXPLAINED number on page: {n}")
     for label, val in expected.items():
         print(f"  {label:45s} {val}")
-    print("\nRanks: 1, 1, 3, 4 follow from the accuracies above (ties share a rank).")
+    print(f"\nRanks {ranks} follow from the accuracies above (ties share a rank).")
     if problems:
         print("\nPROBLEMS:\n" + "\n".join(problems))
         sys.exit(1)

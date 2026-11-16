@@ -69,15 +69,17 @@ const runs = D.runs.slice().sort((a,b) => b.accuracy - a.accuracy || a.model.loc
 const rank = runs.map(r => 1 + runs.filter(o => o.accuracy > r.accuracy).length);
 document.getElementById('rows').innerHTML = runs.map((r,i) => `
   <tr><td class="dim">${rank[i]}</td><td><b>${r.model.replace('-Instruct','')}</b></td>
-  <td>${r.tools ? 'Tag search' : 'None'}</td>
+  <td>${r.tools ? 'Tag search' : 'None'}${r.oracle ? '<div class="dim" style="white-space:normal">given item type: oracle diagnostic</div>' : ''}</td>
   <td class="hide-sm"><div class="bar"><div style="width:${r.accuracy/20*100}%"></div></div></td>
   <td class="num">${r.accuracy.toFixed(1)}%</td><td class="dim">${r.correct} / ${r.n}</td></tr>`).join('');
 document.getElementById('note').textContent =
   `Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. ` +
+  (D.runs.some(r => r.oracle) ? `Oracle diagnostic: the search is limited to concepts of the item's given type, which is ` +
+  `the correct concept's type for every item. A real system would not have this, so these rows are a diagnostic, not a deployable result. ` : '') +
   `For reference, the FinTagging paper reports ${D.published.map(p => `${p.system.replace('-Instruct','')} ${p.score.toFixed(1)}%`).join(' and ')} on its full test set.`;
 
 document.getElementById('ex').innerHTML = D.examples.map(x => `
-  <div class="card ex"><div class="top"><b>${x.verdict === 'pass' ? 'Correct' : 'Wrong'} <span class="dim">&middot; Qwen2.5-7B, tag search</span></b>
+  <div class="card ex"><div class="top"><b>${x.verdict === 'pass' ? 'Correct' : 'Wrong'} <span class="dim">&middot; Qwen2.5-7B, tag search (oracle type)</span></b>
   <span class="tag ${x.verdict}">${x.verdict === 'pass' ? 'PASS' : 'FAIL'}</span></div>
   <div class="row">${x.row}</div>
   <div class="kv"><span>Number</span><span>${x.value}</span>
@@ -85,13 +87,14 @@ document.getElementById('ex').innerHTML = D.examples.map(x => `
   <span>Model said</span><code style="color:${x.verdict==='pass'?'var(--accent)':'var(--red)'}">${x.pred}</code></div></div>`).join('');
 
 const tr = D.runs.filter(r => r.tools), q = tr[0];
-const same = tr.every(r => r.coverage === q.coverage && r.selected_if_covered === q.selected_if_covered);
-const picked = q.correct - q.correct_outside_candidates;
+// the candidate list does not depend on the model, so coverage is one number; selection is per model
+const same = tr.every(r => r.coverage === q.coverage && r.covered_items === q.covered_items);
 document.getElementById('why').innerHTML = same ? `
   <div class="card stat"><div class="n">${q.coverage.toFixed(1)}%</div>
-  <p>Search puts the correct concept in the 100 candidates for ${q.covered_items} of ${q.n} items.</p></div>
-  <div class="card stat"><div class="n">${q.selected_if_covered.toFixed(1)}%</div>
-  <p>When it is there, each model picks it for ${picked} of those ${q.covered_items} items.</p></div>` : '';
+  <p>Search${q.oracle ? ' (with the oracle item type)' : ''} puts the correct concept in the 100 candidates for ${q.covered_items} of ${q.n} items.</p></div>
+  <div class="card stat"><p style="margin:0 0 8px">When it is there, how often the model picks it:</p>
+  <div class="kv" style="grid-template-columns:1fr auto auto">${tr.map(r => `<span style="color:var(--text)"><b>${r.model.replace('-Instruct','')}</b></span>
+  <span style="color:var(--text);font-weight:700;text-align:right">${r.selected_if_covered.toFixed(1)}%</span><span class="dim">${r.selected_covered_items} of ${r.covered_items}</span>`).join('')}</div></div>` : '';
 </script>
 </body>
 </html>

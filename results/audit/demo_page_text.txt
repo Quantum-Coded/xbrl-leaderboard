@@ -3,14 +3,28 @@ XBRL Leaderboard
 Task: link a number from an SEC filing to the right US-GAAP concept (one of 17,388). 484 test items from FinTagging.
 
 Results
-#	Model	Tools	Accuracy	Correct
-1	Llama-3.1-8B	Tag search	15.5%	75 / 484
-1	Qwen2.5-7B	Tag search	15.5%	75 / 484
-3	Llama-3.1-8B	None	1.7%	8 / 484
-4	Qwen2.5-7B	None	1.2%	6 / 484
-Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. For reference, the FinTagging paper reports GPT-4o 18.3% and Llama-3.1-8B 9.1% on its full test set.
+#	Model	Tools		Accuracy	Correct
+1	Llama-3.1-8B	Tag search
+given item type: oracle diagnostic
+	
+	15.5%	75 / 484
+1	Qwen2.5-7B	Tag search
+given item type: oracle diagnostic
+	
+	15.5%	75 / 484
+3	Qwen2.5-3B	Tag search
+given item type: oracle diagnostic
+	
+	12.2%	59 / 484
+4	Llama-3.1-8B	None	
+	1.7%	8 / 484
+5	Qwen2.5-7B	None	
+	1.2%	6 / 484
+6	Qwen2.5-3B	None	
+	1.0%	5 / 484
+Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. Oracle diagnostic: the search is limited to concepts of the item's given type, which is the correct concept's type for every item. A real system would not have this, so these rows are a diagnostic, not a deployable result. For reference, the FinTagging paper reports GPT-4o 18.3% and Llama-3.1-8B 9.1% on its full test set.
 Example answers
-Correct · Qwen2.5-7B, tag search
+Correct · Qwen2.5-7B, tag search (oracle type)
 PASS
 Net Income | 614.2 | 614.2
 Number
@@ -19,7 +33,7 @@ Correct
 us-gaap:NetIncomeLoss
 Model said
 us-gaap:NetIncomeLoss
-Wrong · Qwen2.5-7B, tag search
+Wrong · Qwen2.5-7B, tag search (oracle type)
 FAIL
 Amortization of net losses and settlement losses included in net periodic pension cost | 2 | 1 | 2
 Number
@@ -31,8 +45,16 @@ us-gaap:DefinedBenefitPlanNetPeriodicBenefitCost
 Why models fail
 35.3%
 
-Search puts the correct concept in the 100 candidates for 171 of 484 items.
+Search (with the oracle item type) puts the correct concept in the 100 candidates for 171 of 484 items.
 
+When it is there, how often the model picks it:
+
+Qwen2.5-7B
 43.9%
-
-When it is there, each model picks it for 75 of those 171 items.
+75 of 171
+Llama-3.1-8B
+43.9%
+75 of 171
+Qwen2.5-3B
+33.9%
+58 of 171

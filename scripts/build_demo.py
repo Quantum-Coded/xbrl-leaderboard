@@ -16,8 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from fineval import scorers, stats  # noqa: E402
 
-MODELS = [("qwen2.5-7b", "Qwen2.5-7B-Instruct"), ("llama3.1-8b", "Llama-3.1-8B-Instruct")]
-TRACKS = [("closed", "No tools"), ("tools", "Tag search (BM25, top 100)")]
+MODELS = [("qwen2.5-7b", "Qwen2.5-7B-Instruct"), ("llama3.1-8b", "Llama-3.1-8B-Instruct"),
+          ("qwen2.5-3b", "Qwen2.5-3B-Instruct")]
+# (run key, label on the page, uses the oracle item type). The `tools` runs filter the search to the item's
+# given type (fineval/prompts.py), which equals the gold concept's type, so they are an oracle diagnostic.
+TRACKS = [("closed", "No tools", False), ("tools", "Tag search (given item type: oracle diagnostic)", True)]
 SUBSET = "fincl_subset"
 
 
@@ -33,9 +36,15 @@ def main():
     n_taxonomy = sum(1 for l in open(ROOT / "data/raw/fintagging/taxonomy/us_gaap_2024_BM25.jsonl", encoding="utf-8")
                      if l.strip())
 
+    # the oracle claim, checked on every scored item: given item type == type of each gold concept
+    ttype = {"us-gaap:" + json.loads(l)["us_gaap_tag"]: json.loads(l)["entity_type"]
+             for l in open(ROOT / "data/raw/fintagging/taxonomy/us_gaap_2024_BM25.jsonl", encoding="utf-8") if l.strip()}
+    type_equal = sum(all(ttype.get(c) == i["input"]["entity_type"] for c in i["gold"]["concepts"]) for i in fincl)
+    assert type_equal == len(fincl), ("given type is not always the gold type", type_equal, len(fincl))
+
     audit, runs, per_item = [], [], {}
     for mkey, mname in MODELS:
-        for tkey, tname in TRACKS:
+        for tkey, tname, oracle in TRACKS:
             run = f"{mkey}__concept_tagging__{tkey}__s0"
             gens = {g["uid"]: g for g in load_jsonl(ROOT / f"results/generations/{run}.jsonl")}
             meta = json.loads((ROOT / f"results/generations/{run}.meta.json").read_text(encoding="utf-8"))
@@ -46,7 +55,7 @@ def main():
                 out = g["output"] if g and g["status"] == "ok" else ""
                 e = scorers.concept_exact(out, it["gold"])["exact"]
                 exact.append(e)
-                cands = (g or {}).get("tool_log", {}).get("candidates") if tkey == "tools" else None
+                cands = (g or {}).get("tool_log", {}).get("candidates") if tkey != "closed" else None
                 c = None if cands is None else float(any(x in cands for x in it["gold"]["concepts"]))
                 if c is not None:
                     cov.append(c)
@@ -60,7 +69,8 @@ def main():
             assert abs(s["value"] - acc) < 1e-12, (run, s["value"], acc)
             assert abs(s["ci95"][0] - lo) < 1e-12 and abs(s["ci95"][1] - hi) < 1e-12, (run, s["ci95"], lo, hi)
             r = {"run": run, "model": mname, "model_tag": meta["model"], "model_digest": meta["model_digest"][:12],
-                 "runtime": meta.get("runtime"), "track": tname, "tools": tkey == "tools", "n": len(exact),
+                 "runtime": meta.get("runtime"), "track": tname, "condition": tkey, "tools": tkey != "closed",
+                 "oracle": oracle, "n": len(exact),
                  "correct": int(sum(exact)), "accuracy": round(100 * acc, 1),
                  "ci95": [round(100 * lo, 1), round(100 * hi, 1)],
                  "status": dict(Counter(x["status"] for x in rows))}
@@ -68,6 +78,7 @@ def main():
                 both = sum(1 for x in rows if x["covered"] and x["exact"])
                 r["coverage"] = round(100 * sum(cov) / len(cov), 1)
                 r["covered_items"] = int(sum(cov))
+                r["selected_covered_items"] = both
                 r["selected_if_covered"] = round(100 * both / sum(cov), 1)
                 r["correct_outside_candidates"] = sum(1 for x in rows if x["exact"] and not x["covered"])
             runs.append(r)
@@ -108,6 +119,7 @@ def main():
                  "ci": "95% bootstrap over items (2,000 resamples, seed 0)",
                  "decoding": "greedy, 4-bit GGUF via Ollama, seed 0"},
         "runs": runs, "paired_tools_minus_closed": paired, "examples": examples,
+        "oracle_check": {"items": len(fincl), "given_type_equals_gold_type": type_equal},
         "dedup": {"records": summary["records_loaded"], "unique": summary["clusters"],
                   "text_joins": summary["joins"]["exact_text"], "id_joins": summary["joins"]["same_source_id"],
                   "review_pairs": summary["review_pairs"]},

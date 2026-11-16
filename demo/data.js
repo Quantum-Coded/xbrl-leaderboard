@@ -20,7 +20,9 @@ window.DEMO_DATA = {
    "model_digest": "845dbda0ea48",
    "runtime": null,
    "track": "No tools",
+   "condition": "closed",
    "tools": false,
+   "oracle": false,
    "n": 484,
    "correct": 6,
    "accuracy": 1.2,
@@ -38,8 +40,10 @@ window.DEMO_DATA = {
    "model_tag": "ollama:qwen2.5:7b",
    "model_digest": "845dbda0ea48",
    "runtime": "ollama 0.40.15",
-   "track": "Tag search (BM25, top 100)",
+   "track": "Tag search (given item type: oracle diagnostic)",
+   "condition": "tools",
    "tools": true,
+   "oracle": true,
    "n": 484,
    "correct": 75,
    "accuracy": 15.5,
@@ -52,6 +56,7 @@ window.DEMO_DATA = {
    },
    "coverage": 35.3,
    "covered_items": 171,
+   "selected_covered_items": 75,
    "selected_if_covered": 43.9,
    "correct_outside_candidates": 0
   },
@@ -62,7 +67,9 @@ window.DEMO_DATA = {
    "model_digest": "46e0c10c039e",
    "runtime": null,
    "track": "No tools",
+   "condition": "closed",
    "tools": false,
+   "oracle": false,
    "n": 484,
    "correct": 8,
    "accuracy": 1.7,
@@ -80,8 +87,10 @@ window.DEMO_DATA = {
    "model_tag": "ollama:llama3.1:8b",
    "model_digest": "46e0c10c039e",
    "runtime": "ollama 0.40.15",
-   "track": "Tag search (BM25, top 100)",
+   "track": "Tag search (given item type: oracle diagnostic)",
+   "condition": "tools",
    "tools": true,
+   "oracle": true,
    "n": 484,
    "correct": 75,
    "accuracy": 15.5,
@@ -94,8 +103,56 @@ window.DEMO_DATA = {
    },
    "coverage": 35.3,
    "covered_items": 171,
+   "selected_covered_items": 75,
    "selected_if_covered": 43.9,
    "correct_outside_candidates": 0
+  },
+  {
+   "run": "qwen2.5-3b__concept_tagging__closed__s0",
+   "model": "Qwen2.5-3B-Instruct",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": null,
+   "track": "No tools",
+   "condition": "closed",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 5,
+   "accuracy": 1.0,
+   "ci95": [
+    0.2,
+    2.1
+   ],
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "run": "qwen2.5-3b__concept_tagging__tools__s0",
+   "model": "Qwen2.5-3B-Instruct",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.15",
+   "track": "Tag search (given item type: oracle diagnostic)",
+   "condition": "tools",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 59,
+   "accuracy": 12.2,
+   "ci95": [
+    9.3,
+    15.3
+   ],
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 58,
+   "selected_if_covered": 33.9,
+   "correct_outside_candidates": 1
   }
  ],
  "paired_tools_minus_closed": {
@@ -111,6 +168,13 @@ window.DEMO_DATA = {
    "ci95": [
     10.5,
     17.1
+   ]
+  },
+  "Qwen2.5-3B-Instruct": {
+   "diff": 11.2,
+   "ci95": [
+    8.3,
+    14.3
    ]
   }
  },
@@ -136,6 +200,10 @@ window.DEMO_DATA = {
    "why": "The gold concept was in the 100 candidates, but the model chose a different one."
   }
  ],
+ "oracle_check": {
+  "items": 484,
+  "given_type_equals_gold_type": 484
+ },
  "dedup": {
   "records": 11401,
   "unique": 10457,
