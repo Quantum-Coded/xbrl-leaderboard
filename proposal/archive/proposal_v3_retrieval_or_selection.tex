@@ -1,0 +1,165 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\titlespacing*{\section}{0pt}{5pt}{1pt}
+\titleformat*{\section}{\normalsize\bfseries}
+\setlist{nosep,leftmargin=1.2em}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\setlength{\textfloatsep}{6pt}
+
+\title{\vspace{-1.6cm}\large\textbf{Retrieval or Selection? Diagnosing and Improving XBRL Concept Linking\\
+for the Open Financial LLM Leaderboard}}
+\author{\normalsize Dev Gaglani \quad Stavan Desai}
+\date{\normalsize Research proposal, November 2026}
+
+\begin{document}
+\maketitle
+\vspace{-0.9cm}
+
+\section{Motivation and gap}
+Every number in an SEC filing is tagged in XBRL with one of about 17{,}400 US-GAAP 2024 concepts. Posed as direct
+classification over this label set, large models fail: FinTagging reports zero F1 for GPT-4o and
+DeepSeek-V3~[1]. The workable formulation is \emph{retrieve, then select}: a search step proposes candidate concepts
+and an LLM chooses one. FinTagging reports that retrieval finds the correct concept among 200 candidates only about
+33\% of the time, yet its own Table~8 shows that handing the model the gold candidates adds only about two points
+(GPT-4o 0.183 to 0.202; Llama-3.1-8B reaches 0.108). It is therefore unclear which stage limits accuracy. Our first runs
+suggest both do: on 484 FinCL items, when the gold concept is among the candidates, models select it only 32--44\% of
+the time, though those items are the easier ones. Separately, public XBRL
+datasets overlap and sometimes disagree on gold answers~[1--3], and the Open Financial LLM Leaderboard (OFLL)~[5] has no
+XBRL or SEC-filing tasks.
+
+\section{Research question}
+\textbf{RQ:} \emph{How much of XBRL concept-linking error comes from candidate retrieval and how much from candidate
+selection, and how much can cheap taxonomy constraints and a small fine-tuned dense retriever recover without oracle
+information, for concepts both seen and unseen in training?}
+\begin{itemize}
+\item \textbf{H1 (diagnosis):} we measure coverage (gold among candidates) and selection given coverage per model. We
+predict that even with the gold concept inserted at a random position, every model selects it less than 50\% of the time,
+so selection limits accuracy as much as retrieval.
+\item \textbf{H2 (retrieval):} without the given item type, the fine-tuned retriever with a taxonomy-type constraint raises
+coverage at 100 over BM25 restricted to numeric types (31.2\%) and over an untrained dense retriever, on unseen as well as
+seen concepts.
+\item \textbf{H3 (transfer):} against that same no-oracle BM25 baseline, the paired 95\% CI of the accuracy difference
+excludes zero for at least three of the four models; given paired half-widths near 2 points, this needs coverage at
+100 to rise by about 7 points, our success threshold.
+\end{itemize}
+\textbf{If H2 holds but H3 fails,} selection is the binding constraint; that is itself an answer to the RQ, and the
+report would then focus on the selection stage.
+
+\section{Scope, data and overlapping questions}
+\textbf{Main task:} FinCL concept linking from FinTagging's public release (491 test items, 484 scored; 93\% are table
+rows). \textbf{Reported separately:} the COLING-25 tag queries (90 items; company and concept name to tag), which are a
+different task. Fact extraction (FinNI, 199 test items) is used only to predict item types. Financial calculation and
+filing QA are outside v1. The data come from four pinned public sources~[1--4], each with its SHA-256 hash and licence.
+\begin{itemize}
+\item \textbf{Overlaps:} records join only on a shared source id or identical normalised text (944 text and 248 id
+joins; 11{,}401 records become 10{,}457 unique items across all sources; FinCL's 500 released items become 491).
+MinHash near-duplicates~[7] go to human review, never automatic
+merging (6 pairs). Each cluster of related items stays in one split.
+\item \textbf{Conflicts:} 28 same-input, different-gold cases are flagged; same-dataset conflicts are excluded from the
+primary score (7 FinCL items, leaving 484), cross-source ones keep the publisher's gold.
+\item \textbf{Training data and leakage:} 24{,}798 fact--concept pairs are rebuilt from FinNI training documents (not an
+official FinCL training set); 15 training items that conflict with or nearly duplicate test items are dropped. For 374
+of the 484 test items the gold concept appears in training, and 132 of the 451 table rows share a row label with a
+training row (83 with the same concept). We therefore report seen-concept, unseen-concept (110 items, CIs about
+$\pm$9 points) and seen-row-label strata, and select models on a development split carved from training. Nothing is
+tuned on test items.
+\end{itemize}
+
+\section{Method}
+\textbf{Retrieval variants,} each scored for coverage at 1, 50, 100 and 200: (a) BM25~[6]; (b) BM25 restricted to
+numeric types (no given type); (c) BM25 filtered on the type predicted by fact extraction, falling back to (b) when the
+fact is not extracted; as oracle conditions, BM25 filtered on the given type, and a BM25 analogue of the soft type match
+in FinTagging's released text-search script (type terms added to query and concept text; an approximation, not a
+replication); (d) an untrained open dense retriever (e.g.\ bge-small, MIT licence), with and without these
+filters; (e) the same model fine-tuned contrastively on the training pairs, with same-type sibling concepts as hard
+negatives. FinTagging's paper reports an API embedding model (text-embedding-3-small), for which (d) is a weaker, local
+stand-in. \textbf{Selection:} the same four LLMs choose from the top 100 candidates with a fixed prompt, so differences
+come from retrieval alone. \textbf{Gold-candidate runs} insert the gold concept at a random position, which measures
+selection on all items, not only the easy covered ones, and matches FinTagging's rerank-only setting.
+\textbf{Preliminary evidence} (BM25, coverage at 200): 31.2\% unfiltered, 35.5\% with numeric types only, 36.8\% with the
+soft type match and 41.5\% with the hard filter on the given type. On the 51 non-monetary items the soft match reaches
+65\% and the hard filter 88\% (from 35\%); the 433 monetary items stay near 36\% under the hard filter but drop to
+33.5\% under the soft match, below numeric-only. Always guessing ``monetary'' (right for
+89\% of items) reaches only 32.2\%, so a predicted type must get the non-monetary items right.
+
+\section{Evaluation}
+\textbf{Models:} Qwen2.5-3B and 7B, Llama-3.1-8B and Mistral-7B (instruction-tuned, 4-bit, deterministic decoding,
+6\,GB GPU). \textbf{Metrics:} coverage at $k$, selection given coverage, exact concept accuracy, 95\% bootstrap CIs
+(Wilson at zero), paired bootstrap on identical items, and monetary and non-monetary items reported separately. LLM
+decoding is greedy, so the second seed applies to retriever fine-tuning. FinTagging's numbers (different items) are shown apart.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{3}{c}{FinCL (484 items)} & Tag queries (90) \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-5}
+Model & Closed-book & BM25 + given type, top 100 & Selected if covered & BM25, top 100 \\
+\midrule
+Qwen2.5-7B   & 1.2 [0.4, 2.3] & 15.5 [12.2, 18.8] & 43.9 & 36.7 [27.8, 46.7] \\
+Llama-3.1-8B & 1.7 [0.6, 2.9] & 15.5 [12.4, 19.0] & 43.9 & 31.1 [21.1, 41.1] \\
+Qwen2.5-3B   & 1.0 [0.2, 2.1] & 12.2 [9.3, 15.3]  & 33.9 & 26.7 [17.8, 35.6] \\
+Mistral-7B   & 0.0 [0.0, 0.8] & 11.4 [8.5, 14.3]  & 32.2 & 14.4 [7.8, 22.2] \\
+\bottomrule
+\end{tabular}
+\caption{\footnotesize Preliminary accuracy (\%, seed 0, 95\% CIs). Retrieval is deterministic, so coverage is the same
+for every model: 35.3\% on FinCL (given type, an oracle) and 54.4\% on tag queries. Mistral closed-book is 0 of 484
+(Wilson interval). Selection on covered items is far above FinTagging's rerank-only results; the gold-insertion runs
+will show how much of that gap comes from covered items being easier.}
+\end{table}
+
+\section{Contribution to the Open Financial LLM Leaderboard}
+The OFLL backend reads one results dataset and hard-codes five Greek-task columns; rows are keyed on hub model id,
+revision and precision, with no fields for evaluation tracks or confidence intervals. \textbf{Reuse:} its React interface
+(table, filters, column selector), FastAPI backend, Hugging Face result storage and model metadata schema.
+\textbf{Our leaderboard page:} we host an XBRL leaderboard built on this codebase, showing coverage, selection and
+accuracy per retrieval variant with CIs. \textbf{First pull request:} replace the hard-coded columns in the backend and
+frontend with a task-group configuration, including optional fields for track and CI, so any instance can declare its
+own tasks. Follow-up pull requests add a converter from evaluation results to the row format and update the outdated
+contribution guide. Outside pull requests have waited months for review, so we present the design at the weekly
+meeting first, and follow the DCO and Apache-2.0 rules.
+An upstream XBRL task group follows once maintainers agree and our rows use pinned Hugging Face model revisions.
+
+\section{Deliverables, timeline and roles}
+\textbf{The first web page} shows where each model loses accuracy (retrieval or selection) and how each retrieval
+variant changes it. \textbf{The report} answers the RQ and releases the deduplicated benchmark (data card, seen and
+unseen splits) with the evaluation code. \textbf{Risks:} the text-row subset is small (33 items), so we make no
+table-versus-text claims; results on the public subset may not hold on FinTagging's gated full set; FinanceBench
+(CC-BY-NC) stays out of anything hosted; FASB definitions are left out until their terms of use are checked.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{p{1.1cm}p{10.3cm}p{2.6cm}}
+\toprule
+Week & Work & Lead \\
+\midrule
+1    & Numeric-only baseline, gold-candidate and predicted-type runs; development and seen/unseen splits. Task-group design agreed at the
+weekly meeting & Dev; Stavan \\
+2--3 & Dense baseline, type filters and fine-tuned retriever. Configuration PR, then result converter & Dev; Stavan \\
+4    & End-to-end runs for all variants and models; second fine-tuning seed. Our leaderboard page & Dev; Stavan \\
+5--6 & Analysis and report; data card and code release & Both \\
+\bottomrule
+\end{tabular}
+\end{table}
+\textbf{Roles.} \emph{Dev Gaglani} leads the model runs, retriever training and experimental analysis. \emph{Stavan
+Desai} leads the leaderboard contribution and page, the dataset documentation and the seen/unseen and development
+splits. Both write and review the report.
+
+\vspace{3pt}
+{\footnotesize\textbf{References.}
+[1] Y.~Wang et al. FinTagging: Benchmarking LLMs for extracting and structuring financial information. arXiv:2505.20650, 2025.
+[2] K.~Wang et al. FinNLP-FNP-LLMFinLegal-2025 shared task: Regulations Challenge. COLING workshop, 2025.
+[3] S.~Han et al. XBRL Agent: Leveraging LLMs for financial report analysis. ICAIF, 2024.
+[4] P.~Islam et al. FinanceBench: A new benchmark for financial question answering. arXiv:2311.11944, 2023.
+[5] FINOS and SecureFinAI Lab. Open Financial LLM Leaderboard. \url{https://github.com/finos-labs/Open-Financial-LLMs-Leaderboard}.
+[6] S.~Robertson and H.~Zaragoza. The probabilistic relevance framework: BM25 and beyond. 2009.
+[7] A.~Z.~Broder. On the resemblance and containment of documents. 1997.\par}
+\end{document}

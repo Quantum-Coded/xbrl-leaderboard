@@ -1,0 +1,98 @@
+{
+  "n": {
+    "all": 484,
+    "monetary": 433,
+    "non_monetary": 51
+  },
+  "numeric_types": [
+    "areaItemType",
+    "decimalItemType",
+    "energyItemType",
+    "flowItemType",
+    "integerItemType",
+    "massItemType",
+    "monetaryItemType",
+    "perShareItemType",
+    "perUnitItemType",
+    "percentItemType",
+    "pureItemType",
+    "sharesItemType",
+    "volumeItemType"
+  ],
+  "heuristic_type_accuracy": 0.8925619834710744,
+  "monetary_guess_accuracy": 0.8946280991735537,
+  "coverage": {
+    "none": {
+      "@100": {
+        "all": 27.7,
+        "monetary": 27.3,
+        "non_monetary": 31.4
+      },
+      "@200": {
+        "all": 31.2,
+        "monetary": 30.9,
+        "non_monetary": 33.3
+      }
+    },
+    "numeric": {
+      "@100": {
+        "all": 31.2,
+        "monetary": 30.9,
+        "non_monetary": 33.3
+      },
+      "@200": {
+        "all": 35.5,
+        "monetary": 35.6,
+        "non_monetary": 35.3
+      }
+    },
+    "monetary": {
+      "@100": {
+        "all": 28.1,
+        "monetary": 31.4,
+        "non_monetary": 0.0
+      },
+      "@200": {
+        "all": 32.2,
+        "monetary": 36.0,
+        "non_monetary": 0.0
+      }
+    },
+    "heuristic": {
+      "@100": {
+        "all": 29.5,
+        "monetary": 30.3,
+        "non_monetary": 23.5
+      },
+      "@200": {
+        "all": 34.3,
+        "monetary": 34.9,
+        "non_monetary": 29.4
+      }
+    },
+    "soft_given": {
+      "@100": {
+        "all": 31.4,
+        "monetary": 27.9,
+        "non_monetary": 60.8
+      },
+      "@200": {
+        "all": 36.8,
+        "monetary": 33.5,
+        "non_monetary": 64.7
+      }
+    },
+    "given": {
+      "@100": {
+        "all": 35.3,
+        "monetary": 31.4,
+        "non_monetary": 68.6
+      },
+      "@200": {
+        "all": 41.5,
+        "monetary": 36.0,
+        "non_monetary": 88.2
+      }
+    }
+  }
+}

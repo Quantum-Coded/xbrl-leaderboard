@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XBRL Leaderboard</title>
+<style>
+:root{--bg:#0b100e;--panel:#111815;--line:#21302a;--text:#e7eeea;--muted:#8fa199;--accent:#4fd6a4;--red:#ef6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+h1{font-size:32px;margin:0 0 6px;letter-spacing:-.02em}
+.lede{color:var(--muted);margin:0 0 6px}
+h2{font-size:17px;margin:24px 0 10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;color:var(--muted);text-align:left;padding:10px 16px;font-weight:600}
+td{padding:12px 16px;border-top:1px solid var(--line)}
+.bar{height:10px;background:#1a2521;border-radius:6px;width:100%}
+.bar div{height:100%;border-radius:6px;background:var(--accent)}
+.num{font-weight:700;text-align:right;white-space:nowrap}
+.dim{color:var(--muted);font-size:13px;white-space:nowrap}
+.note{color:var(--muted);font-size:13px;padding:10px 16px;border-top:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ex{padding:16px}
+.ex .top{display:flex;justify-content:space-between;margin-bottom:10px}
+.tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
+.pass{background:#0f2a20;color:var(--accent)} .fail{background:#2e1414;color:var(--red)}
+.row{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#151e1a;border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:10px}
+.kv{display:grid;grid-template-columns:105px 1fr;gap:5px 10px;font-size:13px}
+.kv span:nth-child(odd){color:var(--muted)}
+.kv code{font-size:12.5px;word-break:break-all}
+.stat{padding:16px}
+.stat .n{font-size:28px;font-weight:800}
+.stat p{margin:4px 0 0;color:var(--muted);font-size:13px}
+@media (max-width:760px){.two{grid-template-columns:1fr}.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>XBRL Leaderboard</h1>
+  <p class="lede" id="lede"></p>
+
+  <h2>Results</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>#</th><th>Model</th><th>Tools</th><th class="hide-sm" style="width:34%"></th><th style="text-align:right">Accuracy</th><th>Correct</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="note" id="note"></div>
+  </div>
+
+  <h2>Example answers</h2>
+  <div class="two" id="ex"></div>
+
+  <h2>Why models fail</h2>
+  <div class="two" id="why"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const D = window.DEMO_DATA, T = D.task;
+const fmt = n => n.toLocaleString('en-US');
+document.getElementById('lede').textContent =
+  `Task: link a number from an SEC filing to the right US-GAAP concept (one of ${fmt(T.taxonomy_concepts)}). ` +
+  `${T.scored} test items from FinTagging.`;
+
+const runs = D.runs.slice().sort((a,b) => b.accuracy - a.accuracy || a.model.localeCompare(b.model));
+const rank = runs.map(r => 1 + runs.filter(o => o.accuracy > r.accuracy).length);
+document.getElementById('rows').innerHTML = runs.map((r,i) => `
+  <tr><td class="dim">${rank[i]}</td><td><b>${r.model.replace('-Instruct','')}</b></td>
+  <td>${r.tools ? 'Tag search' : 'None'}</td>
+  <td class="hide-sm"><div class="bar"><div style="width:${r.accuracy/20*100}%"></div></div></td>
+  <td class="num">${r.accuracy.toFixed(1)}%</td><td class="dim">${r.correct} / ${r.n}</td></tr>`).join('');
+document.getElementById('note').textContent =
+  `Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. ` +
+  `For reference, the FinTagging paper reports ${D.published.map(p => `${p.system.replace('-Instruct','')} ${p.score.toFixed(1)}%`).join(' and ')} on its full test set.`;
+
+document.getElementById('ex').innerHTML = D.examples.map(x => `
+  <div class="card ex"><div class="top"><b>${x.verdict === 'pass' ? 'Correct' : 'Wrong'} <span class="dim">&middot; Qwen2.5-7B, tag search</span></b>
+  <span class="tag ${x.verdict}">${x.verdict === 'pass' ? 'PASS' : 'FAIL'}</span></div>
+  <div class="row">${x.row}</div>
+  <div class="kv"><span>Number</span><span>${x.value}</span>
+  <span>Correct</span><code>${x.gold}</code>
+  <span>Model said</span><code style="color:${x.verdict==='pass'?'var(--accent)':'var(--red)'}">${x.pred}</code></div></div>`).join('');
+
+const tr = D.runs.filter(r => r.tools), q = tr[0];
+const same = tr.every(r => r.coverage === q.coverage && r.selected_if_covered === q.selected_if_covered);
+const picked = q.correct - q.correct_outside_candidates;
+document.getElementById('why').innerHTML = same ? `
+  <div class="card stat"><div class="n">${q.coverage.toFixed(1)}%</div>
+  <p>Search puts the correct concept in the 100 candidates for ${q.covered_items} of ${q.n} items.</p></div>
+  <div class="card stat"><div class="n">${q.selected_if_covered.toFixed(1)}%</div>
+  <p>When it is there, each model picks it for ${picked} of those ${q.covered_items} items.</p></div>` : '';
+</script>
+</body>
+</html>

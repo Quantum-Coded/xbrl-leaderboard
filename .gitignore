@@ -10,8 +10,9 @@ data/v1/test/
 data/v1/train/
 data/v1/validation/
 data/v1/clusters.jsonl
-# model outputs can be large; scores and tables are committed
-results/generations/
+# model outputs are committed so the demo can be rebuilt without a GPU, except FinanceBench-derived
+# filing QA outputs (CC-BY-NC), which stay local
+results/generations/*filing_qa*
 results/judgements/
 site/node_modules/
 site/dist/
@@ -25,3 +26,5 @@ report/*.aux
 report/*.log
 data/v1/sft/*.jsonl
 data/cache/
+# professor documents stay local (repo is public)
+docs/references/

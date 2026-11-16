@@ -1,0 +1,657 @@
+qwen2.5-3b__concept_tagging__closed__s0: 581 done, 0 to go
+qwen2.5-3b__fact_extraction__closed__s0: 199 done, 0 to go
+qwen2.5-3b__filing_qa__closed__s0: 150 done, 0 to go
+llama3.1-8b__concept_tagging__closed__s0: 581 done, 0 to go
+llama3.1-8b__fact_extraction__closed__s0: 199 done, 0 to go
+llama3.1-8b__filing_qa__closed__s0: 150 done, 0 to go
+qwen2.5-7b__concept_tagging__closed__s0: 581 done, 0 to go
+qwen2.5-7b__fact_extraction__closed__s0: 199 done, 0 to go
+qwen2.5-7b__filing_qa__closed__s0: 150 done, 0 to go
+mistral-7b__concept_tagging__closed__s0: 581 done, 0 to go
+mistral-7b__fact_extraction__closed__s0: 185 done, 14 to go
+mistral-7b__filing_qa__closed__s0: 0 done, 150 to go
+  25/150  2.8s/item
+  50/150  2.7s/item
+  75/150  2.5s/item
+  100/150  2.4s/item
+  125/150  2.8s/item
+  150/150  2.9s/item
+qwen2.5-3b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  1.0s/item
+  50/581  1.0s/item
+  75/581  1.0s/item
+  100/581  1.0s/item
+  125/581  1.0s/item
+  150/581  1.0s/item
+  175/581  1.0s/item
+  200/581  1.0s/item
+  225/581  0.9s/item
+  250/581  0.9s/item
+  275/581  0.9s/item
+  300/581  0.9s/item
+  325/581  0.9s/item
+  350/581  0.9s/item
+  375/581  0.9s/item
+  400/581  0.9s/item
+  425/581  0.9s/item
+  450/581  0.9s/item
+  475/581  0.9s/item
+  500/581  0.9s/item
+  525/581  0.9s/item
+  550/581  0.9s/item
+  575/581  0.9s/item
+qwen2.5-3b__filing_qa__tools__s0: 0 done, 150 to go
+  25/150  1.9s/item
+  50/150  1.9s/item
+  75/150  1.9s/item
+  100/150  1.8s/item
+  125/150  1.9s/item
+  150/150  1.9s/item
+llama3.1-8b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  2.4s/item
+  50/581  2.5s/item
+  75/581  2.7s/item
+  100/581  2.7s/item
+  125/581  2.5s/item
+  150/581  2.5s/item
+  175/581  2.4s/item
+  200/581  2.4s/item
+  225/581  2.3s/item
+  250/581  2.3s/item
+  275/581  2.3s/item
+  300/581  2.2s/item
+  325/581  2.2s/item
+  350/581  2.2s/item
+  375/581  2.2s/item
+  400/581  2.2s/item
+  425/581  2.2s/item
+  450/581  2.2s/item
+  475/581  2.2s/item
+  500/581  2.2s/item
+  525/581  2.2s/item
+  550/581  2.2s/item
+  575/581  2.2s/item
+llama3.1-8b__filing_qa__tools__s0: 0 done, 150 to go
+  25/150  3.2s/item
+  50/150  3.3s/item
+  75/150  3.3s/item
+  100/150  3.2s/item
+  125/150  3.6s/item
+  150/150  3.9s/item
+qwen2.5-7b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  1.8s/item
+  50/581  2.0s/item
+  75/581  2.3s/item
+  100/581  2.3s/item
+  125/581  2.2s/item
+  150/581  2.1s/item
+  175/581  2.0s/item
+  200/581  2.0s/item
+  225/581  2.0s/item
+  250/581  1.9s/item
+  275/581  1.9s/item
+  300/581  1.9s/item
+  325/581  1.9s/item
+  350/581  1.9s/item
+  375/581  1.9s/item
+  400/581  1.9s/item
+  425/581  1.9s/item
+  450/581  1.9s/item
+  475/581  1.9s/item
+  500/581  1.9s/item
+  525/581  1.9s/item
+  550/581  1.9s/item
+  575/581  1.9s/item
+qwen2.5-7b__filing_qa__tools__s0: 0 done, 150 to go
+  25/150  2.7s/item
+  50/150  3.1s/item
+  75/150  3.0s/item
+  100/150  3.0s/item
+  125/150  3.2s/item
+  150/150  3.3s/item
+mistral-7b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  3.4s/item
+  50/581  3.4s/item
+  75/581  3.4s/item
+  100/581  3.3s/item
+  125/581  3.1s/item
+  150/581  2.9s/item
+  175/581  2.8s/item
+  200/581  2.7s/item
+  225/581  2.7s/item
+  250/581  2.6s/item
+  275/581  2.6s/item
+  300/581  2.6s/item
+  325/581  2.5s/item
+  350/581  2.5s/item
+  375/581  2.5s/item
+  400/581  2.5s/item
+  425/581  2.5s/item
+  450/581  2.5s/item
+  475/581  2.5s/item
+  500/581  2.5s/item
+  525/581  2.5s/item
+  550/581  2.5s/item
+  575/581  2.5s/item
+mistral-7b__filing_qa__tools__s0: 0 done, 150 to go
+  25/150  4.1s/item
+  50/150  4.4s/item
+  75/150  4.3s/item
+  100/150  4.1s/item
+  125/150  4.4s/item
+  150/150  4.7s/item
+qwen2.5-3b__financial_calc__closed__s0: 0 done, 1000 to go
+  25/1000  5.2s/item
+  50/1000  4.1s/item
+  75/1000  3.2s/item
+  100/1000  2.9s/item
+  125/1000  2.7s/item
+  150/1000  2.6s/item
+  175/1000  2.6s/item
+  200/1000  2.5s/item
+  225/1000  2.5s/item
+  250/1000  2.5s/item
+  275/1000  2.5s/item
+  300/1000  2.5s/item
+  325/1000  2.4s/item
+  350/1000  2.4s/item
+  375/1000  2.4s/item
+  400/1000  2.4s/item
+  425/1000  2.3s/item
+  450/1000  2.3s/item
+  475/1000  2.3s/item
+  500/1000  2.3s/item
+  525/1000  2.3s/item
+  550/1000  2.3s/item
+  575/1000  2.3s/item
+  600/1000  2.3s/item
+  625/1000  2.3s/item
+  650/1000  2.4s/item
+  675/1000  2.4s/item
+  700/1000  2.4s/item
+  725/1000  2.4s/item
+  750/1000  2.5s/item
+  775/1000  2.5s/item
+  800/1000  2.5s/item
+  825/1000  2.6s/item
+  850/1000  2.7s/item
+  875/1000  2.8s/item
+  900/1000  2.9s/item
+  925/1000  2.9s/item
+  950/1000  2.9s/item
+  975/1000  2.9s/item
+  1000/1000  2.8s/item
+qwen2.5-3b__financial_calc__tools__s0: 0 done, 1000 to go
+  25/1000  0.6s/item
+  50/1000  0.4s/item
+  75/1000  0.4s/item
+  100/1000  0.4s/item
+  125/1000  0.4s/item
+  150/1000  0.4s/item
+  175/1000  0.4s/item
+  200/1000  0.4s/item
+  225/1000  0.4s/item
+  250/1000  0.4s/item
+  275/1000  0.4s/item
+  300/1000  0.4s/item
+  325/1000  0.4s/item
+  350/1000  0.4s/item
+  375/1000  0.3s/item
+  400/1000  0.3s/item
+  425/1000  0.3s/item
+  450/1000  0.3s/item
+  475/1000  0.3s/item
+  500/1000  0.3s/item
+  525/1000  0.3s/item
+  550/1000  0.3s/item
+  575/1000  0.3s/item
+  600/1000  0.3s/item
+  625/1000  0.3s/item
+  650/1000  0.3s/item
+  675/1000  0.3s/item
+  700/1000  0.3s/item
+  725/1000  0.3s/item
+  750/1000  0.3s/item
+  775/1000  0.3s/item
+  800/1000  0.3s/item
+  825/1000  0.3s/item
+  850/1000  0.4s/item
+  875/1000  0.4s/item
+  900/1000  0.4s/item
+  925/1000  0.4s/item
+  950/1000  0.4s/item
+  975/1000  0.4s/item
+  1000/1000  0.4s/item
+llama3.1-8b__financial_calc__closed__s0: 0 done, 1000 to go
+  25/1000  6.4s/item
+  50/1000  4.5s/item
+  75/1000  3.4s/item
+  100/1000  3.0s/item
+  125/1000  2.8s/item
+  150/1000  2.6s/item
+  175/1000  2.4s/item
+  200/1000  2.3s/item
+  225/1000  2.1s/item
+  250/1000  2.1s/item
+  275/1000  2.2s/item
+  300/1000  2.1s/item
+  325/1000  2.1s/item
+  350/1000  54.1s/item
+  375/1000  50.6s/item
+  400/1000  47.6s/item
+  425/1000  44.9s/item
+  450/1000  42.5s/item
+  475/1000  40.5s/item
+  500/1000  38.6s/item
+  525/1000  36.9s/item
+  550/1000  35.4s/item
+  575/1000  33.9s/item
+  600/1000  32.7s/item
+  625/1000  31.5s/item
+  650/1000  30.5s/item
+  675/1000  29.5s/item
+  700/1000  28.6s/item
+  725/1000  27.7s/item
+  750/1000  26.9s/item
+  775/1000  26.2s/item
+  800/1000  25.7s/item
+  825/1000  25.1s/item
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 93, in main
+    f.write(json.dumps(generate(it, args.model, args.track, args.seed), ensure_ascii=False) + "\n")
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 51, in generate
+    res = llm.chat(model, user, system=system, seed=seed, max_tokens=max_tokens, num_ctx=num_ctx)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 35, in chat
+    r = requests.post(f"{OLLAMA}/api/chat", json=body, timeout=timeout)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:llama3.1:8b calc closed
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 81, in main
+    "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 105, in model_digest
+    r = requests.get(f"{OLLAMA}/api/tags", timeout=60)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:llama3.1:8b calc tools
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 81, in main
+    "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 105, in model_digest
+    r = requests.get(f"{OLLAMA}/api/tags", timeout=60)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:qwen2.5:7b calc closed
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 81, in main
+    "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 105, in model_digest
+    r = requests.get(f"{OLLAMA}/api/tags", timeout=60)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:qwen2.5:7b calc tools
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 81, in main
+    "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 105, in model_digest
+    r = requests.get(f"{OLLAMA}/api/tags", timeout=60)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:mistral:7b calc closed
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 567, in request
+    self.endheaders()
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1037, in _send_output
+    self.send(msg)
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 975, in send
+    self.connect()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 398, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 101, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 81, in main
+    "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 105, in model_digest
+    r = requests.get(f"{OLLAMA}/api/tags", timeout=60)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+FAILED ollama:mistral:7b calc tools
+BATCH DONE

@@ -1,0 +1,38 @@
+XBRL Leaderboard
+
+Task: link a number from an SEC filing to the right US-GAAP concept (one of 17,388). 484 test items from FinTagging.
+
+Results
+#	Model	Tools	Accuracy	Correct
+1	Llama-3.1-8B	Tag search	15.5%	75 / 484
+1	Qwen2.5-7B	Tag search	15.5%	75 / 484
+3	Llama-3.1-8B	None	1.7%	8 / 484
+4	Qwen2.5-7B	None	1.2%	6 / 484
+Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. For reference, the FinTagging paper reports GPT-4o 18.3% and Llama-3.1-8B 9.1% on its full test set.
+Example answers
+Correct · Qwen2.5-7B, tag search
+PASS
+Net Income | 614.2 | 614.2
+Number
+614.2
+Correct
+us-gaap:NetIncomeLoss
+Model said
+us-gaap:NetIncomeLoss
+Wrong · Qwen2.5-7B, tag search
+FAIL
+Amortization of net losses and settlement losses included in net periodic pension cost | 2 | 1 | 2
+Number
+2
+Correct
+us-gaap:OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditBeforeTax
+Model said
+us-gaap:DefinedBenefitPlanNetPeriodicBenefitCost
+Why models fail
+35.3%
+
+Search puts the correct concept in the 100 candidates for 171 of 484 items.
+
+43.9%
+
+When it is there, each model picks it for 75 of those 171 items.

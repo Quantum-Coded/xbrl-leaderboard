@@ -1,0 +1,163 @@
+{
+ "checks": [
+  "qwen2.5-7b__concept_tagging__closed__s0: rescored 6/484 = 1.2% CI [0.4, 2.3] == stored score file",
+  "qwen2.5-7b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.2, 18.8] == stored score file",
+  "llama3.1-8b__concept_tagging__closed__s0: rescored 8/484 = 1.7% CI [0.6, 2.9] == stored score file",
+  "llama3.1-8b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.4, 19.0] == stored score file"
+ ],
+ "task": {
+  "name": "Concept linking (FinCL)",
+  "source": "FinTagging public release (GitHub subset)",
+  "released": 500,
+  "after_dedup": 491,
+  "scored": 484,
+  "excluded_conflicts": 7,
+  "table_rows": 451,
+  "taxonomy_concepts": 17388,
+  "metric": "Exact match on the US-GAAP concept (concept_exact@v1)",
+  "ci": "95% bootstrap over items (2,000 resamples, seed 0)",
+  "decoding": "greedy, 4-bit GGUF via Ollama, seed 0"
+ },
+ "runs": [
+  {
+   "run": "qwen2.5-7b__concept_tagging__closed__s0",
+   "model": "Qwen2.5-7B-Instruct",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": null,
+   "track": "No tools",
+   "tools": false,
+   "n": 484,
+   "correct": 6,
+   "accuracy": 1.2,
+   "ci95": [
+    0.4,
+    2.3
+   ],
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "run": "qwen2.5-7b__concept_tagging__tools__s0",
+   "model": "Qwen2.5-7B-Instruct",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.15",
+   "track": "Tag search (BM25, top 100)",
+   "tools": true,
+   "n": 484,
+   "correct": 75,
+   "accuracy": 15.5,
+   "ci95": [
+    12.2,
+    18.8
+   ],
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_if_covered": 43.9,
+   "correct_outside_candidates": 0
+  },
+  {
+   "run": "llama3.1-8b__concept_tagging__closed__s0",
+   "model": "Llama-3.1-8B-Instruct",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": null,
+   "track": "No tools",
+   "tools": false,
+   "n": 484,
+   "correct": 8,
+   "accuracy": 1.7,
+   "ci95": [
+    0.6,
+    2.9
+   ],
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "run": "llama3.1-8b__concept_tagging__tools__s0",
+   "model": "Llama-3.1-8B-Instruct",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.15",
+   "track": "Tag search (BM25, top 100)",
+   "tools": true,
+   "n": 484,
+   "correct": 75,
+   "accuracy": 15.5,
+   "ci95": [
+    12.4,
+    19.0
+   ],
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_if_covered": 43.9,
+   "correct_outside_candidates": 0
+  }
+ ],
+ "paired_tools_minus_closed": {
+  "Qwen2.5-7B-Instruct": {
+   "diff": 14.3,
+   "ci95": [
+    11.2,
+    17.6
+   ]
+  },
+  "Llama-3.1-8B-Instruct": {
+   "diff": 13.8,
+   "ci95": [
+    10.5,
+    17.1
+   ]
+  }
+ },
+ "examples": [
+  {
+   "uid": "fintagging:fincl_subset:test:10",
+   "row": "Net Income | 614.2 | 614.2",
+   "value": "614.2",
+   "type": "monetaryItemType",
+   "gold": "us-gaap:NetIncomeLoss",
+   "pred": "us-gaap:NetIncomeLoss",
+   "verdict": "pass",
+   "why": "Exact match with the gold US-GAAP concept."
+  },
+  {
+   "uid": "fintagging:fincl_subset:test:1",
+   "row": "Amortization of net losses and settlement losses included in net periodic pension cost | 2 | 1 | 2",
+   "value": "2",
+   "type": "monetaryItemType",
+   "gold": "us-gaap:OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditBeforeTax",
+   "pred": "us-gaap:DefinedBenefitPlanNetPeriodicBenefitCost",
+   "verdict": "fail",
+   "why": "The gold concept was in the 100 candidates, but the model chose a different one."
+  }
+ ],
+ "dedup": {
+  "records": 11401,
+  "unique": 10457,
+  "text_joins": 944,
+  "id_joins": 248,
+  "review_pairs": 6
+ },
+ "published": [
+  {
+   "system": "GPT-4o",
+   "score": 18.3
+  },
+  {
+   "system": "Llama-3.1-8B-Instruct",
+   "score": 9.1
+  }
+ ],
+ "published_note": "FinTagging paper (arXiv:2505.20650v5), Table 8, FinCL accuracy. Full gated test set and their own retriever, so not directly comparable with our runs on the public subset."
+}
