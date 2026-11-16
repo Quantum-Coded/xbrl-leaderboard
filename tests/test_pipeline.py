@@ -60,3 +60,30 @@ def test_fincl_tools_prompt_lists_typed_candidates():
 def test_context_never_silently_truncated():
     assert run.ctx_for(None, "x" * 30000, 1024) > run.CTX_CAP
     assert run.ctx_for(None, "x" * 3000, 64) <= 2048
+
+
+def test_tag_tracks_differ_only_in_type_filter():
+    from fineval import tools
+    item = next(i for i in data.items("concept_tagging") if i["subset"] == "fincl_subset")
+    rows, _ = tools._taxonomy()
+    ttype = {"us-gaap:" + r["us_gaap_tag"]: r["entity_type"] for r in rows}
+    q = tools.fincl_query_text(item["input"])
+    _, _, oracle = prompts.build(item, "tools")
+    _, user, noorac = prompts.build(item, "tools_noorac")
+    _, _, numeric = prompts.build(item, "tools_numeric")
+    assert {ttype[c] for c in oracle["candidates"]} == {item["input"]["entity_type"]}      # oracle: given type only
+    assert noorac["candidates"] == tools.taxonomy_search(q, k=prompts.TAG_CANDIDATES)      # no type information
+    assert all(ttype[c] in tools.NUMERIC_TYPES for c in numeric["candidates"])
+    assert all(len(log["candidates"]) == prompts.TAG_CANDIDATES for log in (oracle, noorac, numeric))
+
+
+def test_new_tag_tracks_rejected_outside_concept_tagging():
+    item = next(iter(data.items("financial_calc")))
+    with pytest.raises(ValueError):
+        prompts.build(item, "tools_noorac")
+    with pytest.raises(SystemExit):
+        run.main(["--model", "mock:echo", "--task", "financial_calc", "--track", "tools_numeric", "--limit", "1"])
+
+
+def test_results_root_defaults_to_repo_results():
+    assert run.GEN == run.ROOT / "results" / "generations" and score.SCORES == run.ROOT / "results" / "scores"

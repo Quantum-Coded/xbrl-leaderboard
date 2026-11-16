@@ -35,14 +35,29 @@ def _taxonomy():
     return rows, BM25Okapi(docs)
 
 
-def taxonomy_search(query: str, k: int = 20, entity_type: str | None = None) -> list:
-    """Top-k US-GAAP concepts as 'us-gaap:Name', best first."""
+# XBRL 2.1 numeric item types, then Data Type Registry numeric types, as named in us_gaap_2024_BM25.jsonl.
+# Fixed from the specifications, not from test items. Used by the tools_numeric track.
+NUMERIC_TYPES = frozenset({
+    "monetaryItemType", "sharesItemType", "pureItemType", "decimalItemType", "integerItemType",
+    "perShareItemType", "percentItemType", "perUnitItemType", "volumeItemType", "areaItemType",
+    "massItemType", "energyItemType", "flowItemType",
+})
+
+
+def taxonomy_search(query: str, k: int = 20, entity_type: str | None = None, entity_types=None) -> list:
+    """Top-k US-GAAP concepts as 'us-gaap:Name', best first.
+
+    entity_type keeps only concepts of that one type (for FinCL this is the item's given type, which
+    always equals the gold concept's type: an oracle). entity_types keeps concepts whose type is in a
+    fixed set (no per-item information)."""
     rows, bm = _taxonomy()
     scores = bm.get_scores(tokens(query))
     idx = sorted(range(len(rows)), key=lambda i: (-scores[i], rows[i]["us_gaap_tag"]))
     out = []
     for i in idx:
         if entity_type and rows[i]["entity_type"] != entity_type:
+            continue
+        if entity_types is not None and rows[i]["entity_type"] not in entity_types:
             continue
         out.append("us-gaap:" + rows[i]["us_gaap_tag"])
         if len(out) == k:

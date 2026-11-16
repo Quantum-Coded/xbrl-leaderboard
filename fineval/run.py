@@ -10,13 +10,19 @@ and scores 0.
 import argparse
 import hashlib
 import json
+import os
+import platform
 import subprocess
 import time
+from pathlib import Path
 
 from . import data, llm, prompts
 from .fetch import ROOT
 
-GEN = ROOT / "results" / "generations"
+# FINEVAL_RESULTS moves all outputs of run/score to another folder, e.g. results/mac/m2 on a second
+# machine, so its runs never overwrite the committed ones (run names carry no machine tag).
+RESULTS = (ROOT / os.environ["FINEVAL_RESULTS"]) if os.environ.get("FINEVAL_RESULTS") else ROOT / "results"
+GEN = RESULTS / "generations"
 CTX_CAP = 8192
 CHARS_PER_TOKEN = 3.0          # conservative estimate; the true count is checked after the call
 
@@ -70,6 +76,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.task == "fact_extraction" and args.track == "tools":
         raise SystemExit("fact_extraction has no tool-assisted variant")
+    if args.track not in ("closed", "tools") and args.task != "concept_tagging":
+        raise SystemExit(f"track {args.track} exists only for concept_tagging")
 
     items = data.sample(args.task, args.n, seed=0)
     name = run_name(args.model, args.task, args.track, args.seed, args.n)
@@ -81,6 +89,7 @@ def main(argv=None):
             "model": args.model, "model_digest": llm.model_digest(args.model), "runtime": llm.runtime_version(args.model), "task": args.task, "track": args.track,
             "seed": args.seed, "n": args.n, "items": [i["uid"] for i in items], "max_tokens": llm.MAX_TOKENS[args.task],
             "num_ctx_default": llm.NUM_CTX[args.task], "ctx_cap": CTX_CAP, "code_commit": git_commit(),
+            "machine": {"os": platform.platform(), "cpu": platform.processor() or platform.machine()},
             "started": time.strftime("%Y-%m-%dT%H:%M:%S")}, indent=1), encoding="utf-8")
     done = {json.loads(l)["uid"] for l in out.open(encoding="utf-8")} if out.exists() else set()
     todo = [i for i in items if i["uid"] not in done]

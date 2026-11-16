@@ -12,10 +12,10 @@ from collections import Counter
 
 from . import data, scorers
 from .fetch import ROOT
-from .run import GEN
+from .run import GEN, RESULTS
 from .stats import bootstrap_ci
 
-SCORES = ROOT / "results" / "scores"
+SCORES = RESULTS / "scores"
 PRIMARY_KEY = {"concept_exact@v1": "exact", "numeric_match@v1": "final", "finni_pair_f1@v1": "strict_f1"}
 
 
