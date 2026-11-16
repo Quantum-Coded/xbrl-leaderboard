@@ -40,6 +40,11 @@ def main(folder):
         name = gen.stem
         meta = json.loads(gen.with_name(name + ".meta.json").read_text(encoding="utf-8"))
         mine = {g["uid"]: g for g in jl(gen)}
+        missing = sum(i["uid"] not in mine for i in test)
+        if missing:  # a run still in progress: report it, score nothing
+            out["runs"].append({"run": name, "incomplete": True, "generated": len(test) - missing, "missing": missing})
+            print(name, "incomplete:", missing, "of", len(test), "items missing; skipped")
+            continue
         ref_path = ROOT / "results/generations" / gen.name
         ref = {g["uid"]: g for g in jl(ref_path)} if ref_path.exists() else None
         ref_meta = (json.loads(ref_path.with_name(name + ".meta.json").read_text(encoding="utf-8")) if ref else None)

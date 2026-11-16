@@ -34,7 +34,274 @@
     "this_machine_only_correct": [],
     "reference_only_correct": []
    }
+  },
+  {
+   "run": "qwen2.5-3b__concept_tagging__tools__s0",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
+   "track": "tools",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 57,
+   "accuracy": 11.8,
+   "ci95": [
+    8.9,
+    14.9
+   ],
+   "equals_stored_score_file": true,
+   "covered_items": 171,
+   "coverage": 35.3,
+   "selected_covered_items": 56,
+   "selected_if_covered": 32.7,
+   "correct_outside_candidates": 1,
+   "reference_run": {
+    "runtime": "ollama 0.40.15",
+    "model_digest": "357c53fb659c",
+    "same_model_digest": true,
+    "correct": 59,
+    "accuracy": 12.2,
+    "same_prompt": 484,
+    "same_raw_output": 392,
+    "same_parsed_answer": 392,
+    "scored_differently": 4,
+    "this_machine_only_correct": [
+     "fintagging:fincl_subset:test:383"
+    ],
+    "reference_only_correct": [
+     "fintagging:fincl_subset:test:137",
+     "fintagging:fincl_subset:test:326",
+     "fintagging:fincl_subset:test:464"
+    ]
+   }
+  },
+  {
+   "run": "qwen2.5-3b__concept_tagging__tools_noorac__s0",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
+   "track": "tools_noorac",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 47,
+   "accuracy": 9.7,
+   "ci95": [
+    7.2,
+    12.4
+   ],
+   "equals_stored_score_file": true,
+   "covered_items": 134,
+   "coverage": 27.7,
+   "selected_covered_items": 46,
+   "selected_if_covered": 34.3,
+   "correct_outside_candidates": 1,
+   "reference_run": null
+  },
+  {
+   "run": "qwen2.5-7b__concept_tagging__closed__s0",
+   "incomplete": true,
+   "generated": 0,
+   "missing": 484
   }
  ],
- "profiles": []
+ "profiles": [
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-3b__closed__n100.json",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "f2460750c0f5124b18185101fdb86d03989d3b59",
+   "started": "2026-11-16T15:19:32",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:3b",
+     "size": 2163558317,
+     "size_vram": 2163558317,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.01,
+    "latency_median_s": 1.0444,
+    "latency_p90_s": 1.4797,
+    "latency_mean_s": 1.1175,
+    "gen_tokens_per_s_median": 25.5,
+    "prompt_tokens_median": 143.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 26
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2158
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2363
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 458
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-3b__tools__n100.json",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+   "track": "tools",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "f2460750c0f5124b18185101fdb86d03989d3b59",
+   "started": "2026-11-16T15:35:48",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:3b",
+     "size": 2163558317,
+     "size_vram": 2163558317,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.1,
+    "latency_median_s": 9.0647,
+    "latency_p90_s": 12.1664,
+    "latency_mean_s": 9.609,
+    "gen_tokens_per_s_median": 36.9,
+    "prompt_tokens_median": 1963.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 30
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2181
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 6871
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 4197
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-3b__tools_noorac__n100.json",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+   "track": "tools_noorac",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "f2460750c0f5124b18185101fdb86d03989d3b59",
+   "started": "2026-11-16T15:50:10",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:3b",
+     "size": 2163558317,
+     "size_vram": 2163558317,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "3.1B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.09,
+    "latency_median_s": 8.5305,
+    "latency_p90_s": 10.8508,
+    "latency_mean_s": 8.4909,
+    "gen_tokens_per_s_median": 37.3,
+    "prompt_tokens_median": 2073.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 25
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2176
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2063,
+     "ollama_size_vram_mib": 2063,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 6932
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 3739
+   }
+  }
+ ]
 }
