@@ -44,7 +44,7 @@ These apply to both of us and to both our Claudes. They are from `IMPLEMENTATION
 | When | What happened | Where it lives |
 |---|---|---|
 | From 17 Oct 2026 | **Task 1.** We reproduced the COLING-2025 Regulations Challenge (arXiv 2412.11159) locally. We rebuilt the unpublished scorer and calibrated it against the paper. We found 95 validation items leaking into test. We kept "paper" and "ours" scores apart. We audited the LLM judge against human labels. We showed that tools help small models more than fine-tuning. | Separate repo `research-intern/regulations-challenge/` (GitHub `Quantum-Coded/llm-finance`) |
-| 29 Oct | Prof. Liu asked us to review the resources and propose a manageable first version. He asked for overlapping questions to be handled, and for published scores to be kept apart from reproduced ones. We wrote `PLAN.md`, which combines 5 sources and measures the overlap between them. | `PLAN.md`, `overlap_check.py` |
+| 26–29 Oct | Prof. Liu (26 Oct email) asked us to review the resources and propose a manageable first version. He asked for overlapping questions to be handled, and for published scores to be kept apart from reproduced ones. We wrote `PLAN.md`, which combines 5 sources and measures the overlap between them. | `PLAN.md`, `overlap_check.py` |
 | Late Oct to early Nov | We built the benchmark harness, phases 0–10 in `IMPLEMENTATION_PLAN.md`. | `fineval/`, `tests/`, `site/` (an early React site, now superseded by `demo/`), `report/`; git history `d5f84ea` to `5193313` |
 | Early to mid Nov | He asked for a focused 2-page proposal. Version 3 asked how much FinCL error comes from **retrieval vs selection**. It went through two reviewer passes and gained the type-filter analysis. | `proposal/archive/proposal_v3_retrieval_or_selection.*`, `scripts/type_filter_coverage.py` |
 | 15 Nov | **Reframe.** Prof. Liu sent `XBRL_Leaderboard_Student_Guide.pdf`. The project is now the **XBRL Leaderboard**: one task, two models, a simple working page, and retrieval vs selection kept only as the failure analysis. We should reuse the group's resources. We built the minimal demo page, a script that checks every number on it, and a new 2-page proposal with a screenshot. | `demo/`, `scripts/build_demo.py`, `scripts/verify_demo_page.py`, `proposal/proposal.{tex,pdf}`, `proposal/demo_screenshot.png` |
@@ -264,7 +264,8 @@ and `demo/data.js`.
 1. This file.
 2. `proposal/proposal.pdf`: the current 2-page proposal, the version Prof. Liu commented on.
 3. `XBRL_Leaderboard_Student_Guide.pdf`: Prof. Liu's guide, from his 15 Nov email. It is not in the
-   repo; ask Dev if you don't have it.
+   repo. It is in Dev's reference zip (`xbrl_leaderboard_refs.zip`), along with his emails word for word;
+   unzip it into `docs/references/`, which is gitignored.
 4. `demo/index.html` (run it, Section 9) and `scripts/build_demo.py`, `scripts/verify_demo_page.py`.
 5. `fineval/prompts.py`, `fineval/tools.py`, `fineval/run.py`, `fineval/score.py`, `fineval/scorers.py`.
 6. `docs/protocol.md`: how every number is produced and checked.
@@ -279,6 +280,8 @@ and `demo/data.js`.
 - FinAuditing (a later task): https://arxiv.org/abs/2510.08886
 - Open FinLLM Leaderboard (hosting target): arXiv 2501.10963
 - Evaluation and benchmarking suite for financial LLMs and agents: https://arxiv.org/abs/2602.19073
+  (most likely the "FinAI Evals Suite" that Prof. Liu's 15 and 16 Nov emails call the group's
+  evaluation code; TO VERIFY)
 - FinBen (group evaluation code): arXiv 2402.12659, https://huggingface.co/papers/2402.12659
 - COLING-2025 Regulations Challenge (our Task 1): https://arxiv.org/abs/2412.11159
 - XBRL Agent: Han et al., ICAIF 2024. The code is below.
@@ -376,7 +379,9 @@ tools. First finish the Llama closed run that stopped at 843/1000.
 - Keep the page minimal: real values only, no decoration.
 
 **S2. Reuse the group's evaluation code.**
-- Find FinTagging's official FinCL evaluation code in the pinned repo.
+- Prof. Liu's emails name the group's **FinAI Evals Suite**. First find its code repo, using the
+  paper above, FinBen and the guide PDF, and check whether it has a FinTagging or FinCL task. If it
+  does, use that. Otherwise use FinTagging's official FinCL evaluation code in the pinned repo.
 - Run it, unchanged, on our saved outputs (`results/generations/*concept_tagging*`, FinCL items) and
   compare item by item with `scorers.concept_exact`.
 - Write `results/scorer_check/fincl.json` and a short note. The note says either "identical on all 484
