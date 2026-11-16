@@ -21,13 +21,40 @@ python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.lock.tx
 
 ```bash
 # 2. score the saved outputs (writes results/scores/<run>.json)
-for r in qwen2.5-7b llama3.1-8b; do for t in closed tools; do .venv/bin/python -I -m fineval.score --run ${r}__concept_tagging__${t}__s0; done; done
+for r in qwen2.5-7b llama3.1-8b qwen2.5-3b; do for t in closed tools; do .venv/bin/python -I -m fineval.score --run ${r}__concept_tagging__${t}__s0; done; done
 ```
 
 ```bash
 # 3. rebuild the page data (asserts equality with results/scores), then serve demo/
 PYTHONUTF8=1 .venv/bin/python scripts/build_demo.py && cd demo && python3 -m http.server 8765
 ```
+
+What to expect (checked on macOS, Apple M4):
+
+- Command 2 rewrites the six score files with no change: `git status` stays clean.
+- Command 3 prints one line per run ending in `== stored score file`, and leaves `demo/data.js` unchanged.
+- Open http://localhost:8765 to see the page.
+
+To check the page itself, save the browser's text of the page (`document.body.innerText`) to a file and
+run the checker. It recomputes every number from the saved outputs and must print
+`ALL NUMBERS ON THE PAGE MATCH THE RAW FILES.`
+
+```bash
+PYTHONUTF8=1 .venv/bin/python scripts/verify_demo_page.py results/audit/demo_page_text.txt
+```
+
+To run the test suite, build the training files first (the tests read them):
+
+```bash
+.venv/bin/python -I -m fineval.train_data && .venv/bin/python -I -m pytest -q
+```
+
+Versions, hosting and citation:
+
+- [`docs/VERSIONS.md`](docs/VERSIONS.md): our commit, the pinned data commits, model digests and runtime.
+- [`docs/HOSTING.md`](docs/HOSTING.md): how we propose to host the page.
+- [`results/scorer_check/README.md`](results/scorer_check/README.md): our scorer against FinTagging's official one.
+- [`CITATION.cff`](CITATION.cff): how to cite this repository and the datasets it uses.
 
 Other commands:
 

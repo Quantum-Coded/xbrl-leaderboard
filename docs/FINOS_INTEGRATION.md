@@ -46,3 +46,32 @@ exists in this layout.
   `finosfoundation/Open-Financial-LLM-Leaderboard` may run different code from this repo.
 - Agree the task config format with the maintainers in an issue first.
 - Discuss it at the weekly meeting.
+
+## Review notes (Stavan, 16 Nov 2026, same commit `0ebda4ed620a`)
+
+Checked against the code; the description above is correct. Additions:
+
+- **The row identity has no tools field.** `transform_data` builds each row's id from
+  `fullname`, `Precision`, `Model sha` and `Chat Template` (`leaderboard.py`, line 110). Two results for
+  the same model, one with tag search and one without, would get the same id. So `tools` must be part of
+  the id, not only a display field. This is the one change the XBRL tab cannot work without.
+- **The frontend names the task keys in four files, not one:** `constants/defaults.js`,
+  `context/LeaderboardContext.js`, `utils/columnUtils.js` and `hooks/useDataUtils.js`, all under
+  `frontend/src/pages/LeaderboardPage/components/Leaderboard/`. Step 4 has to cover all four.
+- **The dataset name is fixed in three places:** `AGGREGATED_REPO` in `backend/app/config/hf_config.py`
+  and two strings in `leaderboard.py`. An XBRL board needs this to come from the same task config.
+- **Contribution rules** (`.github/CONTRIBUTING.md`): every commit needs a DCO line
+  (`Signed-off-by: Name <email>`), and new files need an Apache-2.0 header. The repository has
+  web sign-off switched on. There is no `LICENSE` file at this commit, although the README and the
+  contributing guide both state Apache-2.0.
+- **A concrete first contribution** (Prof. Liu's 12 Nov email asks for one). Before any code, open one
+  issue that reports the stale `src/about.py` instructions in the README and proposes the task config
+  file. It is small, useful to the maintainers whatever they decide, and it starts the format discussion
+  that the PR depends on.
+- **What we would export.** One row per model and condition from `results/scores/*.json`
+  (`by_subset.fincl_subset`): accuracy, the 95% interval, the item count, the tools condition and the
+  model digest. Published scores stay out of this dataset, because they use a different test set.
+- **Still unknown:** which code runs the public Space. The paper behind the leaderboard
+  (arXiv 2602.19073) links the Space `finosfoundation/Open-Financial-LLM-Leaderboard`, while this
+  repository loads `TheFinAI/greek-contents`.
+

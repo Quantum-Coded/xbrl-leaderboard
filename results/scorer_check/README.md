@@ -5,8 +5,8 @@
 - **Official code:** `The-FinAI/FinTagging@ff426bc4c914c3cc6d967a696fbc041ed157c459`, file
   `evaluate_NEN.ipynb` (MIT). The script reproduces its parsing logic verbatim.
 - **Data:** the saved outputs in `results/generations/` on the 484 scored FinCL items.
-- **Not yet verified:** whether the group's *FinAI Evals Suite* has its own FinCL scorer. We have not
-  found it yet.
+- **FinAI Evals Suite:** we searched for its code on 16 Nov 2026 and found no FinCL scorer in any
+  public group repository (see the last section). FinTagging's own code stays the reference.
 
 ## Result
 
@@ -43,3 +43,27 @@
   ran their code on our subset, not their full set.
 - **Proposal:** report both numbers. Keep ours as the primary metric, because it accepts any valid JSON.
   Show "official FinTagging scorer" as a second column, with this note.
+
+## Search for the FinAI Evals Suite code (16 Nov 2026)
+
+Prof. Liu's guide links "FinAI Evals Suite" to arXiv 2602.19073 (*Evaluation and Benchmarking Suite for
+Financial Large Language Models and Agents*). The paper does not use that name and gives no code
+repository; it links the leaderboard Space and `finllm-leaderboard.readthedocs.io`. We checked every
+public repository that could hold the suite's code, at the commits below, by searching all text files
+for `fintagging`, `fincl`, `finni` and `xbrl`.
+
+| Repository @ commit | What it is | FinTagging / FinCL scorer |
+|---|---|---|
+| `Open-Finance-Lab/FinLLM-Leaderboard` @ `0818040` | Source of the readthedocs site the paper links. Evaluation runs through PIXIU `flare_*` tasks. | None. Its only XBRL tagging task is FNXL (`flare_fnxl`), a different dataset. |
+| `The-FinAI/FinBen` @ `74ea6b8` | `lm-eval` task files. The public repo holds only the Chinese and Greek task folders. | None |
+| `finos-labs/Open-Financial-LLMs-Leaderboard` @ `0ebda4e` | Leaderboard front end and back end; it displays results and does not score. | None |
+| `finos-labs/ai-evals-framework` @ `1be19cf` | Taxonomy and documents; no evaluation code. | None |
+| `Open-Finance-Lab/XBRL_Tasks` @ `f8626e4` | XBRL filing samples and task data. | None |
+
+- **Result:** no public group repository has a FinCL scorer other than FinTagging's own
+  `evaluate_NEN.ipynb`, which the check above already uses.
+- **Limits:** this covers public repositories only, as of the commits above. FinBen's README points to
+  a `finlm_eval/` folder that is empty in the public repo, so a private or unreleased FinTagging task
+  may exist. The FinTagging paper says its models were run with LM Evaluation Harness.
+- **Question for Prof. Liu:** is there a FinTagging task file for `lm-eval` (FinBen) that we should use
+  instead of `evaluate_NEN.ipynb`?

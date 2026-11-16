@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it and the datasets it builds on."
+title: "XBRL Leaderboard"
+type: software
+authors:
+  - family-names: Gaglani
+    given-names: Dev
+  - family-names: Desai
+    given-names: Stavan
+repository-code: "https://github.com/Quantum-Coded/xbrl-leaderboard"
+references:
+  - type: article
+    title: "FinTagging: Benchmarking LLMs for Extracting and Structuring Financial Information"
+    authors:
+      - family-names: Wang
+        given-names: Yan
+    identifiers:
+      - type: other
+        value: "arXiv:2505.20650"
+    notes: "Task, test items and taxonomy file. Code MIT, data CC-BY-4.0. Pinned commit in docs/VERSIONS.md."
