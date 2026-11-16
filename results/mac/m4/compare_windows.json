@@ -1,0 +1,40 @@
+{
+ "folder": "results/mac/m4",
+ "reference": "results/generations",
+ "items": 484,
+ "runs": [
+  {
+   "run": "qwen2.5-3b__concept_tagging__closed__s0",
+   "model": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
+   "track": "closed",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "arm"
+   },
+   "generated": 484,
+   "correct": 5,
+   "accuracy": 1.0,
+   "ci95": [
+    0.2,
+    2.1
+   ],
+   "equals_stored_score_file": true,
+   "reference_run": {
+    "runtime": null,
+    "model_digest": "357c53fb659c",
+    "same_model_digest": true,
+    "correct": 5,
+    "accuracy": 1.0,
+    "same_prompt": 484,
+    "same_raw_output": 393,
+    "same_parsed_answer": 394,
+    "scored_differently": 0,
+    "this_machine_only_correct": [],
+    "reference_only_correct": []
+   }
+  }
+ ],
+ "profiles": []
+}
