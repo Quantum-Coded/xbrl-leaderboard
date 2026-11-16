@@ -1,0 +1,543 @@
+{
+ "official_code": "The-FinAI/FinTagging@ff426bc4c914c3cc6d967a696fbc041ed157c459:evaluate_NEN.ipynb",
+ "n_items": 484,
+ "runs": {
+  "llama3.1-8b__concept_tagging__closed__s0": {
+   "track": "closed",
+   "candidates_in_prompt": false,
+   "ours": {
+    "correct": 8,
+    "accuracy": 0.0165
+   },
+   "official": {
+    "correct": 8,
+    "accuracy": 0.0165,
+    "note": "official parse, no fallback"
+   },
+   "official_fallbacks": 129,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "llama3.1-8b__concept_tagging__tools__s0": {
+   "track": "tools",
+   "candidates_in_prompt": true,
+   "ours": {
+    "correct": 75,
+    "accuracy": 0.155
+   },
+   "official": {
+    "correct": 39,
+    "accuracy": 0.0806,
+    "note": "first-candidate fallback"
+   },
+   "official_fallbacks": 460,
+   "fallback_correct": 30,
+   "items_disagreeing": 40,
+   "disagreements": [
+    {
+     "uid": "fintagging:fincl_subset:test:10",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:NetIncomeLoss",
+     "official_pred": "us-gaap:RestructuringReserveSettledWithoutCash2",
+     "gold": "us-gaap:NetIncomeLoss",
+     "output": "{\n  \"result\": \"us-gaap:NetIncomeLoss\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:102",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DebtInstrumentInterestRateStatedPercentage",
+     "official_pred": "us-gaap:AccountsPayableInterestBearingInterestRate",
+     "gold": "us-gaap:DebtInstrumentInterestRateStatedPercentage",
+     "output": "{\n  \"result\": \"us-gaap:DebtInstrumentInterestRateStatedPercentage\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:139",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:CommonStockParOrStatedValuePerShare",
+     "official_pred": "us-gaap:AcceleratedShareRepurchasesFinalPricePaidPerShare",
+     "gold": "us-gaap:CommonStockParOrStatedValuePerShare",
+     "output": "{\n  \"result\": \"us-gaap:CommonStockParOrStatedValuePerShare\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:14",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:IncomeTaxExpenseBenefit",
+     "official_pred": "us-gaap:FairValueAssetsLevel1ToLevel2TransfersAmount",
+     "gold": "us-gaap:IncomeTaxExpenseBenefit",
+     "output": "{\n  \"result\": \"us-gaap:IncomeTaxExpenseBenefit\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:145",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:EquityMethodInvestments",
+     "official_pred": "us-gaap:RetainedEarningsUndistributedEarningsFromEquityMethodInvestees",
+     "gold": "us-gaap:EquityMethodInvestments",
+     "output": "{\n  \"result\": \"us-gaap:EquityMethodInvestments\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:150",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:InterestCostsCapitalized",
+     "official_pred": "us-gaap:PropertyPlantAndEquipmentCollectionsNotCapitalized",
+     "gold": "us-gaap:InterestCostsCapitalized",
+     "output": "{\n  \"result\": \"us-gaap:InterestCostsCapitalized\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:176",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:AccountsReceivableNetCurrent",
+     "official_pred": "us-gaap:AcceleratedShareRepurchaseProgramAdjustment",
+     "gold": "us-gaap:AccountsReceivableNetCurrent",
+     "output": "{\n  \"result\": \"us-gaap:AccountsReceivableNetCurrent\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:177",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:IncomeTaxExpenseBenefit",
+     "official_pred": "us-gaap:RestructuringReserveSettledWithoutCash2",
+     "gold": "us-gaap:IncomeTaxExpenseBenefit",
+     "output": "{\n  \"result\": \"us-gaap:IncomeTaxExpenseBenefit\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:184",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:CommonStockParOrStatedValuePerShare",
+     "official_pred": "us-gaap:AcceleratedShareRepurchasesFinalPricePaidPerShare",
+     "gold": "us-gaap:CommonStockParOrStatedValuePerShare",
+     "output": "{\n  \"result\": \"us-gaap:CommonStockParOrStatedValuePerShare\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:190",
+     "ours": false,
+     "official": true,
+     "official_fallback": true,
+     "our_parse": "us-gaap:IncomeTaxExpenseBenefit",
+     "official_pred": "us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+     "gold": "us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+     "output": "{\n  \"result\": \"us-gaap:IncomeTaxExpenseBenefit\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:219",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:Goodwill",
+     "official_pred": "us-gaap:RestructuringReserveSettledWithoutCash2",
+     "gold": "us-gaap:Goodwill",
+     "output": "{\n  \"result\": \"us-gaap:Goodwill\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:228",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:NetIncomeLoss",
+     "official_pred": "us-gaap:InvestmentIncomeNet",
+     "gold": "us-gaap:NetIncomeLoss",
+     "output": "{\n  \"result\": \"us-gaap:NetIncomeLoss\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:241",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:LiabilitiesCurrent",
+     "official_pred": "us-gaap:FairValueLiabilitiesLevel1ToLevel2TransfersAmount",
+     "gold": "us-gaap:LiabilitiesCurrent",
+     "output": "{\n  \"result\": \"us-gaap:LiabilitiesCurrent\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:27",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsGrantsInPeriodWeightedAverageGrantDateFairValue",
+     "official_pred": "us-gaap:SharebasedCompensationArrangementBySharebasedPaymentAwardOptionsNonvestedOptionsForfeitedWeightedAverageGrantDateFairValue",
+     "gold": "us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsGrantsInPeriodWeightedAverageGrantDateFairValue",
+     "output": "{\n  \"result\": \"us-gaap:ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsGrantsInPeriodWeightedAverageGrantDateFairValue\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:287",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:Revenues",
+     "official_pred": "us-gaap:FairValueAssetsLevel1ToLevel2TransfersAmount",
+     "gold": "us-gaap:Revenues",
+     "output": "{\n  \"result\": \"us-gaap:Revenues\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:29",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:FinanceLeaseWeightedAverageDiscountRatePercent",
+     "official_pred": "us-gaap:LesseeFinanceLeaseDiscountRate",
+     "gold": "us-gaap:FinanceLeaseWeightedAverageDiscountRatePercent",
+     "output": "{\n  \"result\": \"us-gaap:FinanceLeaseWeightedAverageDiscountRatePercent\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:305",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:Revenues",
+     "official_pred": "us-gaap:OperatingLeasesRentExpenseSubleaseRentals1",
+     "gold": "us-gaap:Revenues",
+     "output": "{\n  \"result\": \"us-gaap:Revenues\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:319",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DefinedBenefitPlanInterestCost",
+     "official_pred": "us-gaap:RestructuringReserveSettledWithoutCash2",
+     "gold": "us-gaap:DefinedBenefitPlanInterestCost",
+     "output": "{\n  \"result\": \"us-gaap:DefinedBenefitPlanInterestCost\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:323",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:GrossProfit",
+     "official_pred": "us-gaap:DeferredPolicyAcquisitionCostAmortizationExpenseEffectOfAdjustmentsToEstimatedGrossProfitOrEstimatedGrossMargin",
+     "gold": "us-gaap:GrossProfit",
+     "output": "{\n  \"result\": \"us-gaap:GrossProfit\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:336",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DefinedBenefitPlanInterestCost",
+     "official_pred": "us-gaap:DebtSecuritiesHeldToMaturityAmortizedCostExcludingAccruedInterestAfterAllowanceForCreditLossMaturityAllocatedAndSingleMaturityDateAfterYear5Through10",
+     "gold": "us-gaap:DefinedBenefitPlanInterestCost",
+     "output": "{\n  \"result\": \"us-gaap:DefinedBenefitPlanInterestCost\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:340",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:ContractWithCustomerLiability",
+     "official_pred": "us-gaap:EnergyMarketingContractLiabilitiesCurrent",
+     "gold": "us-gaap:ContractWithCustomerLiability",
+     "output": "{\n  \"result\": \"us-gaap:ContractWithCustomerLiability\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:355",
+     "ours": false,
+     "official": true,
+     "official_fallback": true,
+     "our_parse": "us-gaap:CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+     "official_pred": "us-gaap:DefinedBenefitPlanServiceCost",
+     "gold": "us-gaap:DefinedBenefitPlanServiceCost",
+     "output": "{\n  \"result\": \"us-gaap:CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:356",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:UnrecognizedTaxBenefitsIncreasesResultingFromCurrentPeriodTaxPositions",
+     "official_pred": "us-gaap:LiabilityForUncertainTaxPositionsCurrent",
+     "gold": "us-gaap:UnrecognizedTaxBenefitsIncreasesResultingFromCurrentPeriodTaxPositions",
+     "output": "{\n  \"result\": \"us-gaap:UnrecognizedTaxBenefitsIncreasesResultingFromCurrentPeriodTaxPositions\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:375",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DefinedBenefitPlanBenefitObligation",
+     "official_pred": "us-gaap:DefinedBenefitPlanPensionPlanWithProjectedBenefitObligationInExcessOfPlanAssetsAccumulatedBenefitObligation",
+     "gold": "us-gaap:DefinedBenefitPlanBenefitObligation",
+     "output": "{\n  \"result\": \"us-gaap:DefinedBenefitPlanBenefitObligation\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:38",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:Revenues",
+     "official_pred": "us-gaap:FairValueAssetsLevel1ToLevel2TransfersAmount",
+     "gold": "us-gaap:Revenues",
+     "output": "{\n  \"result\": \"us-gaap:Revenues\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:388",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:ConcentrationRiskPercentage1",
+     "official_pred": "us-gaap:DebtInstrumentBasisSpreadOnVariableRate1",
+     "gold": "us-gaap:ConcentrationRiskPercentage1",
+     "output": "{\n  \"result\": \"us-gaap:ConcentrationRiskPercentage1\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:389",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:InterestIncomeExpenseNet",
+     "official_pred": "us-gaap:RestructuringReserveSettledWithoutCash2",
+     "gold": "us-gaap:InterestIncomeExpenseNet",
+     "output": "{\n  \"result\": \"us-gaap:InterestIncomeExpenseNet\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:391",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:AssetsCurrent",
+     "official_pred": "us-gaap:DefinedBenefitPlanPlanAssetsLevel3ReconciliationDecreaseForSale",
+     "gold": "us-gaap:AssetsCurrent",
+     "output": "{\n  \"result\": \"us-gaap:AssetsCurrent\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:408",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:NetIncomeLoss",
+     "official_pred": "us-gaap:InvestmentIncomeNet",
+     "gold": "us-gaap:NetIncomeLoss",
+     "output": "{\n  \"result\": \"us-gaap:NetIncomeLoss\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:411",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:OtherNonoperatingIncomeExpense",
+     "official_pred": "us-gaap:DefinedBenefitPlanPlanAssetsLevel3ReconciliationDecreaseForSale",
+     "gold": "us-gaap:OtherNonoperatingIncomeExpense",
+     "output": "{\n  \"result\": \"us-gaap:OtherNonoperatingIncomeExpense\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:431",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:IncomeTaxExpenseBenefit",
+     "official_pred": "us-gaap:DebtInstrumentConvertibleCarryingAmountOfTheEquityComponent",
+     "gold": "us-gaap:IncomeTaxExpenseBenefit",
+     "output": "{\n  \"result\": \"us-gaap:IncomeTaxExpenseBenefit\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:433",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DebtInstrumentInterestRateStatedPercentage",
+     "official_pred": "us-gaap:AccountsPayableInterestBearingInterestRate",
+     "gold": "us-gaap:DebtInstrumentInterestRateStatedPercentage",
+     "output": "{\n  \"result\": \"us-gaap:DebtInstrumentInterestRateStatedPercentage\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:469",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:Land",
+     "official_pred": "us-gaap:LandAndLandImprovements",
+     "gold": "us-gaap:Land",
+     "output": "{\n  \"result\": \"us-gaap:Land\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:477",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DefinedBenefitPlanFairValueOfPlanAssets",
+     "official_pred": "us-gaap:FairValueAssetsLevel1ToLevel2TransfersAmount",
+     "gold": "us-gaap:DefinedBenefitPlanFairValueOfPlanAssets",
+     "output": "{\n  \"result\": \"us-gaap:DefinedBenefitPlanFairValueOfPlanAssets\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:486",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+     "official_pred": "us-gaap:OtherIntangibleAssetsNet",
+     "gold": "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+     "output": "{\n  \"result\": \"us-gaap:IntangibleAssetsNetExcludingGoodwill\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:496",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:DefinedBenefitPlanBenefitObligation",
+     "official_pred": "us-gaap:DefinedBenefitPlanPensionPlanWithProjectedBenefitObligationInExcessOfPlanAssetsAccumulatedBenefitObligation",
+     "gold": "us-gaap:DefinedBenefitPlanBenefitObligation",
+     "output": "{\n  \"result\": \"us-gaap:DefinedBenefitPlanBenefitObligation\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:52",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:NetIncomeLoss",
+     "official_pred": "us-gaap:InvestmentIncomeNet",
+     "gold": "us-gaap:NetIncomeLoss",
+     "output": "{\n  \"result\": \"us-gaap:NetIncomeLoss\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:65",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:AssetsCurrent",
+     "official_pred": "us-gaap:DefinedBenefitPlanPlanAssetsLevel3ReconciliationDecreaseForSale",
+     "gold": "us-gaap:AssetsCurrent",
+     "output": "{\n  \"result\": \"us-gaap:AssetsCurrent\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:78",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:NetIncomeLoss",
+     "official_pred": "us-gaap:InvestmentIncomeNet",
+     "gold": "us-gaap:NetIncomeLoss",
+     "output": "{\n  \"result\": \"us-gaap:NetIncomeLoss\"\n}"
+    },
+    {
+     "uid": "fintagging:fincl_subset:test:81",
+     "ours": true,
+     "official": false,
+     "official_fallback": true,
+     "our_parse": "us-gaap:EarningsPerShareDiluted",
+     "official_pred": "us-gaap:EarningsPerShareNonrecurringCommonControlIntraEntityTransactionsPerDilutedShareEffect",
+     "gold": "us-gaap:EarningsPerShareDiluted",
+     "output": "{\n  \"result\": \"us-gaap:EarningsPerShareDiluted\"\n}"
+    }
+   ]
+  },
+  "mistral-7b__concept_tagging__closed__s0": {
+   "track": "closed",
+   "candidates_in_prompt": false,
+   "ours": {
+    "correct": 0,
+    "accuracy": 0.0
+   },
+   "official": {
+    "correct": 0,
+    "accuracy": 0.0,
+    "note": "official parse, no fallback"
+   },
+   "official_fallbacks": 4,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "mistral-7b__concept_tagging__tools__s0": {
+   "track": "tools",
+   "candidates_in_prompt": true,
+   "ours": {
+    "correct": 55,
+    "accuracy": 0.1136
+   },
+   "official": {
+    "correct": 55,
+    "accuracy": 0.1136,
+    "note": "first-candidate fallback"
+   },
+   "official_fallbacks": 2,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "qwen2.5-3b__concept_tagging__closed__s0": {
+   "track": "closed",
+   "candidates_in_prompt": false,
+   "ours": {
+    "correct": 5,
+    "accuracy": 0.0103
+   },
+   "official": {
+    "correct": 5,
+    "accuracy": 0.0103,
+    "note": "official parse, no fallback"
+   },
+   "official_fallbacks": 3,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "qwen2.5-3b__concept_tagging__tools__s0": {
+   "track": "tools",
+   "candidates_in_prompt": true,
+   "ours": {
+    "correct": 59,
+    "accuracy": 0.1219
+   },
+   "official": {
+    "correct": 59,
+    "accuracy": 0.1219,
+    "note": "first-candidate fallback"
+   },
+   "official_fallbacks": 0,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "qwen2.5-7b__concept_tagging__closed__s0": {
+   "track": "closed",
+   "candidates_in_prompt": false,
+   "ours": {
+    "correct": 6,
+    "accuracy": 0.0124
+   },
+   "official": {
+    "correct": 6,
+    "accuracy": 0.0124,
+    "note": "official parse, no fallback"
+   },
+   "official_fallbacks": 0,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  },
+  "qwen2.5-7b__concept_tagging__tools__s0": {
+   "track": "tools",
+   "candidates_in_prompt": true,
+   "ours": {
+    "correct": 75,
+    "accuracy": 0.155
+   },
+   "official": {
+    "correct": 75,
+    "accuracy": 0.155,
+    "note": "first-candidate fallback"
+   },
+   "official_fallbacks": 0,
+   "fallback_correct": 0,
+   "items_disagreeing": 0,
+   "disagreements": []
+  }
+ }
+}

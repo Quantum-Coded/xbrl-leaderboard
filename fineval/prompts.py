@@ -10,7 +10,11 @@ import re
 
 from . import tools
 
-TRACKS = ("closed", "tools")
+TRACKS = ("closed", "tools", "tools_noorac", "tools_numeric")
+# Tag-search variants for concept tagging only. "tools" filters candidates to the item's given type,
+# which always equals the gold concept's type, so it is an ORACLE diagnostic. "tools_noorac" uses no
+# type information; "tools_numeric" keeps only numeric item types (a fixed list, no per-item info).
+TAG_TRACKS = ("tools", "tools_noorac", "tools_numeric")
 TAG_CANDIDATES = 100
 FILING_PAGES = 3
 PAGE_CHARS = 3500          # per retrieved page, so three pages fit a 4k-token context with the question
@@ -32,6 +36,14 @@ QA_TOOLS = ("Answer the question using the filing pages provided. Be concise and
             "asked for. If the pages do not contain the answer, say so.")
 
 
+def _type_filter(track, inp):
+    if track == "tools":
+        return {"entity_type": inp["entity_type"]}          # oracle: the gold concept's own type
+    if track == "tools_numeric":
+        return {"entity_types": tools.NUMERIC_TYPES}
+    return {}                                                # tools_noorac: no type information
+
+
 def _candidates_block(cands):
     return "Candidate Tags: [" + ", ".join(f'"{c}"' for c in cands) + "]"
 
@@ -42,17 +54,20 @@ def build(item: dict, track: str) -> tuple:
     if task == "concept_tagging":
         if sub == "fincl_subset":
             user = f"{FINCL_INSTRUCTION}\n\nInput Query: {inp['query']}"
-            if track == "tools":
-                c = tools.taxonomy_search(tools.fincl_query_text(inp), k=TAG_CANDIDATES, entity_type=inp["entity_type"])
+            if track in TAG_TRACKS:
+                c = tools.taxonomy_search(tools.fincl_query_text(inp), k=TAG_CANDIDATES, **_type_filter(track, inp))
                 log["candidates"] = c
                 user += "\n" + _candidates_block(c) + "\nChoose one tag from the candidates."
             return None, user + "\nAnswer:", log
         user = inp["query"]
-        if track == "tools":
+        if track in TAG_TRACKS:
             c = tools.taxonomy_search(tools.tag_query_text(inp), k=TAG_CANDIDATES)
             log["candidates"] = c
             user += "\n" + _candidates_block(c) + "\nChoose one tag from the candidates."
         return None, user, log
+
+    if track not in ("closed", "tools"):
+        raise ValueError(f"track {track} exists only for concept_tagging")
 
     if task == "fact_extraction":
         return None, inp["query"], log

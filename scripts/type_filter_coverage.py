@@ -24,11 +24,7 @@ sys.path.insert(0, str(ROOT))
 from fineval import tools  # noqa: E402
 
 KS = (100, 200)
-NUMERIC_TYPES = {  # XBRL 2.1 numeric item types, then DTR numeric types, as named in us_gaap_2024_BM25.jsonl
-    "monetaryItemType", "sharesItemType", "pureItemType", "decimalItemType", "integerItemType",
-    "perShareItemType", "percentItemType", "perUnitItemType", "volumeItemType", "areaItemType",
-    "massItemType", "energyItemType", "flowItemType",
-}
+NUMERIC_TYPES = tools.NUMERIC_TYPES  # XBRL 2.1 + DTR numeric item types (fixed list, see fineval/tools.py)
 
 
 def guess_type(row: str) -> str:
