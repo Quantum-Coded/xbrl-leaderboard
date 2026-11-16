@@ -1,8 +1,7 @@
 # XBRL Leaderboard: full handoff for Stavan
 
 **Who this is for.** Stavan (and his Claude Code), on a Mac. After reading it you should be at exactly
-the same point as Dev. From there, **each of us does the whole next stage independently on our own
-machine** (Dev on Windows, Stavan on Mac), and we compare and merge at the end of the week.
+the same point as Dev and able to carry on in parallel.
 
 **How to use it.** Read the whole file once; it is long. Then do the steps in Section 8.
 Sections 1–6 are context. Section 7 lists what to read. Section 8 is the work. Section 9 is Mac setup.
@@ -204,15 +203,15 @@ and `demo/data.js`.
 
 ## 5. Prof. Liu's latest feedback (16 Nov), point by point
 
-| His point | What it means for us |
-|---|---|
-| **Reply all** so both of us stay copied | Always reply to the whole thread |
-| Focus on **open-weight, small models for internal deployment**; read arXiv 2506.02153 | Frame the leaderboard as "what small local models can do on XBRL, and at what cost" |
-| Keep the baselines; add one **smaller** model; report **accuracy, latency and peak memory** under the same hardware and inputs; no large models or API credits needed | Qwen2.5-3B is already run. We need a controlled timing and memory harness and a clean re-run. Drop "credits for >8B" from the help list. |
-| Does tag search use the given type? If so, **label it an oracle diagnostic** | Yes, it does. Relabel it on the page and in the proposal, and add a **no-oracle** condition. |
-| Share a **demo link or runnable code**, with saved outputs and the scoring command | Package the repo and propose hosting |
-| **Reuse the group's evaluation code**; keep the FINOS integration small; **calculation is next** | Cross-check our scorer against FinTagging's official evaluation code. Make the FINOS change small. Calculation is the next task. |
-| The **public FinTagging subset is enough**; state the exact **code versions**; suggest **simple hosting** | Drop "gated test set access" from the help list. Write down the commits. Propose GitHub Pages. |
+| His point | What it means for us | Who |
+|---|---|---|
+| **Reply all** so both of us stay copied | Always reply to the whole thread | Both |
+| Focus on **open-weight, small models for internal deployment**; read arXiv 2506.02153 | Frame the leaderboard as "what small local models can do on XBRL, and at what cost" | Both |
+| Keep the baselines; add one **smaller** model; report **accuracy, latency and peak memory** under the same hardware and inputs; no large models or API credits needed | Qwen2.5-3B is already run. We need a controlled timing and memory harness and a clean re-run. Drop "credits for >8B" from the help list. | Dev runs the harness; Stavan adds a Mac profile |
+| Does tag search use the given type? If so, **label it an oracle diagnostic** | Yes, it does. Relabel it on the page and in the proposal, and add a **no-oracle** condition. | Dev (runs), Stavan (page) |
+| Share a **demo link or runnable code**, with saved outputs and the scoring command | Package the repo and propose hosting | Stavan |
+| **Reuse the group's evaluation code**; keep the FINOS integration small; **calculation is next** | Cross-check our scorer against FinTagging's official evaluation code. Make the FINOS change small. Calculation is the next task. | Stavan (cross-check), Dev (calculation) |
+| The **public FinTagging subset is enough**; state the exact **code versions**; suggest **simple hosting** | Drop "gated test set access" from the help list. Write down the commits. Propose GitHub Pages. | Both |
 
 **The paper (Belcak et al., NVIDIA, "Small Language Models are the Future of Agentic AI").**
 
@@ -249,8 +248,8 @@ and `demo/data.js`.
 
 - **Scorer.** We score with our own scorer (`concept_exact@v1`). It has not yet been checked against
   FinTagging's official evaluation code.
-- **Oracle labelling.** The page and proposal do not yet say "oracle"; that is fixed in task T4.
-- **Timing and memory.** Latency and memory are not controlled yet; that is fixed in task T2.
+- **Oracle labelling.** The page and proposal do not yet say "oracle"; that is fixed in step S1.
+- **Timing and memory.** Latency and memory are not controlled yet; that is fixed in step D2.
 - **Mac comparability.** On a Mac, Metal kernels and unified memory differ from NVIDIA. Mac accuracy
   should match Windows closely, but timing and memory **must never be mixed** with Windows numbers.
 - **Help list.** The proposal's "Where we need help" still lists gated test access and >8B credits.
@@ -308,24 +307,19 @@ and `demo/data.js`.
 
 ---
 
-## 8. Next stage: step-wise plan (both of us do all of it)
+## 8. Next stage: step-wise plan (in parallel)
 
-**How we work in parallel.** Dev and Stavan each do **every task below** on their own machine and
-their own branch. Nothing is split by person.
+### Ownership
 
-- **Why both of us do everything.** Two independent implementations and two hardware profiles
-  (Windows NVIDIA and Apple Silicon) give the professor a reproducibility check for free. They also
-  mean each of us understands the whole pipeline.
-- **Branches.** Dev uses `dev/next` and Stavan uses `stavan/next`. Pull `master` daily. Never push to
-  `master` alone.
-- **Results never collide.** Run names have no machine tag. So **Stavan keeps all Mac outputs, scores
-  and profiles under `results/mac/<chip>/`**, for example `results/mac/m2/`. Dev's Windows results stay
-  in `results/generations/`, `results/scores/` and `results/profile/windows/`.
-- **End of week.**
-  - Compare the two branches task by task.
-  - Keep the cleaner implementation of each code change.
-  - Put both machines' numbers side by side as separate hardware blocks. Never mix them in one
-    comparison.
+| Dev (Windows, RTX 4050 6 GB) | Stavan (Mac) |
+|---|---|
+| `fineval/`, `scripts/run_batch.sh`, `scripts/profile_*.py`, `results/generations/`, `results/scores/` | `demo/`, `docs/` (except this file), `scripts/build_demo.py`, `scripts/verify_demo_page.py`, packaging and hosting, `results/mac/`, `results/scorer_check/` |
+
+- If you need a change in the other person's files, message first; do not edit them.
+- **Branches:** `dev/next` (Dev) and `stavan/next` (Stavan). We merge into `master` together at the end
+  of the week.
+- **Run names have no machine tag.** So Mac runs are **moved to `results/mac/<chip>/`** before
+  committing, and never written into `results/generations/` or `results/scores/` in a commit.
 
 ### Step 1: reach Dev's state (Stavan, day 1)
 
@@ -339,103 +333,106 @@ their own branch. Nothing is split by person.
 7. The Ollama digests match the table in Section 3. If a tag now points to a newer file, stop and tell
    Dev; do not use a different model silently.
 
-### Step 2: the tasks (each of us does all of them, in this order)
+### Step 2: Dev's track (Windows GPU)
 
-**T1. No-oracle condition** (code: `fineval/prompts.py`, `tests/`).
-- Add a track `tools_noorac` to `TRACKS`. It is the same as `tools`, except that `taxonomy_search` gets
-  **no** `entity_type`.
-- Optionally add a variant restricted to numeric types, reusing `NUMERIC_TYPES` from
-  `scripts/type_filter_coverage.py`. The list is fixed from the XBRL specs, not from test items.
+**D1. No-oracle condition.**
+- In `prompts.py`, add a track `tools_noorac`, together with `TRACKS`:
+  - it is the same as `tools`, except that `taxonomy_search` gets **no** `entity_type`;
+  - optionally add a second variant restricted to numeric types, reusing `NUMERIC_TYPES` from
+    `type_filter_coverage.py`.
 - Add a test.
-- Do not rename the existing runs: the old `tools` runs stay as the oracle diagnostic.
+- Rename nothing in the existing runs: the old `tools` runs stay as the oracle diagnostic.
 
-**T2. Profiling harness** (code: `scripts/profile_runs.py`).
-- Run a fixed list of items, the same for every model, after one warm-up call. Record per item:
+**D2. Profiling harness.**
+- Add `scripts/profile_runs.py`. It runs a fixed list of items, the same for every model, after one
+  warm-up call, and records per item:
   - wall latency;
   - Ollama `eval_count` and the eval and prompt durations;
   - **peak memory**:
-    - all machines: poll Ollama `GET /api/ps` (`size`, `size_vram`);
-    - Windows: also poll `nvidia-smi` for GPU memory;
+    - Windows: poll `nvidia-smi` for GPU memory.
+    - All machines: poll Ollama `GET /api/ps` (`size`, `size_vram`).
     - Mac: also sample the resident memory of the `ollama` runner process.
-- Write `results/profile/<machine>/<run>.json`. Mac output goes under `results/mac/<chip>/profile/`.
-  Each file records:
-  - the machine, OS, chip or GPU and RAM;
+- It writes `results/profile/<machine>/<run>.json`, including:
+  - the machine, OS, chip or GPU;
   - the Ollama version;
-  - the power state, which must be plugged in;
+  - power state, which must be plugged in;
   - the model digest.
-- The same script must work on both Windows and Mac.
+- It must work unchanged on the Mac. Dev pushes it early so Stavan can use it.
 
-**T3. Clean runs on your own machine.** Plugged in, nothing else heavy running.
-- Run Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B on FinCL, each under three conditions: `closed`, `tools`
-  (oracle) and `tools_noorac`.
-- Score with `fineval.score`.
-- Report accuracy with CI, median and p90 latency, and peak memory.
-- Compare your accuracy with the other machine's. It should be identical or very close; any
-  difference is a finding to explain.
+**D3. Clean runs, on Windows only.** Plugged in, nothing else on the GPU.
+- Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B, each under the 3 conditions: closed, tools (oracle) and
+  tools_noorac.
+- Results: accuracy, median and p90 latency, and peak memory.
 
-**T4. Update the page** (code: `demo/`, `scripts/build_demo.py`, `scripts/verify_demo_page.py`).
-- Relabel the old tag-search rows as **"Tag search (given item type: oracle diagnostic)"**, with a
-  one-line explanation.
-- Add the no-oracle rows and the Qwen2.5-3B rows.
-- Add latency and peak-memory columns, with one hardware block per machine.
-- Extend `verify_demo_page.py` so every new number stays checked.
+**D4.** Score the runs, update `results/scores/`, and hand the numbers to Stavan for the page.
+
+**D5 (next task).** Calculation (XBRL-Agent formulas, 1000 items) for the same three models, closed and
+tools. First finish the Llama closed run that stopped at 843/1000.
+
+### Step 3: Stavan's track (Mac)
+
+**S1. Oracle labelling.**
+- Relabel the tag-search rows as **"Tag search (given item type: oracle diagnostic)"**.
+- Add a one-line explanation.
+- Add space in the table for the no-oracle rows and for latency and memory columns.
+- Update `verify_demo_page.py` so the new labels and numbers stay checked.
 - Keep the page minimal: real values only, no decoration.
 
-**T5. Reuse the group's evaluation code** (output: `results/scorer_check/`).
-- Prof. Liu's emails name the group's **FinAI Evals Suite**. First find its code repo, using arXiv
-  2602.19073, FinBen and the guide PDF. Check whether it has a FinTagging or FinCL task; if it does, use
-  that.
-- Otherwise use FinTagging's official FinCL evaluation code in the pinned repo.
-- Run it, unchanged, on the saved FinCL outputs and compare it item by item with
-  `scorers.concept_exact`.
-- Write `fincl.json` and a short note. The note says either "identical on all 484 items" or lists the
-  exact differences and their cause.
+**S2. Reuse the group's evaluation code.**
+- Prof. Liu's emails name the group's **FinAI Evals Suite**. First find its code repo, using the
+  paper above, FinBen and the guide PDF, and check whether it has a FinTagging or FinCL task. If it
+  does, use that. Otherwise use FinTagging's official FinCL evaluation code in the pinned repo.
+- Run it, unchanged, on our saved outputs (`results/generations/*concept_tagging*`, FinCL items) and
+  compare item by item with `scorers.concept_exact`.
+- Write `results/scorer_check/fincl.json` and a short note. The note says either "identical on all 484
+  items" or lists the exact differences and their cause.
+- If they differ, propose switching to the official metric. Dev changes `fineval/`.
 
-**T6. Calculation (the next task).**
-- Run XBRL-Agent formula calculation, 1000 items, for the same three models, closed and tools, with
-  the T2 profiler.
-- Dev also finishes the Llama closed run that stopped at 843/1000.
-- Reuse the group's calculation scorer if T5 finds one.
+**S3. Mac reproducibility and a second hardware profile.**
+- Run `qwen2.5:3b` closed and tools (oracle) on the Mac, and compare accuracy with Windows. It should
+  be identical or very close; a difference is itself a finding.
+- When D1 and D2 land, add `tools_noorac` and run the profiler.
+- Save everything under `results/mac/<chip>/`, for example `results/mac/m2/`.
+- Report the Mac separately, as its own hardware block.
 
-**T7. Package and hosting.**
+**S4. Package and hosting proposal.**
 - The demo is static (`demo/index.html` + `demo/data.js`).
 - Propose **GitHub Pages** from this public repo (serving `demo/`), or a static Hugging Face Space as
   the alternative.
-- Write a "reproduce in 3 commands" README section: setup, scoring command, and building and checking
-  the page.
-- Write a versions note listing:
+- Prepare a "reproduce in 3 commands" README section: setup, scoring command, build and verify the
+  page.
+- Write a `CITATION` and versions note listing:
   - our commit;
   - the FinTagging and XBRL-Agent commits;
   - the Ollama version;
   - the model digests.
 - Check licences:
-  - FinTagging is MIT (code) and CC-BY-4.0 (data); fine with attribution.
-  - FinanceBench is CC-BY-NC; keep it **out**.
+  - FinTagging: MIT code, CC-BY-4.0 data; attribution is fine.
+  - FinanceBench: CC-BY-NC. Keep it **out**.
+- **No link goes to Prof. Liu until both of us agree.**
 
-**T8. FINOS integration, kept small.**
-- Read `finos-labs/Open-Financial-LLMs-Leaderboard`.
-- Write half a page on the smallest change that would add an XBRL tab: the task columns become a
-  config entry, plus a tools field.
-- No PR yet.
+**S5. FINOS integration, kept small.**
+- Read `finos-labs/Open-Financial-LLMs-Leaderboard`. Write half a page on the smallest change that
+  would add an XBRL tab: the task columns become a config entry, plus a tools field.
+- Do not open a PR. Discuss it at the weekly meeting first.
 
-### Step 3: compare, merge and reply (together, end of week)
+### Step 4: merge and reply (both, end of week)
 
-- Compare `dev/next` and `stavan/next` task by task. Merge the agreed version into `master`.
+- Merge `dev/next` and `stavan/next` into `master`.
 - Rebuild the page: models × conditions (closed / oracle / no-oracle), with accuracy, latency and peak
   memory. Windows and Mac are shown as separate blocks.
 - Re-run `verify_demo_page.py`.
 - Revise the proposal:
   - add an oracle note;
   - mention the small-model framing and the SLM paper;
-  - add the code versions and the hosting suggestion;
+  - add the code versions;
   - update the help list.
 - Draft a short **Reply all** to Prof. Liu covering:
   - the oracle answer and the no-oracle numbers;
-  - the 3B model with latency and memory on both machines;
+  - the 3B model with latency and memory;
   - the scorer cross-check;
-  - the calculation status;
   - the code versions;
-  - the hosting link, once we both agree.
+  - the hosting suggestion, with a link once agreed.
 
 ---
 
