@@ -335,6 +335,10 @@ and `demo/data.js`.
 
 ### Step 2: Dev's track (Windows GPU)
 
+**Done on `dev/next` (16 Nov):** D1 (tracks `tools_noorac`, `tools_numeric`) and D2
+(`scripts/profile_runs.py`), plus `scripts/run_next_stage.sh`, `FINEVAL_RESULTS`, `scripts/versions.py`
+and `docs/FINOS_INTEGRATION.md`. D3–D5 (GPU runs) are on hold until Stavan finishes his track.
+
 **D1. No-oracle condition.**
 - In `prompts.py`, add a track `tools_noorac`, together with `TRACKS`:
   - it is the same as `tools`, except that `taxonomy_search` gets **no** `entity_type`;
@@ -379,6 +383,8 @@ tools. First finish the Llama closed run that stopped at 843/1000.
 - Keep the page minimal: real values only, no decoration.
 
 **S2. Reuse the group's evaluation code.**
+- **Done by Dev on branch `dev/next` (16 Nov):** `scripts/scorer_check_fincl.py` and
+  `results/scorer_check/README.md`. Still open: finding the FinAI Evals Suite code.
 - Prof. Liu's emails name the group's **FinAI Evals Suite**. First find its code repo, using the
   paper above, FinBen and the guide PDF, and check whether it has a FinTagging or FinCL task. If it
   does, use that. Otherwise use FinTagging's official FinCL evaluation code in the pinned repo.
