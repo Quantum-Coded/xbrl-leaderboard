@@ -18,9 +18,10 @@ time and memory.
 1. **Take a public test set.** We use FinTagging's public subset: 484 numbers from real filings,
    each with its correct label. Duplicates and conflicting items are removed, and every removed item
    is listed.
-2. **Ask each model** to pick the right label for each number. We test 3 ways:
+2. **Ask each model** to pick the right label for each number. We test 4 ways:
    - **No tools:** the model answers from memory.
    - **Tag search:** a search engine first finds 100 likely labels, and the model picks one.
+   - **Tag search over numeric labels only:** the same, limited to a fixed list of numeric label types.
    - **Tag search with the item's type** (an *oracle* hint that real systems don't have). This shows
      the best case and is labelled clearly.
 3. **Score the answers** by exact match with the correct label, with 95% confidence intervals. We
@@ -30,7 +31,9 @@ time and memory.
 5. **Find why answers fail:**
    - the search did not find the right label (a *retrieval* failure), or
    - the model saw it but picked another (a *selection* failure).
-6. **Publish everything:** the results page, the saved model answers, the code, and the exact
+6. **A second task, calculation:** each model computes 1,000 financial-formula questions, once from
+   memory and once with a formula lookup and a calculator.
+7. **Publish everything:** the results page, the saved model answers, the code, and the exact
    versions, so anyone can re-check every number.
 
 ## Models
@@ -47,7 +50,8 @@ on every machine.
 
 | What | Where |
 |---|---|
-| Results page | [`demo/index.html`](demo/index.html) (open locally, see below) |
+| Results page | https://quantum-coded.github.io/xbrl-leaderboard/ (or open [`demo/index.html`](demo/index.html) locally, see below) |
+| Project context and current state | [`docs/CONTEXT.md`](docs/CONTEXT.md) |
 | Full method and every command | [`docs/REPRODUCE.md`](docs/REPRODUCE.md) |
 | Our scorer vs the official one | [`results/scorer_check/README.md`](results/scorer_check/README.md) |
 | Mac results | [`results/mac/m4/README.md`](results/mac/m4/README.md) |
@@ -76,7 +80,7 @@ Then open http://localhost:8765.
 ## Built on
 
 - [FinTagging](https://github.com/The-FinAI/FinTagging) (the task and the data)
-- [XBRL-Agent](https://github.com/KirkHan0920/XBRL-Agent) (the calculation task, next)
+- [XBRL-Agent](https://github.com/KirkHan0920/XBRL-Agent) (the calculation task)
 - *Small Language Models are the Future of Agentic AI* ([arXiv 2506.02153](https://arxiv.org/abs/2506.02153)) (the motivation)
 
 The work is supervised by Prof. Xiao-Yang Liu. It is by Dev Gaglani and Stavan Desai.

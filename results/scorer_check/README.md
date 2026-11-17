@@ -12,13 +12,38 @@
 
 | Run | Ours (correct / 484) | Official (correct / 484) | Items that differ |
 |---|---|---|---|
-| Qwen2.5-7B, tag search | 75 | 75 | 0 |
-| Qwen2.5-3B, tag search | 59 | 59 | 0 |
-| Mistral-7B, tag search | 55 | 55 | 0 |
-| Llama-3.1-8B, tag search | **75** | **39** | 40 |
-| All four models, no tools | same | same | 0 |
+| Qwen2.5-1.5B, no tools | 8 | 8 | 0 |
+| Qwen2.5-1.5B, search | 39 | 39 | 0 |
+| Qwen2.5-1.5B, search + numeric | 44 | 44 | 0 |
+| Qwen2.5-1.5B, search + oracle type | 47 | 47 | 0 |
+| Gemma-2-2B, no tools | 3 | 3 | 0 |
+| Gemma-2-2B, search | 43 | 43 | 0 |
+| Gemma-2-2B, search + numeric | 39 | 39 | 0 |
+| Gemma-2-2B, search + oracle type | 43 | 43 | 0 |
+| Qwen2.5-3B, no tools | 5 | 5 | 0 |
+| Qwen2.5-3B, search | 50 | 50 | 0 |
+| Qwen2.5-3B, search + numeric | 57 | 57 | 0 |
+| Qwen2.5-3B, search + oracle type | 59 | 59 | 0 |
+| Llama-3.2-3B, no tools | 3 | 3 | 0 |
+| Llama-3.2-3B, search | 44 | 44 | 0 |
+| Llama-3.2-3B, search + numeric | 52 | 52 | 0 |
+| Llama-3.2-3B, search + oracle type | 56 | 56 | 0 |
+| Qwen2.5-7B, no tools | 6 | 6 | 0 |
+| Qwen2.5-7B, search | 61 | 61 | 0 |
+| Qwen2.5-7B, search + numeric | 71 | 71 | 0 |
+| Qwen2.5-7B, search + oracle type | 75 | 75 | 0 |
+| Mistral-7B, no tools | 0 | 0 | 0 |
+| Mistral-7B, search | 46 | 46 | 0 |
+| Mistral-7B, search + numeric | 44 | 44 | 0 |
+| Mistral-7B, search + oracle type | 55 | 55 | 0 |
+| Llama-3.1-8B, no tools | 8 | 8 | 0 |
+| Llama-3.1-8B, search | **58** | **32** | 30 |
+| Llama-3.1-8B, search + numeric | **65** | **39** | 32 |
+| Llama-3.1-8B, search + oracle type | **75** | **39** | 40 |
 
-## Why Llama differs
+All 28 runs (7 models × 4 conditions) agree item for item except Llama-3.1-8B's three tag-search runs.
+
+## Why Llama-3.1-8B differs (Llama-3.2-3B does not)
 
 - The official parser looks for `{"result"` with **no whitespace** after the brace.
 - Llama-3.1-8B writes pretty-printed JSON instead: `{\n  "result": "..."}` (467 of its 581 tool-track

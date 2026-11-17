@@ -1,60 +1,299 @@
+
+
+
+
 XBRL Leaderboard
 
-Task: link a number from an SEC filing to the right US-GAAP concept (one of 17,388). 484 test items from FinTagging.
 
-Results
-#	Model	Tools		Accuracy	Correct
-1	Llama-3.1-8B	Tag search
-given item type: oracle diagnostic
-	
-	15.5%	75 / 484
-1	Qwen2.5-7B	Tag search
-given item type: oracle diagnostic
-	
-	15.5%	75 / 484
-3	Qwen2.5-3B	Tag search
-given item type: oracle diagnostic
-	
-	12.2%	59 / 484
-4	Llama-3.1-8B	None	
-	1.7%	8 / 484
-5	Qwen2.5-7B	None	
-	1.2%	6 / 484
-6	Qwen2.5-3B	None	
-	1.0%	5 / 484
-Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. Oracle diagnostic: the search is limited to concepts of the item's given type, which is the correct concept's type for every item. A real system would not have this, so these rows are a diagnostic, not a deployable result. For reference, the FinTagging paper reports GPT-4o 18.3% and Llama-3.1-8B 9.1% on its full test set.
-Example answers
-Correct · Qwen2.5-7B, tag search (oracle type)
-PASS
-Net Income | 614.2 | 614.2
-Number
-614.2
-Correct
-us-gaap:NetIncomeLoss
-Model said
-us-gaap:NetIncomeLoss
-Wrong · Qwen2.5-7B, tag search (oracle type)
-FAIL
-Amortization of net losses and settlement losses included in net periodic pension cost | 2 | 1 | 2
-Number
-2
-Correct
-us-gaap:OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditBeforeTax
-Model said
-us-gaap:DefinedBenefitPlanNetPeriodicBenefitCost
+
+
+
+  
+XBRL Leaderboard
+  
+What can small open-weight models do on XBRL tasks when they run on an ordinary laptop, and at what cost? Tagging: link a number from an SEC filing to the right US-GAAP concept (one of 17,388), 484 items from FinTagging. Calculation: 1,000 formula questions from XBRL-Agent.
+  
+
+    Tagging
+    Calculation
+  
+
+  
+
+    
+Accuracy: which US-GAAP concept is this number?
+    
+
+	Model	No tools	Search	Search + numeric	Search + oracle type
+diagnostic only
+	Qwen2.5-7B	
+1.2%
+6 / 484	
+12.6%
+61 / 484	
+14.7%
+71 / 484	
+15.5%
+75 / 484
+	Llama-3.1-8B	
+1.7%
+8 / 484	
+12.0%
+58 / 484	
+13.4%
+65 / 484	
+15.5%
+75 / 484
+	Qwen2.5-3B	
+1.0%
+5 / 484	
+10.3%
+50 / 484	
+11.8%
+57 / 484	
+12.2%
+59 / 484
+	Llama-3.2-3B	
+0.6%
+3 / 484	
+9.1%
+44 / 484	
+10.7%
+52 / 484	
+11.6%
+56 / 484
+	Mistral-7B	
+0.0%
+0 / 484	
+9.5%
+46 / 484	
+9.1%
+44 / 484	
+11.4%
+55 / 484
+	Qwen2.5-1.5B	
+1.7%
+8 / 484	
+8.1%
+39 / 484	
+9.1%
+44 / 484	
+9.7%
+47 / 484
+	Gemma-2-2B	
+0.6%
+3 / 484	
+8.9%
+43 / 484	
+8.1%
+39 / 484	
+8.9%
+43 / 484
+      
+Score = exact match with the correct concept, on the Windows laptop. Sorted by each model's best score without the oracle hint. No tools: the model answers from memory. Search: a keyword search over all 17,388 concepts gives the model 100 candidates to choose from. Search + numeric: the search is limited to numeric concept types, a fixed list that does not look at the test items. Oracle diagnostic: the search is limited to the item's given type, which is the correct concept's type for every item. A real system would not have this, so that column shows a best case, not a deployable result. For reference, the FinTagging paper reports GPT-4o 18.3% and Llama-3.1-8B 9.1% on its full test set with its own retriever.
+
+    
+Cost on each laptop
+    
+
+
+Windows laptop
+    
+NVIDIA GeForce RTX 4050 Laptop GPU, 13th Gen Intel(R) Core(TM) i5-13420H, 16 GB RAM, Ollama 0.40.16
+    
+	Model	No tools	Search	Search + oracle type
+    	Model in memory	GPU peak
+	Qwen2.5-1.5B	0.21 s	0.53 s	0.53 s	1,115	1,224
+	Gemma-2-2B	0.31 s	0.90 s	0.92 s	1,836	2,156
+	Qwen2.5-3B	0.28 s	0.79 s	0.85 s	2,063	2,172
+	Llama-3.2-3B	0.26 s	0.88 s	0.93 s	2,442	2,546
+	Qwen2.5-7B	0.44 s	1.57 s	1.60 s	4,535	4,648
+	Mistral-7B	0.52 s	2.12 s	2.14 s	4,729	4,838
+	Llama-3.1-8B	0.66 s	1.82 s	1.96 s	5,035	5,144
+    
+Median seconds per item over the same 100 items, plugged in. Memory in MiB: the loaded model as reported by Ollama
+    (weights and context, all on the GPU), and the peak GPU memory from nvidia-smi above the idle level.
+
+Apple Mac
+    
+Apple M4, 16 GB RAM, Ollama 0.40.16
+    
+	Model	No tools	Search	Search + oracle type
+    	Model in memory
+	Qwen2.5-3B	1.04 s	8.53 s	9.06 s	2,063
+	Qwen2.5-7B	1.52 s	17.43 s	15.65 s	4,535
+	Llama-3.1-8B	1.50 s	20.51 s	21.87 s	5,035
+    
+Median seconds per item over the same 100 items, plugged in. Memory in MiB: the loaded model as reported by Ollama
+    (weights and context, all on the shared GPU memory). Process memory is not shown because the Mac maps model files into memory, which makes it unreliable.
+
+    
+Same models on the Mac
+    
+
+	Model	No tools	Search	Search + oracle type
+	Qwen2.5-3B	
+1.0%
+Windows 1.0%	
+9.7%
+Windows 10.3%	
+11.8%
+Windows 12.2%
+	Qwen2.5-7B	
+1.4%
+Windows 1.2%	
+12.8%
+Windows 12.6%	
+14.9%
+Windows 15.5%
+	Llama-3.1-8B	
+1.4%
+Windows 1.7%	
+11.8%
+Windows 12.0%	
+14.7%
+Windows 15.5%
+      
+The same prompts and model files on an Apple Mac. GPU arithmetic differs between the two machines, so a few answers change; every Mac score is inside the Windows 95% confidence interval.
+
+    
 Why models fail
+    
+
+		Search	Search + numeric	Search + oracle type
+	Correct concept is in the candidates
+same for every model	
+27.7%
+134 of 484	
+31.2%
+151 of 484	
 35.3%
-
-Search (with the oracle item type) puts the correct concept in the 100 candidates for 171 of 484 items.
-
-When it is there, how often the model picks it:
-
-Qwen2.5-7B
+171 of 484
+	Qwen2.5-7B picks it	
+44.8%
+60 of 134	
+47.0%
+71 of 151	
 43.9%
 75 of 171
-Llama-3.1-8B
+	Llama-3.1-8B picks it	
+42.5%
+57 of 134	
+43.0%
+65 of 151	
 43.9%
 75 of 171
-Qwen2.5-3B
+	Qwen2.5-3B picks it	
+36.6%
+49 of 134	
+37.1%
+56 of 151	
 33.9%
 58 of 171
+	Llama-3.2-3B picks it	
+32.8%
+44 of 134	
+33.8%
+51 of 151	
+32.2%
+55 of 171
+	Mistral-7B picks it	
+34.3%
+46 of 134	
+29.1%
+44 of 151	
+32.2%
+55 of 171
+	Qwen2.5-1.5B picks it	
+29.1%
+39 of 134	
+29.1%
+44 of 151	
+27.5%
+47 of 171
+	Gemma-2-2B picks it	
+32.1%
+43 of 134	
+25.8%
+39 of 151	
+25.1%
+43 of 171
+      
+Two ways to fail. Retrieval: the search does not put the correct concept among the 100 candidates, which happens for most items. Selection: the concept is there, but the model picks another one, which happens more often than not even for the best model.
+
+    
+Example answers
+    
+
+  
+
+Correct 
+· Qwen2.5-7B, search + oracle type
+  
+PASS
+  
+Net Income | 614.2 | 614.2
+  
+
+Number
+614.2
+  
+Correctus-gaap:NetIncomeLoss
+  
+Model saidus-gaap:NetIncomeLoss
+  
+
+Wrong 
+· Qwen2.5-7B, search + oracle type
+  
+FAIL
+  
+Amortization of net losses and settlement losses included in net periodic pension cost | 2 | 1 | 2
+  
+
+Number
+2
+  
+Correctus-gaap:OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditBeforeTax
+  
+Model saidus-gaap:DefinedBenefitPlanNetPeriodicBenefitCost
+  
+
+  
+
+    
+Accuracy: compute a financial formula
+    
+
+	Model	No tools	Formula lookup + calculator
+	Qwen2.5-7B	
+65.7%
+657 / 1,000	
+76.4%
+764 / 1,000
+	Llama-3.1-8B	
+60.3%
+603 / 1,000	
+73.2%
+732 / 1,000
+	Qwen2.5-3B	
+60.3%
+603 / 1,000	
+56.1%
+561 / 1,000
+      
+Each question asks for one number, for example the net present value of a project. Correct = within 1% of the answer. No tools: the model works it out in text. Formula lookup + calculator: a keyword search finds a formula among 50 named formulas (the right one for 844 of 1,000 questions), the model writes one arithmetic expression, and a calculator evaluates it. Windows laptop. These runs were not profiled, so no latency or memory is shown.
+  
+
+  
+Data: FinTagging
+  (CC-BY-4.0) and XBRL-Agent (MIT).
+  Code, saved model answers and the commands to re-check every number:
+  github.com/Quantum-Coded/xbrl-leaderboard.
+
+
+
+
+
+
+

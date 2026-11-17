@@ -1,0 +1,369 @@
+qwen2.5-1.5b__concept_tagging__closed__s0: 0 done, 581 to go
+  25/581  0.4s/item
+  50/581  0.3s/item
+  75/581  0.3s/item
+  100/581  0.3s/item
+  125/581  0.3s/item
+  150/581  0.3s/item
+  175/581  0.3s/item
+  200/581  0.3s/item
+  225/581  0.3s/item
+  250/581  0.3s/item
+  275/581  0.2s/item
+  300/581  0.2s/item
+  325/581  0.2s/item
+  350/581  0.2s/item
+  375/581  0.2s/item
+  400/581  0.2s/item
+  425/581  0.2s/item
+  450/581  0.2s/item
+  475/581  0.2s/item
+  500/581  0.2s/item
+  525/581  0.2s/item
+  550/581  0.2s/item
+  575/581  0.2s/item
+qwen2.5-1.5b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  0.4s/item
+  50/581  0.5s/item
+  75/581  0.6s/item
+  100/581  0.6s/item
+  125/581  0.6s/item
+  150/581  0.6s/item
+  175/581  0.6s/item
+  200/581  0.6s/item
+  225/581  0.6s/item
+  250/581  0.6s/item
+  275/581  0.6s/item
+  300/581  0.6s/item
+  325/581  0.6s/item
+  350/581  0.6s/item
+  375/581  0.6s/item
+  400/581  0.6s/item
+  425/581  0.6s/item
+  450/581  0.7s/item
+  475/581  0.7s/item
+  500/581  0.7s/item
+  525/581  0.7s/item
+  550/581  0.7s/item
+  575/581  0.7s/item
+qwen2.5-1.5b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  0.5s/item
+  50/581  0.5s/item
+  75/581  0.6s/item
+  100/581  0.6s/item
+  125/581  0.6s/item
+  150/581  0.6s/item
+  175/581  0.6s/item
+  200/581  0.6s/item
+  225/581  0.6s/item
+  250/581  0.6s/item
+  275/581  0.6s/item
+  300/581  0.6s/item
+  325/581  0.6s/item
+  350/581  0.6s/item
+  375/581  0.6s/item
+  400/581  0.6s/item
+  425/581  0.7s/item
+  450/581  0.7s/item
+  475/581  0.7s/item
+  500/581  0.7s/item
+  525/581  0.7s/item
+  550/581  0.7s/item
+  575/581  0.7s/item
+qwen2.5-1.5b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  0.5s/item
+  50/581  0.6s/item
+  75/581  0.6s/item
+  100/581  0.6s/item
+  125/581  0.6s/item
+  150/581  0.6s/item
+  175/581  0.6s/item
+  200/581  0.6s/item
+  225/581  0.6s/item
+  250/581  0.6s/item
+  275/581  0.6s/item
+  300/581  0.6s/item
+  325/581  0.6s/item
+  350/581  0.7s/item
+  375/581  0.7s/item
+  400/581  0.7s/item
+  425/581  0.7s/item
+  450/581  0.7s/item
+  475/581  0.7s/item
+  500/581  0.7s/item
+  525/581  0.7s/item
+  550/581  0.7s/item
+  575/581  0.7s/item
+gemma2-2b__concept_tagging__closed__s0: 0 done, 581 to go
+  25/581  1.1s/item
+  50/581  0.9s/item
+  75/581  0.8s/item
+  100/581  0.7s/item
+  125/581  0.7s/item
+  150/581  0.6s/item
+  175/581  0.6s/item
+  200/581  0.5s/item
+  225/581  0.5s/item
+  250/581  0.5s/item
+  275/581  0.5s/item
+  300/581  0.5s/item
+  325/581  0.4s/item
+  350/581  0.4s/item
+  375/581  0.4s/item
+  400/581  0.4s/item
+  425/581  0.4s/item
+  450/581  0.4s/item
+  475/581  0.4s/item
+  500/581  0.4s/item
+  525/581  0.4s/item
+  550/581  0.4s/item
+  575/581  0.4s/item
+gemma2-2b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  1.6s/item
+  50/581  1.5s/item
+  75/581  1.4s/item
+  100/581  1.4s/item
+  125/581  1.3s/item
+  150/581  1.2s/item
+  175/581  1.2s/item
+  200/581  1.1s/item
+  225/581  1.1s/item
+  250/581  1.1s/item
+  275/581  1.1s/item
+  300/581  1.1s/item
+  325/581  1.1s/item
+  350/581  1.1s/item
+  375/581  1.1s/item
+  400/581  1.1s/item
+  425/581  1.1s/item
+  450/581  1.1s/item
+  475/581  1.1s/item
+  500/581  1.1s/item
+  525/581  1.1s/item
+  550/581  1.1s/item
+  575/581  1.1s/item
+gemma2-2b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  0.9s/item
+  50/581  0.9s/item
+  75/581  1.0s/item
+  100/581  1.1s/item
+  125/581  1.0s/item
+  150/581  1.0s/item
+  175/581  1.0s/item
+  200/581  1.0s/item
+  225/581  1.0s/item
+  250/581  1.0s/item
+  275/581  1.0s/item
+  300/581  1.0s/item
+  325/581  1.0s/item
+  350/581  1.0s/item
+  375/581  1.0s/item
+  400/581  1.0s/item
+  425/581  1.0s/item
+  450/581  1.0s/item
+  475/581  1.0s/item
+  500/581  1.0s/item
+  525/581  1.0s/item
+  550/581  1.0s/item
+  575/581  1.0s/item
+gemma2-2b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  0.9s/item
+  50/581  0.9s/item
+  75/581  1.1s/item
+  100/581  1.1s/item
+  125/581  1.0s/item
+  150/581  1.0s/item
+  175/581  1.0s/item
+  200/581  1.0s/item
+  225/581  1.0s/item
+  250/581  1.0s/item
+  275/581  1.0s/item
+  300/581  1.0s/item
+  325/581  1.0s/item
+  350/581  1.0s/item
+  375/581  1.0s/item
+  400/581  1.0s/item
+  425/581  1.0s/item
+  450/581  1.0s/item
+  475/581  1.0s/item
+  500/581  1.0s/item
+  525/581  1.0s/item
+  550/581  1.0s/item
+  575/581  1.0s/item
+llama3.2-3b__concept_tagging__closed__s0: 0 done, 581 to go
+  25/581  0.8s/item
+  50/581  0.8s/item
+  75/581  0.8s/item
+  100/581  0.7s/item
+  125/581  0.6s/item
+  150/581  0.6s/item
+  175/581  0.5s/item
+  200/581  0.5s/item
+  225/581  0.5s/item
+  250/581  0.4s/item
+  275/581  0.4s/item
+  300/581  0.4s/item
+  325/581  0.4s/item
+  350/581  0.4s/item
+  375/581  0.4s/item
+  400/581  0.4s/item
+  425/581  0.4s/item
+  450/581  0.4s/item
+  475/581  0.4s/item
+  500/581  0.4s/item
+  525/581  0.4s/item
+  550/581  0.3s/item
+  575/581  0.3s/item
+llama3.2-3b__concept_tagging__tools__s0: 0 done, 581 to go
+  25/581  2.3s/item
+  50/581  1.8s/item
+  75/581  1.7s/item
+  100/581  1.6s/item
+  125/581  1.5s/item
+  150/581  1.4s/item
+  175/581  1.4s/item
+  200/581  1.4s/item
+  225/581  1.3s/item
+  250/581  1.3s/item
+  275/581  1.3s/item
+  300/581  1.3s/item
+  325/581  1.2s/item
+  350/581  1.2s/item
+  375/581  1.2s/item
+  400/581  1.2s/item
+  425/581  1.2s/item
+  450/581  1.2s/item
+  475/581  1.2s/item
+  500/581  1.2s/item
+  525/581  1.2s/item
+  550/581  1.2s/item
+  575/581  1.2s/item
+llama3.2-3b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  0.9s/item
+  50/581  1.2s/item
+  75/581  1.2s/item
+  100/581  1.2s/item
+  125/581  1.2s/item
+  150/581  1.2s/item
+  175/581  1.1s/item
+  200/581  1.1s/item
+  225/581  1.1s/item
+  250/581  1.1s/item
+  275/581  1.1s/item
+  300/581  1.1s/item
+  325/581  1.1s/item
+  350/581  1.1s/item
+  375/581  1.1s/item
+  400/581  1.1s/item
+  425/581  1.1s/item
+  450/581  1.1s/item
+  475/581  1.1s/item
+  500/581  1.1s/item
+  525/581  1.1s/item
+  550/581  1.1s/item
+  575/581  1.1s/item
+llama3.2-3b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  0.8s/item
+  50/581  1.1s/item
+  75/581  1.2s/item
+  100/581  1.2s/item
+  125/581  1.2s/item
+  150/581  1.2s/item
+  175/581  1.2s/item
+  200/581  1.2s/item
+  225/581  1.2s/item
+  250/581  1.2s/item
+  275/581  1.3s/item
+  300/581  1.3s/item
+  325/581  1.4s/item
+  350/581  1.4s/item
+  375/581  1.5s/item
+  400/581  1.6s/item
+  425/581  1.6s/item
+  450/581  1.7s/item
+  475/581  1.7s/item
+  500/581  1.8s/item
+  525/581  1.8s/item
+  550/581  1.8s/item
+  575/581  1.8s/item
+mistral-7b__concept_tagging__closed__s0: 581 done, 0 to go
+mistral-7b__concept_tagging__tools__s0: 581 done, 0 to go
+mistral-7b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  3.6s/item
+  50/581  3.7s/item
+  75/581  3.8s/item
+  100/581  3.8s/item
+  125/581  4.1s/item
+  150/581  3.9s/item
+  175/581  3.7s/item
+  200/581  3.6s/item
+  225/581  3.5s/item
+  250/581  3.4s/item
+  275/581  3.4s/item
+  300/581  3.6s/item
+  325/581  3.7s/item
+  350/581  3.6s/item
+  375/581  3.6s/item
+  400/581  3.6s/item
+  425/581  3.7s/item
+  450/581  3.7s/item
+  475/581  3.7s/item
+  500/581  3.8s/item
+  525/581  3.9s/item
+  550/581  3.8s/item
+  575/581  3.8s/item
+mistral-7b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  4.0s/item
+  50/581  4.5s/item
+  75/581  4.8s/item
+  100/581  4.4s/item
+  125/581  4.2s/item
+  150/581  4.2s/item
+  175/581  4.0s/item
+  200/581  3.8s/item
+  225/581  3.8s/item
+  250/581  3.7s/item
+  275/581  3.7s/item
+  300/581  3.6s/item
+  325/581  3.6s/item
+  350/581  3.6s/item
+  375/581  3.6s/item
+  400/581  3.6s/item
+  425/581  3.6s/item
+  450/581  3.5s/item
+  475/581  3.5s/item
+  500/581  3.4s/item
+  525/581  3.5s/item
+  550/581  3.4s/item
+  575/581  3.4s/item
+gemma2-2b__concept_tagging__closed__s0        ours   3  official   3  fallbacks   0 (correct 0)  disagree 0
+gemma2-2b__concept_tagging__tools__s0         ours  43  official  43  fallbacks   0 (correct 0)  disagree 0
+gemma2-2b__concept_tagging__tools_noorac__s0  ours  43  official  43  fallbacks   0 (correct 0)  disagree 0
+gemma2-2b__concept_tagging__tools_numeric__s0 ours  39  official  39  fallbacks   0 (correct 0)  disagree 0
+llama3.1-8b__concept_tagging__closed__s0      ours   8  official   8  fallbacks 129 (correct 0)  disagree 0
+llama3.1-8b__concept_tagging__tools__s0       ours  75  official  39  fallbacks 460 (correct 30)  disagree 40
+llama3.1-8b__concept_tagging__tools_noorac__s0 ours  58  official  32  fallbacks 442 (correct 23)  disagree 30
+llama3.1-8b__concept_tagging__tools_numeric__s0 ours  65  official  39  fallbacks 460 (correct 32)  disagree 32
+llama3.2-3b__concept_tagging__closed__s0      ours   3  official   3  fallbacks   0 (correct 0)  disagree 0
+llama3.2-3b__concept_tagging__tools__s0       ours  56  official  56  fallbacks   0 (correct 0)  disagree 0
+llama3.2-3b__concept_tagging__tools_noorac__s0 ours  44  official  44  fallbacks   0 (correct 0)  disagree 0
+llama3.2-3b__concept_tagging__tools_numeric__s0 ours  52  official  52  fallbacks   0 (correct 0)  disagree 0
+mistral-7b__concept_tagging__closed__s0       ours   0  official   0  fallbacks   4 (correct 0)  disagree 0
+mistral-7b__concept_tagging__tools__s0        ours  55  official  55  fallbacks   2 (correct 0)  disagree 0
+mistral-7b__concept_tagging__tools_noorac__s0 ours  46  official  46  fallbacks   2 (correct 0)  disagree 0
+mistral-7b__concept_tagging__tools_numeric__s0 ours  44  official  44  fallbacks   4 (correct 0)  disagree 0
+qwen2.5-1.5b__concept_tagging__closed__s0     ours   8  official   8  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-1.5b__concept_tagging__tools__s0      ours  47  official  47  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-1.5b__concept_tagging__tools_noorac__s0 ours  39  official  39  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-1.5b__concept_tagging__tools_numeric__s0 ours  44  official  44  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__closed__s0       ours   5  official   5  fallbacks   3 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools__s0        ours  59  official  59  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools_noorac__s0 ours  50  official  50  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools_numeric__s0 ours  57  official  57  fallbacks   1 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__closed__s0       ours   6  official   6  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools__s0        ours  75  official  75  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools_noorac__s0 ours  61  official  61  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools_numeric__s0 ours  71  official  71  fallbacks   0 (correct 0)  disagree 0
+wrote results\scorer_check\fincl.json
+EXTRA MODELS DONE
+BATCH DONE

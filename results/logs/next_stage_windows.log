@@ -1,0 +1,898 @@
+qwen2.5-3b__concept_tagging__closed__s0: 581 done, 0 to go
+{
+ "run": "qwen2.5-3b__concept_tagging__closed__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.02264808362369338,
+  "ci95": [
+   0.010452961672473868,
+   0.03484320557491289
+  ],
+  "variants": {
+   "exact": 0.02264808362369338,
+   "ci_element": 0.02264808362369338
+  }
+ }
+}
+qwen2.5-3b__concept_tagging__tools__s0: 581 done, 0 to go
+{
+ "run": "qwen2.5-3b__concept_tagging__tools__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.1445993031358885,
+  "ci95": [
+   0.11672473867595819,
+   0.17421602787456447
+  ],
+  "variants": {
+   "exact": 0.1445993031358885,
+   "ci_element": 0.1445993031358885
+  }
+ }
+}
+qwen2.5-3b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  1.4s/item
+  50/581  1.2s/item
+  75/581  1.1s/item
+  100/581  1.1s/item
+  125/581  1.0s/item
+  150/581  1.0s/item
+  175/581  1.0s/item
+  200/581  0.9s/item
+  225/581  0.9s/item
+  250/581  0.9s/item
+  275/581  0.9s/item
+  300/581  0.9s/item
+  325/581  0.9s/item
+  350/581  0.9s/item
+  375/581  0.9s/item
+  400/581  0.9s/item
+  425/581  0.9s/item
+  450/581  0.9s/item
+  475/581  0.9s/item
+  500/581  0.9s/item
+  525/581  0.9s/item
+  550/581  0.9s/item
+  575/581  0.9s/item
+{
+ "run": "qwen2.5-3b__concept_tagging__tools_noorac__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.1289198606271777,
+  "ci95": [
+   0.10278745644599303,
+   0.15853658536585366
+  ],
+  "variants": {
+   "exact": 0.1289198606271777,
+   "ci_element": 0.1289198606271777
+  }
+ }
+}
+qwen2.5-3b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  0.7s/item
+  50/581  0.9s/item
+  75/581  1.0s/item
+  100/581  1.0s/item
+  125/581  1.0s/item
+  150/581  1.0s/item
+  175/581  1.0s/item
+  200/581  1.0s/item
+  225/581  1.0s/item
+  250/581  0.9s/item
+  275/581  0.9s/item
+  300/581  1.0s/item
+  325/581  1.0s/item
+  350/581  1.0s/item
+  375/581  1.0s/item
+  400/581  1.0s/item
+  425/581  1.0s/item
+  450/581  1.0s/item
+  475/581  1.0s/item
+  500/581  1.0s/item
+  525/581  1.0s/item
+  550/581  1.0s/item
+  575/581  1.0s/item
+{
+ "run": "qwen2.5-3b__concept_tagging__tools_numeric__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.14111498257839722,
+  "ci95": [
+   0.1132404181184669,
+   0.17073170731707318
+  ],
+  "variants": {
+   "exact": 0.14111498257839722,
+   "ci_element": 0.14111498257839722
+  }
+ }
+}
+qwen2.5-7b__concept_tagging__closed__s0: 581 done, 0 to go
+{
+ "run": "qwen2.5-7b__concept_tagging__closed__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.0313588850174216,
+  "ci95": [
+   0.017421602787456445,
+   0.04529616724738676
+  ],
+  "variants": {
+   "exact": 0.0313588850174216,
+   "ci_element": 0.0313588850174216
+  }
+ }
+}
+qwen2.5-7b__concept_tagging__tools__s0: 581 done, 0 to go
+{
+ "run": "qwen2.5-7b__concept_tagging__tools__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.18815331010452963,
+  "ci95": [
+   0.156794425087108,
+   0.22125435540069685
+  ],
+  "variants": {
+   "exact": 0.18815331010452963,
+   "ci_element": 0.18815331010452963
+  }
+ }
+}
+qwen2.5-7b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  1.5s/item
+  50/581  1.9s/item
+  75/581  2.2s/item
+  100/581  2.2s/item
+  125/581  2.1s/item
+  150/581  2.0s/item
+  175/581  2.0s/item
+  200/581  1.9s/item
+  225/581  1.9s/item
+  250/581  1.9s/item
+  275/581  1.8s/item
+  300/581  1.8s/item
+  325/581  1.8s/item
+  350/581  1.8s/item
+  375/581  1.8s/item
+  400/581  1.8s/item
+  425/581  1.8s/item
+  450/581  1.8s/item
+  475/581  1.8s/item
+  500/581  1.8s/item
+  525/581  1.8s/item
+  550/581  1.8s/item
+  575/581  1.8s/item
+{
+ "run": "qwen2.5-7b__concept_tagging__tools_noorac__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.16376306620209058,
+  "ci95": [
+   0.13588850174216027,
+   0.1951219512195122
+  ],
+  "variants": {
+   "exact": 0.16376306620209058,
+   "ci_element": 0.16376306620209058
+  }
+ }
+}
+qwen2.5-7b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  1.3s/item
+  50/581  1.8s/item
+  75/581  2.1s/item
+  100/581  2.2s/item
+  125/581  2.1s/item
+  150/581  2.0s/item
+  175/581  2.0s/item
+  200/581  1.9s/item
+  225/581  1.9s/item
+  250/581  1.8s/item
+  275/581  1.8s/item
+  300/581  1.8s/item
+  325/581  1.8s/item
+  350/581  1.8s/item
+  375/581  1.8s/item
+  400/581  1.8s/item
+  425/581  1.8s/item
+  450/581  1.8s/item
+  475/581  1.8s/item
+  500/581  1.8s/item
+  525/581  1.8s/item
+  550/581  1.8s/item
+  575/581  1.8s/item
+{
+ "run": "qwen2.5-7b__concept_tagging__tools_numeric__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.18118466898954705,
+  "ci95": [
+   0.15156794425087108,
+   0.21428571428571427
+  ],
+  "variants": {
+   "exact": 0.18118466898954705,
+   "ci_element": 0.18118466898954705
+  }
+ }
+}
+llama3.1-8b__concept_tagging__closed__s0: 581 done, 0 to go
+{
+ "run": "llama3.1-8b__concept_tagging__closed__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.0156794425087108,
+  "ci95": [
+   0.006968641114982578,
+   0.02613240418118467
+  ],
+  "variants": {
+   "exact": 0.0156794425087108,
+   "ci_element": 0.0156794425087108
+  }
+ }
+}
+llama3.1-8b__concept_tagging__tools__s0: 581 done, 0 to go
+{
+ "run": "llama3.1-8b__concept_tagging__tools__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.1794425087108014,
+  "ci95": [
+   0.14982578397212543,
+   0.21080139372822299
+  ],
+  "variants": {
+   "exact": 0.1794425087108014,
+   "ci_element": 0.1794425087108014
+  }
+ }
+}
+llama3.1-8b__concept_tagging__tools_noorac__s0: 0 done, 581 to go
+  25/581  2.1s/item
+  50/581  2.3s/item
+  75/581  2.6s/item
+  100/581  2.6s/item
+  125/581  2.4s/item
+  150/581  2.3s/item
+  175/581  2.3s/item
+  200/581  2.2s/item
+  225/581  2.2s/item
+  250/581  2.1s/item
+  275/581  2.1s/item
+  300/581  2.1s/item
+  325/581  2.1s/item
+  350/581  2.1s/item
+  375/581  2.1s/item
+  400/581  2.0s/item
+  425/581  2.0s/item
+  450/581  2.0s/item
+  475/581  2.0s/item
+  500/581  2.0s/item
+  525/581  2.0s/item
+  550/581  2.0s/item
+  575/581  2.0s/item
+{
+ "run": "llama3.1-8b__concept_tagging__tools_noorac__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.14982578397212543,
+  "ci95": [
+   0.12195121951219512,
+   0.1794425087108014
+  ],
+  "variants": {
+   "exact": 0.14982578397212543,
+   "ci_element": 0.14982578397212543
+  }
+ }
+}
+llama3.1-8b__concept_tagging__tools_numeric__s0: 0 done, 581 to go
+  25/581  1.9s/item
+  50/581  2.2s/item
+  75/581  2.5s/item
+  100/581  2.5s/item
+  125/581  2.4s/item
+  150/581  2.3s/item
+  175/581  2.3s/item
+  200/581  2.2s/item
+  225/581  2.2s/item
+  250/581  2.2s/item
+  275/581  2.1s/item
+  300/581  2.1s/item
+  325/581  2.1s/item
+  350/581  2.1s/item
+  375/581  2.1s/item
+  400/581  2.1s/item
+  425/581  2.1s/item
+  450/581  2.1s/item
+  475/581  2.1s/item
+  500/581  2.1s/item
+  525/581  2.1s/item
+  550/581  2.1s/item
+  575/581  2.1s/item
+{
+ "run": "llama3.1-8b__concept_tagging__tools_numeric__s0",
+ "status": {
+  "ok": 581
+ },
+ "primary": {
+  "n": 574,
+  "primary_metric": "exact",
+  "value": 0.16202090592334495,
+  "ci95": [
+   0.13414634146341464,
+   0.19337979094076654
+  ],
+  "variants": {
+   "exact": 0.16202090592334495,
+   "ci_element": 0.16202090592334495
+  }
+ }
+}
+{
+ "accuracy_on_profiled_items": 0.01,
+ "latency_median_s": 0.2843,
+ "latency_p90_s": 0.3943,
+ "latency_mean_s": 0.3064,
+ "gen_tokens_per_s_median": 82.7,
+ "prompt_tokens_median": 143.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2176,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2182,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 2172,
+ "memory_samples": 120
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-3b__closed__n100.json
+{
+ "accuracy_on_profiled_items": 0.1,
+ "latency_median_s": 0.8527,
+ "latency_p90_s": 1.0272,
+ "latency_mean_s": 0.8572,
+ "gen_tokens_per_s_median": 77.8,
+ "prompt_tokens_median": 1963.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2180,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2182,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 2172,
+ "memory_samples": 329
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-3b__tools__n100.json
+{
+ "accuracy_on_profiled_items": 0.09,
+ "latency_median_s": 0.7851,
+ "latency_p90_s": 0.9508,
+ "latency_mean_s": 0.8105,
+ "gen_tokens_per_s_median": 78.6,
+ "prompt_tokens_median": 2073.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2180,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2063,
+  "ollama_size_vram_mib": 2063,
+  "gpu_used_mib": 2182,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 2172,
+ "memory_samples": 319
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-3b__tools_noorac__n100.json
+{
+ "accuracy_on_profiled_items": 0.03,
+ "latency_median_s": 0.436,
+ "latency_p90_s": 0.5978,
+ "latency_mean_s": 0.4694,
+ "gen_tokens_per_s_median": 41.9,
+ "prompt_tokens_median": 143.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4648,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4658,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 4648,
+ "memory_samples": 190
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-7b__closed__n100.json
+{
+ "accuracy_on_profiled_items": 0.13,
+ "latency_median_s": 1.597,
+ "latency_p90_s": 1.9445,
+ "latency_mean_s": 1.6631,
+ "gen_tokens_per_s_median": 39.5,
+ "prompt_tokens_median": 1963.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4656,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4658,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 4648,
+ "memory_samples": 625
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-7b__tools__n100.json
+{
+ "accuracy_on_profiled_items": 0.11,
+ "latency_median_s": 1.5732,
+ "latency_p90_s": 1.8836,
+ "latency_mean_s": 1.5846,
+ "gen_tokens_per_s_median": 39.9,
+ "prompt_tokens_median": 2073.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4656,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4535,
+  "ollama_size_vram_mib": 4535,
+  "gpu_used_mib": 4658,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 4648,
+ "memory_samples": 631
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-7b__tools_noorac__n100.json
+{
+ "accuracy_on_profiled_items": 0.02,
+ "latency_median_s": 0.6607,
+ "latency_p90_s": 0.7323,
+ "latency_mean_s": 0.665,
+ "gen_tokens_per_s_median": 38.9,
+ "prompt_tokens_median": 114.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5148,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5154,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 5144,
+ "memory_samples": 265
+}
+wrote results\profile\rtx-4050-laptop-gpu\llama3.1-8b__closed__n100.json
+{
+ "accuracy_on_profiled_items": 0.13,
+ "latency_median_s": 1.956,
+ "latency_p90_s": 2.3135,
+ "latency_mean_s": 1.9691,
+ "gen_tokens_per_s_median": 37.1,
+ "prompt_tokens_median": 1932.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5152,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5154,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 5144,
+ "memory_samples": 742
+}
+wrote results\profile\rtx-4050-laptop-gpu\llama3.1-8b__tools__n100.json
+{
+ "accuracy_on_profiled_items": 0.12,
+ "latency_median_s": 1.8177,
+ "latency_p90_s": 2.4172,
+ "latency_mean_s": 1.9189,
+ "gen_tokens_per_s_median": 37.2,
+ "prompt_tokens_median": 1797.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 10
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5152,
+  "ollama_rss_mib": 0
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 5035,
+  "ollama_size_vram_mib": 5035,
+  "gpu_used_mib": 5154,
+  "ollama_rss_mib": 0
+ },
+ "gpu_peak_minus_baseline_mib": 5144,
+ "memory_samples": 688
+}
+wrote results\profile\rtx-4050-laptop-gpu\llama3.1-8b__tools_noorac__n100.json
+qwen2.5-3b__financial_calc__closed__s0: 1000 done, 0 to go
+{
+ "run": "qwen2.5-3b__financial_calc__closed__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.603,
+  "ci95": [
+   0.573,
+   0.633
+  ],
+  "variants": {
+   "final": 0.603,
+   "unit_agnostic": 0.757,
+   "last_number": 0.602
+  }
+ }
+}
+qwen2.5-3b__financial_calc__tools__s0: 1000 done, 0 to go
+{
+ "run": "qwen2.5-3b__financial_calc__tools__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.561,
+  "ci95": [
+   0.53,
+   0.593
+  ],
+  "variants": {
+   "final": 0.561,
+   "unit_agnostic": 0.602,
+   "last_number": 0.56
+  }
+ }
+}
+qwen2.5-7b__financial_calc__closed__s0: 0 done, 1000 to go
+  25/1000  9.6s/item
+  50/1000  6.9s/item
+  75/1000  5.2s/item
+  100/1000  4.5s/item
+  125/1000  4.0s/item
+  150/1000  3.7s/item
+  175/1000  3.5s/item
+  200/1000  3.3s/item
+  225/1000  3.3s/item
+  250/1000  3.4s/item
+  275/1000  3.4s/item
+  300/1000  3.4s/item
+  325/1000  3.2s/item
+  350/1000  3.2s/item
+  375/1000  3.2s/item
+  400/1000  3.1s/item
+  425/1000  3.0s/item
+  450/1000  3.0s/item
+  475/1000  3.1s/item
+  500/1000  3.0s/item
+  525/1000  3.0s/item
+  550/1000  3.0s/item
+  575/1000  3.0s/item
+  600/1000  3.0s/item
+  625/1000  3.0s/item
+  650/1000  3.1s/item
+  675/1000  3.2s/item
+  700/1000  3.2s/item
+  725/1000  3.2s/item
+  750/1000  3.2s/item
+  775/1000  3.2s/item
+  800/1000  3.3s/item
+  825/1000  3.4s/item
+  850/1000  3.6s/item
+  875/1000  3.8s/item
+  900/1000  3.9s/item
+  925/1000  4.0s/item
+  950/1000  4.0s/item
+  975/1000  4.0s/item
+  1000/1000  4.0s/item
+{
+ "run": "qwen2.5-7b__financial_calc__closed__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.657,
+  "ci95": [
+   0.628,
+   0.685
+  ],
+  "variants": {
+   "final": 0.657,
+   "unit_agnostic": 0.811,
+   "last_number": 0.657
+  }
+ }
+}
+qwen2.5-7b__financial_calc__tools__s0: 0 done, 1000 to go
+  25/1000  0.9s/item
+  50/1000  0.8s/item
+  75/1000  0.7s/item
+  100/1000  0.7s/item
+  125/1000  0.7s/item
+  150/1000  0.7s/item
+  175/1000  0.7s/item
+  200/1000  0.7s/item
+  225/1000  0.7s/item
+  250/1000  0.7s/item
+  275/1000  0.7s/item
+  300/1000  0.7s/item
+  325/1000  0.7s/item
+  350/1000  0.7s/item
+  375/1000  0.7s/item
+  400/1000  0.6s/item
+  425/1000  0.6s/item
+  450/1000  0.6s/item
+  475/1000  0.6s/item
+  500/1000  0.6s/item
+  525/1000  0.6s/item
+  550/1000  0.6s/item
+  575/1000  0.6s/item
+  600/1000  0.6s/item
+  625/1000  0.6s/item
+  650/1000  0.6s/item
+  675/1000  0.6s/item
+  700/1000  0.6s/item
+  725/1000  0.6s/item
+  750/1000  0.6s/item
+  775/1000  0.6s/item
+  800/1000  0.6s/item
+  825/1000  0.7s/item
+  850/1000  0.7s/item
+  875/1000  0.7s/item
+  900/1000  0.7s/item
+  925/1000  0.7s/item
+  950/1000  0.7s/item
+  975/1000  0.7s/item
+  1000/1000  0.7s/item
+{
+ "run": "qwen2.5-7b__financial_calc__tools__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.764,
+  "ci95": [
+   0.738,
+   0.791
+  ],
+  "variants": {
+   "final": 0.764,
+   "unit_agnostic": 0.783,
+   "last_number": 0.763
+  }
+ }
+}
+llama3.1-8b__financial_calc__closed__s0: 843 done, 157 to go
+  25/157  12.9s/item
+  50/157  10.0s/item
+  75/157  8.6s/item
+  100/157  7.5s/item
+  125/157  6.4s/item
+  150/157  5.5s/item
+{
+ "run": "llama3.1-8b__financial_calc__closed__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.603,
+  "ci95": [
+   0.574,
+   0.633
+  ],
+  "variants": {
+   "final": 0.603,
+   "unit_agnostic": 0.709,
+   "last_number": 0.602
+  }
+ }
+}
+llama3.1-8b__financial_calc__tools__s0: 0 done, 1000 to go
+  25/1000  1.3s/item
+  50/1000  0.9s/item
+  75/1000  0.7s/item
+  100/1000  0.7s/item
+  125/1000  0.6s/item
+  150/1000  0.6s/item
+  175/1000  0.6s/item
+  200/1000  0.6s/item
+  225/1000  0.6s/item
+  250/1000  0.5s/item
+  275/1000  0.6s/item
+  300/1000  0.6s/item
+  325/1000  0.5s/item
+  350/1000  0.5s/item
+  375/1000  0.5s/item
+  400/1000  0.5s/item
+  425/1000  0.5s/item
+  450/1000  0.5s/item
+  475/1000  0.5s/item
+  500/1000  0.5s/item
+  525/1000  0.5s/item
+  550/1000  0.5s/item
+  575/1000  0.5s/item
+  600/1000  0.5s/item
+  625/1000  0.5s/item
+  650/1000  0.5s/item
+  675/1000  0.5s/item
+  700/1000  0.5s/item
+  725/1000  0.5s/item
+  750/1000  0.5s/item
+  775/1000  0.5s/item
+  800/1000  0.5s/item
+  825/1000  0.5s/item
+  850/1000  0.6s/item
+  875/1000  0.6s/item
+  900/1000  0.6s/item
+  925/1000  0.6s/item
+  950/1000  0.6s/item
+  975/1000  0.6s/item
+  1000/1000  0.6s/item
+{
+ "run": "llama3.1-8b__financial_calc__tools__s0",
+ "status": {
+  "ok": 1000
+ },
+ "primary": {
+  "n": 1000,
+  "primary_metric": "final",
+  "value": 0.732,
+  "ci95": [
+   0.704,
+   0.759
+  ],
+  "variants": {
+   "final": 0.732,
+   "unit_agnostic": 0.748,
+   "last_number": 0.73
+  }
+ }
+}
+llama3.1-8b__concept_tagging__closed__s0      ours   8  official   8  fallbacks 129 (correct 0)  disagree 0
+llama3.1-8b__concept_tagging__tools__s0       ours  75  official  39  fallbacks 460 (correct 30)  disagree 40
+llama3.1-8b__concept_tagging__tools_noorac__s0 ours  58  official  32  fallbacks 442 (correct 23)  disagree 30
+llama3.1-8b__concept_tagging__tools_numeric__s0 ours  65  official  39  fallbacks 460 (correct 32)  disagree 32
+mistral-7b__concept_tagging__closed__s0       ours   0  official   0  fallbacks   4 (correct 0)  disagree 0
+mistral-7b__concept_tagging__tools__s0        ours  55  official  55  fallbacks   2 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__closed__s0       ours   5  official   5  fallbacks   3 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools__s0        ours  59  official  59  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools_noorac__s0 ours  50  official  50  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools_numeric__s0 ours  57  official  57  fallbacks   1 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__closed__s0       ours   6  official   6  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools__s0        ours  75  official  75  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools_noorac__s0 ours  61  official  61  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools_numeric__s0 ours  71  official  71  fallbacks   0 (correct 0)  disagree 0
+wrote results\scorer_check\fincl.json
+NEXT STAGE DONE

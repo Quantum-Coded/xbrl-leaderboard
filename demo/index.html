@@ -5,96 +5,214 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>XBRL Leaderboard</title>
 <style>
-:root{--bg:#0b100e;--panel:#111815;--line:#21302a;--text:#e7eeea;--muted:#8fa199;--accent:#4fd6a4;--red:#ef6b6b}
+:root{--bg:#0b100e;--panel:#111815;--line:#21302a;--text:#e7eeea;--muted:#8fa199;--accent:#4fd6a4;--red:#ef6b6b;--chip:#1a2521}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 16px}
 h1{font-size:32px;margin:0 0 6px;letter-spacing:-.02em}
-.lede{color:var(--muted);margin:0 0 6px}
-h2{font-size:17px;margin:24px 0 10px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.lede{color:var(--muted);margin:0 0 18px;max-width:780px}
+h2{font-size:17px;margin:28px 0 10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
 table{width:100%;border-collapse:collapse}
-th{font-size:12px;color:var(--muted);text-align:left;padding:10px 16px;font-weight:600}
-td{padding:12px 16px;border-top:1px solid var(--line)}
-.bar{height:10px;background:#1a2521;border-radius:6px;width:100%}
-.bar div{height:100%;border-radius:6px;background:var(--accent)}
-.num{font-weight:700;text-align:right;white-space:nowrap}
-.dim{color:var(--muted);font-size:13px;white-space:nowrap}
-.note{color:var(--muted);font-size:13px;padding:10px 16px;border-top:1px solid var(--line)}
+th{font-size:12px;color:var(--muted);text-align:left;padding:10px 14px;font-weight:600;vertical-align:bottom}
+td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+th.r,td.r{text-align:right}
+.acc{font-weight:700;white-space:nowrap}
+.best{color:var(--accent)}
+.sub{display:block;color:var(--muted);font-size:12px;font-weight:400;white-space:nowrap}
+.orc{color:var(--muted)}
+.dim{color:var(--muted);font-size:13px}
+.note{color:var(--muted);font-size:13px;padding:10px 14px;border-top:1px solid var(--line)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stack{display:grid;gap:14px}
+td.r,td:first-child{white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:4px 0 6px}
+.tabs button{background:var(--chip);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font:inherit;font-size:14px;cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--bg);background:var(--accent);border-color:var(--accent);font-weight:700}
+.panel[hidden]{display:none}
+.hw{padding:12px 14px 4px}
+.hw b{font-size:15px}
 .ex{padding:16px}
-.ex .top{display:flex;justify-content:space-between;margin-bottom:10px}
-.tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
+.ex .top{display:flex;justify-content:space-between;gap:8px;margin-bottom:10px}
+.tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;height:fit-content}
 .pass{background:#0f2a20;color:var(--accent)} .fail{background:#2e1414;color:var(--red)}
-.row{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#151e1a;border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:10px}
+.row{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#151e1a;border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:10px;overflow-wrap:anywhere}
 .kv{display:grid;grid-template-columns:105px 1fr;gap:5px 10px;font-size:13px}
 .kv span:nth-child(odd){color:var(--muted)}
 .kv code{font-size:12.5px;word-break:break-all}
 .stat{padding:16px}
 .stat .n{font-size:28px;font-weight:800}
 .stat p{margin:4px 0 0;color:var(--muted);font-size:13px}
-@media (max-width:760px){.two{grid-template-columns:1fr}.hide-sm{display:none}}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>XBRL Leaderboard</h1>
   <p class="lede" id="lede"></p>
-
-  <h2>Results</h2>
-  <div class="card">
-    <table>
-      <thead><tr><th>#</th><th>Model</th><th>Tools</th><th class="hide-sm" style="width:34%"></th><th style="text-align:right">Accuracy</th><th>Correct</th></tr></thead>
-      <tbody id="rows"></tbody>
-    </table>
-    <div class="note" id="note"></div>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="t-tag" aria-selected="true" onclick="show('tag')">Tagging</button>
+    <button role="tab" id="t-calc" aria-selected="false" onclick="show('calc')">Calculation</button>
   </div>
 
-  <h2>Example answers</h2>
-  <div class="two" id="ex"></div>
+  <section class="panel" id="p-tag">
+    <h2>Accuracy: which US-GAAP concept is this number?</h2>
+    <div class="card"><table><thead id="acc-head"></thead><tbody id="acc-rows"></tbody></table>
+      <div class="note" id="acc-note"></div></div>
 
-  <h2>Why models fail</h2>
-  <div class="two" id="why"></div>
+    <h2>Cost on each laptop</h2>
+    <div class="stack" id="cost"></div>
+
+    <h2>Same models on the Mac</h2>
+    <div class="card"><table><thead id="mac-head"></thead><tbody id="mac-rows"></tbody></table>
+      <div class="note" id="mac-note"></div></div>
+
+    <h2>Why models fail</h2>
+    <div class="card"><table><thead id="why-head"></thead><tbody id="why-rows"></tbody></table>
+      <div class="note" id="why-note"></div></div>
+
+    <h2>Example answers</h2>
+    <div class="two" id="ex"></div>
+  </section>
+
+  <section class="panel" id="p-calc" hidden>
+    <h2>Accuracy: compute a financial formula</h2>
+    <div class="card"><table><thead id="calc-head"></thead><tbody id="calc-rows"></tbody></table>
+      <div class="note" id="calc-note"></div></div>
+  </section>
+
+  <p class="dim" style="margin-top:28px">Data: <a style="color:var(--accent)" href="https://github.com/The-FinAI/FinTagging">FinTagging</a>
+  (CC-BY-4.0) and <a style="color:var(--accent)" href="https://github.com/KirkHan0920/XBRL-Agent">XBRL-Agent</a> (MIT).
+  Code, saved model answers and the commands to re-check every number:
+  <a style="color:var(--accent)" href="https://github.com/Quantum-Coded/xbrl-leaderboard">github.com/Quantum-Coded/xbrl-leaderboard</a>.</p>
 </div>
 
 <script src="data.js"></script>
 <script>
-const D = window.DEMO_DATA, T = D.task;
+const D = window.DEMO_DATA, T = D.task, C = D.calc;
 const fmt = n => n.toLocaleString('en-US');
+const pct = v => v.toFixed(1) + '%';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const all = /[?&]all\b/.test(location.search);   // ?all shows every panel at once (used by the page check)
+
+function show(id) {
+  for (const p of ['tag', 'calc']) {
+    document.getElementById('p-' + p).hidden = !all && p !== id;
+    document.getElementById('t-' + p).setAttribute('aria-selected', p === id);
+  }
+  try { localStorage.setItem('xbrl-tab', id); } catch (e) {}
+}
+
 document.getElementById('lede').textContent =
-  `Task: link a number from an SEC filing to the right US-GAAP concept (one of ${fmt(T.taxonomy_concepts)}). ` +
-  `${T.scored} test items from FinTagging.`;
+  `What can small open-weight models do on XBRL tasks when they run on an ordinary laptop, and at what cost? ` +
+  `Tagging: link a number from an SEC filing to the right US-GAAP concept (one of ${fmt(T.taxonomy_concepts)}), ` +
+  `${T.scored} items from FinTagging. Calculation: ${fmt(C.items)} formula questions from XBRL-Agent.`;
 
-const runs = D.runs.slice().sort((a,b) => b.accuracy - a.accuracy || a.model.localeCompare(b.model));
-const rank = runs.map(r => 1 + runs.filter(o => o.accuracy > r.accuracy).length);
-document.getElementById('rows').innerHTML = runs.map((r,i) => `
-  <tr><td class="dim">${rank[i]}</td><td><b>${r.model.replace('-Instruct','')}</b></td>
-  <td>${r.tools ? 'Tag search' : 'None'}${r.oracle ? '<div class="dim" style="white-space:normal">given item type: oracle diagnostic</div>' : ''}</td>
-  <td class="hide-sm"><div class="bar"><div style="width:${r.accuracy/20*100}%"></div></div></td>
-  <td class="num">${r.accuracy.toFixed(1)}%</td><td class="dim">${r.correct} / ${r.n}</td></tr>`).join('');
-document.getElementById('note').textContent =
-  `Score = exact match with the correct concept. Tag search gives the model 100 candidate concepts to choose from. ` +
-  (D.runs.some(r => r.oracle) ? `Oracle diagnostic: the search is limited to concepts of the item's given type, which is ` +
-  `the correct concept's type for every item. A real system would not have this, so these rows are a diagnostic, not a deployable result. ` : '') +
-  `For reference, the FinTagging paper reports ${D.published.map(p => `${p.system.replace('-Instruct','')} ${p.score.toFixed(1)}%`).join(' and ')} on its full test set.`;
+// ---- accuracy matrix: models x conditions, sorted by the best score without the oracle hint
+const conds = D.conditions, models = D.models;
+const run = (m, c, list = D.runs) => list.find(r => r.model_key === m && r.condition === c);
+const fair = conds.filter(c => !c.oracle).map(c => c.key);
+const bestFair = m => Math.max(...fair.map(c => run(m, c).accuracy));
+const order = models.slice().sort((a, b) => bestFair(b.key) - bestFair(a.key) || a.name.localeCompare(b.name));
+const colBest = Object.fromEntries(conds.map(c => [c.key, Math.max(...models.map(m => run(m.key, c.key).accuracy))]));
+document.getElementById('acc-head').innerHTML = `<tr><th>Model</th>` + conds.map(c =>
+  `<th class="r${c.oracle ? ' orc' : ''}">${c.short}${c.oracle ? '<span class="sub">diagnostic only</span>' : ''}</th>`).join('') + `</tr>`;
+document.getElementById('acc-rows').innerHTML = order.map(m => `<tr><td><b>${m.name}</b></td>` + conds.map(c => {
+  const r = run(m.key, c.key);
+  return `<td class="r"><span class="acc${c.oracle ? ' orc' : r.accuracy === colBest[c.key] ? ' best' : ''}">${pct(r.accuracy)}</span>` +
+         `<span class="sub">${r.correct} / ${r.n}</span></td>`;
+}).join('') + `</tr>`).join('');
+document.getElementById('acc-note').textContent =
+  `Score = exact match with the correct concept, on the Windows laptop. Sorted by each model's best score without the oracle hint. ` +
+  `No tools: the model answers from memory. Search: a keyword search over all ${fmt(T.taxonomy_concepts)} concepts gives the model ` +
+  `${T.candidates} candidates to choose from. Search + numeric: the search is limited to numeric concept types, a fixed list that does not ` +
+  `look at the test items. Oracle diagnostic: the search is limited to the item's given type, which is the correct concept's type for ` +
+  `every item. A real system would not have this, so that column shows a best case, not a deployable result. ` +
+  `For reference, the FinTagging paper reports ${D.published.map(p => `${p.system.replace('-Instruct', '')} ${p.score.toFixed(1)}%`).join(' and ')} ` +
+  `on its full test set with its own retriever.`;
 
+// ---- cost: one block per machine, never mixed
+const label = k => conds.find(c => c.key === k).short;
+const prof = ['closed', 'tools_noorac', 'tools'];
+document.getElementById('cost').innerHTML = Object.entries(D.cost).map(([key, b]) => {
+  const M = b.machine, win = key === 'windows';
+  const byModel = models.filter(m => b.rows.some(r => r.model_key === m.key));
+  const rows = byModel.map(m => {
+    const rs = b.rows.filter(r => r.model_key === m.key);
+    const lat = prof.map(c => { const r = rs.find(x => x.condition === c); return r ? r.latency_median_s.toFixed(2) + ' s' : '–'; });
+    const loaded = Math.max(...rs.map(r => r.model_loaded_mib));
+    const peak = win ? `<td class="r">${fmt(Math.max(...rs.map(r => r.gpu_peak_mib)))}</td>` : '';
+    return `<tr><td><b>${m.name}</b></td>${lat.map(x => `<td class="r">${x}</td>`).join('')}` +
+           `<td class="r">${fmt(loaded)}</td>${peak}</tr>`;
+  }).join('');
+  return `<div class="card"><div class="hw"><b>${win ? 'Windows laptop' : 'Apple Mac'}</b>
+    <div class="dim">${esc(M.hardware)}${win ? ', ' + esc(M.chip) : ''}, ${Math.round(M.ram_gb)} GB RAM, Ollama ${esc(M.ollama)}</div></div>
+    <table><thead><tr><th>Model</th>${prof.map(c => `<th class="r">${label(c)}</th>`).join('')}
+    <th class="r">Model in memory</th>${win ? '<th class="r">GPU peak</th>' : ''}</tr></thead><tbody>${rows}</tbody></table>
+    <div class="note">Median seconds per item over the same ${b.rows[0].n} items, plugged in. Memory in MiB: the loaded model as reported by Ollama
+    (weights and context, all on the ${win ? 'GPU' : 'shared GPU memory'})${win ? ', and the peak GPU memory from nvidia-smi above the idle level' :
+    '. Process memory is not shown because the Mac maps model files into memory, which makes it unreliable'}.</div></div>`;
+}).join('');
+
+// ---- Mac vs Windows accuracy, same prompts and model files
+const macModels = models.filter(m => D.mac_runs.some(r => r.model_key === m.key));
+const macConds = conds.filter(c => D.mac_runs.some(r => r.condition === c.key));
+document.getElementById('mac-head').innerHTML = `<tr><th>Model</th>` + macConds.map(c => `<th class="r">${c.short}</th>`).join('') + `</tr>`;
+document.getElementById('mac-rows').innerHTML = macModels.map(m => `<tr><td><b>${m.name}</b></td>` + macConds.map(c => {
+  const w = run(m.key, c.key), a = run(m.key, c.key, D.mac_runs);
+  return `<td class="r"><span class="acc">${pct(a.accuracy)}</span><span class="sub">Windows ${pct(w.accuracy)}</span></td>`;
+}).join('') + `</tr>`).join('');
+document.getElementById('mac-note').textContent =
+  `The same prompts and model files on an Apple Mac. GPU arithmetic differs between the two machines, so a few answers change; ` +
+  `every Mac score is inside the Windows 95% confidence interval.`;
+
+// ---- why models fail: coverage is fixed by the search; selection is per model
+const tc = conds.filter(c => c.key !== 'closed');
+const cov = Object.fromEntries(tc.map(c => [c.key, run(models[0].key, c.key)]));
+document.getElementById('why-head').innerHTML = `<tr><th></th>` + tc.map(c =>
+  `<th class="r${c.oracle ? ' orc' : ''}">${c.short}</th>`).join('') + `</tr>`;
+document.getElementById('why-rows').innerHTML =
+  `<tr><td><b>Correct concept is in the candidates</b><span class="sub">same for every model</span></td>` + tc.map(c =>
+    `<td class="r"><span class="acc">${pct(cov[c.key].coverage)}</span><span class="sub">${cov[c.key].covered_items} of ${cov[c.key].n}</span></td>`).join('') + `</tr>` +
+  order.map(m => `<tr><td>${m.name} picks it</td>` + tc.map(c => {
+    const r = run(m.key, c.key);
+    return `<td class="r"><span class="acc">${pct(r.selected_if_covered)}</span><span class="sub">${r.selected_covered_items} of ${r.covered_items}</span></td>`;
+  }).join('') + `</tr>`).join('');
+document.getElementById('why-note').textContent =
+  `Two ways to fail. Retrieval: the search does not put the correct concept among the ${T.candidates} candidates, which happens for most items. ` +
+  `Selection: the concept is there, but the model picks another one, which happens more often than not even for the best model.`;
+
+// ---- examples
 document.getElementById('ex').innerHTML = D.examples.map(x => `
-  <div class="card ex"><div class="top"><b>${x.verdict === 'pass' ? 'Correct' : 'Wrong'} <span class="dim">&middot; Qwen2.5-7B, tag search (oracle type)</span></b>
+  <div class="card ex"><div class="top"><b>${x.verdict === 'pass' ? 'Correct' : 'Wrong'} <span class="dim">&middot; Qwen2.5-7B, search + oracle type</span></b>
   <span class="tag ${x.verdict}">${x.verdict === 'pass' ? 'PASS' : 'FAIL'}</span></div>
-  <div class="row">${x.row}</div>
-  <div class="kv"><span>Number</span><span>${x.value}</span>
-  <span>Correct</span><code>${x.gold}</code>
-  <span>Model said</span><code style="color:${x.verdict==='pass'?'var(--accent)':'var(--red)'}">${x.pred}</code></div></div>`).join('');
+  <div class="row">${esc(x.row)}</div>
+  <div class="kv"><span>Number</span><span>${esc(x.value)}</span>
+  <span>Correct</span><code>${esc(x.gold)}</code>
+  <span>Model said</span><code style="color:${x.verdict === 'pass' ? 'var(--accent)' : 'var(--red)'}">${esc(x.pred)}</code></div></div>`).join('');
 
-const tr = D.runs.filter(r => r.tools), q = tr[0];
-// the candidate list does not depend on the model, so coverage is one number; selection is per model
-const same = tr.every(r => r.coverage === q.coverage && r.covered_items === q.covered_items);
-document.getElementById('why').innerHTML = same ? `
-  <div class="card stat"><div class="n">${q.coverage.toFixed(1)}%</div>
-  <p>Search${q.oracle ? ' (with the oracle item type)' : ''} puts the correct concept in the 100 candidates for ${q.covered_items} of ${q.n} items.</p></div>
-  <div class="card stat"><p style="margin:0 0 8px">When it is there, how often the model picks it:</p>
-  <div class="kv" style="grid-template-columns:1fr auto auto">${tr.map(r => `<span style="color:var(--text)"><b>${r.model.replace('-Instruct','')}</b></span>
-  <span style="color:var(--text);font-weight:700;text-align:right">${r.selected_if_covered.toFixed(1)}%</span><span class="dim">${r.selected_covered_items} of ${r.covered_items}</span>`).join('')}</div></div>` : '';
+// ---- calculation
+const cm = [...new Set(C.runs.map(r => r.model))];
+const cc = [...new Set(C.runs.map(r => r.condition))];
+const crun = (m, c) => C.runs.find(r => r.model === m && r.condition === c);
+const cbest = Object.fromEntries(cc.map(c => [c, Math.max(...cm.map(m => crun(m, c).accuracy))]));
+const corder = cm.slice().sort((a, b) => crun(b, 'tools').accuracy - crun(a, 'tools').accuracy);
+document.getElementById('calc-head').innerHTML = `<tr><th>Model</th>` + cc.map(c => `<th class="r">${crun(cm[0], c).condition_label}</th>`).join('') + `</tr>`;
+document.getElementById('calc-rows').innerHTML = corder.map(m => `<tr><td><b>${m}</b></td>` + cc.map(c => {
+  const r = crun(m, c);
+  return `<td class="r"><span class="acc${r.accuracy === cbest[c] ? ' best' : ''}">${pct(r.accuracy)}</span><span class="sub">${fmt(r.correct)} / ${fmt(r.n)}</span></td>`;
+}).join('') + `</tr>`).join('');
+const ft = crun(cm[0], 'tools');
+document.getElementById('calc-note').textContent =
+  `Each question asks for one number, for example the net present value of a project. Correct = within 1% of the answer. ` +
+  `No tools: the model works it out in text. Formula lookup + calculator: a keyword search finds a formula among ${C.formulas} named formulas ` +
+  `(the right one for ${fmt(ft.formula_found)} of ${fmt(ft.n)} questions), the model writes one arithmetic expression, and a calculator evaluates it. ` +
+  `Windows laptop. These runs were not profiled, so no latency or memory is shown.`;
+
+let start = 'tag';
+try { start = localStorage.getItem('xbrl-tab') || 'tag'; } catch (e) {}
+if (location.hash === '#calc') start = 'calc';
+show(start === 'calc' ? 'calc' : 'tag');
 </script>
 </body>
 </html>

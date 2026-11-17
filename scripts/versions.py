@@ -21,6 +21,18 @@ def git(*args):
     return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True).stdout.strip()
 
 
+
+def show(model):
+    """Quantisation level and parameter size from the local Ollama, or 'not installed'."""
+    import urllib.request
+    try:
+        req = urllib.request.Request("http://localhost:11434/api/show", data=json.dumps(
+            {"model": model.removeprefix("ollama:")}).encode(), headers={"Content-Type": "application/json"})
+        d = json.loads(urllib.request.urlopen(req, timeout=10).read())["details"]
+        return d.get("quantization_level", "?"), d.get("parameter_size", "?")
+    except Exception:
+        return "not installed", "?"
+
 def main():
     manifest = json.loads((ROOT / "data/raw/MANIFEST.json").read_text(encoding="utf-8"))
     sources = defaultdict(set)
@@ -51,11 +63,13 @@ def main():
     for (src, repo, commit, lic), paths in sorted(sources.items(), key=lambda x: [str(t) for t in x[0]]):
         lines.append(f"| {src} | {repo} | `{commit}` | {lic} | {len(paths)} |")
     lines += ["", "## Models and runtime (from run meta files)", "",
-              "| Model | Ollama digest | Runtime |", "|---|---|---|"]
+              "| Model | Ollama digest | Runtime | Quantisation | Parameters |", "|---|---|---|---|---|"]
     for m in sorted(models):
-        lines.append(f"| `{m}` | {', '.join(f'`{d[:12]}`' for d in sorted(models[m]))} | {', '.join(sorted(runtimes[m]))} |")
-    lines += ["", "qwen2.5:3b, qwen2.5:7b and llama3.1:8b are 4-bit Q4_K_M (checked in their Ollama manifests); "
-              "mistral:7b was not checked. All runs decode greedily (temperature 0, seed 0).", ""]
+        q, n = show(m)
+        lines.append(f"| `{m}` | {', '.join(f'`{d[:12]}`' for d in sorted(models[m]))} | "
+                     f"{', '.join(sorted(runtimes[m]))} | {q} | {n} |")
+    lines += ["", "Quantisation and parameter count are read from the local Ollama (`/api/show`) when this file is "
+              "generated. All runs decode greedily (temperature 0, seed 0).", ""]
     dest = ROOT / "docs" / "VERSIONS.md"
     dest.write_text("\n".join(lines), encoding="utf-8", newline="\n")
     print("\n".join(lines))

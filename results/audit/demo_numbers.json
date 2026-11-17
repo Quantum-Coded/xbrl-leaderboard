@@ -1,11 +1,48 @@
 {
  "checks": [
-  "qwen2.5-7b__concept_tagging__closed__s0: rescored 6/484 = 1.2% CI [0.4, 2.3] == stored score file",
-  "qwen2.5-7b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.2, 18.8] == stored score file",
-  "llama3.1-8b__concept_tagging__closed__s0: rescored 8/484 = 1.7% CI [0.6, 2.9] == stored score file",
-  "llama3.1-8b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.4, 19.0] == stored score file",
-  "qwen2.5-3b__concept_tagging__closed__s0: rescored 5/484 = 1.0% CI [0.2, 2.1] == stored score file",
-  "qwen2.5-3b__concept_tagging__tools__s0: rescored 59/484 = 12.2% CI [9.3, 15.3] == stored score file"
+  "[windows] qwen2.5-1.5b__concept_tagging__closed__s0: rescored 8/484 = 1.7% CI [0.6, 2.9] == stored",
+  "[windows] qwen2.5-1.5b__concept_tagging__tools_noorac__s0: rescored 39/484 = 8.1% CI [5.8, 10.5] == stored",
+  "[windows] qwen2.5-1.5b__concept_tagging__tools_numeric__s0: rescored 44/484 = 9.1% CI [6.6, 11.8] == stored",
+  "[windows] qwen2.5-1.5b__concept_tagging__tools__s0: rescored 47/484 = 9.7% CI [7.2, 12.4] == stored",
+  "[windows] gemma2-2b__concept_tagging__closed__s0: rescored 3/484 = 0.6% CI [0.0, 1.4] == stored",
+  "[windows] gemma2-2b__concept_tagging__tools_noorac__s0: rescored 43/484 = 8.9% CI [6.4, 11.6] == stored",
+  "[windows] gemma2-2b__concept_tagging__tools_numeric__s0: rescored 39/484 = 8.1% CI [5.6, 10.5] == stored",
+  "[windows] gemma2-2b__concept_tagging__tools__s0: rescored 43/484 = 8.9% CI [6.4, 11.6] == stored",
+  "[windows] qwen2.5-3b__concept_tagging__closed__s0: rescored 5/484 = 1.0% CI [0.2, 2.1] == stored",
+  "[windows] qwen2.5-3b__concept_tagging__tools_noorac__s0: rescored 50/484 = 10.3% CI [7.6, 13.2] == stored",
+  "[windows] qwen2.5-3b__concept_tagging__tools_numeric__s0: rescored 57/484 = 11.8% CI [8.9, 14.7] == stored",
+  "[windows] qwen2.5-3b__concept_tagging__tools__s0: rescored 59/484 = 12.2% CI [9.3, 15.3] == stored",
+  "[windows] llama3.2-3b__concept_tagging__closed__s0: rescored 3/484 = 0.6% CI [0.0, 1.4] == stored",
+  "[windows] llama3.2-3b__concept_tagging__tools_noorac__s0: rescored 44/484 = 9.1% CI [6.6, 11.8] == stored",
+  "[windows] llama3.2-3b__concept_tagging__tools_numeric__s0: rescored 52/484 = 10.7% CI [8.1, 13.6] == stored",
+  "[windows] llama3.2-3b__concept_tagging__tools__s0: rescored 56/484 = 11.6% CI [8.9, 14.5] == stored",
+  "[windows] qwen2.5-7b__concept_tagging__closed__s0: rescored 6/484 = 1.2% CI [0.4, 2.3] == stored",
+  "[windows] qwen2.5-7b__concept_tagging__tools_noorac__s0: rescored 61/484 = 12.6% CI [9.7, 15.7] == stored",
+  "[windows] qwen2.5-7b__concept_tagging__tools_numeric__s0: rescored 71/484 = 14.7% CI [11.6, 18.0] == stored",
+  "[windows] qwen2.5-7b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.2, 18.8] == stored",
+  "[windows] mistral-7b__concept_tagging__closed__s0: rescored 0/484 = 0.0% CI [0.0, 0.0] == stored",
+  "[windows] mistral-7b__concept_tagging__tools_noorac__s0: rescored 46/484 = 9.5% CI [7.0, 12.2] == stored",
+  "[windows] mistral-7b__concept_tagging__tools_numeric__s0: rescored 44/484 = 9.1% CI [6.6, 11.6] == stored",
+  "[windows] mistral-7b__concept_tagging__tools__s0: rescored 55/484 = 11.4% CI [8.5, 14.3] == stored",
+  "[windows] llama3.1-8b__concept_tagging__closed__s0: rescored 8/484 = 1.7% CI [0.6, 2.9] == stored",
+  "[windows] llama3.1-8b__concept_tagging__tools_noorac__s0: rescored 58/484 = 12.0% CI [9.1, 14.9] == stored",
+  "[windows] llama3.1-8b__concept_tagging__tools_numeric__s0: rescored 65/484 = 13.4% CI [10.5, 16.5] == stored",
+  "[windows] llama3.1-8b__concept_tagging__tools__s0: rescored 75/484 = 15.5% CI [12.4, 19.0] == stored",
+  "[mac] qwen2.5-3b__concept_tagging__closed__s0: rescored 5/484 = 1.0% CI [0.2, 2.1] == stored",
+  "[mac] qwen2.5-3b__concept_tagging__tools_noorac__s0: rescored 47/484 = 9.7% CI [7.2, 12.4] == stored",
+  "[mac] qwen2.5-3b__concept_tagging__tools__s0: rescored 57/484 = 11.8% CI [8.9, 14.9] == stored",
+  "[mac] qwen2.5-7b__concept_tagging__closed__s0: rescored 7/484 = 1.4% CI [0.4, 2.7] == stored",
+  "[mac] qwen2.5-7b__concept_tagging__tools_noorac__s0: rescored 62/484 = 12.8% CI [9.9, 15.9] == stored",
+  "[mac] qwen2.5-7b__concept_tagging__tools__s0: rescored 72/484 = 14.9% CI [11.8, 18.2] == stored",
+  "[mac] llama3.1-8b__concept_tagging__closed__s0: rescored 7/484 = 1.4% CI [0.4, 2.7] == stored",
+  "[mac] llama3.1-8b__concept_tagging__tools_noorac__s0: rescored 57/484 = 11.8% CI [9.1, 14.7] == stored",
+  "[mac] llama3.1-8b__concept_tagging__tools__s0: rescored 71/484 = 14.7% CI [11.6, 18.0] == stored",
+  "[calc] qwen2.5-3b__financial_calc__closed__s0: rescored 603/1000 = 60.3% == stored",
+  "[calc] qwen2.5-3b__financial_calc__tools__s0: rescored 561/1000 = 56.1% == stored",
+  "[calc] qwen2.5-7b__financial_calc__closed__s0: rescored 657/1000 = 65.7% == stored",
+  "[calc] qwen2.5-7b__financial_calc__tools__s0: rescored 764/1000 = 76.4% == stored",
+  "[calc] llama3.1-8b__financial_calc__closed__s0: rescored 603/1000 = 60.3% == stored",
+  "[calc] llama3.1-8b__financial_calc__tools__s0: rescored 732/1000 = 73.2% == stored"
  ],
  "task": {
   "name": "Concept linking (FinCL)",
@@ -18,64 +55,83 @@
   "taxonomy_concepts": 17388,
   "metric": "Exact match on the US-GAAP concept (concept_exact@v1)",
   "ci": "95% bootstrap over items (2,000 resamples, seed 0)",
-  "decoding": "greedy, 4-bit GGUF via Ollama, seed 0"
+  "decoding": "greedy, 4-bit GGUF via Ollama, seed 0",
+  "candidates": 100
  },
+ "models": [
+  {
+   "key": "qwen2.5-1.5b",
+   "name": "Qwen2.5-1.5B",
+   "params_b": 1.5
+  },
+  {
+   "key": "gemma2-2b",
+   "name": "Gemma-2-2B",
+   "params_b": 2.6
+  },
+  {
+   "key": "qwen2.5-3b",
+   "name": "Qwen2.5-3B",
+   "params_b": 3.1
+  },
+  {
+   "key": "llama3.2-3b",
+   "name": "Llama-3.2-3B",
+   "params_b": 3.2
+  },
+  {
+   "key": "qwen2.5-7b",
+   "name": "Qwen2.5-7B",
+   "params_b": 7.6
+  },
+  {
+   "key": "mistral-7b",
+   "name": "Mistral-7B",
+   "params_b": 7.2
+  },
+  {
+   "key": "llama3.1-8b",
+   "name": "Llama-3.1-8B",
+   "params_b": 8.0
+  }
+ ],
+ "conditions": [
+  {
+   "key": "closed",
+   "label": "No tools",
+   "short": "No tools",
+   "oracle": false
+  },
+  {
+   "key": "tools_noorac",
+   "label": "Tag search, no type",
+   "short": "Search",
+   "oracle": false
+  },
+  {
+   "key": "tools_numeric",
+   "label": "Tag search, numeric types only",
+   "short": "Search + numeric",
+   "oracle": false
+  },
+  {
+   "key": "tools",
+   "label": "Tag search, given item type (oracle diagnostic)",
+   "short": "Search + oracle type",
+   "oracle": true
+  }
+ ],
  "runs": [
   {
-   "run": "qwen2.5-7b__concept_tagging__closed__s0",
-   "model": "Qwen2.5-7B-Instruct",
-   "model_tag": "ollama:qwen2.5:7b",
-   "model_digest": "845dbda0ea48",
-   "runtime": null,
-   "track": "No tools",
+   "machine": "windows",
+   "run": "qwen2.5-1.5b__concept_tagging__closed__s0",
+   "model_key": "qwen2.5-1.5b",
+   "model": "Qwen2.5-1.5B",
+   "model_tag": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149",
+   "runtime": "ollama 0.40.16",
    "condition": "closed",
-   "tools": false,
-   "oracle": false,
-   "n": 484,
-   "correct": 6,
-   "accuracy": 1.2,
-   "ci95": [
-    0.4,
-    2.3
-   ],
-   "status": {
-    "ok": 484
-   }
-  },
-  {
-   "run": "qwen2.5-7b__concept_tagging__tools__s0",
-   "model": "Qwen2.5-7B-Instruct",
-   "model_tag": "ollama:qwen2.5:7b",
-   "model_digest": "845dbda0ea48",
-   "runtime": "ollama 0.40.15",
-   "track": "Tag search (given item type: oracle diagnostic)",
-   "condition": "tools",
-   "tools": true,
-   "oracle": true,
-   "n": 484,
-   "correct": 75,
-   "accuracy": 15.5,
-   "ci95": [
-    12.2,
-    18.8
-   ],
-   "status": {
-    "ok": 484
-   },
-   "coverage": 35.3,
-   "covered_items": 171,
-   "selected_covered_items": 75,
-   "selected_if_covered": 43.9,
-   "correct_outside_candidates": 0
-  },
-  {
-   "run": "llama3.1-8b__concept_tagging__closed__s0",
-   "model": "Llama-3.1-8B-Instruct",
-   "model_tag": "ollama:llama3.1:8b",
-   "model_digest": "46e0c10c039e",
-   "runtime": null,
-   "track": "No tools",
-   "condition": "closed",
+   "condition_label": "No tools",
    "tools": false,
    "oracle": false,
    "n": 484,
@@ -85,27 +141,533 @@
     0.6,
     2.9
    ],
+   "parsed": 484,
    "status": {
     "ok": 484
    }
   },
   {
-   "run": "llama3.1-8b__concept_tagging__tools__s0",
-   "model": "Llama-3.1-8B-Instruct",
-   "model_tag": "ollama:llama3.1:8b",
-   "model_digest": "46e0c10c039e",
-   "runtime": "ollama 0.40.15",
-   "track": "Tag search (given item type: oracle diagnostic)",
+   "machine": "windows",
+   "run": "qwen2.5-1.5b__concept_tagging__tools_noorac__s0",
+   "model_key": "qwen2.5-1.5b",
+   "model": "Qwen2.5-1.5B",
+   "model_tag": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 39,
+   "accuracy": 8.1,
+   "ci95": [
+    5.8,
+    10.5
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 39,
+   "selected_if_covered": 29.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-1.5b__concept_tagging__tools_numeric__s0",
+   "model_key": "qwen2.5-1.5b",
+   "model": "Qwen2.5-1.5B",
+   "model_tag": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 44,
+   "accuracy": 9.1,
+   "ci95": [
+    6.6,
+    11.8
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 44,
+   "selected_if_covered": 29.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-1.5b__concept_tagging__tools__s0",
+   "model_key": "qwen2.5-1.5b",
+   "model": "Qwen2.5-1.5B",
+   "model_tag": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149",
+   "runtime": "ollama 0.40.16",
    "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 47,
+   "accuracy": 9.7,
+   "ci95": [
+    7.2,
+    12.4
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 47,
+   "selected_if_covered": 27.5,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "gemma2-2b__concept_tagging__closed__s0",
+   "model_key": "gemma2-2b",
+   "model": "Gemma-2-2B",
+   "model_tag": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd52",
+   "runtime": "ollama 0.40.16",
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 3,
+   "accuracy": 0.6,
+   "ci95": [
+    0.0,
+    1.4
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "gemma2-2b__concept_tagging__tools_noorac__s0",
+   "model_key": "gemma2-2b",
+   "model": "Gemma-2-2B",
+   "model_tag": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd52",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 43,
+   "accuracy": 8.9,
+   "ci95": [
+    6.4,
+    11.6
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 43,
+   "selected_if_covered": 32.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "gemma2-2b__concept_tagging__tools_numeric__s0",
+   "model_key": "gemma2-2b",
+   "model": "Gemma-2-2B",
+   "model_tag": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd52",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 39,
+   "accuracy": 8.1,
+   "ci95": [
+    5.6,
+    10.5
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 39,
+   "selected_if_covered": 25.8,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "gemma2-2b__concept_tagging__tools__s0",
+   "model_key": "gemma2-2b",
+   "model": "Gemma-2-2B",
+   "model_tag": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd52",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 43,
+   "accuracy": 8.9,
+   "ci95": [
+    6.4,
+    11.6
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 43,
+   "selected_if_covered": 25.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-3b__concept_tagging__closed__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": null,
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 5,
+   "accuracy": 1.0,
+   "ci95": [
+    0.2,
+    2.1
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-3b__concept_tagging__tools_noorac__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 50,
+   "accuracy": 10.3,
+   "ci95": [
+    7.6,
+    13.2
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 49,
+   "selected_if_covered": 36.6,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-3b__concept_tagging__tools_numeric__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 57,
+   "accuracy": 11.8,
+   "ci95": [
+    8.9,
+    14.7
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 56,
+   "selected_if_covered": 37.1,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-3b__concept_tagging__tools__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.15",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 59,
+   "accuracy": 12.2,
+   "ci95": [
+    9.3,
+    15.3
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 58,
+   "selected_if_covered": 33.9,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.2-3b__concept_tagging__closed__s0",
+   "model_key": "llama3.2-3b",
+   "model": "Llama-3.2-3B",
+   "model_tag": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd5",
+   "runtime": "ollama 0.40.16",
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 3,
+   "accuracy": 0.6,
+   "ci95": [
+    0.0,
+    1.4
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.2-3b__concept_tagging__tools_noorac__s0",
+   "model_key": "llama3.2-3b",
+   "model": "Llama-3.2-3B",
+   "model_tag": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd5",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 44,
+   "accuracy": 9.1,
+   "ci95": [
+    6.6,
+    11.8
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 44,
+   "selected_if_covered": 32.8,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.2-3b__concept_tagging__tools_numeric__s0",
+   "model_key": "llama3.2-3b",
+   "model": "Llama-3.2-3B",
+   "model_tag": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd5",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 52,
+   "accuracy": 10.7,
+   "ci95": [
+    8.1,
+    13.6
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 51,
+   "selected_if_covered": 33.8,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.2-3b__concept_tagging__tools__s0",
+   "model_key": "llama3.2-3b",
+   "model": "Llama-3.2-3B",
+   "model_tag": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd5",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 56,
+   "accuracy": 11.6,
+   "ci95": [
+    8.9,
+    14.5
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 55,
+   "selected_if_covered": 32.2,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-7b__concept_tagging__closed__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": null,
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 6,
+   "accuracy": 1.2,
+   "ci95": [
+    0.4,
+    2.3
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-7b__concept_tagging__tools_noorac__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 61,
+   "accuracy": 12.6,
+   "ci95": [
+    9.7,
+    15.7
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 60,
+   "selected_if_covered": 44.8,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-7b__concept_tagging__tools_numeric__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 71,
+   "accuracy": 14.7,
+   "ci95": [
+    11.6,
+    18.0
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 71,
+   "selected_if_covered": 47.0,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "qwen2.5-7b__concept_tagging__tools__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.15",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
    "tools": true,
    "oracle": true,
    "n": 484,
    "correct": 75,
    "accuracy": 15.5,
    "ci95": [
-    12.4,
-    19.0
+    12.2,
+    18.8
    ],
+   "parsed": 484,
    "status": {
     "ok": 484
    },
@@ -116,13 +678,239 @@
    "correct_outside_candidates": 0
   },
   {
+   "machine": "windows",
+   "run": "mistral-7b__concept_tagging__closed__s0",
+   "model_key": "mistral-7b",
+   "model": "Mistral-7B",
+   "model_tag": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a0",
+   "runtime": null,
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 0,
+   "accuracy": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "parsed": 480,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "mistral-7b__concept_tagging__tools_noorac__s0",
+   "model_key": "mistral-7b",
+   "model": "Mistral-7B",
+   "model_tag": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a0",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 46,
+   "accuracy": 9.5,
+   "ci95": [
+    7.0,
+    12.2
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 46,
+   "selected_if_covered": 34.3,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "mistral-7b__concept_tagging__tools_numeric__s0",
+   "model_key": "mistral-7b",
+   "model": "Mistral-7B",
+   "model_tag": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a0",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 44,
+   "accuracy": 9.1,
+   "ci95": [
+    6.6,
+    11.6
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 44,
+   "selected_if_covered": 29.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "mistral-7b__concept_tagging__tools__s0",
+   "model_key": "mistral-7b",
+   "model": "Mistral-7B",
+   "model_tag": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a0",
+   "runtime": "ollama 0.40.15",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 55,
+   "accuracy": 11.4,
+   "ci95": [
+    8.5,
+    14.3
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 55,
+   "selected_if_covered": 32.2,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.1-8b__concept_tagging__closed__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": null,
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 8,
+   "accuracy": 1.7,
+   "ci95": [
+    0.6,
+    2.9
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.1-8b__concept_tagging__tools_noorac__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 58,
+   "accuracy": 12.0,
+   "ci95": [
+    9.1,
+    14.9
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 57,
+   "selected_if_covered": 42.5,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.1-8b__concept_tagging__tools_numeric__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_numeric",
+   "condition_label": "Tag search, numeric types only",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 65,
+   "accuracy": 13.4,
+   "ci95": [
+    10.5,
+    16.5
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 31.2,
+   "covered_items": 151,
+   "selected_covered_items": 65,
+   "selected_if_covered": 43.0,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "windows",
+   "run": "llama3.1-8b__concept_tagging__tools__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.15",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 75,
+   "accuracy": 15.5,
+   "ci95": [
+    12.4,
+    19.0
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 75,
+   "selected_if_covered": 43.9,
+   "correct_outside_candidates": 0
+  }
+ ],
+ "mac_runs": [
+  {
+   "machine": "mac",
    "run": "qwen2.5-3b__concept_tagging__closed__s0",
-   "model": "Qwen2.5-3B-Instruct",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
    "model_tag": "ollama:qwen2.5:3b",
    "model_digest": "357c53fb659c",
-   "runtime": null,
-   "track": "No tools",
+   "runtime": "ollama 0.40.16",
    "condition": "closed",
+   "condition_label": "No tools",
    "tools": false,
    "oracle": false,
    "n": 484,
@@ -132,57 +920,793 @@
     0.2,
     2.1
    ],
+   "parsed": 484,
    "status": {
     "ok": 484
    }
   },
   {
-   "run": "qwen2.5-3b__concept_tagging__tools__s0",
-   "model": "Qwen2.5-3B-Instruct",
+   "machine": "mac",
+   "run": "qwen2.5-3b__concept_tagging__tools_noorac__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
    "model_tag": "ollama:qwen2.5:3b",
    "model_digest": "357c53fb659c",
-   "runtime": "ollama 0.40.15",
-   "track": "Tag search (given item type: oracle diagnostic)",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 47,
+   "accuracy": 9.7,
+   "ci95": [
+    7.2,
+    12.4
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 46,
+   "selected_if_covered": 34.3,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "mac",
+   "run": "qwen2.5-3b__concept_tagging__tools__s0",
+   "model_key": "qwen2.5-3b",
+   "model": "Qwen2.5-3B",
+   "model_tag": "ollama:qwen2.5:3b",
+   "model_digest": "357c53fb659c",
+   "runtime": "ollama 0.40.16",
    "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
    "tools": true,
    "oracle": true,
    "n": 484,
-   "correct": 59,
-   "accuracy": 12.2,
+   "correct": 57,
+   "accuracy": 11.8,
    "ci95": [
-    9.3,
-    15.3
+    8.9,
+    14.9
    ],
+   "parsed": 484,
    "status": {
     "ok": 484
    },
    "coverage": 35.3,
    "covered_items": 171,
-   "selected_covered_items": 58,
-   "selected_if_covered": 33.9,
+   "selected_covered_items": 56,
+   "selected_if_covered": 32.7,
    "correct_outside_candidates": 1
+  },
+  {
+   "machine": "mac",
+   "run": "qwen2.5-7b__concept_tagging__closed__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 7,
+   "accuracy": 1.4,
+   "ci95": [
+    0.4,
+    2.7
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "mac",
+   "run": "qwen2.5-7b__concept_tagging__tools_noorac__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 62,
+   "accuracy": 12.8,
+   "ci95": [
+    9.9,
+    15.9
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 61,
+   "selected_if_covered": 45.5,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "mac",
+   "run": "qwen2.5-7b__concept_tagging__tools__s0",
+   "model_key": "qwen2.5-7b",
+   "model": "Qwen2.5-7B",
+   "model_tag": "ollama:qwen2.5:7b",
+   "model_digest": "845dbda0ea48",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 72,
+   "accuracy": 14.9,
+   "ci95": [
+    11.8,
+    18.2
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 72,
+   "selected_if_covered": 42.1,
+   "correct_outside_candidates": 0
+  },
+  {
+   "machine": "mac",
+   "run": "llama3.1-8b__concept_tagging__closed__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.16",
+   "condition": "closed",
+   "condition_label": "No tools",
+   "tools": false,
+   "oracle": false,
+   "n": 484,
+   "correct": 7,
+   "accuracy": 1.4,
+   "ci95": [
+    0.4,
+    2.7
+   ],
+   "parsed": 483,
+   "status": {
+    "ok": 484
+   }
+  },
+  {
+   "machine": "mac",
+   "run": "llama3.1-8b__concept_tagging__tools_noorac__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools_noorac",
+   "condition_label": "Tag search, no type",
+   "tools": true,
+   "oracle": false,
+   "n": 484,
+   "correct": 57,
+   "accuracy": 11.8,
+   "ci95": [
+    9.1,
+    14.7
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 27.7,
+   "covered_items": 134,
+   "selected_covered_items": 56,
+   "selected_if_covered": 41.8,
+   "correct_outside_candidates": 1
+  },
+  {
+   "machine": "mac",
+   "run": "llama3.1-8b__concept_tagging__tools__s0",
+   "model_key": "llama3.1-8b",
+   "model": "Llama-3.1-8B",
+   "model_tag": "ollama:llama3.1:8b",
+   "model_digest": "46e0c10c039e",
+   "runtime": "ollama 0.40.16",
+   "condition": "tools",
+   "condition_label": "Tag search, given item type (oracle diagnostic)",
+   "tools": true,
+   "oracle": true,
+   "n": 484,
+   "correct": 71,
+   "accuracy": 14.7,
+   "ci95": [
+    11.6,
+    18.0
+   ],
+   "parsed": 484,
+   "status": {
+    "ok": 484
+   },
+   "coverage": 35.3,
+   "covered_items": 171,
+   "selected_covered_items": 71,
+   "selected_if_covered": 41.5,
+   "correct_outside_candidates": 0
   }
  ],
- "paired_tools_minus_closed": {
-  "Qwen2.5-7B-Instruct": {
-   "diff": 14.3,
-   "ci95": [
-    11.2,
-    17.6
+ "cost": {
+  "windows": {
+   "machine": {
+    "name": "rtx-4050-laptop-gpu",
+    "hardware": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "chip": "13th Gen Intel(R) Core(TM) i5-13420H",
+    "ram_gb": 15.6,
+    "os": "Windows",
+    "ollama": "0.40.16"
+   },
+   "rows": [
+    {
+     "model_key": "qwen2.5-1.5b",
+     "model": "Qwen2.5-1.5B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.21,
+     "latency_p90_s": 0.24,
+     "prompt_tokens_median": 143,
+     "model_loaded_mib": 1115,
+     "on_gpu_mib": 1115,
+     "gpu_peak_mib": 1224,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-1.5b",
+     "model": "Qwen2.5-1.5B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 0.53,
+     "latency_p90_s": 0.59,
+     "prompt_tokens_median": 2073,
+     "model_loaded_mib": 1115,
+     "on_gpu_mib": 1115,
+     "gpu_peak_mib": 1224,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-1.5b",
+     "model": "Qwen2.5-1.5B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 0.53,
+     "latency_p90_s": 0.63,
+     "prompt_tokens_median": 1963,
+     "model_loaded_mib": 1115,
+     "on_gpu_mib": 1115,
+     "gpu_peak_mib": 1224,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "gemma2-2b",
+     "model": "Gemma-2-2B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.31,
+     "latency_p90_s": 0.34,
+     "prompt_tokens_median": 126,
+     "model_loaded_mib": 1836,
+     "on_gpu_mib": 1836,
+     "gpu_peak_mib": 2156,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "gemma2-2b",
+     "model": "Gemma-2-2B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 0.9,
+     "latency_p90_s": 1.13,
+     "prompt_tokens_median": 1873,
+     "model_loaded_mib": 1836,
+     "on_gpu_mib": 1836,
+     "gpu_peak_mib": 2152,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "gemma2-2b",
+     "model": "Gemma-2-2B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 0.92,
+     "latency_p90_s": 1.15,
+     "prompt_tokens_median": 1809,
+     "model_loaded_mib": 1836,
+     "on_gpu_mib": 1836,
+     "gpu_peak_mib": 2150,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.28,
+     "latency_p90_s": 0.39,
+     "prompt_tokens_median": 143,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": 2172,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 0.79,
+     "latency_p90_s": 0.95,
+     "prompt_tokens_median": 2073,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": 2172,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 0.85,
+     "latency_p90_s": 1.03,
+     "prompt_tokens_median": 1963,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": 2172,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.2-3b",
+     "model": "Llama-3.2-3B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.26,
+     "latency_p90_s": 0.32,
+     "prompt_tokens_median": 129,
+     "model_loaded_mib": 2442,
+     "on_gpu_mib": 2442,
+     "gpu_peak_mib": 2546,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.2-3b",
+     "model": "Llama-3.2-3B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 0.88,
+     "latency_p90_s": 1.11,
+     "prompt_tokens_median": 1812,
+     "model_loaded_mib": 2442,
+     "on_gpu_mib": 2442,
+     "gpu_peak_mib": 2546,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.2-3b",
+     "model": "Llama-3.2-3B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 0.93,
+     "latency_p90_s": 1.15,
+     "prompt_tokens_median": 1947,
+     "model_loaded_mib": 2442,
+     "on_gpu_mib": 2442,
+     "gpu_peak_mib": 2546,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.44,
+     "latency_p90_s": 0.6,
+     "prompt_tokens_median": 143,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": 4648,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 1.57,
+     "latency_p90_s": 1.88,
+     "prompt_tokens_median": 2073,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": 4648,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 1.6,
+     "latency_p90_s": 1.94,
+     "prompt_tokens_median": 1963,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": 4648,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "mistral-7b",
+     "model": "Mistral-7B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.52,
+     "latency_p90_s": 0.74,
+     "prompt_tokens_median": 131,
+     "model_loaded_mib": 4729,
+     "on_gpu_mib": 4729,
+     "gpu_peak_mib": 4838,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "mistral-7b",
+     "model": "Mistral-7B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 2.12,
+     "latency_p90_s": 3.16,
+     "prompt_tokens_median": 2161,
+     "model_loaded_mib": 4729,
+     "on_gpu_mib": 4729,
+     "gpu_peak_mib": 4838,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "mistral-7b",
+     "model": "Mistral-7B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 2.14,
+     "latency_p90_s": 2.87,
+     "prompt_tokens_median": 2278,
+     "model_loaded_mib": 4729,
+     "on_gpu_mib": 4729,
+     "gpu_peak_mib": 4838,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 0.66,
+     "latency_p90_s": 0.73,
+     "prompt_tokens_median": 114,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": 5144,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 1.82,
+     "latency_p90_s": 2.42,
+     "prompt_tokens_median": 1797,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": 5144,
+     "process_peak_mib": null
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 1.96,
+     "latency_p90_s": 2.31,
+     "prompt_tokens_median": 1932,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": 5144,
+     "process_peak_mib": null
+    }
    ]
   },
-  "Llama-3.1-8B-Instruct": {
-   "diff": 13.8,
+  "mac": {
+   "machine": {
+    "name": "m4",
+    "hardware": "Apple M4",
+    "chip": "Apple M4",
+    "ram_gb": 16.0,
+    "os": "macOS",
+    "ollama": "0.40.16"
+   },
+   "rows": [
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 1.04,
+     "latency_p90_s": 1.48,
+     "prompt_tokens_median": 143,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 2363
+    },
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 8.53,
+     "latency_p90_s": 10.85,
+     "prompt_tokens_median": 2073,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 6932
+    },
+    {
+     "model_key": "qwen2.5-3b",
+     "model": "Qwen2.5-3B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 9.06,
+     "latency_p90_s": 12.17,
+     "prompt_tokens_median": 1963,
+     "model_loaded_mib": 2063,
+     "on_gpu_mib": 2063,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 6871
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 1.52,
+     "latency_p90_s": 2.35,
+     "prompt_tokens_median": 143,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 4965
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 17.43,
+     "latency_p90_s": 21.7,
+     "prompt_tokens_median": 2073,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 5027
+    },
+    {
+     "model_key": "qwen2.5-7b",
+     "model": "Qwen2.5-7B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 15.65,
+     "latency_p90_s": 19.52,
+     "prompt_tokens_median": 1963,
+     "model_loaded_mib": 4535,
+     "on_gpu_mib": 4535,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 3572
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "closed",
+     "n": 100,
+     "latency_median_s": 1.5,
+     "latency_p90_s": 1.88,
+     "prompt_tokens_median": 114,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 5663
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "tools_noorac",
+     "n": 100,
+     "latency_median_s": 20.51,
+     "latency_p90_s": 27.84,
+     "prompt_tokens_median": 1797,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 6610
+    },
+    {
+     "model_key": "llama3.1-8b",
+     "model": "Llama-3.1-8B",
+     "condition": "tools",
+     "n": 100,
+     "latency_median_s": 21.87,
+     "latency_p90_s": 28.14,
+     "prompt_tokens_median": 1932,
+     "model_loaded_mib": 5035,
+     "on_gpu_mib": 5035,
+     "gpu_peak_mib": null,
+     "process_peak_mib": 6022
+    }
+   ]
+  }
+ },
+ "calc": {
+  "name": "Financial calculation (XBRL-Agent formulas)",
+  "items": 1000,
+  "formulas": 50,
+  "metric": "A number in the final part of the answer is within 1% of the correct value (numeric_match@v1)",
+  "runs": [
+   {
+    "run": "qwen2.5-3b__financial_calc__closed__s0",
+    "model": "Qwen2.5-3B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 603,
+    "accuracy": 60.3,
+    "ci95": [
+     57.3,
+     63.3
+    ],
+    "runtime": "ollama 0.40.15"
+   },
+   {
+    "run": "qwen2.5-3b__financial_calc__tools__s0",
+    "model": "Qwen2.5-3B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 561,
+    "accuracy": 56.1,
+    "ci95": [
+     53.0,
+     59.3
+    ],
+    "runtime": "ollama 0.40.15",
+    "formula_found": 844
+   },
+   {
+    "run": "qwen2.5-7b__financial_calc__closed__s0",
+    "model": "Qwen2.5-7B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 657,
+    "accuracy": 65.7,
+    "ci95": [
+     62.8,
+     68.5
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "qwen2.5-7b__financial_calc__tools__s0",
+    "model": "Qwen2.5-7B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 764,
+    "accuracy": 76.4,
+    "ci95": [
+     73.8,
+     79.1
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
+   {
+    "run": "llama3.1-8b__financial_calc__closed__s0",
+    "model": "Llama-3.1-8B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 603,
+    "accuracy": 60.3,
+    "ci95": [
+     57.4,
+     63.3
+    ],
+    "runtime": "ollama 0.40.15"
+   },
+   {
+    "run": "llama3.1-8b__financial_calc__tools__s0",
+    "model": "Llama-3.1-8B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 732,
+    "accuracy": 73.2,
+    "ci95": [
+     70.4,
+     75.9
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   }
+  ]
+ },
+ "paired_search_minus_closed": {
+  "Qwen2.5-1.5B": {
+   "diff": 6.4,
    "ci95": [
-    10.5,
-    17.1
+    3.9,
+    9.1
    ]
   },
-  "Qwen2.5-3B-Instruct": {
-   "diff": 11.2,
+  "Gemma-2-2B": {
+   "diff": 8.3,
    "ci95": [
-    8.3,
+    6.0,
+    10.7
+   ]
+  },
+  "Qwen2.5-3B": {
+   "diff": 9.3,
+   "ci95": [
+    6.6,
+    12.2
+   ]
+  },
+  "Llama-3.2-3B": {
+   "diff": 8.5,
+   "ci95": [
+    6.2,
+    11.0
+   ]
+  },
+  "Qwen2.5-7B": {
+   "diff": 11.4,
+   "ci95": [
+    8.5,
     14.3
+   ]
+  },
+  "Mistral-7B": {
+   "diff": 9.5,
+   "ci95": [
+    7.0,
+    12.2
+   ]
+  },
+  "Llama-3.1-8B": {
+   "diff": 10.3,
+   "ci95": [
+    7.6,
+    13.2
    ]
   }
  },

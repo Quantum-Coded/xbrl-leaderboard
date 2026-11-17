@@ -1,5 +1,5 @@
 \documentclass[10pt]{article}
-\usepackage[margin=1.8cm]{geometry}
+\usepackage[margin=1.7cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
@@ -10,14 +10,14 @@
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 
-\titlespacing*{\section}{0pt}{8pt}{2pt}
+\titlespacing*{\section}{0pt}{7pt}{2pt}
 \titleformat*{\section}{\normalsize\bfseries}
 \setlist{nosep,leftmargin=1.2em,itemsep=1pt}
 \setlength{\parskip}{3pt}
 \setlength{\parindent}{0pt}
 \setlength{\abovecaptionskip}{3pt}
 
-\title{\vspace{-1.5cm}\large\textbf{XBRL Leaderboard: Comparing Financial LLMs and Agents on XBRL Tasks}}
+\title{\vspace{-1.5cm}\large\textbf{XBRL Leaderboard: What Small Open-Weight Models Can Do on XBRL Tasks, and at What Cost}}
 \author{\normalsize Dev Gaglani \quad Stavan Desai}
 \date{}
 
@@ -26,68 +26,77 @@
 \vspace{-1.3cm}
 
 \section{Research question and gap}
-Every number in an SEC filing is tagged in XBRL with a US-GAAP concept. The group already has XBRL benchmarks
-(FinTagging~[1], XBRL-Agent~[2], FinAuditing~[3]), but no public page that compares models on them; the Open FinLLM
+Banks and regulators often need models they can run in-house, which in practice means small open-weight models
+(under about 10B parameters). Belcak et al.~[7] argue such models suit narrow, strictly formatted agent tasks, and name
+the lack of task-specific benchmarks as a barrier. XBRL tagging is such a task. The group has XBRL benchmarks
+(FinTagging~[1], XBRL-Agent~[2], FinAuditing~[3]) but no public page comparing models on them, and the Open FinLLM
 Leaderboard~[4,5] has no XBRL tasks.
 
-\textbf{Question:} \emph{How well do open LLMs and agents handle XBRL tasks, and do the rankings stay the same when the
-scoring rule or tool setting changes?}
+\textbf{Question:} \emph{On XBRL tasks, what can small open-weight models do on an ordinary laptop, where do they fail,
+and what does each answer cost in time and memory?}
 
-\section{Scope}
+\section{Scope and evaluation}
 \begin{itemize}
-\item \textbf{First task:} concept linking (FinTagging, public subset): match one number from a filing to the right
-concept among 17{,}388 US-GAAP concepts.
-\item \textbf{Next tasks:} XBRL-Agent financial calculation and terminology, then FinAuditing.
-\item \textbf{Overlapping questions:} duplicates across datasets are merged and conflicting answers are excluded. For
-the first task, 500 items become 484 scored items; every removed item is listed.
+\item \textbf{Tasks:} concept linking (FinTagging public subset; 484 scored items after merging duplicates and
+excluding conflicts, among 17{,}388 US-GAAP concepts) and financial calculation (XBRL-Agent, 1{,}000 formula questions).
+FinAuditing comes later.
+\item \textbf{Models:} seven instruction-tuned models from 1.5B to 8B: Qwen2.5 (1.5B, 3B, 7B), Llama-3.2-3B,
+Llama-3.1-8B, Gemma-2-2B and Mistral-7B. All run locally through Ollama, 4-bit, greedy decoding, same inputs.
+\item \textbf{Conditions (linking):} no tools; tag search over all concepts (100 candidates); search limited to
+numeric concept types (a fixed list, not tuned on test items); and search limited to the item's \emph{given} type.
+The given type always equals the correct concept's type, so this last condition is an \textbf{oracle diagnostic},
+labelled as such and never ranked.
+\item \textbf{Reported:} accuracy with 95\% confidence intervals, median latency per item, and peak memory, on two
+machines kept separate: a Windows laptop (RTX~4050, 6\,GB) and an Apple M4 Mac (16\,GB).
+\item \textbf{Scorer check:} we ran FinTagging's official evaluation code on our saved answers. It agrees item for
+item for six of the seven models. For Llama-3.1-8B it fails to parse pretty-printed JSON and falls
+back to the first candidate (75 correct by our scorer, 39 by the official one). We report ours and note
+the official number.
 \end{itemize}
 
-\section{Evaluation}
+\section{Results so far}
 \begin{itemize}
-\item \textbf{Models:} Qwen2.5-7B and Llama-3.1-8B (instruction-tuned), run locally (4-bit, 6\,GB GPU).
-\item \textbf{Conditions:} no tools, and with tag search (the model chooses from 100 candidate concepts).
-\item \textbf{Scoring:} exact match with the correct concept, with 95\% confidence intervals. Each task keeps its
-original metric.
-\item \textbf{Baselines:} the no-tools run. Published scores are shown separately, since they use a different test set.
+\item \textbf{Linking:} without tools every model is below 2\%. With tag search (no oracle), the best is Qwen2.5-7B with
+61 of 484 (12.6\%), and 71 (14.7\%) when the search is limited to numeric types. Even 1.5B to 3B models reach 8 to
+12\%. The oracle type adds little on top (Qwen2.5-7B: 75, 15.5\%). The FinTagging paper reports 18.3\% for GPT-4o on its
+full set.
+\item \textbf{Why they fail:} retrieval is the larger problem. The correct concept is among the 100 candidates for only
+134 of 484 items without a type filter (27.7\%) and 171 (35.3\%) with the oracle type. When it is there, the best
+models pick it 42 to 47\% of the time and the smallest 25 to 32\%.
+\item \textbf{Calculation:} a formula lookup plus a calculator helps the larger models (Qwen2.5-7B from 65.7\% to
+76.4\%; Llama-3.1-8B from 60.3\% to 73.2\%) but not Qwen2.5-3B (60.3\% to 56.1\%).
+\item \textbf{Cost:} on the 6\,GB laptop GPU, Qwen2.5-7B takes 4{,}535\,MiB and 1.6\,s per linking answer with tag
+search; on the M4 Mac the same model takes 15.7\,s, mostly reading the 2{,}000-token prompt. Mac accuracy is within the
+Windows confidence interval for every model and condition.
 \end{itemize}
-
-\section{What is done: the first demo}
-We built a working local page with real results for the first task (Figure~1). It has three parts:
-\begin{itemize}
-\item \textbf{Results:} accuracy of each model with and without tag search on the 484 items. With tag search, both
-models get 75 of 484 right (15.5\%). Without tools, Llama-3.1-8B gets 8 (1.7\%) and Qwen2.5-7B gets 6 (1.2\%). For
-reference, the FinTagging paper reports 18.3\% for GPT-4o and 9.1\% for Llama-3.1-8B on its full test set.
-\item \textbf{Example answers:} one correct and one wrong answer from Qwen2.5-7B with tag search, showing the filing
-row, the correct concept and the model's answer.
-\item \textbf{Why models fail:} search puts the correct concept among the 100 candidates for only 171 of 484 items
-(35.3\%), and even then each model picks it for 75 of those 171 (43.9\%).
-\end{itemize}
-Every number on the page is recomputed by a script from the saved model answers and checked against the raw data.
+Every number on the page (Figure~1) is recomputed by a script from the saved answers and checked against the raw data.
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.75\textwidth]{demo_screenshot.png}
-\caption{\footnotesize The demo page: results table, one correct and one wrong answer, and why models fail.}
+\includegraphics[width=0.46\textwidth]{demo_screenshot.png}
+\caption{\footnotesize The page: accuracy for each model and condition, cost on each laptop, and why models fail.
+A second tab shows the calculation task.}
 \end{figure}
 
 \section{What we reuse and what we add}
 \begin{itemize}
-\item \textbf{Reuse:} the group's datasets and metrics, FinBen evaluation code~[6] where it fits, and the Open FinLLM
-Leaderboard code (React interface, FastAPI backend, Hugging Face result storage).
-\item \textbf{Add:} an XBRL page that shows, for each result, the dataset, model, tools, score and an example answer.
-The leaderboard's task columns are currently hard-coded, so our first code change makes them configurable and adds a
-tools field.
+\item \textbf{Reuse:} the group's datasets and metrics, FinTagging's official evaluation code (checked above), and the
+Open FinLLM Leaderboard code.
+\item \textbf{Add:} an XBRL page with models, conditions, accuracy, latency and memory. In the leaderboard code the task
+columns are hard-coded, so our first change makes them configurable and adds a tools field.
+\item \textbf{Reproducible:} code, saved answers, model digests and dataset commits are public on GitHub, under the MIT
+licence for the code. The page is static and can be hosted on GitHub Pages.
 \end{itemize}
 
 \section{Next steps and roles}
 {\centering\small
-\begin{tabular}{p{2.0cm}p{10.4cm}p{2.4cm}}
+\begin{tabular}{p{2.3cm}p{10.4cm}p{2.4cm}}
 \toprule
 When & Work & Lead \\
 \midrule
-Week 1   & Discuss the demo; agree the next task and where to host the page & Both \\
-Weeks 2--3 & Add XBRL-Agent financial calculation for the same two models, with and without tools & Dev \\
-Week 4   & Move the page onto the Open FinLLM Leaderboard code & Stavan \\
-Weeks 5--6 & Check which rankings change under different scoring rules; short report & Both \\
+23--27 Nov & Share the page link; run calculation for all seven models with latency and memory & Dev \\
+23--27 Nov & Calculation on the Mac; page updates; hosting & Stavan \\
+30 Nov--4 Dec & Second XBRL task on the page (terminology or FinAuditing, as you prefer) & Both \\
+7--18 Dec & Small Open FinLLM Leaderboard change (configurable tasks, tools field); short report & Both \\
 \bottomrule
 \end{tabular}\par}
 \vspace{3pt}
@@ -95,10 +104,10 @@ Dev leads the evaluation; Stavan leads the page. We review results together.
 
 \section{Where we need help}
 \begin{itemize}
-\item Access to FinTagging's full (gated) test set, to compare with published scores.
-\item Which version of the group's evaluation code to use as the reference.
-\item Where to host the page, and who reviews leaderboard changes.
-\item Compute or API credits for models larger than 8B.
+\item Is there a FinTagging task file for the group's evaluation suite that we should use instead of FinTagging's own
+evaluation code? We found none in the public repositories.
+\item Should the page live in our repository or under the group's organisation, and who reviews changes?
+\item Which task should come second: XBRL-Agent terminology or FinAuditing?
 \end{itemize}
 
 \vspace{4pt}
@@ -108,5 +117,6 @@ Dev leads the evaluation; Stavan leads the page. We review results together.
 [3] Y.~Wang et al. FinAuditing. arXiv:2510.08886, 2025.
 [4] S.~C.~Lin et al. Open FinLLM Leaderboard: Towards financial AI readiness. arXiv:2501.10963, 2025.
 [5] S.~Lin et al. Evaluation and benchmarking suite for financial LLMs and agents. arXiv:2602.19073, 2026.
-[6] Q.~Xie et al. FinBen. arXiv:2402.12659, 2024.\par}
+[6] Q.~Xie et al. FinBen. arXiv:2402.12659, 2024.
+[7] P.~Belcak et al. Small language models are the future of agentic AI. arXiv:2506.02153, 2025.\par}
 \end{document}
