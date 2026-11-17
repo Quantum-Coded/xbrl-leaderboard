@@ -4,7 +4,7 @@ All files here come from the Mac and are kept apart from the Windows runs in `re
 `results/scores/`. Never mix latency or memory from the two machines.
 
 - **Setup:** Ollama 0.40.16, upgraded from 0.34.4 on 16 Nov 2026 (Windows used 0.40.15). Model digests
-  are the same as on Windows. Produced with `FINEVAL_RESULTS=results/mac/m4`, on mains power.
+  are the same as on Windows. Produced with `FINEVAL_RESULTS=results/mac/m4`. All profiles on mains power.
 - **Comparison with Windows:** `python -I scripts/compare_machines.py results/mac/m4` writes
   `compare_windows.json`. Every number below is in that file, in `scores/` or in `profile/m4/`.
 
@@ -59,13 +59,44 @@ These are Mac numbers only. There is no committed Windows profile to set beside 
 | Condition | Median latency | 90th percentile | Prompt tokens (median) | Loaded model | Peak Ollama process memory |
 |---|---|---|---|---|---|
 | No tools | 1.52 s | 2.35 s | 143 | 4,535 MiB | 4,965 MiB |
-| Tag search, oracle type | not measured | | | | |
-| Tag search, no type | not measured | | | | |
+| Tag search, oracle type | 15.65 s | 19.52 s | 1,963 | 4,535 MiB | 3,572 MiB |
+| Tag search, no type | 17.43 s | 21.70 s | 2,073 | 4,535 MiB | 5,027 MiB |
 
-The two tag-search profiles were refused because the Mac was on battery (power cut). They must be rerun
-on mains power.
+The no-tools profile was run on 16 Nov, the two tag-search profiles on 17 Nov (the first attempt was
+refused on battery during a power cut). All three on mains power, same Ollama version and digest.
 
-## Not finished
+## Accuracy, llama3.1:8b, FinCL (484 items)
 
-- The two Qwen2.5-7B tag-search profiles above.
-- Llama-3.1-8B: not run yet.
+| Condition | Mac | Windows | Items scored differently |
+|---|---|---|---|
+| No tools | 7 correct, 1.4% (CI 0.4 to 2.7) | 8 correct, 1.7% | 3 |
+| Tag search, oracle type | 71 correct, 14.7% (CI 11.6 to 18.0) | 75 correct, 15.5% | 4 |
+| Tag search, no type | 57 correct, 11.8% (CI 9.1 to 14.7) | no committed run | |
+
+- **Inputs are the same:** all 484 prompts and the model digest match in both compared runs.
+- **Raw outputs identical:** 379 of 484 with no tools, 447 of 484 with oracle tag search.
+- **No tools:** the Mac only is correct on item 10; Windows only on items 114 and 323. **Oracle tag
+  search:** Windows is correct and the Mac wrong on items 102, 176, 272 and 433.
+- **Coverage:** 171 (35.3%) with the oracle type and 134 (27.7%) without. When covered, the model picks
+  the concept on 71 of 171 (41.5%) and 56 of 134 (41.8%).
+- Run on 17 Nov 2026; part of the no-type run was on battery. Accuracy does not depend on power.
+
+## Latency and peak memory, llama3.1:8b (100 items, mains power)
+
+| Condition | Median latency | 90th percentile | Prompt tokens (median) | Loaded model | Peak Ollama process memory |
+|---|---|---|---|---|---|
+| No tools | 1.50 s | 1.88 s | 114 | 5,035 MiB | 5,663 MiB |
+| Tag search, oracle type | 21.87 s | 28.14 s | 1,933 | 5,035 MiB | 6,022 MiB |
+| Tag search, no type | 20.51 s | 27.84 s | 1,797 | 5,035 MiB | 6,610 MiB |
+
+Run on 17 Nov 2026, all three on mains power. Llama uses a different tokenizer, so its prompt token
+counts differ from Qwen's for the same prompts.
+
+## Notes on all three models
+
+- **Oracle tag search is lower on the Mac for every model:** 3B by 2 items, 7B by 3, 8B by 4. Each is
+  inside the Windows 95% CI. All prompts and digests match, so the cause is in the model output, which
+  is not byte-identical across the two machines (Ollama 0.40.16 on the M4 vs 0.40.15 on the RTX 4050).
+- **Peak Ollama process memory** is the resident memory of the Ollama processes as the profiler
+  samples it. It is not consistent with the loaded model size: for 7B oracle tag search it is 3,572 MiB,
+  below the 4,535 MiB model. The cause is not checked. Use "Loaded model" for the model's own memory.
