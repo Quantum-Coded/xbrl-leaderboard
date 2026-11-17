@@ -157,7 +157,7 @@ and `demo/data.js`.
 - **Why models fail.**
   - Search puts the gold in the 100 candidates for 171 of 484 items (**35.3%**).
   - When the gold is there, each model picks it for 75 of those 171 (**43.9%**).
-  - No correct answer comes from outside the candidate list.
+  - No correct answer from Qwen2.5-7B or Llama-3.1-8B comes from outside the candidate list (Qwen2.5-3B has 1).
 - **Coverage without the oracle**, from `results/retrieval/type_filter_coverage.json`. Values are
   coverage at 100 / at 200 candidates.
 
