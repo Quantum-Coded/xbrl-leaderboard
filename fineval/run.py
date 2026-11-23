@@ -15,6 +15,7 @@ import platform
 import subprocess
 import time
 from pathlib import Path
+import requests
 
 from . import data, llm, prompts
 from .fetch import ROOT
@@ -54,7 +55,13 @@ def generate(item, model, track, seed):
            "prompt_sha1": hashlib.sha1(((system or "") + "\n" + user).encode("utf-8")).hexdigest(), "tool_log": log}
     if num_ctx > CTX_CAP:
         return {**rec, "status": "skipped_context", "output": "", "num_ctx": num_ctx}
-    res = llm.chat(model, user, system=system, seed=seed, max_tokens=max_tokens, num_ctx=num_ctx)
+    try:
+        res = llm.chat(model, user, system=system, seed=seed, max_tokens=max_tokens, num_ctx=num_ctx)
+    except requests.HTTPError as e:
+        # the runtime failed on this item after every retry (e.g. Ollama 500 mid-generation). Record it and go on:
+        # the item counts as wrong and the run's status shows how many items this happened to.
+        body = (e.response.text if e.response is not None else str(e))[:500]
+        return {**rec, "status": "server_error", "output": "", "error": body, "num_ctx": num_ctx}
     out, status = res["text"], "ok"
     if res.get("prompt_tokens") and res["prompt_tokens"] + 1 >= num_ctx:
         status = "truncated"                       # should not happen; reported if it does

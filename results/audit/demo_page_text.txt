@@ -281,6 +281,11 @@ Accuracy: compute a financial formula
 603 / 1,000	
 56.1%
 561 / 1,000
+	Qwen2.5-1.5B	
+66.9%
+669 / 1,000	
+30.1%
+301 / 1,000
       
 Each question asks for one number, for example the net present value of a project. Correct = within 1% of the answer. No tools: the model works it out in text. Formula lookup + calculator: a keyword search finds a formula among 50 named formulas (the right one for 844 of 1,000 questions), the model writes one arithmetic expression, and a calculator evaluates it. Windows laptop. These runs were not profiled, so no latency or memory is shown.
   

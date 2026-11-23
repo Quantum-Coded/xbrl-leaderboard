@@ -1526,6 +1526,35 @@ window.DEMO_DATA = {
   "metric": "A number in the final part of the answer is within 1% of the correct value (numeric_match@v1)",
   "runs": [
    {
+    "run": "qwen2.5-1.5b__financial_calc__closed__s0",
+    "model": "Qwen2.5-1.5B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 669,
+    "accuracy": 66.9,
+    "ci95": [
+     64.0,
+     69.7
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "qwen2.5-1.5b__financial_calc__tools__s0",
+    "model": "Qwen2.5-1.5B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 301,
+    "accuracy": 30.1,
+    "ci95": [
+     27.3,
+     33.0
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
+   {
     "run": "qwen2.5-3b__financial_calc__closed__s0",
     "model": "Qwen2.5-3B",
     "condition": "closed",

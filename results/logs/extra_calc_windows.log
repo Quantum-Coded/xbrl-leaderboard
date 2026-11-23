@@ -1,0 +1,80 @@
+qwen2.5-1.5b__financial_calc__closed__s0: 1000 done, 0 to go
+qwen2.5-1.5b__financial_calc__tools__s0: 1000 done, 0 to go
+gemma2-2b__financial_calc__closed__s0: 1000 done, 0 to go
+gemma2-2b__financial_calc__tools__s0: 852 done, 148 to go
+Traceback (most recent call last):
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\Dev Gaglani\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 110, in <module>
+    main()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 102, in main
+    f.write(json.dumps(generate(it, args.model, args.track, args.seed), ensure_ascii=False) + "\n")
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\run.py", line 57, in generate
+    res = llm.chat(model, user, system=system, seed=seed, max_tokens=max_tokens, num_ctx=num_ctx)
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\fineval\llm.py", line 36, in chat
+    r.raise_for_status()
+  File "C:\Users\Dev Gaglani\research-intern\fin-eval-v1\.venv\lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://127.0.0.1:11434/api/chat
+FAILED ollama:gemma2:2b financial_calc tools
+llama3.2-3b__financial_calc__closed__s0: 377 done, 623 to go
+  25/623  1.0s/item
+  50/623  1.0s/item
+  75/623  1.0s/item
+  100/623  1.2s/item
+  125/623  1.2s/item
+  150/623  1.3s/item
+  175/623  1.3s/item
+  200/623  1.4s/item
+  225/623  1.4s/item
+  250/623  1.4s/item
+  275/623  1.7s/item
+  300/623  1.7s/item
+  325/623  1.7s/item
+  350/623  1.8s/item
+FAILED ollama:llama3.2:3b financial_calc closed
+llama3.2-3b__financial_calc__tools__s0: 0 done, 1000 to go
+  25/1000  0.6s/item
+  50/1000  0.4s/item
+  75/1000  0.3s/item
+  100/1000  0.3s/item
+  125/1000  0.3s/item
+  150/1000  0.3s/item
+  175/1000  0.3s/item
+  200/1000  0.3s/item
+  225/1000  0.3s/item
+  250/1000  0.3s/item
+  275/1000  0.3s/item
+  300/1000  0.3s/item
+  325/1000  0.3s/item
+  350/1000  0.3s/item
+  375/1000  0.2s/item
+  400/1000  0.2s/item
+  425/1000  0.2s/item
+  450/1000  0.2s/item
+  475/1000  0.2s/item
+  500/1000  0.2s/item
+  525/1000  0.2s/item
+  550/1000  0.2s/item
+  575/1000  0.2s/item
+  600/1000  0.2s/item
+  625/1000  0.2s/item
+  650/1000  0.3s/item
+  675/1000  0.2s/item
+  700/1000  0.3s/item
+  725/1000  0.3s/item
+  750/1000  0.3s/item
+  775/1000  0.3s/item
+  800/1000  0.3s/item
+  825/1000  0.3s/item
+  850/1000  0.3s/item
+  875/1000  0.3s/item
+  900/1000  0.3s/item
+  925/1000  0.3s/item
+  950/1000  0.3s/item
+  975/1000  0.3s/item
+  1000/1000  0.3s/item
+mistral-7b__financial_calc__closed__s0: 0 done, 1000 to go
+  25/1000  12.3s/item

@@ -11,8 +11,8 @@ Dev finished the Windows work and also did the tasks that did not need a Mac:
 - **Windows runs:**
   - all seven models under all four tagging conditions;
   - latency and memory profiles;
-  - calculation for every model (Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B, plus the four extra
-    models if `results/logs/extra_calc_windows.log` ends in "EXTRA CALC DONE");
+  - calculation for Qwen2.5-1.5B, Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B (the other three stopped:
+    GPU runs crashed the laptop, see CONTEXT.md Section 8);
   - the scorer check for every model.
 - **Page v2** (`demo/`):
   - models × conditions;

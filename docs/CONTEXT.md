@@ -158,6 +158,23 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 | Qwen2.5-7B | 657 (65.7%) | 764 (76.4%) |
 | Llama-3.1-8B | 603 (60.3%) | 732 (73.2%) |
 | Qwen2.5-3B | 603 (60.3%) | 561 (56.1%) |
+| Qwen2.5-1.5B | 669 (66.9%) | 301 (30.1%) |
+
+- **Units.** The metric is strict about units: a rate written as 5 instead of 0.05 counts as wrong.
+  Without tools, the 3B–8B models lose many points this way. Ignoring units (the `unit_agnostic`
+  variant in each score file):
+
+| Model | Ignoring units |
+|---|---|
+| Qwen2.5-7B | 81.1% |
+| Llama-3.1-8B | 70.9% |
+| Qwen2.5-3B | 75.7% |
+| Qwen2.5-1.5B | 68.4% |
+
+- **Tools hurt Qwen2.5-1.5B.** It often fails to write a valid calculator expression: 520 expressions
+  fail to evaluate, and 166 answers have no expression at all.
+- **Unfinished calculation runs.** Gemma-2-2B, Llama-3.2-3B and Mistral-7B do not have both
+  calculation runs yet, so they are not on the page (see Section 8).
 
 ### 4.6 Scorer check against FinTagging's official code
 
@@ -226,6 +243,17 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 ## 8. Known limits
 
 - Calculation runs are not profiled: the profiler covers FinCL only.
+- **Unfinished calculation runs (stopped on 18 Nov).** Long GPU runs on the Windows laptop led to
+  restarts and Ollama server errors, so they were stopped. Status of each run:
+  - Gemma-2-2B: no tools is complete. With tools stops at 852 of 1,000: Ollama returns a server error
+    on item 853 every time.
+  - Llama-3.2-3B: with tools is complete; no tools stops at 735 of 1,000.
+  - Mistral-7B: no tools stops at 44 of 1,000; with tools has not started.
+- **Partial and single runs stay out of the repository.** The partial runs are kept locally and not
+  committed. The complete single runs (Gemma no tools, Llama-3.2-3B with tools) are committed but not
+  shown, because the page needs both conditions.
+- `fineval/run.py` now records an item on which Ollama fails after every retry as `server_error`. It
+  counts as wrong and appears in the run's status, so one bad item no longer stops a run.
 - **Mixed Ollama versions (11–12 Nov vs 17–18 Nov runs).** For Qwen2.5-3B, Qwen2.5-7B, Llama-3.1-8B
   and Mistral-7B:
   - the No tools runs (11 Nov) did not record the Ollama version;

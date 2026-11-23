@@ -87,3 +87,20 @@ def test_new_tag_tracks_rejected_outside_concept_tagging():
 
 def test_results_root_defaults_to_repo_results():
     assert run.GEN == run.ROOT / "results" / "generations" and score.SCORES == run.ROOT / "results" / "scores"
+
+
+def test_run_records_server_error_and_continues(monkeypatch):
+    """An item on which the runtime fails after every retry is recorded as server_error (scored wrong), not fatal."""
+    import requests
+    from fineval import llm, run
+
+    item = next(i for i in run.data.sample("financial_calc", None, seed=0))
+
+    def boom(*a, **k):
+        resp = requests.Response()
+        resp.status_code, resp._content = 500, b'{"error":"runner failed"}'
+        raise requests.HTTPError("500 Server Error", response=resp)
+
+    monkeypatch.setattr(llm, "chat", boom)
+    rec = run.generate(item, "ollama:any", "tools", 0)
+    assert rec["status"] == "server_error" and rec["output"] == "" and "runner failed" in rec["error"]

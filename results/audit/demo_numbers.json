@@ -37,6 +37,8 @@
   "[mac] llama3.1-8b__concept_tagging__closed__s0: rescored 7/484 = 1.4% CI [0.4, 2.7] == stored",
   "[mac] llama3.1-8b__concept_tagging__tools_noorac__s0: rescored 57/484 = 11.8% CI [9.1, 14.7] == stored",
   "[mac] llama3.1-8b__concept_tagging__tools__s0: rescored 71/484 = 14.7% CI [11.6, 18.0] == stored",
+  "[calc] qwen2.5-1.5b__financial_calc__closed__s0: rescored 669/1000 = 66.9% == stored",
+  "[calc] qwen2.5-1.5b__financial_calc__tools__s0: rescored 301/1000 = 30.1% == stored",
   "[calc] qwen2.5-3b__financial_calc__closed__s0: rescored 603/1000 = 60.3% == stored",
   "[calc] qwen2.5-3b__financial_calc__tools__s0: rescored 561/1000 = 56.1% == stored",
   "[calc] qwen2.5-7b__financial_calc__closed__s0: rescored 657/1000 = 65.7% == stored",
@@ -1570,6 +1572,35 @@
   "formulas": 50,
   "metric": "A number in the final part of the answer is within 1% of the correct value (numeric_match@v1)",
   "runs": [
+   {
+    "run": "qwen2.5-1.5b__financial_calc__closed__s0",
+    "model": "Qwen2.5-1.5B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 669,
+    "accuracy": 66.9,
+    "ci95": [
+     64.0,
+     69.7
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "qwen2.5-1.5b__financial_calc__tools__s0",
+    "model": "Qwen2.5-1.5B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 301,
+    "accuracy": 30.1,
+    "ci95": [
+     27.3,
+     33.0
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
    {
     "run": "qwen2.5-3b__financial_calc__closed__s0",
     "model": "Qwen2.5-3B",
