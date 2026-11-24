@@ -31,6 +31,7 @@ verified number. Next steps for Stavan are in [`HANDOFF.md`](HANDOFF.md).
 | 16–17 Nov | Stavan: oracle labels, scorer check notes, Mac runs and profiles, hosting plan, citation. Dev: no-oracle and numeric conditions, profiler, versions |
 | 17–18 Nov | Dev: all Windows runs and profiles, four extra models, calculation, page v2, proposal v5, Pages workflow, these docs |
 | 23–24 Nov | Dev: last three calculation runs with `safe_run.py` (all seven models on the page), calculation profiles for all seven models (7–8B with pauses after a restart) |
+| 24 Nov | Stavan: Mac profiles for the four extra models (all seven now profiled on both laptops). Dev merged `stavan/next`, reran every check, tagged `v0.1`; proposal v6 |
 
 ## 3. Tasks and conditions
 
@@ -297,5 +298,5 @@ With tools every model is faster: it writes one short expression instead of work
   All other runs used 0.40.16. The model digests are the same throughout.
 - Llama-3.1-8B calculation with no tools started on 0.40.15 and finished on 0.40.16 (it resumed at
   item 843).
-- The Mac has full accuracy runs only for Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B (three conditions).
+- The Mac has full accuracy runs only for Qwen2.5-3B, Qwen2.5-7B and Llama-3.1-8B (three conditions); the other four models have Mac profiles (100 items) but no full Mac accuracy runs. Mac calculation is not run.
 - One seed only. Greedy decoding makes reruns on the same machine identical, but not across machines.
