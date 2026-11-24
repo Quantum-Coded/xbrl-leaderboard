@@ -122,3 +122,11 @@ def test_profiler_items_and_scoring():
     assert len(calc) == 100 and len({i["uid"] for i in calc}) == 100 and all(i["task"] == "financial_calc" for i in calc)
     assert pr.score_item("financial_calc", "tools", "Expression: 2 + 3", {"value": 5.0}) == 1.0
     assert pr.score_item("financial_calc", "closed", "The answer is 7.", {"value": 5.0}) == 0.0
+
+
+def test_profiler_cool_pause_without_gpu():
+    import importlib, sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    pr = importlib.import_module("profile_runs")
+    assert pr.cool_pause(0, 65, nvidia=False) == {"s": 0, "gpu_c_before": None, "gpu_c_after": None}

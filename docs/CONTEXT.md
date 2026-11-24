@@ -30,7 +30,7 @@ verified number. Next steps for Stavan are in [`HANDOFF.md`](HANDOFF.md).
 | 16 Nov | His second feedback: small open-weight models, label the oracle, report accuracy + latency + peak memory, reuse the group's evaluation code, calculation next, simple hosting |
 | 16–17 Nov | Stavan: oracle labels, scorer check notes, Mac runs and profiles, hosting plan, citation. Dev: no-oracle and numeric conditions, profiler, versions |
 | 17–18 Nov | Dev: all Windows runs and profiles, four extra models, calculation, page v2, proposal v5, Pages workflow, these docs |
-| 23–24 Nov | Dev: last three calculation runs with `safe_run.py` (all seven models on the page), calculation profiles for four models |
+| 23–24 Nov | Dev: last three calculation runs with `safe_run.py` (all seven models on the page), calculation profiles for all seven models (7–8B with pauses after a restart) |
 
 ## 3. Tasks and conditions
 
@@ -195,6 +195,20 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 
 - All seven models are on the page since 24 Nov.
 
+**Calculation cost, Windows** (median s per question over 100 questions; MiB):
+
+| Model | No tools | With tools | Loaded | GPU peak |
+|---|---|---|---|---|
+| Qwen2.5-1.5B | 0.63 s | 0.21 s | 1,057 | 1,163 |
+| Gemma-2-2B | 1.62 s | 0.37 s | 1,728 | 1,943 |
+| Qwen2.5-3B | 2.34 s | 0.34 s | 1,989 | 2,095 |
+| Llama-3.2-3B | 1.35 s | 0.25 s | 2,216 | 2,319 |
+| Qwen2.5-7B | 2.41 s | 0.63 s | 4,421 | 4,529 |
+| Mistral-7B | 4.35 s | 1.55 s | 4,471 | 4,579 |
+| Llama-3.1-8B | 1.71 s | 0.51 s | 4,777 | 4,885 |
+
+With tools every model is faster: it writes one short expression instead of working the answer out.
+
 ### 4.6 Scorer check against FinTagging's official code
 
 `scripts/scorer_check_fincl.py` → `results/scorer_check/fincl.json`. The official code is
@@ -261,12 +275,11 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 
 ## 8. Known limits
 
-- **Calculation profiles: four of seven models.** Speed and memory for calculation (100 items, no tools
-  and with tools) exist for Qwen2.5-1.5B, Gemma-2-2B, Qwen2.5-3B and Llama-3.2-3B
-  (`results/profile/rtx-4050-laptop-gpu/*__financial_calc__*`). The laptop restarted unexpectedly at
-  22:21 on 23 Nov (Windows Kernel-Power event 41) during the Qwen2.5-7B profile, which runs 100 items
-  without pauses. Qwen2.5-7B, Mistral-7B and Llama-3.1-8B are not profiled, and the page shows no
-  calculation cost until all seven are.
+- **Calculation profiles.** The laptop restarted unexpectedly at 22:21 on 23 Nov (Windows Kernel-Power
+  event 41) during the Qwen2.5-7B calculation profile, which then ran 100 items without pauses. The three
+  7–8B models were profiled again on 24 Nov with `profile_runs.py --pause-every 10 --pause 60 --cool-to 65`
+  (no restart; the GPU stayed at or below about 65 C). Pauses fall between items, so they are not in any
+  item's time; each such profile lists its pauses under `pauses`.
 - **Calculation runs finished on 23 Nov with `scripts/safe_run.py`.** Long unbroken GPU runs had led to
   restarts on 18 Nov, so the last runs (Gemma-2-2B with tools from 852, Llama-3.2-3B no tools from 735,
   Mistral-7B both) ran in chunks with a 60 s pause, waiting below 65 C before each chunk. The GPU reached

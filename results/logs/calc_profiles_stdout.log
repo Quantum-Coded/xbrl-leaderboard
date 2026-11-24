@@ -1,0 +1,240 @@
+  paused 60 s, GPU 79 -> 50 C
+  paused 60 s, GPU 72 -> 48 C
+  paused 60 s, GPU 74 -> 49 C
+  paused 60 s, GPU 71 -> 47 C
+  paused 60 s, GPU 72 -> 48 C
+  paused 60 s, GPU 74 -> 49 C
+  paused 60 s, GPU 76 -> 49 C
+  paused 60 s, GPU 75 -> 49 C
+  paused 60 s, GPU 80 -> 52 C
+{
+ "accuracy_on_profiled_items": 0.69,
+ "latency_median_s": 2.409,
+ "latency_p90_s": 7.4083,
+ "latency_mean_s": 3.6401,
+ "gen_tokens_per_s_median": 40.1,
+ "prompt_tokens_median": 87.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 48
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4421,
+  "ollama_size_vram_mib": 4421,
+  "gpu_used_mib": 4525,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 67
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4421,
+  "ollama_size_vram_mib": 4421,
+  "gpu_used_mib": 4527,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 80
+ },
+ "gpu_peak_minus_baseline_mib": 4527,
+ "memory_samples": 3325
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-7b__financial_calc__closed__n100.json
+  paused 60 s, GPU 64 -> 46 C
+  paused 60 s, GPU 65 -> 46 C
+  paused 60 s, GPU 65 -> 46 C
+  paused 60 s, GPU 62 -> 46 C
+  paused 60 s, GPU 62 -> 46 C
+  paused 60 s, GPU 64 -> 46 C
+  paused 60 s, GPU 64 -> 46 C
+  paused 60 s, GPU 64 -> 46 C
+  paused 60 s, GPU 64 -> 46 C
+{
+ "accuracy_on_profiled_items": 0.8,
+ "latency_median_s": 0.6331,
+ "latency_p90_s": 0.9723,
+ "latency_mean_s": 0.6998,
+ "gen_tokens_per_s_median": 41.6,
+ "prompt_tokens_median": 182.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 49
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4421,
+  "ollama_size_vram_mib": 4421,
+  "gpu_used_mib": 4525,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 62
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4421,
+  "ollama_size_vram_mib": 4421,
+  "gpu_used_mib": 4529,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 67
+ },
+ "gpu_peak_minus_baseline_mib": 4529,
+ "memory_samples": 2225
+}
+wrote results\profile\rtx-4050-laptop-gpu\qwen2.5-7b__financial_calc__tools__n100.json
+  paused 60 s, GPU 78 -> 50 C
+  paused 60 s, GPU 76 -> 49 C
+  paused 60 s, GPU 77 -> 50 C
+  paused 60 s, GPU 75 -> 49 C
+  paused 60 s, GPU 76 -> 49 C
+  paused 60 s, GPU 76 -> 50 C
+  paused 60 s, GPU 78 -> 51 C
+  paused 60 s, GPU 80 -> 51 C
+  paused 60 s, GPU 84 -> 53 C
+{
+ "accuracy_on_profiled_items": 0.54,
+ "latency_median_s": 4.3514,
+ "latency_p90_s": 9.4251,
+ "latency_mean_s": 5.3419,
+ "gen_tokens_per_s_median": 40.6,
+ "prompt_tokens_median": 84.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 46
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4471,
+  "ollama_size_vram_mib": 4471,
+  "gpu_used_mib": 4573,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 65
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4471,
+  "ollama_size_vram_mib": 4471,
+  "gpu_used_mib": 4577,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 84
+ },
+ "gpu_peak_minus_baseline_mib": 4577,
+ "memory_samples": 3941
+}
+wrote results\profile\rtx-4050-laptop-gpu\mistral-7b__financial_calc__closed__n100.json
+  paused 60 s, GPU 72 -> 48 C
+  paused 60 s, GPU 69 -> 47 C
+  paused 60 s, GPU 67 -> 47 C
+  paused 60 s, GPU 66 -> 46 C
+  paused 60 s, GPU 63 -> 47 C
+  paused 60 s, GPU 71 -> 48 C
+  paused 60 s, GPU 72 -> 49 C
+  paused 60 s, GPU 73 -> 49 C
+  paused 60 s, GPU 73 -> 49 C
+{
+ "accuracy_on_profiled_items": 0.51,
+ "latency_median_s": 1.549,
+ "latency_p90_s": 3.4386,
+ "latency_mean_s": 1.7683,
+ "gen_tokens_per_s_median": 41.0,
+ "prompt_tokens_median": 197.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 49
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4471,
+  "ollama_size_vram_mib": 4471,
+  "gpu_used_mib": 4577,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 66
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4471,
+  "ollama_size_vram_mib": 4471,
+  "gpu_used_mib": 4579,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 77
+ },
+ "gpu_peak_minus_baseline_mib": 4579,
+ "memory_samples": 2631
+}
+wrote results\profile\rtx-4050-laptop-gpu\mistral-7b__financial_calc__tools__n100.json
+  paused 60 s, GPU 74 -> 49 C
+  paused 60 s, GPU 71 -> 48 C
+  paused 60 s, GPU 71 -> 49 C
+  paused 60 s, GPU 69 -> 48 C
+  paused 60 s, GPU 73 -> 50 C
+  paused 60 s, GPU 75 -> 49 C
+  paused 60 s, GPU 74 -> 49 C
+  paused 60 s, GPU 74 -> 49 C
+  paused 60 s, GPU 79 -> 52 C
+{
+ "accuracy_on_profiled_items": 0.65,
+ "latency_median_s": 1.7131,
+ "latency_p90_s": 5.629,
+ "latency_mean_s": 2.7445,
+ "gen_tokens_per_s_median": 38.2,
+ "prompt_tokens_median": 83.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 47
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4777,
+  "ollama_size_vram_mib": 4777,
+  "gpu_used_mib": 4881,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 64
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4777,
+  "ollama_size_vram_mib": 4777,
+  "gpu_used_mib": 4883,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 79
+ },
+ "gpu_peak_minus_baseline_mib": 4883,
+ "memory_samples": 2990
+}
+wrote results\profile\rtx-4050-laptop-gpu\llama3.1-8b__financial_calc__closed__n100.json
+  paused 60 s, GPU 66 -> 46 C
+  paused 60 s, GPU 64 -> 45 C
+  paused 60 s, GPU 63 -> 45 C
+  paused 60 s, GPU 62 -> 45 C
+  paused 60 s, GPU 61 -> 45 C
+  paused 60 s, GPU 62 -> 45 C
+  paused 60 s, GPU 63 -> 46 C
+  paused 60 s, GPU 63 -> 46 C
+  paused 60 s, GPU 65 -> 46 C
+{
+ "accuracy_on_profiled_items": 0.76,
+ "latency_median_s": 0.5078,
+ "latency_p90_s": 0.858,
+ "latency_mean_s": 0.5565,
+ "gen_tokens_per_s_median": 39.9,
+ "prompt_tokens_median": 179.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "gpu_used_mib": 0,
+  "gpu_temp_c": 48
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4777,
+  "ollama_size_vram_mib": 4777,
+  "gpu_used_mib": 4881,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 63
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4777,
+  "ollama_size_vram_mib": 4777,
+  "gpu_used_mib": 4885,
+  "ollama_rss_mib": 0,
+  "gpu_temp_c": 66
+ },
+ "gpu_peak_minus_baseline_mib": 4885,
+ "memory_samples": 2190
+}
+wrote results\profile\rtx-4050-laptop-gpu\llama3.1-8b__financial_calc__tools__n100.json

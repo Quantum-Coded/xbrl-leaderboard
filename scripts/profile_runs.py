@@ -146,6 +146,7 @@ def fixed_items(n, task="concept_tagging"):
 def call(name, system, user, num_ctx, max_tokens):
     messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": user}]
     body = {"model": name, "messages": messages, "stream": False,
+            "keep_alive": "30m",                     # stays loaded through --pause-every pauses
             "options": {"temperature": 0.0, "seed": 0, "num_predict": max_tokens, "num_ctx": num_ctx,
                         "num_gpu": llm.NUM_GPU}}
     t0 = time.perf_counter()
@@ -164,6 +165,20 @@ def score_item(task, track, text, gold):
     return scorers.numeric_match(text, gold)["final"]
 
 
+def cool_pause(seconds, cool_to, nvidia, limit_s=1800):
+    """Sleep `seconds`, then wait until the GPU is below `cool_to` C. Returns what happened, for the output."""
+    t0 = time.time()
+    start_temp = MemorySampler.gpu_used()[1] if nvidia else None
+    time.sleep(seconds)
+    while nvidia and (t := MemorySampler.gpu_used()[1]) is not None and t > cool_to:
+        if time.time() - t0 > limit_s:
+            raise SystemExit(f"GPU did not cool below {cool_to} C within {limit_s} s")
+        time.sleep(15)
+    end_temp = MemorySampler.gpu_used()[1] if nvidia else None
+    print(f"  paused {time.time() - t0:.0f} s, GPU {start_temp} -> {end_temp} C", flush=True)
+    return {"s": round(time.time() - t0), "gpu_c_before": start_temp, "gpu_c_after": end_temp}
+
+
 def pct(xs, q):
     xs = sorted(xs)
     return xs[min(len(xs) - 1, max(0, round(q * (len(xs) - 1))))]
@@ -177,6 +192,10 @@ def main(argv=None):
     ap.add_argument("--n", type=int, default=100)
     ap.add_argument("--machine", default=None, help="folder name for this machine (default: from GPU or chip)")
     ap.add_argument("--allow-battery", action="store_true")
+    ap.add_argument("--pause-every", type=int, default=0,
+                    help="pause after every K timed items (0 = never); the pause is outside every item's timing")
+    ap.add_argument("--pause", type=int, default=60, help="seconds per pause")
+    ap.add_argument("--cool-to", type=int, default=65, help="during a pause, also wait until the GPU is below this (C)")
     args = ap.parse_args(argv)
     if args.task != "concept_tagging" and args.track not in ("closed", "tools"):
         raise SystemExit(f"track {args.track} exists only for concept_tagging")
@@ -206,8 +225,10 @@ def main(argv=None):
     after_load = dict(sampler.peak)
 
     # 3. timed calls
-    rows = []
-    for it in items:
+    rows, pauses = [], []
+    for k, it in enumerate(items):
+        if args.pause_every and k and k % args.pause_every == 0:
+            pauses.append(cool_pause(args.pause, args.cool_to, sampler.nvidia))
         s, u, _ = prompts.build(it, args.track)
         num_ctx = max(min_ctx, run.ctx_for(s, u, max_tokens))
         out, wall = call(name, s, u, num_ctx, max_tokens)
@@ -230,7 +251,10 @@ def main(argv=None):
         "model": args.model, "model_digest": llm.model_digest(args.model), "task": args.task, "track": args.track,
         "n": len(rows), "items": [r["uid"] for r in rows], "ollama_version": version,
         "machine_name": machine, "machine": machine_info(), "on_ac_power": power,
-        "num_gpu": llm.NUM_GPU, "code_commit": run.git_commit(), "started": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "num_gpu": llm.NUM_GPU,
+        "pauses": {"every": args.pause_every, "seconds": args.pause, "cool_to_c": args.cool_to, "taken": pauses}
+        if args.pause_every else None,
+        "code_commit": run.git_commit(), "started": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "loaded_model": [{k: m.get(k) for k in ("name", "size", "size_vram", "details")} for m in ps],
         "summary": {
             "accuracy_on_profiled_items": round(sum(r["exact"] for r in rows) / len(rows), 4),

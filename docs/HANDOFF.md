@@ -14,7 +14,7 @@ Dev finished the Windows work and also did the tasks that did not need a Mac:
   - calculation for all seven models (the last three finished on 23 Nov with `scripts/safe_run.py`,
     which runs short chunks with pauses after long GPU runs restarted the laptop; see CONTEXT.md
     Section 8);
-  - calculation speed and memory profiles for four models (`profile_runs.py --task financial_calc`);
+  - calculation speed and memory profiles for all seven models (`profile_runs.py --task financial_calc`);
   - the scorer check for every model.
 - **Page v2** (`demo/`):
   - models × conditions;
@@ -46,7 +46,7 @@ push to `master` alone, and add no AI attribution in commits.
 
 1. Run `git checkout stavan/next`, then `git merge master` (fast-forward). Then run
    `.venv/bin/python -m pip install -e .`.
-2. Run `pytest -q`. It should show 105 passed. If any `site/public/data/*.json` changes, restore it with
+2. Run `pytest -q`. It should show 106 passed. If any `site/public/data/*.json` changes, restore it with
    `git checkout -- site/public/data`.
 3. Run `PYTHONUTF8=1 .venv/bin/python -I scripts/build_demo.py`. It must finish with no assertion
    error, and `git diff --stat demo/` must be empty.
@@ -116,8 +116,7 @@ model, about 1–2 hours in all.
 
 ## Step 3: Mac calculation (optional, overnight)
 
-- The profiler now supports calculation (`--task financial_calc`), but the page shows no calculation
-  cost yet, so a Mac accuracy check is enough here.
+- The page shows calculation cost for Windows only, so a Mac accuracy check is enough here.
 - Pick one model, for example Qwen2.5-7B, and run it with
   `FINEVAL_RESULTS=results/mac/m4 .venv/bin/python -I -m fineval.run --model ollama:qwen2.5:7b --task financial_calc --track tools --seed 0`
   (1,000 items, short prompts).

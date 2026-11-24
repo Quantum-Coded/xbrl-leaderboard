@@ -6,3 +6,17 @@ done qwen2.5:3b closed
 done qwen2.5:3b tools
 done llama3.2:3b closed
 done llama3.2:3b tools
+2026-11-24 15:10:50 restart after 22:21 reboot: 7-8B models with --pause-every 10 --pause 60 --cool-to 65
+2026-11-24 15:12:20 start qwen2.5:7b closed
+2026-11-24 15:27:50 done qwen2.5:7b closed
+2026-11-24 15:29:20 start qwen2.5:7b tools
+2026-11-24 15:39:46 done qwen2.5:7b tools
+2026-11-24 15:41:16 start mistral:7b closed
+2026-11-24 15:59:32 done mistral:7b closed
+2026-11-24 16:01:02 start mistral:7b tools
+2026-11-24 16:13:18 done mistral:7b tools
+2026-11-24 16:14:48 start llama3.1:8b closed
+2026-11-24 16:28:41 done llama3.1:8b closed
+2026-11-24 16:30:12 start llama3.1:8b tools
+2026-11-24 16:40:24 done llama3.1:8b tools
+2026-11-24 16:40:24 GPU WORK DONE
