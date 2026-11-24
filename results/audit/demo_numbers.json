@@ -39,10 +39,16 @@
   "[mac] llama3.1-8b__concept_tagging__tools__s0: rescored 71/484 = 14.7% CI [11.6, 18.0] == stored",
   "[calc] qwen2.5-1.5b__financial_calc__closed__s0: rescored 669/1000 = 66.9% == stored",
   "[calc] qwen2.5-1.5b__financial_calc__tools__s0: rescored 301/1000 = 30.1% == stored",
+  "[calc] gemma2-2b__financial_calc__closed__s0: rescored 382/1000 = 38.2% == stored",
+  "[calc] gemma2-2b__financial_calc__tools__s0: rescored 597/1000 = 59.7% == stored",
   "[calc] qwen2.5-3b__financial_calc__closed__s0: rescored 603/1000 = 60.3% == stored",
   "[calc] qwen2.5-3b__financial_calc__tools__s0: rescored 561/1000 = 56.1% == stored",
+  "[calc] llama3.2-3b__financial_calc__closed__s0: rescored 553/1000 = 55.3% == stored",
+  "[calc] llama3.2-3b__financial_calc__tools__s0: rescored 668/1000 = 66.8% == stored",
   "[calc] qwen2.5-7b__financial_calc__closed__s0: rescored 657/1000 = 65.7% == stored",
   "[calc] qwen2.5-7b__financial_calc__tools__s0: rescored 764/1000 = 76.4% == stored",
+  "[calc] mistral-7b__financial_calc__closed__s0: rescored 555/1000 = 55.5% == stored",
+  "[calc] mistral-7b__financial_calc__tools__s0: rescored 496/1000 = 49.6% == stored",
   "[calc] llama3.1-8b__financial_calc__closed__s0: rescored 603/1000 = 60.3% == stored",
   "[calc] llama3.1-8b__financial_calc__tools__s0: rescored 732/1000 = 73.2% == stored"
  ],
@@ -1602,6 +1608,35 @@
     "formula_found": 844
    },
    {
+    "run": "gemma2-2b__financial_calc__closed__s0",
+    "model": "Gemma-2-2B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 382,
+    "accuracy": 38.2,
+    "ci95": [
+     35.2,
+     41.2
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "gemma2-2b__financial_calc__tools__s0",
+    "model": "Gemma-2-2B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 597,
+    "accuracy": 59.7,
+    "ci95": [
+     56.8,
+     62.8
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
+   {
     "run": "qwen2.5-3b__financial_calc__closed__s0",
     "model": "Qwen2.5-3B",
     "condition": "closed",
@@ -1631,6 +1666,35 @@
     "formula_found": 844
    },
    {
+    "run": "llama3.2-3b__financial_calc__closed__s0",
+    "model": "Llama-3.2-3B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 553,
+    "accuracy": 55.3,
+    "ci95": [
+     52.3,
+     58.4
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "llama3.2-3b__financial_calc__tools__s0",
+    "model": "Llama-3.2-3B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 668,
+    "accuracy": 66.8,
+    "ci95": [
+     63.8,
+     69.9
+    ],
+    "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
+   {
     "run": "qwen2.5-7b__financial_calc__closed__s0",
     "model": "Qwen2.5-7B",
     "condition": "closed",
@@ -1657,6 +1721,35 @@
      79.1
     ],
     "runtime": "ollama 0.40.16",
+    "formula_found": 844
+   },
+   {
+    "run": "mistral-7b__financial_calc__closed__s0",
+    "model": "Mistral-7B",
+    "condition": "closed",
+    "condition_label": "No tools",
+    "n": 1000,
+    "correct": 555,
+    "accuracy": 55.5,
+    "ci95": [
+     52.6,
+     58.6
+    ],
+    "runtime": "ollama 0.40.16"
+   },
+   {
+    "run": "mistral-7b__financial_calc__tools__s0",
+    "model": "Mistral-7B",
+    "condition": "tools",
+    "condition_label": "Formula lookup + calculator",
+    "n": 1000,
+    "correct": 496,
+    "accuracy": 49.6,
+    "ci95": [
+     46.5,
+     52.7
+    ],
+    "runtime": "ollama 0.40.17",
     "formula_found": 844
    },
    {

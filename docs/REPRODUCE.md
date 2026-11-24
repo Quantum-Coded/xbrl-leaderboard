@@ -60,7 +60,8 @@ Other commands:
 |---|---|
 | `python -I -m fineval.run --model ollama:<tag> --task concept_tagging --track <t>` | New run. The tracks are `closed`, `tools` (tag search filtered to the item's given type, an **oracle diagnostic**), `tools_noorac` (no type information) and `tools_numeric` (numeric types only). |
 | `bash scripts/run_next_stage.sh` | All next-stage runs, profiles and the scorer check. Resumable. |
-| `python -I scripts/profile_runs.py --model ollama:<tag> --track <t>` | Latency and peak memory on 100 fixed FinCL items. |
+| `python -I scripts/profile_runs.py --model ollama:<tag> --track <t>` | Latency and peak memory on 100 fixed FinCL items; add `--task financial_calc` (tracks `closed`, `tools`) for 100 fixed calculation items. Also records the peak GPU temperature. |
+| `python -I scripts/safe_run.py --job <model>,<task>,<track> [--job ...]` | Runs jobs in chunks of 50 with pauses, a GPU temperature ceiling and a stop on the first failure (for laptops; `--dry-run` prints the plan). |
 | `python -I scripts/scorer_check_fincl.py` | Compares our scorer with FinTagging's official one. |
 | `python -I scripts/verify_demo_page.py <page_text.txt>` | Checks every number on the page against the raw files. |
 | `python -I scripts/versions.py` | Writes `docs/VERSIONS.md`: code, data, model and runtime versions. |

@@ -104,3 +104,21 @@ def test_run_records_server_error_and_continues(monkeypatch):
     monkeypatch.setattr(llm, "chat", boom)
     rec = run.generate(item, "ollama:any", "tools", 0)
     assert rec["status"] == "server_error" and rec["output"] == "" and "runner failed" in rec["error"]
+
+
+def test_profiler_items_and_scoring():
+    """FinCL profile items are unchanged (so existing profiles stay comparable); calculation items and scoring work."""
+    import importlib.util
+    import json
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    spec = importlib.util.spec_from_file_location("profile_runs", root / "scripts/profile_runs.py")
+    pr = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(pr)
+    saved = root / "results/profile/rtx-4050-laptop-gpu/qwen2.5-7b__tools__n100.json"
+    if saved.exists():
+        assert [i["uid"] for i in pr.fixed_items(100)] == json.loads(saved.read_text(encoding="utf-8"))["items"]
+    calc = pr.fixed_items(100, "financial_calc")
+    assert len(calc) == 100 and len({i["uid"] for i in calc}) == 100 and all(i["task"] == "financial_calc" for i in calc)
+    assert pr.score_item("financial_calc", "tools", "Expression: 2 + 3", {"value": 5.0}) == 1.0
+    assert pr.score_item("financial_calc", "closed", "The answer is 7.", {"value": 5.0}) == 0.0

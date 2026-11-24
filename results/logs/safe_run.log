@@ -1,0 +1,469 @@
+2026-11-23 15:37:21  plan: [('ollama:gemma2:2b', 'financial_calc', 'tools'), ('ollama:llama3.2:3b', 'financial_calc', 'closed'), ('ollama:mistral:7b', 'financial_calc', 'closed'), ('ollama:mistral:7b', 'financial_calc', 'tools')]  chunk=50 pause=60s cool_to=60C max_temp=80C
+2026-11-23 15:37:21    gemma2-2b__financial_calc__tools__s0: 852/1000 done, 0 server errors
+2026-11-23 15:37:21    llama3.2-3b__financial_calc__closed__s0: 735/1000 done, 0 server errors
+2026-11-23 15:37:21    mistral-7b__financial_calc__closed__s0: 44/1000 done, 0 server errors
+2026-11-23 15:37:21    mistral-7b__financial_calc__tools__s0: 0/1000 done, 0 server errors
+2026-11-23 15:37:22    power: mains, GPU temperature: 60 C
+2026-11-23 15:38:53  plan: [('ollama:gemma2:2b', 'financial_calc', 'tools'), ('ollama:llama3.2:3b', 'financial_calc', 'closed'), ('ollama:mistral:7b', 'financial_calc', 'closed'), ('ollama:mistral:7b', 'financial_calc', 'tools')]  chunk=50 pause=60s cool_to=65C max_temp=80C
+2026-11-23 15:38:53    gemma2-2b__financial_calc__tools__s0: 852/1000 done, 0 server errors
+2026-11-23 15:38:53    llama3.2-3b__financial_calc__closed__s0: 735/1000 done, 0 server errors
+2026-11-23 15:38:53    mistral-7b__financial_calc__closed__s0: 44/1000 done, 0 server errors
+2026-11-23 15:38:53    mistral-7b__financial_calc__tools__s0: 0/1000 done, 0 server errors
+2026-11-23 15:38:54    power: mains, GPU temperature: 66 C
+2026-11-23 15:38:55  GPU at 66 C, waiting to cool below 65 C
+2026-11-23 15:39:26  gemma2-2b__financial_calc__tools__s0: chunk of 50 from 852/1000
+2026-11-23 15:40:22    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 15:40:22    GPU reached 80 C: next chunks are 25 items
+2026-11-23 15:41:22  gemma2-2b__financial_calc__tools__s0: chunk of 25 from 902/1000
+2026-11-23 15:41:38    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 15:42:38  gemma2-2b__financial_calc__tools__s0: chunk of 25 from 927/1000
+2026-11-23 15:42:53    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 15:43:54  gemma2-2b__financial_calc__tools__s0: chunk of 25 from 952/1000
+2026-11-23 15:44:04    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 15:45:04  gemma2-2b__financial_calc__tools__s0: chunk of 25 from 977/1000
+2026-11-23 15:45:19    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 15:46:23  gemma2-2b__financial_calc__tools__s0: complete and scored
+2026-11-23 15:46:23  llama3.2-3b__financial_calc__closed__s0: chunk of 25 from 735/1000
+2026-11-23 15:47:14    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 15:48:14  llama3.2-3b__financial_calc__closed__s0: chunk of 25 from 760/1000
+2026-11-23 15:49:15    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 15:49:15    GPU reached 80 C: next chunks are 12 items
+2026-11-23 15:50:16  llama3.2-3b__financial_calc__closed__s0: chunk of 12 from 785/1000
+2026-11-23 15:50:46    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 15:51:47  llama3.2-3b__financial_calc__closed__s0: chunk of 12 from 797/1000
+2026-11-23 15:52:33    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 15:53:33  llama3.2-3b__financial_calc__closed__s0: chunk of 12 from 809/1000
+2026-11-23 15:54:24    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 15:55:24  llama3.2-3b__financial_calc__closed__s0: chunk of 12 from 821/1000
+2026-11-23 15:56:20    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 15:56:20    GPU reached 80 C: next chunks are 10 items
+2026-11-23 15:57:21  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 833/1000
+2026-11-23 15:58:01    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 15:59:02  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 843/1000
+2026-11-23 16:00:02    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:01:03  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 853/1000
+2026-11-23 16:01:59    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:02:59  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 863/1000
+2026-11-23 16:04:00    chunk finished, exit 0, hottest GPU 83 C
+2026-11-23 16:05:01  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 873/1000
+2026-11-23 16:05:47    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:06:47  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 883/1000
+2026-11-23 16:07:33    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 16:08:33  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 893/1000
+2026-11-23 16:09:19    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 16:10:19  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 903/1000
+2026-11-23 16:10:50    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 16:11:50  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 913/1000
+2026-11-23 16:12:20    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 16:13:21  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 923/1000
+2026-11-23 16:13:56    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 16:14:57  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 933/1000
+2026-11-23 16:15:22    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 16:16:22  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 943/1000
+2026-11-23 16:16:43    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 16:17:43  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 953/1000
+2026-11-23 16:17:58    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 16:18:59  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 963/1000
+2026-11-23 16:19:09    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 16:20:09  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 973/1000
+2026-11-23 16:20:25    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 16:21:25  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 983/1000
+2026-11-23 16:21:40    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 16:22:41  llama3.2-3b__financial_calc__closed__s0: chunk of 10 from 993/1000
+2026-11-23 16:22:56    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 16:23:59  llama3.2-3b__financial_calc__closed__s0: complete and scored
+2026-11-23 16:23:59  mistral-7b__financial_calc__closed__s0: chunk of 10 from 44/1000
+2026-11-23 16:24:45    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 16:25:45  mistral-7b__financial_calc__closed__s0: chunk of 10 from 54/1000
+2026-11-23 16:26:21    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 16:27:21  mistral-7b__financial_calc__closed__s0: chunk of 10 from 64/1000
+2026-11-23 16:27:46    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 16:28:47  mistral-7b__financial_calc__closed__s0: chunk of 10 from 74/1000
+2026-11-23 16:29:22    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 16:30:23  mistral-7b__financial_calc__closed__s0: chunk of 10 from 84/1000
+2026-11-23 16:31:03    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 16:32:03  mistral-7b__financial_calc__closed__s0: chunk of 10 from 94/1000
+2026-11-23 16:32:49    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 16:33:49  mistral-7b__financial_calc__closed__s0: chunk of 10 from 104/1000
+2026-11-23 16:34:56    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:35:56  mistral-7b__financial_calc__closed__s0: chunk of 10 from 114/1000
+2026-11-23 16:36:52    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:37:52  mistral-7b__financial_calc__closed__s0: chunk of 10 from 124/1000
+2026-11-23 16:38:53    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:39:54  mistral-7b__financial_calc__closed__s0: chunk of 10 from 134/1000
+2026-11-23 16:40:55    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 16:41:56  mistral-7b__financial_calc__closed__s0: chunk of 10 from 144/1000
+2026-11-23 16:42:56    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 16:43:57  mistral-7b__financial_calc__closed__s0: chunk of 10 from 154/1000
+2026-11-23 16:44:53    chunk finished, exit 0, hottest GPU 83 C
+2026-11-23 16:45:54  mistral-7b__financial_calc__closed__s0: chunk of 10 from 164/1000
+2026-11-23 16:46:35    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 16:47:35  mistral-7b__financial_calc__closed__s0: chunk of 10 from 174/1000
+2026-11-23 16:48:10    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 16:49:11  mistral-7b__financial_calc__closed__s0: chunk of 10 from 184/1000
+2026-11-23 16:49:51    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 16:50:52  mistral-7b__financial_calc__closed__s0: chunk of 10 from 194/1000
+2026-11-23 16:51:42    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 16:52:43  mistral-7b__financial_calc__closed__s0: chunk of 10 from 204/1000
+2026-11-23 16:53:39    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 16:54:39  mistral-7b__financial_calc__closed__s0: chunk of 10 from 214/1000
+2026-11-23 16:55:20    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 16:56:20  mistral-7b__financial_calc__closed__s0: chunk of 10 from 224/1000
+2026-11-23 16:56:56    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 16:57:56  mistral-7b__financial_calc__closed__s0: chunk of 10 from 234/1000
+2026-11-23 16:58:41    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 16:59:42  mistral-7b__financial_calc__closed__s0: chunk of 10 from 244/1000
+2026-11-23 17:00:48    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 17:01:49  mistral-7b__financial_calc__closed__s0: chunk of 10 from 254/1000
+2026-11-23 17:02:45    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 17:03:45  mistral-7b__financial_calc__closed__s0: chunk of 10 from 264/1000
+2026-11-23 17:04:25    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 17:05:26  mistral-7b__financial_calc__closed__s0: chunk of 10 from 274/1000
+2026-11-23 17:06:12    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:07:12  mistral-7b__financial_calc__closed__s0: chunk of 10 from 284/1000
+2026-11-23 17:08:18    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 17:09:18  mistral-7b__financial_calc__closed__s0: chunk of 10 from 294/1000
+2026-11-23 17:10:14    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 17:11:14  mistral-7b__financial_calc__closed__s0: chunk of 10 from 304/1000
+2026-11-23 17:12:00    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:13:01  mistral-7b__financial_calc__closed__s0: chunk of 10 from 314/1000
+2026-11-23 17:13:47    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 17:14:47  mistral-7b__financial_calc__closed__s0: chunk of 10 from 324/1000
+2026-11-23 17:15:22    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 17:16:23  mistral-7b__financial_calc__closed__s0: chunk of 10 from 334/1000
+2026-11-23 17:17:09    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 17:18:09  mistral-7b__financial_calc__closed__s0: chunk of 10 from 344/1000
+2026-11-23 17:19:05    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 17:20:05  mistral-7b__financial_calc__closed__s0: chunk of 10 from 354/1000
+2026-11-23 17:20:51    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 17:21:51  mistral-7b__financial_calc__closed__s0: chunk of 10 from 364/1000
+2026-11-23 17:22:26    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 17:23:27  mistral-7b__financial_calc__closed__s0: chunk of 10 from 374/1000
+2026-11-23 17:23:57    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 17:24:58  mistral-7b__financial_calc__closed__s0: chunk of 10 from 384/1000
+2026-11-23 17:25:33    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:26:33  mistral-7b__financial_calc__closed__s0: chunk of 10 from 394/1000
+2026-11-23 17:27:04    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:28:04  mistral-7b__financial_calc__closed__s0: chunk of 10 from 404/1000
+2026-11-23 17:28:40    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 17:29:40  mistral-7b__financial_calc__closed__s0: chunk of 10 from 414/1000
+2026-11-23 17:30:10    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 17:31:11  mistral-7b__financial_calc__closed__s0: chunk of 10 from 424/1000
+2026-11-23 17:31:36    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:32:36  mistral-7b__financial_calc__closed__s0: chunk of 10 from 434/1000
+2026-11-23 17:33:07    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:34:07  mistral-7b__financial_calc__closed__s0: chunk of 10 from 444/1000
+2026-11-23 17:34:48    chunk finished, exit 0, hottest GPU 75 C
+2026-11-23 17:35:48  mistral-7b__financial_calc__closed__s0: chunk of 10 from 454/1000
+2026-11-23 17:36:34    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 17:37:34  mistral-7b__financial_calc__closed__s0: chunk of 10 from 464/1000
+2026-11-23 17:38:45    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 17:39:45  mistral-7b__financial_calc__closed__s0: chunk of 10 from 474/1000
+2026-11-23 17:40:36    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 17:41:36  mistral-7b__financial_calc__closed__s0: chunk of 10 from 484/1000
+2026-11-23 17:42:02    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:43:02  mistral-7b__financial_calc__closed__s0: chunk of 10 from 494/1000
+2026-11-23 17:43:38    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 17:44:38  mistral-7b__financial_calc__closed__s0: chunk of 10 from 504/1000
+2026-11-23 17:45:19    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 17:46:19  mistral-7b__financial_calc__closed__s0: chunk of 10 from 514/1000
+2026-11-23 17:47:10    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:48:10  mistral-7b__financial_calc__closed__s0: chunk of 10 from 524/1000
+2026-11-23 17:49:11    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 17:50:12  mistral-7b__financial_calc__closed__s0: chunk of 10 from 534/1000
+2026-11-23 17:51:13    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 17:52:14  mistral-7b__financial_calc__closed__s0: chunk of 10 from 544/1000
+2026-11-23 17:53:04    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:54:05  mistral-7b__financial_calc__closed__s0: chunk of 10 from 554/1000
+2026-11-23 17:54:50    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:55:51  mistral-7b__financial_calc__closed__s0: chunk of 10 from 564/1000
+2026-11-23 17:56:31    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 17:57:32  mistral-7b__financial_calc__closed__s0: chunk of 10 from 574/1000
+2026-11-23 17:58:17    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 17:59:18  mistral-7b__financial_calc__closed__s0: chunk of 10 from 584/1000
+2026-11-23 18:00:13    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 18:01:14  mistral-7b__financial_calc__closed__s0: chunk of 10 from 594/1000
+2026-11-23 18:01:54    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 18:02:55  mistral-7b__financial_calc__closed__s0: chunk of 10 from 604/1000
+2026-11-23 18:03:25    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 18:04:25  mistral-7b__financial_calc__closed__s0: chunk of 10 from 614/1000
+2026-11-23 18:05:16    chunk finished, exit 0, hottest GPU 77 C
+2026-11-23 18:06:16  mistral-7b__financial_calc__closed__s0: chunk of 10 from 624/1000
+2026-11-23 18:07:48    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 18:08:49  mistral-7b__financial_calc__closed__s0: chunk of 10 from 634/1000
+2026-11-23 18:10:20    chunk finished, exit 0, hottest GPU 85 C
+2026-11-23 18:11:21  mistral-7b__financial_calc__closed__s0: chunk of 10 from 644/1000
+2026-11-23 18:12:32    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 18:13:32  mistral-7b__financial_calc__closed__s0: chunk of 10 from 654/1000
+2026-11-23 18:14:33    chunk finished, exit 0, hottest GPU 83 C
+2026-11-23 18:15:34  mistral-7b__financial_calc__closed__s0: chunk of 10 from 664/1000
+2026-11-23 18:16:09    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 18:17:10  mistral-7b__financial_calc__closed__s0: chunk of 10 from 674/1000
+2026-11-23 18:17:50    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 18:18:51  mistral-7b__financial_calc__closed__s0: chunk of 10 from 684/1000
+2026-11-23 18:19:52    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 18:20:53  mistral-7b__financial_calc__closed__s0: chunk of 10 from 694/1000
+2026-11-23 18:21:38    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 18:22:39  mistral-7b__financial_calc__closed__s0: chunk of 10 from 704/1000
+2026-11-23 18:23:24    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 18:24:25  mistral-7b__financial_calc__closed__s0: chunk of 10 from 714/1000
+2026-11-23 18:25:15    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 18:26:16  mistral-7b__financial_calc__closed__s0: chunk of 10 from 724/1000
+2026-11-23 18:27:17    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 18:28:17  mistral-7b__financial_calc__closed__s0: chunk of 10 from 734/1000
+2026-11-23 18:29:23    chunk finished, exit 0, hottest GPU 82 C
+2026-11-23 18:30:24  mistral-7b__financial_calc__closed__s0: chunk of 10 from 744/1000
+2026-11-23 18:31:35    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 18:32:36  mistral-7b__financial_calc__closed__s0: chunk of 10 from 754/1000
+2026-11-23 18:33:52    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 18:34:52  mistral-7b__financial_calc__closed__s0: chunk of 10 from 764/1000
+2026-11-23 18:36:29    chunk finished, exit 0, hottest GPU 85 C
+2026-11-23 18:37:29  mistral-7b__financial_calc__closed__s0: chunk of 10 from 774/1000
+2026-11-23 18:39:21    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:40:22  mistral-7b__financial_calc__closed__s0: chunk of 10 from 784/1000
+2026-11-23 18:42:03    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:43:04  mistral-7b__financial_calc__closed__s0: chunk of 10 from 794/1000
+2026-11-23 18:44:40    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:45:41  mistral-7b__financial_calc__closed__s0: chunk of 10 from 804/1000
+2026-11-23 18:47:32    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:48:33  mistral-7b__financial_calc__closed__s0: chunk of 10 from 814/1000
+2026-11-23 18:49:59    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:51:00  mistral-7b__financial_calc__closed__s0: chunk of 10 from 824/1000
+2026-11-23 18:52:37    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:53:37  mistral-7b__financial_calc__closed__s0: chunk of 10 from 834/1000
+2026-11-23 18:55:19    chunk finished, exit 0, hottest GPU 86 C
+2026-11-23 18:56:19  mistral-7b__financial_calc__closed__s0: chunk of 10 from 844/1000
+2026-11-23 18:58:31    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 18:59:32  mistral-7b__financial_calc__closed__s0: chunk of 10 from 854/1000
+2026-11-23 19:01:39    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 19:02:39  mistral-7b__financial_calc__closed__s0: chunk of 10 from 864/1000
+2026-11-23 19:04:56    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 19:05:57  mistral-7b__financial_calc__closed__s0: chunk of 10 from 874/1000
+2026-11-23 19:07:58    chunk finished, exit 0, hottest GPU 87 C
+2026-11-23 19:08:59  mistral-7b__financial_calc__closed__s0: chunk of 10 from 884/1000
+2026-11-23 19:10:05    chunk finished, exit 0, hottest GPU 85 C
+2026-11-23 19:11:06  mistral-7b__financial_calc__closed__s0: chunk of 10 from 894/1000
+2026-11-23 19:12:17    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 19:13:17  mistral-7b__financial_calc__closed__s0: chunk of 10 from 904/1000
+2026-11-23 19:14:39    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 19:15:39  mistral-7b__financial_calc__closed__s0: chunk of 10 from 914/1000
+2026-11-23 19:17:01    chunk finished, exit 0, hottest GPU 85 C
+2026-11-23 19:18:01  mistral-7b__financial_calc__closed__s0: chunk of 10 from 924/1000
+2026-11-23 19:19:27    chunk finished, exit 0, hottest GPU 85 C
+2026-11-23 19:20:28  mistral-7b__financial_calc__closed__s0: chunk of 10 from 934/1000
+2026-11-23 19:21:39    chunk finished, exit 0, hottest GPU 84 C
+2026-11-23 19:22:40  mistral-7b__financial_calc__closed__s0: chunk of 10 from 944/1000
+2026-11-23 19:23:31    chunk finished, exit 0, hottest GPU 81 C
+2026-11-23 19:24:31  mistral-7b__financial_calc__closed__s0: chunk of 10 from 954/1000
+2026-11-23 19:25:11    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 19:26:12  mistral-7b__financial_calc__closed__s0: chunk of 10 from 964/1000
+2026-11-23 19:26:37    chunk finished, exit 0, hottest GPU 74 C
+2026-11-23 19:27:37  mistral-7b__financial_calc__closed__s0: chunk of 10 from 974/1000
+2026-11-23 19:28:13    chunk finished, exit 0, hottest GPU 75 C
+2026-11-23 19:29:13  mistral-7b__financial_calc__closed__s0: chunk of 10 from 984/1000
+2026-11-23 19:29:59    chunk finished, exit 0, hottest GPU 78 C
+2026-11-23 19:30:59  mistral-7b__financial_calc__closed__s0: chunk of 10 from 994/1000
+2026-11-23 19:31:30    chunk finished, exit 0, hottest GPU 75 C
+2026-11-23 19:32:32  mistral-7b__financial_calc__closed__s0: complete and scored
+2026-11-23 19:32:33  mistral-7b__financial_calc__tools__s0: chunk of 10 from 0/1000
+2026-11-23 19:33:13    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 19:34:14  mistral-7b__financial_calc__tools__s0: chunk of 10 from 10/1000
+2026-11-23 19:34:49    chunk finished, exit 0, hottest GPU 76 C
+2026-11-23 19:35:49  mistral-7b__financial_calc__tools__s0: chunk of 10 from 20/1000
+2026-11-23 19:36:05    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 19:37:05  mistral-7b__financial_calc__tools__s0: chunk of 10 from 30/1000
+2026-11-23 19:37:25    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 19:38:26  mistral-7b__financial_calc__tools__s0: chunk of 10 from 40/1000
+2026-11-23 19:38:36    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 19:39:36  mistral-7b__financial_calc__tools__s0: chunk of 10 from 50/1000
+2026-11-23 19:39:46    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 19:40:46  mistral-7b__financial_calc__tools__s0: chunk of 10 from 60/1000
+2026-11-23 19:41:07    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 19:42:07  mistral-7b__financial_calc__tools__s0: chunk of 10 from 70/1000
+2026-11-23 19:42:33    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 19:43:33  mistral-7b__financial_calc__tools__s0: chunk of 10 from 80/1000
+2026-11-23 19:43:53    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 19:44:54  mistral-7b__financial_calc__tools__s0: chunk of 10 from 90/1000
+2026-11-23 19:45:14    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 19:46:14  mistral-7b__financial_calc__tools__s0: chunk of 10 from 100/1000
+2026-11-23 19:46:40    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 19:47:40  mistral-7b__financial_calc__tools__s0: chunk of 10 from 110/1000
+2026-11-23 19:48:05    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 19:49:06  mistral-7b__financial_calc__tools__s0: chunk of 10 from 120/1000
+2026-11-23 19:49:21    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 19:50:21  mistral-7b__financial_calc__tools__s0: chunk of 10 from 130/1000
+2026-11-23 19:50:37    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 19:51:37  mistral-7b__financial_calc__tools__s0: chunk of 10 from 140/1000
+2026-11-23 19:52:02    chunk finished, exit 0, hottest GPU 71 C
+2026-11-23 19:53:03  mistral-7b__financial_calc__tools__s0: chunk of 10 from 150/1000
+2026-11-23 19:53:28    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 19:54:29  mistral-7b__financial_calc__tools__s0: chunk of 10 from 160/1000
+2026-11-23 19:54:49    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 19:55:49  mistral-7b__financial_calc__tools__s0: chunk of 10 from 170/1000
+2026-11-23 19:56:10    chunk finished, exit 0, hottest GPU 71 C
+2026-11-23 19:57:10  mistral-7b__financial_calc__tools__s0: chunk of 10 from 180/1000
+2026-11-23 19:57:30    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 19:58:31  mistral-7b__financial_calc__tools__s0: chunk of 10 from 190/1000
+2026-11-23 19:58:46    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 19:59:46  mistral-7b__financial_calc__tools__s0: chunk of 10 from 200/1000
+2026-11-23 20:00:06    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 20:01:07  mistral-7b__financial_calc__tools__s0: chunk of 10 from 210/1000
+2026-11-23 20:01:22    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:02:22  mistral-7b__financial_calc__tools__s0: chunk of 10 from 220/1000
+2026-11-23 20:02:37    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 20:03:38  mistral-7b__financial_calc__tools__s0: chunk of 10 from 230/1000
+2026-11-23 20:03:53    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 20:04:53  mistral-7b__financial_calc__tools__s0: chunk of 10 from 240/1000
+2026-11-23 20:05:19    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 20:06:19  mistral-7b__financial_calc__tools__s0: chunk of 10 from 250/1000
+2026-11-23 20:06:44    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 20:07:45  mistral-7b__financial_calc__tools__s0: chunk of 10 from 260/1000
+2026-11-23 20:08:00    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:09:00  mistral-7b__financial_calc__tools__s0: chunk of 10 from 270/1000
+2026-11-23 20:09:20    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 20:10:21  mistral-7b__financial_calc__tools__s0: chunk of 10 from 280/1000
+2026-11-23 20:10:46    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 20:11:46  mistral-7b__financial_calc__tools__s0: chunk of 10 from 290/1000
+2026-11-23 20:12:01    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 20:13:02  mistral-7b__financial_calc__tools__s0: chunk of 10 from 300/1000
+2026-11-23 20:13:22    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:14:22  mistral-7b__financial_calc__tools__s0: chunk of 10 from 310/1000
+2026-11-23 20:14:43    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:15:43  mistral-7b__financial_calc__tools__s0: chunk of 10 from 320/1000
+2026-11-23 20:15:58    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 20:16:59  mistral-7b__financial_calc__tools__s0: chunk of 10 from 330/1000
+2026-11-23 20:17:19    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 20:18:19  mistral-7b__financial_calc__tools__s0: chunk of 10 from 340/1000
+2026-11-23 20:18:34    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 20:19:35  mistral-7b__financial_calc__tools__s0: chunk of 10 from 350/1000
+2026-11-23 20:19:45    chunk finished, exit 0, hottest GPU 62 C
+2026-11-23 20:20:45  mistral-7b__financial_calc__tools__s0: chunk of 10 from 360/1000
+2026-11-23 20:20:55    chunk finished, exit 0, hottest GPU 61 C
+2026-11-23 20:21:56  mistral-7b__financial_calc__tools__s0: chunk of 10 from 370/1000
+2026-11-23 20:22:01    chunk finished, exit 0, hottest GPU 45 C
+2026-11-23 20:23:01  mistral-7b__financial_calc__tools__s0: chunk of 10 from 380/1000
+2026-11-23 20:23:11    chunk finished, exit 0, hottest GPU 60 C
+2026-11-23 20:24:11  mistral-7b__financial_calc__tools__s0: chunk of 10 from 390/1000
+2026-11-23 20:24:27    chunk finished, exit 0, hottest GPU 63 C
+2026-11-23 20:25:27  mistral-7b__financial_calc__tools__s0: chunk of 10 from 400/1000
+2026-11-23 20:25:42    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 20:26:43  mistral-7b__financial_calc__tools__s0: chunk of 10 from 410/1000
+2026-11-23 20:26:58    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 20:27:58  mistral-7b__financial_calc__tools__s0: chunk of 10 from 420/1000
+2026-11-23 20:28:18    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 20:29:19  mistral-7b__financial_calc__tools__s0: chunk of 10 from 430/1000
+2026-11-23 20:29:39    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 20:30:39  mistral-7b__financial_calc__tools__s0: chunk of 10 from 440/1000
+2026-11-23 20:30:50    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 20:31:50  mistral-7b__financial_calc__tools__s0: chunk of 10 from 450/1000
+2026-11-23 20:32:00    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 20:33:00  mistral-7b__financial_calc__tools__s0: chunk of 10 from 460/1000
+2026-11-23 20:33:21    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 20:34:21  mistral-7b__financial_calc__tools__s0: chunk of 10 from 470/1000
+2026-11-23 20:34:46    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 20:35:47  mistral-7b__financial_calc__tools__s0: chunk of 10 from 480/1000
+2026-11-23 20:35:57    chunk finished, exit 0, hottest GPU 59 C
+2026-11-23 20:36:57  mistral-7b__financial_calc__tools__s0: chunk of 10 from 490/1000
+2026-11-23 20:37:07    chunk finished, exit 0, hottest GPU 63 C
+2026-11-23 20:38:08  mistral-7b__financial_calc__tools__s0: chunk of 10 from 500/1000
+2026-11-23 20:38:33    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 20:39:33  mistral-7b__financial_calc__tools__s0: chunk of 10 from 510/1000
+2026-11-23 20:39:54    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:40:54  mistral-7b__financial_calc__tools__s0: chunk of 10 from 520/1000
+2026-11-23 20:41:19    chunk finished, exit 0, hottest GPU 71 C
+2026-11-23 20:42:20  mistral-7b__financial_calc__tools__s0: chunk of 10 from 530/1000
+2026-11-23 20:42:40    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:43:40  mistral-7b__financial_calc__tools__s0: chunk of 10 from 540/1000
+2026-11-23 20:44:11    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 20:45:11  mistral-7b__financial_calc__tools__s0: chunk of 10 from 550/1000
+2026-11-23 20:45:42    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 20:46:42  mistral-7b__financial_calc__tools__s0: chunk of 10 from 560/1000
+2026-11-23 20:47:07    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 20:48:08  mistral-7b__financial_calc__tools__s0: chunk of 10 from 570/1000
+2026-11-23 20:48:33    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 20:49:33  mistral-7b__financial_calc__tools__s0: chunk of 10 from 580/1000
+2026-11-23 20:49:59    chunk finished, exit 0, hottest GPU 71 C
+2026-11-23 20:50:59  mistral-7b__financial_calc__tools__s0: chunk of 10 from 590/1000
+2026-11-23 20:51:19    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 20:52:20  mistral-7b__financial_calc__tools__s0: chunk of 10 from 600/1000
+2026-11-23 20:52:40    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:53:40  mistral-7b__financial_calc__tools__s0: chunk of 10 from 610/1000
+2026-11-23 20:54:01    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 20:55:01  mistral-7b__financial_calc__tools__s0: chunk of 10 from 620/1000
+2026-11-23 20:55:37    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 20:56:37  mistral-7b__financial_calc__tools__s0: chunk of 10 from 630/1000
+2026-11-23 20:57:13    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 20:58:13  mistral-7b__financial_calc__tools__s0: chunk of 10 from 640/1000
+2026-11-23 20:58:38    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 20:59:39  mistral-7b__financial_calc__tools__s0: chunk of 10 from 650/1000
+2026-11-23 21:00:04    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 21:01:04  mistral-7b__financial_calc__tools__s0: chunk of 10 from 660/1000
+2026-11-23 21:01:20    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 21:02:20  mistral-7b__financial_calc__tools__s0: chunk of 10 from 670/1000
+2026-11-23 21:02:45    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 21:03:46  mistral-7b__financial_calc__tools__s0: chunk of 10 from 680/1000
+2026-11-23 21:04:06    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 21:05:06  mistral-7b__financial_calc__tools__s0: chunk of 10 from 690/1000
+2026-11-23 21:05:21    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 21:06:22  mistral-7b__financial_calc__tools__s0: chunk of 10 from 700/1000
+2026-11-23 21:06:42    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 21:07:42  mistral-7b__financial_calc__tools__s0: chunk of 10 from 710/1000
+2026-11-23 21:08:03    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 21:09:03  mistral-7b__financial_calc__tools__s0: chunk of 10 from 720/1000
+2026-11-23 21:09:13    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 21:10:13  mistral-7b__financial_calc__tools__s0: chunk of 10 from 730/1000
+2026-11-23 21:10:29    chunk finished, exit 0, hottest GPU 64 C
+2026-11-23 21:11:29  mistral-7b__financial_calc__tools__s0: chunk of 10 from 740/1000
+2026-11-23 21:11:54    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 21:12:55  mistral-7b__financial_calc__tools__s0: chunk of 10 from 750/1000
+2026-11-23 21:13:20    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 21:14:20  mistral-7b__financial_calc__tools__s0: chunk of 10 from 760/1000
+2026-11-23 21:14:51    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 21:15:51  mistral-7b__financial_calc__tools__s0: chunk of 10 from 770/1000
+2026-11-23 21:16:27    chunk finished, exit 0, hottest GPU 75 C
+2026-11-23 21:17:27  mistral-7b__financial_calc__tools__s0: chunk of 10 from 780/1000
+2026-11-23 21:17:53    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 21:18:53  mistral-7b__financial_calc__tools__s0: chunk of 10 from 790/1000
+2026-11-23 21:19:28    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 21:20:29  mistral-7b__financial_calc__tools__s0: chunk of 10 from 800/1000
+2026-11-23 21:20:49    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 21:21:49  mistral-7b__financial_calc__tools__s0: chunk of 10 from 810/1000
+2026-11-23 21:22:15    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 21:23:15  mistral-7b__financial_calc__tools__s0: chunk of 10 from 820/1000
+2026-11-23 21:23:41    chunk finished, exit 0, hottest GPU 72 C
+2026-11-23 21:24:41  mistral-7b__financial_calc__tools__s0: chunk of 10 from 830/1000
+2026-11-23 21:25:01    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 21:26:02  mistral-7b__financial_calc__tools__s0: chunk of 10 from 840/1000
+2026-11-23 21:27:02    chunk finished, exit 0, hottest GPU 80 C
+2026-11-23 21:28:03  mistral-7b__financial_calc__tools__s0: chunk of 10 from 850/1000
+2026-11-23 21:29:09    chunk finished, exit 0, hottest GPU 79 C
+2026-11-23 21:30:10  mistral-7b__financial_calc__tools__s0: chunk of 10 from 860/1000
+2026-11-23 21:30:40    chunk finished, exit 0, hottest GPU 75 C
+2026-11-23 21:31:41  mistral-7b__financial_calc__tools__s0: chunk of 10 from 870/1000
+2026-11-23 21:32:11    chunk finished, exit 0, hottest GPU 73 C
+2026-11-23 21:33:11  mistral-7b__financial_calc__tools__s0: chunk of 10 from 880/1000
+2026-11-23 21:33:27    chunk finished, exit 0, hottest GPU 69 C
+2026-11-23 21:34:27  mistral-7b__financial_calc__tools__s0: chunk of 10 from 890/1000
+2026-11-23 21:34:47    chunk finished, exit 0, hottest GPU 68 C
+2026-11-23 21:35:48  mistral-7b__financial_calc__tools__s0: chunk of 10 from 900/1000
+2026-11-23 21:36:08    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 21:37:08  mistral-7b__financial_calc__tools__s0: chunk of 10 from 910/1000
+2026-11-23 21:37:19    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 21:38:19  mistral-7b__financial_calc__tools__s0: chunk of 10 from 920/1000
+2026-11-23 21:38:34    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 21:39:34  mistral-7b__financial_calc__tools__s0: chunk of 10 from 930/1000
+2026-11-23 21:39:45    chunk finished, exit 0, hottest GPU 63 C
+2026-11-23 21:40:45  mistral-7b__financial_calc__tools__s0: chunk of 10 from 940/1000
+2026-11-23 21:41:05    chunk finished, exit 0, hottest GPU 67 C
+2026-11-23 21:42:06  mistral-7b__financial_calc__tools__s0: chunk of 10 from 950/1000
+2026-11-23 21:42:21    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 21:43:21  mistral-7b__financial_calc__tools__s0: chunk of 10 from 960/1000
+2026-11-23 21:43:36    chunk finished, exit 0, hottest GPU 66 C
+2026-11-23 21:44:37  mistral-7b__financial_calc__tools__s0: chunk of 10 from 970/1000
+2026-11-23 21:44:52    chunk finished, exit 0, hottest GPU 65 C
+2026-11-23 21:45:52  mistral-7b__financial_calc__tools__s0: chunk of 10 from 980/1000
+2026-11-23 21:46:23    chunk finished, exit 0, hottest GPU 70 C
+2026-11-23 21:47:23  mistral-7b__financial_calc__tools__s0: chunk of 10 from 990/1000
+2026-11-23 21:47:54    chunk finished, exit 0, hottest GPU 71 C
+2026-11-23 21:48:56  mistral-7b__financial_calc__tools__s0: complete and scored
+2026-11-23 21:48:56  ALL JOBS DONE
