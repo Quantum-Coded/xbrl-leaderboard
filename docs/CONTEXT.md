@@ -30,6 +30,7 @@ verified number. Next steps for Stavan are in [`HANDOFF.md`](HANDOFF.md).
 | 16 Nov | His second feedback: small open-weight models, label the oracle, report accuracy + latency + peak memory, reuse the group's evaluation code, calculation next, simple hosting |
 | 16–17 Nov | Stavan: oracle labels, scorer check notes, Mac runs and profiles, hosting plan, citation. Dev: no-oracle and numeric conditions, profiler, versions |
 | 17–18 Nov | Dev: all Windows runs and profiles, four extra models, calculation, page v2, proposal v5, Pages workflow, these docs |
+| 23–24 Nov | Dev: last three calculation runs with `safe_run.py` (all seven models on the page), calculation profiles for all seven models (7–8B with pauses after a restart) |
 
 ## 3. Tasks and conditions
 
@@ -157,24 +158,56 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 |---|---|---|
 | Qwen2.5-7B | 657 (65.7%) | 764 (76.4%) |
 | Llama-3.1-8B | 603 (60.3%) | 732 (73.2%) |
+| Llama-3.2-3B | 553 (55.3%) | 668 (66.8%) |
+| Gemma-2-2B | 382 (38.2%) | 597 (59.7%) |
 | Qwen2.5-3B | 603 (60.3%) | 561 (56.1%) |
+| Mistral-7B | 555 (55.5%) | 496 (49.6%) |
 | Qwen2.5-1.5B | 669 (66.9%) | 301 (30.1%) |
 
 - **Units.** The metric is strict about units: a rate written as 5 instead of 0.05 counts as wrong.
   Without tools, the 3B–8B models lose many points this way. Ignoring units (the `unit_agnostic`
   variant in each score file):
 
-| Model | Ignoring units |
-|---|---|
-| Qwen2.5-7B | 81.1% |
-| Llama-3.1-8B | 70.9% |
-| Qwen2.5-3B | 75.7% |
-| Qwen2.5-1.5B | 68.4% |
+| Model | No tools, ignoring units | With tools, ignoring units |
+|---|---|---|
+| Qwen2.5-7B | 81.1% | 78.3% |
+| Llama-3.1-8B | 70.9% | 74.8% |
+| Llama-3.2-3B | 63.3% | 70.8% |
+| Gemma-2-2B | 51.3% | 61.3% |
+| Qwen2.5-3B | 75.7% | 60.2% |
+| Mistral-7B | 57.9% | 55.4% |
+| Qwen2.5-1.5B | 68.4% | 34.4% |
 
-- **Tools hurt Qwen2.5-1.5B.** It often fails to write a valid calculator expression: 520 expressions
-  fail to evaluate, and 166 answers have no expression at all.
-- **Unfinished calculation runs.** Gemma-2-2B, Llama-3.2-3B and Mistral-7B do not have both
-  calculation runs yet, so they are not on the page (see Section 8).
+- **Tools help four models and hurt three.** They help Qwen2.5-7B, Llama-3.1-8B, Llama-3.2-3B and
+  Gemma-2-2B. They hurt Qwen2.5-3B, Mistral-7B and Qwen2.5-1.5B, which often write an expression the
+  calculator cannot evaluate. Counts of 1,000 tools answers (recomputed with
+  `prompts.finish_tools_calc`):
+
+| Model | Expression fails to evaluate | No expression |
+|---|---|---|
+| Qwen2.5-1.5B | 354 | 166 |
+| Mistral-7B | 302 | 0 |
+| Gemma-2-2B | 240 | 1 (the server-error item) |
+| Qwen2.5-3B | 91 | 0 |
+| Qwen2.5-7B | 89 | 0 |
+| Llama-3.2-3B | 63 | 0 |
+| Llama-3.1-8B | 62 | 1 |
+
+- All seven models are on the page since 24 Nov.
+
+**Calculation cost, Windows** (median s per question over 100 questions; MiB):
+
+| Model | No tools | With tools | Loaded | GPU peak |
+|---|---|---|---|---|
+| Qwen2.5-1.5B | 0.63 s | 0.21 s | 1,057 | 1,163 |
+| Gemma-2-2B | 1.62 s | 0.37 s | 1,728 | 1,943 |
+| Qwen2.5-3B | 2.34 s | 0.34 s | 1,989 | 2,095 |
+| Llama-3.2-3B | 1.35 s | 0.25 s | 2,216 | 2,319 |
+| Qwen2.5-7B | 2.41 s | 0.63 s | 4,421 | 4,529 |
+| Mistral-7B | 4.35 s | 1.55 s | 4,471 | 4,579 |
+| Llama-3.1-8B | 1.71 s | 0.51 s | 4,777 | 4,885 |
+
+With tools every model is faster: it writes one short expression instead of working the answer out.
 
 ### 4.6 Scorer check against FinTagging's official code
 
@@ -208,8 +241,8 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 | Every command | `docs/REPRODUCE.md` |
 | Method and checks | `docs/protocol.md`, `docs/datasheet.md` |
 | Page | `demo/index.html` + `demo/data.js`, built by `scripts/build_demo.py`, checked by `scripts/verify_demo_page.py` (text from `scripts/page_text.py`) |
-| Run scripts | `scripts/run_next_stage.sh`, `scripts/run_extra_models.sh` (`PROFILE_ONLY=1` for profiles only), `scripts/run_extra_calc.sh` |
-| Profiler | `scripts/profile_runs.py` (refuses to run on battery) |
+| Run scripts | `scripts/run_next_stage.sh`, `scripts/run_extra_models.sh` (`PROFILE_ONLY=1` for profiles only), `scripts/run_extra_calc.sh`; `scripts/safe_run.py` for long GPU runs on a laptop (chunks, pauses, temperature ceiling) |
+| Profiler | `scripts/profile_runs.py` (FinCL or `--task financial_calc`; refuses to run on battery; records peak GPU temperature) |
 | Saved answers and scores | `results/generations/`, `results/scores/` (Windows); `results/mac/m4/` (Mac) |
 | Versions | `docs/VERSIONS.md` (regenerate on Windows: `python -I scripts/versions.py`) |
 | Hosting | `docs/HOSTING.md`, `.github/workflows/pages.yml` |
@@ -242,18 +275,19 @@ not byte-identical across machines; details are in `results/mac/m4/README.md`.
 
 ## 8. Known limits
 
-- Calculation runs are not profiled: the profiler covers FinCL only.
-- **Unfinished calculation runs (stopped on 18 Nov).** Long GPU runs on the Windows laptop led to
-  restarts and Ollama server errors, so they were stopped. Status of each run:
-  - Gemma-2-2B: no tools is complete. With tools stops at 852 of 1,000: Ollama returns a server error
-    on item 853 every time.
-  - Llama-3.2-3B: with tools is complete; no tools stops at 735 of 1,000.
-  - Mistral-7B: no tools stops at 44 of 1,000; with tools has not started.
-- **Partial and single runs stay out of the repository.** The partial runs are kept locally and not
-  committed. The complete single runs (Gemma no tools, Llama-3.2-3B with tools) are committed but not
-  shown, because the page needs both conditions.
-- `fineval/run.py` now records an item on which Ollama fails after every retry as `server_error`. It
-  counts as wrong and appears in the run's status, so one bad item no longer stops a run.
+- **Calculation profiles.** The laptop restarted unexpectedly at 22:21 on 23 Nov (Windows Kernel-Power
+  event 41) during the Qwen2.5-7B calculation profile, which then ran 100 items without pauses. The three
+  7–8B models were profiled again on 24 Nov with `profile_runs.py --pause-every 10 --pause 60 --cool-to 65`
+  (no restart; the GPU stayed at or below about 65 C). Pauses fall between items, so they are not in any
+  item's time; each such profile lists its pauses under `pauses`.
+- **Calculation runs finished on 23 Nov with `scripts/safe_run.py`.** Long unbroken GPU runs had led to
+  restarts on 18 Nov, so the last runs (Gemma-2-2B with tools from 852, Llama-3.2-3B no tools from 735,
+  Mistral-7B both) ran in chunks with a 60 s pause, waiting below 65 C before each chunk. The GPU reached
+  80 C, so chunks shrank from 50 to 10 items. Results are identical to one long run, because the runner
+  resumes.
+- **One server error.** Gemma-2-2B with tools: Ollama fails on item `xbrl_agent:formula:test:47-20` (a
+  Black-Scholes question) on every retry, after about 128 generated tokens. `fineval/run.py` records it as
+  `server_error`; it counts as wrong and is listed in the score file's status.
 - **Mixed Ollama versions (11–12 Nov vs 17–18 Nov runs).** For Qwen2.5-3B, Qwen2.5-7B, Llama-3.1-8B
   and Mistral-7B:
   - the No tools runs (11 Nov) did not record the Ollama version;

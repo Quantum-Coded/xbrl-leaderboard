@@ -1,6 +1,7 @@
-"""Profile latency and peak memory of one model x track on a fixed list of FinCL items.
+"""Profile latency and peak memory of one model x track on a fixed list of items (FinCL or calculation).
 
     python -I scripts/profile_runs.py --model ollama:qwen2.5:3b --track tools_noorac [--n 100] [--machine NAME]
+    python -I scripts/profile_runs.py --model ollama:qwen2.5:3b --task financial_calc --track tools
 
 Same items, prompts and decoding as fineval.run (greedy, seed 0, same num_ctx rule), so every model
 and machine is measured on identical inputs. Procedure:
@@ -9,9 +10,10 @@ and machine is measured on identical inputs. Procedure:
   3. call the model once per item, recording wall latency and Ollama's own durations;
   4. a background thread samples memory every 0.2 s for the whole run:
        all machines  Ollama GET /api/ps  (size = model memory, size_vram = part on the GPU)
-       NVIDIA        nvidia-smi memory.used (whole GPU; baseline recorded before loading)
+       NVIDIA        nvidia-smi memory.used (whole GPU; baseline recorded before loading) and GPU temperature
        macOS/Linux   summed resident memory (RSS) of all ollama processes
-Writes <results>/profile/<machine>/<model>__<track>__n<N>.json, where <results> is results/ or the
+Writes <results>/profile/<machine>/<model>__<track>__n<N>.json (FinCL) or
+<model>__financial_calc__<track>__n<N>.json, where <results> is results/ or the
 FINEVAL_RESULTS folder (e.g. results/mac/m2). Refuses to run on battery unless --allow-battery.
 Only the standard library and requests are used, so it runs unchanged on Windows and macOS.
 """
@@ -91,15 +93,18 @@ class MemorySampler(threading.Thread):
     def __init__(self):
         super().__init__(daemon=True)
         self.stop = threading.Event()
-        self.peak = {"ollama_size_mib": 0, "ollama_size_vram_mib": 0, "gpu_used_mib": 0, "ollama_rss_mib": 0}
+        self.peak = {"ollama_size_mib": 0, "ollama_size_vram_mib": 0, "gpu_used_mib": 0, "ollama_rss_mib": 0,
+                     "gpu_temp_c": 0}
         self.samples = 0
         self.nvidia = bool(shutil.which("nvidia-smi"))
         self.posix = platform.system() in ("Darwin", "Linux")
 
     @staticmethod
     def gpu_used():
-        out = sh(["nvidia-smi", "--query-gpu=memory.used", "--format=csv,noheader,nounits"])
-        return int(out.splitlines()[0]) if out and out.splitlines()[0].strip().isdigit() else 0
+        """(memory used in MiB, temperature in C) of the first GPU, 0 where unreadable."""
+        out = sh(["nvidia-smi", "--query-gpu=memory.used,temperature.gpu", "--format=csv,noheader,nounits"])
+        vals = [v.strip() for v in (out.splitlines()[0].split(",") if out else [])]
+        return tuple(int(v) if v.isdigit() else 0 for v in (vals + ["", ""])[:2])
 
     @staticmethod
     def ollama_rss():
@@ -116,7 +121,7 @@ class MemorySampler(threading.Thread):
         except requests.RequestException:
             pass
         if self.nvidia:
-            cur["gpu_used_mib"] = self.gpu_used()
+            cur["gpu_used_mib"], cur["gpu_temp_c"] = self.gpu_used()
         if self.posix:
             cur["ollama_rss_mib"] = self.ollama_rss()
         return cur
@@ -129,10 +134,11 @@ class MemorySampler(threading.Thread):
             self.stop.wait(SAMPLE_EVERY_S)
 
 
-def fixed_items(n):
-    """Every k-th FinCL primary item in uid order: the same list for every model, track and machine."""
-    items = sorted((i for i in data.items("concept_tagging") if i["subset"] == "fincl_subset" and i["primary"]),
-                   key=lambda i: i["uid"])
+def fixed_items(n, task="concept_tagging"):
+    """Every k-th primary item in uid order (FinCL items for tagging): the same list for every model, track
+    and machine."""
+    items = sorted((i for i in data.items(task) if i["primary"] and
+                    (task != "concept_tagging" or i["subset"] == "fincl_subset")), key=lambda i: i["uid"])
     step = max(1, len(items) // n)
     return items[::step][:n]
 
@@ -140,6 +146,7 @@ def fixed_items(n):
 def call(name, system, user, num_ctx, max_tokens):
     messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": user}]
     body = {"model": name, "messages": messages, "stream": False,
+            "keep_alive": "30m",                     # stays loaded through --pause-every pauses
             "options": {"temperature": 0.0, "seed": 0, "num_predict": max_tokens, "num_ctx": num_ctx,
                         "num_gpu": llm.NUM_GPU}}
     t0 = time.perf_counter()
@@ -147,6 +154,29 @@ def call(name, system, user, num_ctx, max_tokens):
     wall = time.perf_counter() - t0
     r.raise_for_status()
     return r.json(), wall
+
+
+def score_item(task, track, text, gold):
+    """1.0 if correct under the task's primary metric, as fineval.score would score it."""
+    if task == "concept_tagging":
+        return scorers.concept_exact(text, gold)["exact"]
+    if track == "tools":                       # the calculator evaluates the model's expression, as in fineval.run
+        text, _ = prompts.finish_tools_calc(text)
+    return scorers.numeric_match(text, gold)["final"]
+
+
+def cool_pause(seconds, cool_to, nvidia, limit_s=1800):
+    """Sleep `seconds`, then wait until the GPU is below `cool_to` C. Returns what happened, for the output."""
+    t0 = time.time()
+    start_temp = MemorySampler.gpu_used()[1] if nvidia else None
+    time.sleep(seconds)
+    while nvidia and (t := MemorySampler.gpu_used()[1]) is not None and t > cool_to:
+        if time.time() - t0 > limit_s:
+            raise SystemExit(f"GPU did not cool below {cool_to} C within {limit_s} s")
+        time.sleep(15)
+    end_temp = MemorySampler.gpu_used()[1] if nvidia else None
+    print(f"  paused {time.time() - t0:.0f} s, GPU {start_temp} -> {end_temp} C", flush=True)
+    return {"s": round(time.time() - t0), "gpu_c_before": start_temp, "gpu_c_after": end_temp}
 
 
 def pct(xs, q):
@@ -157,11 +187,18 @@ def pct(xs, q):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, help="ollama:<tag>")
+    ap.add_argument("--task", default="concept_tagging", choices=["concept_tagging", "financial_calc"])
     ap.add_argument("--track", default="closed", choices=prompts.TRACKS)
     ap.add_argument("--n", type=int, default=100)
     ap.add_argument("--machine", default=None, help="folder name for this machine (default: from GPU or chip)")
     ap.add_argument("--allow-battery", action="store_true")
+    ap.add_argument("--pause-every", type=int, default=0,
+                    help="pause after every K timed items (0 = never); the pause is outside every item's timing")
+    ap.add_argument("--pause", type=int, default=60, help="seconds per pause")
+    ap.add_argument("--cool-to", type=int, default=65, help="during a pause, also wait until the GPU is below this (C)")
     args = ap.parse_args(argv)
+    if args.task != "concept_tagging" and args.track not in ("closed", "tools"):
+        raise SystemExit(f"track {args.track} exists only for concept_tagging")
     if not args.model.startswith("ollama:"):
         raise SystemExit("profiling is defined for Ollama models only")
     name = args.model.split(":", 1)[1]
@@ -178,19 +215,22 @@ def main(argv=None):
     sampler = MemorySampler()
     baseline = sampler.read()
 
-    items = fixed_items(args.n)
-    max_tokens = llm.MAX_TOKENS["concept_tagging"]
+    items = fixed_items(args.n, args.task)
+    max_tokens = llm.MAX_TOKENS[args.task]
+    min_ctx = llm.NUM_CTX[args.task]
     # 2. warm-up (loads the model; not recorded)
     sampler.start()
     s, u, _ = prompts.build(items[0], args.track)
-    call(name, s, u, max(llm.NUM_CTX["concept_tagging"], run.ctx_for(s, u, max_tokens)), max_tokens)
+    call(name, s, u, max(min_ctx, run.ctx_for(s, u, max_tokens)), max_tokens)
     after_load = dict(sampler.peak)
 
     # 3. timed calls
-    rows = []
-    for it in items:
+    rows, pauses = [], []
+    for k, it in enumerate(items):
+        if args.pause_every and k and k % args.pause_every == 0:
+            pauses.append(cool_pause(args.pause, args.cool_to, sampler.nvidia))
         s, u, _ = prompts.build(it, args.track)
-        num_ctx = max(llm.NUM_CTX["concept_tagging"], run.ctx_for(s, u, max_tokens))
+        num_ctx = max(min_ctx, run.ctx_for(s, u, max_tokens))
         out, wall = call(name, s, u, num_ctx, max_tokens)
         ns = 1e9
         rows.append({"uid": it["uid"], "wall_s": round(wall, 4),
@@ -200,7 +240,7 @@ def main(argv=None):
                      "eval_s": round(out.get("eval_duration", 0) / ns, 4),
                      "prompt_tokens": out.get("prompt_eval_count"), "eval_tokens": out.get("eval_count"),
                      "num_ctx": num_ctx,
-                     "exact": scorers.concept_exact(out["message"]["content"], it["gold"])["exact"]})
+                     "exact": score_item(args.task, args.track, out["message"]["content"], it["gold"])})
     sampler.stop.set()
     sampler.join()
 
@@ -208,10 +248,13 @@ def main(argv=None):
     lat = [r["wall_s"] for r in rows]
     gen_tps = [r["eval_tokens"] / r["eval_s"] for r in rows if r["eval_s"] and r["eval_tokens"]]
     res = {
-        "model": args.model, "model_digest": llm.model_digest(args.model), "track": args.track,
+        "model": args.model, "model_digest": llm.model_digest(args.model), "task": args.task, "track": args.track,
         "n": len(rows), "items": [r["uid"] for r in rows], "ollama_version": version,
         "machine_name": machine, "machine": machine_info(), "on_ac_power": power,
-        "num_gpu": llm.NUM_GPU, "code_commit": run.git_commit(), "started": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "num_gpu": llm.NUM_GPU,
+        "pauses": {"every": args.pause_every, "seconds": args.pause, "cool_to_c": args.cool_to, "taken": pauses}
+        if args.pause_every else None,
+        "code_commit": run.git_commit(), "started": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "loaded_model": [{k: m.get(k) for k in ("name", "size", "size_vram", "details")} for m in ps],
         "summary": {
             "accuracy_on_profiled_items": round(sum(r["exact"] for r in rows) / len(rows), 4),
@@ -230,7 +273,8 @@ def main(argv=None):
         "per_item": rows,
     }
     safe = name.replace(":", "-").replace("/", "_")
-    dest = run.RESULTS / "profile" / machine / f"{safe}__{args.track}__n{len(rows)}.json"
+    stem = f"{safe}__{args.track}" if args.task == "concept_tagging" else f"{safe}__{args.task}__{args.track}"
+    dest = run.RESULTS / "profile" / machine / f"{stem}__n{len(rows)}.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(res, indent=1), encoding="utf-8")
     print(json.dumps(res["summary"], indent=1))

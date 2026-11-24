@@ -114,6 +114,28 @@ def cost_block(prof_dir):
     return {"machine": info, "rows": rows}
 
 
+def calc_cost():
+    """Windows calculation profiles; shown only when every calculation model has both conditions profiled."""
+    prof = ROOT / "results/profile/rtx-4050-laptop-gpu"
+    files = {(m, c): prof / f"{m}__financial_calc__{c}__n100.json" for m, _, _ in CALC_MODELS for c in ("closed", "tools")}
+    if not all(f.exists() for f in files.values()):
+        return None
+    rows = []
+    for mkey, mname, _ in CALC_MODELS:
+        ds = {c: json.loads(files[(mkey, c)].read_text(encoding="utf-8")) for c in ("closed", "tools")}
+        for c, d in ds.items():
+            assert d["on_ac_power"] is not False, (files[(mkey, c)], "profile made on battery")
+            pk = d["summary"]["memory_peak_mib"]
+            assert pk["ollama_size_vram_mib"] == pk["ollama_size_mib"], (files[(mkey, c)], "not fully on the GPU")
+        rows.append({"model_key": mkey, "model": mname, "n": ds["closed"]["n"],
+                     "latency_closed_s": round(ds["closed"]["summary"]["latency_median_s"], 2),
+                     "latency_tools_s": round(ds["tools"]["summary"]["latency_median_s"], 2),
+                     "model_loaded_mib": max(d["summary"]["memory_peak_mib"]["ollama_size_mib"] for d in ds.values()),
+                     "gpu_peak_mib": max(d["summary"]["gpu_peak_minus_baseline_mib"] for d in ds.values()),
+                     "paused": any(d.get("pauses") for d in ds.values())})
+    return {"rows": rows}
+
+
 def calc_runs(audit):
     test = {i["uid"]: i for i in load_jsonl(ROOT / "data/v1/test/financial_calc.jsonl")}
     items = [i for i in test.values() if i["primary"]]
@@ -136,7 +158,7 @@ def calc_runs(audit):
                                          i["input"]["formula_name"].strip().lower())
             runs.append(r)
             audit.append(f"[calc] {run}: rescored {r['correct']}/{r['n']} = {r['accuracy']}% == stored")
-    return {"name": "Financial calculation (XBRL-Agent formulas)", "items": len(items),
+    return {"name": "Financial calculation (XBRL-Agent formulas)", "items": len(items), "cost": calc_cost(),
             "formulas": len({i["input"]["formula_name"].strip().lower() for i in items}),
             "metric": "A number in the final part of the answer is within 1% of the correct value (numeric_match@v1)",
             "runs": runs}

@@ -117,6 +117,25 @@ def main(page_path):
                             g[i["uid"]]["tool_log"]["formula"]["name"] == i["input"]["formula_name"].strip().lower())
                 ok("calc formula found", f"{found:,} of {len(calc):,}")
     ok("calc tolerance", "1%")
+    # calculation cost, straight from the Windows calculation profiles (shown only when all are profiled)
+    cprof = ROOT / "results/profile/rtx-4050-laptop-gpu"
+    cms = [m for m in MODELS if all((ROOT / f"results/scores/{m}__financial_calc__{t}__s0.json").exists()
+                                    for t in ("closed", "tools"))]
+    cfiles = {(m, t): cprof / f"{m}__financial_calc__{t}__n100.json" for m in cms for t in ("closed", "tools")}
+    if all(f.exists() for f in cfiles.values()):
+        need("Cost on the Windows laptop" in page, "calculation profiles exist but the page shows no calculation cost")
+        for m in cms:
+            ds = [json.loads(cfiles[(m, t)].read_text(encoding="utf-8")) for t in ("closed", "tools")]
+            for d in ds:
+                pk = d["summary"]["memory_peak_mib"]
+                need(d["on_ac_power"] is not False, f"calc {m} {d['track']} profiled on battery")
+                need(pk["ollama_size_vram_mib"] == pk["ollama_size_mib"], f"calc {m} {d['track']} not fully on GPU")
+                ok(f"calc {m} {d['track']} median latency", f"{round(statistics.median(r['wall_s'] for r in d['per_item']), 2):.2f} s")
+                ok("calc profiled items", str(d["n"]))
+                if d.get("pauses"):
+                    ok("calc pause interval", str(d["pauses"]["every"]))
+            ok(f"calc {m} model in memory", f"{max(d['summary']['memory_peak_mib']['ollama_size_mib'] for d in ds):,}")
+            ok(f"calc {m} gpu peak", f"{max(d['summary']['gpu_peak_minus_baseline_mib'] for d in ds):,}")
 
     # oracle labelling: the `tools` runs filter the search to the item's given type (prompts.py). Check that this
     # type equals the gold concept's type on every scored item, and that the page says so.

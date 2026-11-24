@@ -79,6 +79,7 @@ td.r,td:first-child{white-space:nowrap}
     <h2>Accuracy: compute a financial formula</h2>
     <div class="card"><table><thead id="calc-head"></thead><tbody id="calc-rows"></tbody></table>
       <div class="note" id="calc-note"></div></div>
+    <div id="calc-cost"></div>
   </section>
 
   <p class="dim" style="margin-top:28px">Data: <a style="color:var(--accent)" href="https://github.com/The-FinAI/FinTagging">FinTagging</a>
@@ -207,7 +208,17 @@ document.getElementById('calc-note').textContent =
   `Each question asks for one number, for example the net present value of a project. Correct = within 1% of the answer. ` +
   `No tools: the model works it out in text. Formula lookup + calculator: a keyword search finds a formula among ${C.formulas} named formulas ` +
   `(the right one for ${fmt(ft.formula_found)} of ${fmt(ft.n)} questions), the model writes one arithmetic expression, and a calculator evaluates it. ` +
-  `Windows laptop. These runs were not profiled, so no latency or memory is shown.`;
+  `Windows laptop.` + (C.cost ? '' : ' These runs were not profiled, so no latency or memory is shown.');
+if (C.cost) {
+  const cr = corder.map(m => C.cost.rows.find(r => r.model === m)).filter(Boolean);
+  document.getElementById('calc-cost').innerHTML = `<h2>Cost on the Windows laptop</h2><div class="card"><table><thead><tr>
+    <th>Model</th><th class="r">No tools</th><th class="r">Formula lookup + calculator</th><th class="r">Model in memory</th><th class="r">GPU peak</th></tr></thead><tbody>` +
+    cr.map(r => `<tr><td><b>${r.model}</b></td><td class="r">${r.latency_closed_s.toFixed(2)} s</td><td class="r">${r.latency_tools_s.toFixed(2)} s</td>` +
+      `<td class="r">${fmt(r.model_loaded_mib)}</td><td class="r">${fmt(r.gpu_peak_mib)}</td></tr>`).join('') +
+    `</tbody></table><div class="note">Median seconds per question over the same ${cr[0].n} questions, plugged in. With tools the model writes one short expression instead of working the answer out, so it answers faster. Memory in MiB, as in the ` +
+    `Tagging tab. For ${cr.filter(r => r.paused).map(r => r.model).join(', ')} the run paused every 10 questions to let the GPU cool; ` +
+    `pauses fall between questions and are not counted in the time.</div></div>`;
+}
 
 let start = 'tag';
 try { start = localStorage.getItem('xbrl-tab') || 'tag'; } catch (e) {}
