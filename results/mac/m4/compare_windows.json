@@ -105,7 +105,21 @@
    "selected_covered_items": 56,
    "selected_if_covered": 41.8,
    "correct_outside_candidates": 1,
-   "reference_run": null
+   "reference_run": {
+    "runtime": "ollama 0.40.16",
+    "model_digest": "46e0c10c039e",
+    "same_model_digest": true,
+    "correct": 58,
+    "accuracy": 12.0,
+    "same_prompt": 484,
+    "same_raw_output": 450,
+    "same_parsed_answer": 459,
+    "scored_differently": 1,
+    "this_machine_only_correct": [],
+    "reference_only_correct": [
+     "fintagging:fincl_subset:test:189"
+    ]
+   }
   },
   {
    "run": "qwen2.5-3b__concept_tagging__closed__s0",
@@ -205,7 +219,23 @@
    "selected_covered_items": 46,
    "selected_if_covered": 34.3,
    "correct_outside_candidates": 1,
-   "reference_run": null
+   "reference_run": {
+    "runtime": "ollama 0.40.16",
+    "model_digest": "357c53fb659c",
+    "same_model_digest": true,
+    "correct": 50,
+    "accuracy": 10.3,
+    "same_prompt": 484,
+    "same_raw_output": 412,
+    "same_parsed_answer": 412,
+    "scored_differently": 3,
+    "this_machine_only_correct": [],
+    "reference_only_correct": [
+     "fintagging:fincl_subset:test:10",
+     "fintagging:fincl_subset:test:312",
+     "fintagging:fincl_subset:test:76"
+    ]
+   }
   },
   {
    "run": "qwen2.5-7b__concept_tagging__closed__s0",
@@ -305,10 +335,216 @@
    "selected_covered_items": 61,
    "selected_if_covered": 45.5,
    "correct_outside_candidates": 1,
-   "reference_run": null
+   "reference_run": {
+    "runtime": "ollama 0.40.16",
+    "model_digest": "845dbda0ea48",
+    "same_model_digest": true,
+    "correct": 61,
+    "accuracy": 12.6,
+    "same_prompt": 484,
+    "same_raw_output": 455,
+    "same_parsed_answer": 455,
+    "scored_differently": 1,
+    "this_machine_only_correct": [
+     "fintagging:fincl_subset:test:478"
+    ],
+    "reference_only_correct": []
+   }
   }
  ],
  "profiles": [
+  {
+   "file": "results/mac/m4/profile/m4/gemma2-2b__closed__n100.json",
+   "model": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd5298f3ffe2d69862750ea7fb56555fa4d5b18c04e3fa4d82ee09d7",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T19:26:02",
+   "loaded_model": [
+    {
+     "name": "gemma2:2b",
+     "size": 1925468651,
+     "size_vram": 1925468651,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma2",
+      "families": [
+       "gemma2"
+      ],
+      "parameter_size": "2.6B",
+      "quantization_level": "Q4_0"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.02,
+    "latency_median_s": 0.9119,
+    "latency_p90_s": 1.2078,
+    "latency_mean_s": 0.9691,
+    "gen_tokens_per_s_median": 45.4,
+    "prompt_tokens_median": 126.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 26
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2114
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 3010
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 409
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/gemma2-2b__tools__n100.json",
+   "model": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd5298f3ffe2d69862750ea7fb56555fa4d5b18c04e3fa4d82ee09d7",
+   "track": "tools",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T19:37:13",
+   "loaded_model": [
+    {
+     "name": "gemma2:2b",
+     "size": 1925468651,
+     "size_vram": 1925468651,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma2",
+      "families": [
+       "gemma2"
+      ],
+      "parameter_size": "2.6B",
+      "quantization_level": "Q4_0"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.1,
+    "latency_median_s": 6.5347,
+    "latency_p90_s": 8.1575,
+    "latency_mean_s": 6.5983,
+    "gen_tokens_per_s_median": 46.9,
+    "prompt_tokens_median": 1809.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 28
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2280
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 3863
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 2844
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/gemma2-2b__tools_noorac__n100.json",
+   "model": "ollama:gemma2:2b",
+   "model_digest": "8ccf136fdd5298f3ffe2d69862750ea7fb56555fa4d5b18c04e3fa4d82ee09d7",
+   "track": "tools_noorac",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T21:39:51",
+   "loaded_model": [
+    {
+     "name": "gemma2:2b",
+     "size": 1925468651,
+     "size_vram": 1925468651,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma2",
+      "families": [
+       "gemma2"
+      ],
+      "parameter_size": "2.6B",
+      "quantization_level": "Q4_0"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.1,
+    "latency_median_s": 6.1745,
+    "latency_p90_s": 8.3181,
+    "latency_mean_s": 6.0272,
+    "gen_tokens_per_s_median": 48.4,
+    "prompt_tokens_median": 1873.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 28
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2017
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1836,
+     "ollama_size_vram_mib": 1836,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 3103
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 2625
+   }
+  },
   {
    "file": "results/mac/m4/profile/m4/llama3.1-8b__closed__n100.json",
    "model": "ollama:llama3.1:8b",
@@ -499,6 +735,582 @@
     },
     "gpu_peak_minus_baseline_mib": null,
     "memory_samples": 9280
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/llama3.2-3b__closed__n100.json",
+   "model": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T21:41:16",
+   "loaded_model": [
+    {
+     "name": "llama3.2:3b",
+     "size": 2561000078,
+     "size_vram": 2561000078,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "3.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.02,
+    "latency_median_s": 0.6727,
+    "latency_p90_s": 0.8783,
+    "latency_mean_s": 0.7225,
+    "gen_tokens_per_s_median": 36.8,
+    "prompt_tokens_median": 129.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 24
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2529
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 3039
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 323
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/llama3.2-3b__tools__n100.json",
+   "model": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+   "track": "tools",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T21:57:07",
+   "loaded_model": [
+    {
+     "name": "llama3.2:3b",
+     "size": 2561000078,
+     "size_vram": 2561000078,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "3.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.11,
+    "latency_median_s": 8.7946,
+    "latency_p90_s": 12.0616,
+    "latency_mean_s": 9.3766,
+    "gen_tokens_per_s_median": 37.3,
+    "prompt_tokens_median": 1947.5,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 29
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2590
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 6056
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 4020
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/llama3.2-3b__tools_noorac__n100.json",
+   "model": "ollama:llama3.2:3b",
+   "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+   "track": "tools_noorac",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-24T18:30:25",
+   "loaded_model": [
+    {
+     "name": "llama3.2:3b",
+     "size": 2561000078,
+     "size_vram": 2561000078,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "3.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.09,
+    "latency_median_s": 8.4177,
+    "latency_p90_s": 12.8889,
+    "latency_mean_s": 8.6529,
+    "gen_tokens_per_s_median": 35.3,
+    "prompt_tokens_median": 1812.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 18
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2527
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 2442,
+     "ollama_size_vram_mib": 2442,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 3883
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 3711
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/mistral-7b__closed__n100.json",
+   "model": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-24T18:35:19",
+   "loaded_model": [
+    {
+     "name": "mistral:7b",
+     "size": 4959271648,
+     "size_vram": 4959271648,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "7.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.0,
+    "latency_median_s": 2.403,
+    "latency_p90_s": 4.0847,
+    "latency_mean_s": 2.8137,
+    "gen_tokens_per_s_median": 13.8,
+    "prompt_tokens_median": 131.5,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 25
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 4761
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 5360
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 1141
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/mistral-7b__tools__n100.json",
+   "model": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+   "track": "tools",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-24T21:41:43",
+   "loaded_model": [
+    {
+     "name": "mistral:7b",
+     "size": 4959271648,
+     "size_vram": 4959271648,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "7.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.1,
+    "latency_median_s": 28.4378,
+    "latency_p90_s": 35.3139,
+    "latency_mean_s": 28.6577,
+    "gen_tokens_per_s_median": 15.3,
+    "prompt_tokens_median": 2278.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 14
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 4860
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 5692
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 11667
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/mistral-7b__tools_noorac__n100.json",
+   "model": "ollama:mistral:7b",
+   "model_digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+   "track": "tools_noorac",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-24T22:26:37",
+   "loaded_model": [
+    {
+     "name": "mistral:7b",
+     "size": 4959271648,
+     "size_vram": 4959271648,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+       "llama"
+      ],
+      "parameter_size": "7.2B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.07,
+    "latency_median_s": 25.9268,
+    "latency_p90_s": 34.543,
+    "latency_mean_s": 26.6015,
+    "gen_tokens_per_s_median": 17.6,
+    "prompt_tokens_median": 2161.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 23
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 4860
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 4729,
+     "ollama_size_vram_mib": 4729,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 5768
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 11181
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-1.5b__closed__n100.json",
+   "model": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+   "track": "closed",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T21:29:35",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:1.5b",
+     "size": 1169371954,
+     "size_vram": 1169371954,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "1.5B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.02,
+    "latency_median_s": 0.3323,
+    "latency_p90_s": 0.4119,
+    "latency_mean_s": 0.3461,
+    "gen_tokens_per_s_median": 87.0,
+    "prompt_tokens_median": 143.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 22
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 1178
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 1296
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 155
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-1.5b__tools__n100.json",
+   "model": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+   "track": "tools",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T19:16:56",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:1.5b",
+     "size": 1169371954,
+     "size_vram": 1169371954,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "1.5B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.08,
+    "latency_median_s": 4.3977,
+    "latency_p90_s": 5.6465,
+    "latency_mean_s": 4.4548,
+    "gen_tokens_per_s_median": 62.1,
+    "prompt_tokens_median": 1963.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 27
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 1241
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 1508
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 1859
+   }
+  },
+  {
+   "file": "results/mac/m4/profile/m4/qwen2.5-1.5b__tools_noorac__n100.json",
+   "model": "ollama:qwen2.5:1.5b",
+   "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+   "track": "tools_noorac",
+   "n": 100,
+   "ollama_version": "0.40.16",
+   "machine_name": "m4",
+   "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "arch": "arm64",
+    "chip": "Apple M4",
+    "ram_gb": 16.0
+   },
+   "on_ac_power": true,
+   "num_gpu": 99,
+   "code_commit": "74c83d8eb43a832a1d0ddd59362908eb49b698d2",
+   "started": "2026-11-23T19:24:20",
+   "loaded_model": [
+    {
+     "name": "qwen2.5:1.5b",
+     "size": 1169371954,
+     "size_vram": 1169371954,
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+       "qwen2"
+      ],
+      "parameter_size": "1.5B",
+      "quantization_level": "Q4_K_M"
+     }
+    }
+   ],
+   "summary": {
+    "accuracy_on_profiled_items": 0.06,
+    "latency_median_s": 4.3479,
+    "latency_p90_s": 5.3602,
+    "latency_mean_s": 4.3258,
+    "gen_tokens_per_s_median": 65.4,
+    "prompt_tokens_median": 2073.0,
+    "memory_baseline_mib": {
+     "ollama_size_mib": 0,
+     "ollama_size_vram_mib": 0,
+     "ollama_rss_mib": 25
+    },
+    "memory_peak_after_load_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 1242
+    },
+    "memory_peak_mib": {
+     "ollama_size_mib": 1115,
+     "ollama_size_vram_mib": 1115,
+     "gpu_used_mib": 0,
+     "ollama_rss_mib": 2176
+    },
+    "gpu_peak_minus_baseline_mib": null,
+    "memory_samples": 1844
    }
   },
   {

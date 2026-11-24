@@ -1,0 +1,257 @@
+START qwen2.5:1.5b closed 21:28:56 battery 98%
+{
+ "accuracy_on_profiled_items": 0.02,
+ "latency_median_s": 0.3323,
+ "latency_p90_s": 0.4119,
+ "latency_mean_s": 0.3461,
+ "gen_tokens_per_s_median": 87.0,
+ "prompt_tokens_median": 143.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 22
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 1115,
+  "ollama_size_vram_mib": 1115,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 1178
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 1115,
+  "ollama_size_vram_mib": 1115,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 1296
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 155
+}
+wrote results/mac/m4/profile/m4/qwen2.5-1.5b__closed__n100.json
+END qwen2.5:1.5b closed 21:29:36 exit 0
+START gemma2:2b tools_noorac 21:29:36 battery 98%
+{
+ "accuracy_on_profiled_items": 0.1,
+ "latency_median_s": 6.1745,
+ "latency_p90_s": 8.3181,
+ "latency_mean_s": 6.0272,
+ "gen_tokens_per_s_median": 48.4,
+ "prompt_tokens_median": 1873.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 28
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 1836,
+  "ollama_size_vram_mib": 1836,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 2017
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 1836,
+  "ollama_size_vram_mib": 1836,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 3103
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 2625
+}
+wrote results/mac/m4/profile/m4/gemma2-2b__tools_noorac__n100.json
+END gemma2:2b tools_noorac 21:39:58 exit 0
+START llama3.2:3b closed 21:39:58 battery 99%
+{
+ "accuracy_on_profiled_items": 0.02,
+ "latency_median_s": 0.6727,
+ "latency_p90_s": 0.8783,
+ "latency_mean_s": 0.7225,
+ "gen_tokens_per_s_median": 36.8,
+ "prompt_tokens_median": 129.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 24
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 2529
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 3039
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 323
+}
+wrote results/mac/m4/profile/m4/llama3.2-3b__closed__n100.json
+END llama3.2:3b closed 21:41:18 exit 0
+START llama3.2:3b tools 21:41:18 battery 99%
+{
+ "accuracy_on_profiled_items": 0.11,
+ "latency_median_s": 8.7946,
+ "latency_p90_s": 12.0616,
+ "latency_mean_s": 9.3766,
+ "gen_tokens_per_s_median": 37.3,
+ "prompt_tokens_median": 1947.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 29
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 2590
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 6056
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 4020
+}
+wrote results/mac/m4/profile/m4/llama3.2-3b__tools__n100.json
+END llama3.2:3b tools 21:57:12 exit 0
+START llama3.2:3b tools_noorac 21:57:12 battery 100%
+STOPPED ON BATTERY during llama3.2:3b tools_noorac 21:59:22 battery 100%
+START llama3.2:3b tools_noorac 18:15:47 battery 86%
+{
+ "accuracy_on_profiled_items": 0.09,
+ "latency_median_s": 8.4177,
+ "latency_p90_s": 12.8889,
+ "latency_mean_s": 8.6529,
+ "gen_tokens_per_s_median": 35.3,
+ "prompt_tokens_median": 1812.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 18
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 2527
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 2442,
+  "ollama_size_vram_mib": 2442,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 3883
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 3711
+}
+wrote results/mac/m4/profile/m4/llama3.2-3b__tools_noorac__n100.json
+END llama3.2:3b tools_noorac 18:30:30 exit 0
+START mistral:7b closed 18:30:30 battery 93%
+{
+ "accuracy_on_profiled_items": 0.0,
+ "latency_median_s": 2.403,
+ "latency_p90_s": 4.0847,
+ "latency_mean_s": 2.8137,
+ "gen_tokens_per_s_median": 13.8,
+ "prompt_tokens_median": 131.5,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 25
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 4761
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 5360
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 1141
+}
+wrote results/mac/m4/profile/m4/mistral-7b__closed__n100.json
+END mistral:7b closed 18:35:21 exit 0
+START mistral:7b tools 18:35:21 battery 96%
+STOPPED ON BATTERY during mistral:7b tools 18:38:22 battery 97%
+START mistral:7b tools 20:13:13 battery 84%
+STOPPED ON BATTERY during mistral:7b tools 20:52:45 battery 99%
+START mistral:7b tools 20:53:30 battery 99%
+{
+ "accuracy_on_profiled_items": 0.1,
+ "latency_median_s": 28.4378,
+ "latency_p90_s": 35.3139,
+ "latency_mean_s": 28.6577,
+ "gen_tokens_per_s_median": 15.3,
+ "prompt_tokens_median": 2278.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 14
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 4860
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 5692
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 11667
+}
+wrote results/mac/m4/profile/m4/mistral-7b__tools__n100.json
+END mistral:7b tools 21:41:47 exit 0
+START mistral:7b tools_noorac 21:41:47 battery 100%
+{
+ "accuracy_on_profiled_items": 0.07,
+ "latency_median_s": 25.9268,
+ "latency_p90_s": 34.543,
+ "latency_mean_s": 26.6015,
+ "gen_tokens_per_s_median": 17.6,
+ "prompt_tokens_median": 2161.0,
+ "memory_baseline_mib": {
+  "ollama_size_mib": 0,
+  "ollama_size_vram_mib": 0,
+  "ollama_rss_mib": 23
+ },
+ "memory_peak_after_load_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 4860
+ },
+ "memory_peak_mib": {
+  "ollama_size_mib": 4729,
+  "ollama_size_vram_mib": 4729,
+  "gpu_used_mib": 0,
+  "ollama_rss_mib": 5768
+ },
+ "gpu_peak_minus_baseline_mib": null,
+ "memory_samples": 11181
+}
+wrote results/mac/m4/profile/m4/mistral-7b__tools_noorac__n100.json
+END mistral:7b tools_noorac 22:26:40 exit 0
+llama3.1-8b__concept_tagging__closed__s0      ours   7  official   7  fallbacks 167 (correct 0)  disagree 0
+llama3.1-8b__concept_tagging__tools__s0       ours  71  official  41  fallbacks 457 (correct 32)  disagree 36
+llama3.1-8b__concept_tagging__tools_noorac__s0 ours  57  official  32  fallbacks 435 (correct 23)  disagree 31
+qwen2.5-3b__concept_tagging__closed__s0       ours   5  official   5  fallbacks   4 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools__s0        ours  57  official  57  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-3b__concept_tagging__tools_noorac__s0 ours  47  official  47  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__closed__s0       ours   7  official   7  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools__s0        ours  72  official  72  fallbacks   0 (correct 0)  disagree 0
+qwen2.5-7b__concept_tagging__tools_noorac__s0 ours  62  official  62  fallbacks   0 (correct 0)  disagree 0
+wrote results/scorer_check/fincl.json
+EXTRA MODELS DONE 22:26:41

@@ -36,7 +36,7 @@ All files here come from the Mac and are kept apart from the Windows runs in `re
 | Tag search, oracle type | 9.06 s | 12.17 s | 1,963 | 2,063 MiB | 6,871 MiB |
 | Tag search, no type | 8.53 s | 10.85 s | 2,073 | 2,063 MiB | 6,932 MiB |
 
-These are Mac numbers only. There is no committed Windows profile to set beside them.
+These are Mac numbers only. Windows profiles are in `results/profile/`; do not mix the two.
 
 ## Accuracy, qwen2.5:7b, FinCL (484 items)
 
@@ -100,3 +100,30 @@ counts differ from Qwen's for the same prompts.
 - **Peak Ollama process memory** is the resident memory of the Ollama processes as the profiler
   samples it. It is not consistent with the loaded model size: for 7B oracle tag search it is 3,572 MiB,
   below the 4,535 MiB model. The cause is not checked. Use "Loaded model" for the model's own memory.
+
+## Latency and peak memory, four extra models (100 items, mains power, no accuracy runs)
+
+Profiles only, as the handoff asks: no full Mac accuracy runs for these models. Run on 23 and 24 Nov
+2026 with Ollama 0.40.16; digests match `docs/VERSIONS.md`. Every file records `on_ac_power: true`.
+
+| Model | Condition | Median latency | 90th percentile | Prompt tokens (median) | Loaded model | Peak Ollama process memory |
+|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B | No tools | 0.33 s | 0.41 s | 143 | 1,115 MiB | 1,296 MiB |
+| Qwen2.5-1.5B | Tag search, oracle type | 4.40 s | 5.65 s | 1,963 | 1,115 MiB | 1,508 MiB |
+| Qwen2.5-1.5B | Tag search, no type | 4.35 s | 5.36 s | 2,073 | 1,115 MiB | 2,176 MiB |
+| Gemma-2-2B (Q4_0) | No tools | 0.91 s | 1.21 s | 126 | 1,836 MiB | 3,010 MiB |
+| Gemma-2-2B (Q4_0) | Tag search, oracle type | 6.53 s | 8.16 s | 1,809 | 1,836 MiB | 3,863 MiB |
+| Gemma-2-2B (Q4_0) | Tag search, no type | 6.17 s | 8.32 s | 1,873 | 1,836 MiB | 3,103 MiB |
+| Llama-3.2-3B | No tools | 0.67 s | 0.88 s | 129 | 2,442 MiB | 3,039 MiB |
+| Llama-3.2-3B | Tag search, oracle type | 8.79 s | 12.06 s | 1,947 | 2,442 MiB | 6,056 MiB |
+| Llama-3.2-3B | Tag search, no type | 8.42 s | 12.89 s | 1,812 | 2,442 MiB | 3,883 MiB |
+| Mistral-7B | No tools | 2.40 s | 4.08 s | 131 | 4,729 MiB | 5,360 MiB |
+| Mistral-7B | Tag search, oracle type | 28.44 s | 35.31 s | 2,278 | 4,729 MiB | 5,692 MiB |
+| Mistral-7B | Tag search, no type | 25.93 s | 34.54 s | 2,161 | 4,729 MiB | 5,768 MiB |
+
+- The power guard stopped the batch four times (charger out, or a loose cable). Each stopped profile
+  wrote no file and was run again from the start on mains power. Qwen2.5-1.5B no tools was re-run
+  because the first attempt overlapped a period when the Mac slept on battery.
+- `scripts/run_extra_models.sh` also re-runs `scorer_check_fincl.py`. With `FINEVAL_RESULTS` set to the
+  Mac folder it reads the Mac outputs and rewrites `results/scorer_check/fincl.json`. That rewrite was
+  discarded; re-run without `FINEVAL_RESULTS`, the file is byte-identical to the committed one.
