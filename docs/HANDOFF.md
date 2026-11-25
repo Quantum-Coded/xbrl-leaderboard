@@ -37,7 +37,6 @@ Dev finished the Windows work and also did the tasks that did not need a Mac:
   - the revised `proposal/proposal.pdf` (the old version is in `proposal/archive/`);
   - `docs/FINOS_ISSUE_DRAFT.md`.
 - **Email:** the Reply-all with the page link and proposal v6 was sent on 25 Nov. Wait for Prof. Liu's answer before opening the FINOS issue or starting the second task.
-  it only after you both agree.
 
 Your branch rules are unchanged. Work on `stavan/next`, put Mac results under `results/mac/m4/`, never
 push to `master` alone, and add no AI attribution in commits.
