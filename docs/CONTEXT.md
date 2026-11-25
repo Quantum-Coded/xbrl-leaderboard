@@ -32,6 +32,7 @@ verified number. Next steps for Stavan are in [`HANDOFF.md`](HANDOFF.md).
 | 17–18 Nov | Dev: all Windows runs and profiles, four extra models, calculation, page v2, proposal v5, Pages workflow, these docs |
 | 23–24 Nov | Dev: last three calculation runs with `safe_run.py` (all seven models on the page), calculation profiles for all seven models (7–8B with pauses after a restart) |
 | 24 Nov | Stavan: Mac profiles for the four extra models (all seven now profiled on both laptops). Dev merged `stavan/next`, reran every check, tagged `v0.1`; proposal v6 |
+| 25 Nov | Reply-all sent to Prof. Liu: page and code links, proposal v6, five bullets on what changed. Waiting for his answer on next steps |
 
 ## 3. Tasks and conditions
 
@@ -262,7 +263,7 @@ With tools every model is faster: it writes one short expression instead of work
   - The workflow `.github/workflows/pages.yml` republishes `demo/` on every push to `master` that
     changes `demo/`.
   - The repository was already public, so the page exposes nothing new.
-- **The link has not been sent to Prof. Liu.** That waits for both of us to agree (`docs/HOSTING.md`).
+- **Link sent to Prof. Liu on 25 Nov 2026** (Reply-all on his 16 Nov thread, with proposal v6 attached). Waiting for his reply on the open questions (Section 7).
 - After each publish, run `scripts/page_text.py` on the live address, then `verify_demo_page.py`.
 
 ## 7. Open questions (for Prof. Liu)
